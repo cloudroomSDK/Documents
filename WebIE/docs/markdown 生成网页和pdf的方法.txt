@@ -1,0 +1,12 @@
+﻿1. ssh远程进入10.0.30.99, root/cloudroom
+
+2. 上传markdown文件到/var/lib/tomcat7/webapps/ROOT/page/gitbook/sdk-cpp下
+
+3. cd进入/var/lib/tomcat7/webapps/ROOT/page/gitbook/分别执行以下命令：
+rm -rf /var/lib/tomcat7/webapps/ROOT/page/docshow/sdk-cpp
+gitbook build sdk-cpp /var/lib/tomcat7/webapps/ROOT/page/docshow/sdk-cpp
+
+4.在浏览器内输入http://10.0.30.99/crdoc/sdk-cpp/，回车即可打开网页
+
+5. 生成pdf执行以下命令：
+gitbook pdf ./sdk-cpp ./sdk-cpp/sdk_reference.pdf
