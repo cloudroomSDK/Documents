@@ -1,110 +1,108 @@
 # 常量定义
->相关数值及含义定义
-
-----
 
 <!-- ## 错误码 {#CRVIDEOSDK_ERR_DEF} -->
 
-<h3 id=CRVIDEOSDK_ERR_DEF> 错误码</h3>
+<h2  id=CRVIDEOSDK_ERR_DEF> 错误码</h2>
 
->CRVideo_ERR_DEF
+>CRVIDEOSDK_ERR_DEF
 
 ----
 
 | 代码     | 数值        | 含义      |
 |:-------- |:-----------|:----------|
-| CRVideo_NOERR  | 0 | 没有错误    |
-| CRVideo_UNKNOWERR | 1| 未知错误    |
-| CRVideo_OUTOF_MEM  | 2 | 内存不足    |
-| CRVideo_INNER_ERR | 3| sdk内部错误    |
-| CRVideo_MISMATCHCLIENTVER | 4 | 不支持的sdk版本    |
-| CRVideo_MEETPARAM_ERR | 5| 参数错误    |
-| CRVideo_ERR_DATA | 6 | 无效数据    |
-| CRVideo_ANCTPSWD_ERR |7 | 帐号密码不正确    |
-| CRVideo_SERVER_EXCEPTION | 8 | 服务异常    |
-| CRVideo_LOGINSTATE_ERROR | 9 | 登录状态错误    |
-| CRVideo_CRVideoSDK_USER_BEEN_KICKOUT | 10 | 登录用户被踢下线    |
-|CRVideo_CRVIDEOSDK_NOT_INIT 	| 11 	|sdk未初始化 |
-|CRVideo_CRVIDEOSDK_NOT_LOGIN | 12 | 还没有登录    |
-|CRVideo_CRVIDEOSDK_BASE64_COV_ERR |	13 |	base64转换失败|
-|CRVideo_CRVIDEOSDK_CUSTOMAUTH_NOINFO 	|14 	|启用了第三方鉴权，但没有携带鉴权信息|
-|CRVideo_CRVIDEOSDK_CUSTOMAUTH_NOTSUPPORT |	15 	|没有启用第三方鉴权，但携带了鉴权信息|
-|CRVideo_CRVIDEOSDK_CUSTOMAUTH_EXCEPTION 	|16 |	访问第三方鉴权服务异常|
-|CRVideo_CRVIDEOSDK_CUSTOMAUTH_FAILED |	17 	|第三方鉴权不通过|
-|CRVideo_CRVIDEOSDK_TOKEN_TIMEOUT | 18 | token已过期 |
-|CRVideo_CRVIDEOSDK_TOKEN_AUTHINFOERR | 19 | 鉴权信息错误 |
-|CRVideo_CRVIDEOSDK_TOKEN_APPIDNOTEXIST | 20 | appid不存在 |
-|CRVideo_CRVIDEOSDK_TOKEN_AUTH_FAILED | 21 | 鉴权失败 |
-|CRVideo_CRVIDEOSDK_TOKEN_NOTTOKENTYPE | 22 | 非token鉴权方式 |
-| CRVideo_NETWORK_INITFAILED | 200 | 网络初始化失败  |
-| CRVideo_NO_SERVERINFO | 201 | 没有服务器信息    |
-| CRVideo_NOSERVER_RSP | 202 | 服务器没有响应    |
-| CRVideo_CREATE_CONN_FAILED | 203 | 创建连接失败    |
-| CRVideo_SOCKETEXCEPTION | 204 | socket异常    |
-| CRVideo_SOCKETTIMEOUT | 205 | 网络超时    |
-| CRVideo_FORCEDCLOSECONNECTION | 206 | 连接被关闭    |
-| CRVideo_CONNECTIONLOST | 207 | 连接丢失    |
-| CRVideo_VOICEENG_INITFAILED | 208 | 语音引擎初始化失败    |
-| CRVideo_CRVIDEOSDK_SSL_ERR			|209|ssl相关错误|
-| CRVideo_QUE_ID_INVALID |400 | 队列ID错误    |
-| CRVideo_QUE_NOUSER | 401 | 没有用户在排队    |
-| CRVideo_QUE_USER_CANCELLED |402| 排队用户已取消    |
-| CRVideo_QUE_SERVICE_NOT_START | 403 | 队列服务还未开启    |
-| CRVideo_ALREADY_OTHERQUE | 404 | 已在其它队列排队(客户只能在一个队列排队)    |
-| CRVideo_INVALID_CALLID | 600 | 无效的呼叫ID    |
-| CRVideo_ERR_CALL_EXIST | 601| 已在呼叫中    |
-| CRVideo_ERR_BUSY | 602| 对方忙    |
-| CRVideo_ERR_OFFLINE | 603 | 对方不在线    |
-| CRVideo_ERR_NOANSWER | 604| 对方无应答    |
-| CRVideo_ERR_USER_NOT_FOUND | 605 | 用户不存在    |
-| CRVideo_ERR_REFUSE | 606 | 对方拒接    |
-| CRVideo_MEETNOTEXIST | 800 | 房间不存在或已结束   |
-| CRVideo_AUTHERROR | 801 | 房间密码不正确    |
-| CRVideo_MEMBEROVERFLOWERROR | 802| 房间终端数量已满（购买的license不够)    |
-| CRVideo_RESOURCEALLOCATEERROR | 803 | 分配房间资源失败    |
-| CRVideo_MEETROOMLOCKED | 804 | 房间已加锁    |
-| CRVideo_BALANCELESSERROR | 805 | 余额不足    |
-| CRVideo_SEVICE_NOTENABLED | 806 | 业务权限未开启     |
-| CRVideo_ALREADYLOGIN | 807 | 不能再次登录    |
-| CRVideo_CRVIDEOSDK_MIC_NORIGHT				|808|没有mic权限|
-| CRVideo_CRVIDEOSDK_MIC_BEING_USED			|809|mic已被使用|
-| CRVideo_CRVIDEOSDK_MIC_UNKNOWERR			|810|mic相关未知错误|
-| CRVideo_CRVIDEOSDK_SPK_NORIGHT				|811|没有扬声器权限|
-| CRVideo_CRVIDEOSDK_SPK_BEING_USED			|812|扬声器已被使用|
-| CRVideo_CRVIDEOSDK_SPK_UNKNOWERR			|813|扬声器相关未知错误|
-| CRVideo_CATCH_SCREEN_ERR | 900| 抓屏失败    |
-| CRVideo_RECORD_MAX | 901| 单次录制达到最大时长(8h)    |
-| CRVideo_RECORD_NO_DISK | 902| 磁盘空间不够    |
-| CRVideo_RECORD_SIZE_ERR | 903| 录像的分辨率超出限制    |
-| CRVideo_CRVIDEOSDK_CFG_RESTRICTED          |904|配置超出限制|
-| CRVideo_CRVIDEOSDK_FILE_ERR				|905|录像文件操作出错|
-| CRVideo_CRVIDEOSDK_RECORDSTARTED			|906|录像已开启|
-| CRVideo_CRVIDEOSDK_NOMORE_MCU | 907 | 录制服务器任务已满 |
-| CRVideo_SENDFAIL | 1000 | 发送失败    |
-| CRVideo_CONTAIN_SENSITIVEWORDS | 1001 | 有敏感词语    |
-| CRVideo_SENDCMD_LARGE | 1100 | 发送信令数据过大    |
-| CRVideo_SENDBUFFER_LARGE |1101| 发送数据过大    |
-| CRVideo_SENDDATA_TARGETINVALID | 1102 | 目标用户不存在    |
-| CRVideo_SENDFILE_FILEINERROR | 1103 | 文件错误    |
-| CRVideo_TRANSID_INVALID | 1104 | 无效的发送id    |
-| CRVideo_RECORDFILE_STATE_ERR | 1200 | 状态错误不可上传/取消上传    |
-| CRVideo_RECORDFILE_NOT_EXIST | 1201 | 录制文件不存在    |
-| CRVideo_IPCAM_URLERR | 1300 | 网络摄像头url不正确    |
-| CRVideo_IPCAM_ALREADYEXIST | 1301 | 网络摄像头已存在    |
-| CRVideo_IPCAM_TOOMUCH | 1302 | 网络摄像头达到最大数量    |
-| CRVideo_CRVIDEOSDK_FILE_NOT_EXIST | 1400 | 文件不存在    |
-| CRVideo_CRVIDEOSDK_FILE_READ_ERR | 1401 | 文件读失败    |
-| CRVideo_CRVIDEOSDK_FILE_WRITE_ERR | 1402 | 文件写失败    |
-| CRVideo_CRVIDEOSDK_FILE_OPERATOR_ERR		|1403|文件操作失败|
-| CRVideo_WEB_OCX_NOTINSTALLED | 2001 | ocx未安装    |
-| CRVideo_WEB_BROWER_NOTUPPORTED | 2002 | 不支持的浏览器    |
-| CRVideo_OCX_VERSION_NOTUPPORTED | 2003 | 不支持的插件版本    |
+| CRVIDEOSDK_NOERR  | 0 | 没有错误    |
+| CRVIDEOSDK_UNKNOWERR | 1| 未知错误    |
+| CRVIDEOSDK_OUTOF_MEM  | 2 | 内存不足    |
+| CRVIDEOSDK_INNER_ERR | 3| sdk内部错误    |
+| CRVIDEOSDK_MISMATCHCLIENTVER | 4 | 不支持的sdk版本    |
+| CRVIDEOSDK_MEETPARAM_ERR | 5| 参数错误    |
+| CRVIDEOSDK_ERR_DATA | 6 | 无效数据    |
+| CRVIDEOSDK_ANCTPSWD_ERR |7 | 帐号密码不正确    |
+| CRVIDEOSDK_SERVER_EXCEPTION | 8 | 服务异常    |
+| CRVIDEOSDK_LOGINSTATE_ERROR | 9 | 登录状态错误    |
+| CRVIDEOSDK_CRVideoSDK_USER_BEEN_KICKOUT | 10 | 登录用户被踢下线    |
+| CRVIDEOSDK_NOT_INIT 	| 11 	|sdk未初始化 |
+| CRVIDEOSDK_NOT_LOGIN | 12 | 还没有登录    |
+| CRVIDEOSDK_BASE64_COV_ERR |	13 |	base64转换失败|
+| CRVIDEOSDK_CUSTOMAUTH_NOINFO 	|14 	|启用了第三方鉴权，但没有携带鉴权信息|
+| CRVIDEOSDK_CUSTOMAUTH_NOTSUPPORT |	15 	|没有启用第三方鉴权，但携带了鉴权信息|
+| CRVIDEOSDK_CUSTOMAUTH_EXCEPTION 	|16 |	访问第三方鉴权服务异常|
+| CRVIDEOSDK_CUSTOMAUTH_FAILED |	17 	|第三方鉴权不通过|
+| CRVIDEOSDK_TOKEN_TIMEOUT | 18 | token已过期 |
+| CRVIDEOSDK_TOKEN_AUTHINFOERR | 19 | 鉴权信息错误 |
+| CRVIDEOSDK_TOKEN_APPIDNOTEXIST | 20 | appid不存在 |
+| CRVIDEOSDK_TOKEN_AUTH_FAILED | 21 | 鉴权失败 |
+| CRVIDEOSDK_TOKEN_NOTTOKENTYPE | 22 | 非token鉴权方式 |
+| CRVIDEOSDK_NETWORK_INITFAILED | 200 | 网络初始化失败  |
+| CRVIDEOSDK_NO_SERVERINFO | 201 | 没有服务器信息    |
+| CRVIDEOSDK_NOSERVER_RSP | 202 | 服务器没有响应    |
+| CRVIDEOSDK_CREATE_CONN_FAILED | 203 | 创建连接失败    |
+| CRVIDEOSDK_SOCKETEXCEPTION | 204 | socket异常    |
+| CRVIDEOSDK_SOCKETTIMEOUT | 205 | 网络超时    |
+| CRVIDEOSDK_FORCEDCLOSECONNECTION | 206 | 连接被关闭    |
+| CRVIDEOSDK_CONNECTIONLOST | 207 | 连接丢失    |
+| CRVIDEOSDK_VOICEENG_INITFAILED | 208 | 语音引擎初始化失败    |
+| CRVIDEOSDK_SSL_ERR			|209|ssl相关错误|
+| CRVIDEOSDK_QUE_ID_INVALID |400 | 队列ID错误    |
+| CRVIDEOSDK_QUE_NOUSER | 401 | 没有用户在排队    |
+| CRVIDEOSDK_QUE_USER_CANCELLED |402| 排队用户已取消    |
+| CRVIDEOSDK_QUE_SERVICE_NOT_START | 403 | 队列服务还未开启    |
+| CRVIDEOSDK_ALREADY_OTHERQUE | 404 | 已在其它队列排队(客户只能在一个队列排队)    |
+| CRVIDEOSDK_INVALID_CALLID | 600 | 无效的呼叫ID    |
+| CRVIDEOSDK_ERR_CALL_EXIST | 601| 已在呼叫中    |
+| CRVIDEOSDK_ERR_BUSY | 602| 对方忙    |
+| CRVIDEOSDK_ERR_OFFLINE | 603 | 对方不在线    |
+| CRVIDEOSDK_ERR_NOANSWER | 604| 对方无应答    |
+| CRVIDEOSDK_ERR_USER_NOT_FOUND | 605 | 用户不存在    |
+| CRVIDEOSDK_ERR_REFUSE | 606 | 对方拒接    |
+| CRVIDEOSDK_MEETNOTEXIST | 800 | 房间不存在或已结束   |
+| CRVIDEOSDK_AUTHERROR | 801 | 房间密码不正确    |
+| CRVIDEOSDK_MEMBEROVERFLOWERROR | 802| 房间终端数量已满（购买的license不够)    |
+| CRVIDEOSDK_RESOURCEALLOCATEERROR | 803 | 分配房间资源失败    |
+| CRVIDEOSDK_MEETROOMLOCKED | 804 | 房间已加锁    |
+| CRVIDEOSDK_BALANCELESSERROR | 805 | 余额不足    |
+| CRVIDEOSDK_SEVICE_NOTENABLED | 806 | 业务权限未开启     |
+| CRVIDEOSDK_ALREADYLOGIN | 807 | 不能再次登录    |
+| CRVIDEOSDK_MIC_NORIGHT				|808|没有mic权限|
+| CRVIDEOSDK_MIC_BEING_USED			|809|mic已被使用|
+| CRVIDEOSDK_MIC_UNKNOWERR			|810|mic相关未知错误|
+| CRVIDEOSDK_SPK_NORIGHT				|811|没有扬声器权限|
+| CRVIDEOSDK_SPK_BEING_USED			|812|扬声器已被使用|
+| CRVIDEOSDK_SPK_UNKNOWERR			|813|扬声器相关未知错误|
+| CRVIDEOSDK_CATCH_SCREEN_ERR | 900| 抓屏失败    |
+| CRVIDEOSDK_RECORD_MAX | 901| 单次录制达到最大时长(8h)    |
+| CRVIDEOSDK_RECORD_NO_DISK | 902| 磁盘空间不够    |
+| CRVIDEOSDK_RECORD_SIZE_ERR | 903| 录像的分辨率超出限制    |
+| CRVIDEOSDK_CFG_RESTRICTED          |904|配置超出限制|
+| CRVIDEOSDK_FILE_ERR				|905|录像文件操作出错|
+| CRVIDEOSDK_RECORDSTARTED			|906|录像已开启|
+| CRVIDEOSDK_NOMORE_MCU | 907 | 录制服务器任务已满 |
+| CRVIDEOSDK_SENDFAIL | 1000 | 发送失败    |
+| CRVIDEOSDK_CONTAIN_SENSITIVEWORDS | 1001 | 有敏感词语    |
+| CRVIDEOSDK_SENDCMD_LARGE | 1100 | 发送信令数据过大    |
+| CRVIDEOSDK_SENDBUFFER_LARGE |1101| 发送数据过大    |
+| CRVIDEOSDK_SENDDATA_TARGETINVALID | 1102 | 目标用户不存在    |
+| CRVIDEOSDK_SENDFILE_FILEINERROR | 1103 | 文件错误    |
+| CRVIDEOSDK_TRANSID_INVALID | 1104 | 无效的发送id    |
+| CRVIDEOSDK_RECORDFILE_STATE_ERR | 1200 | 状态错误不可上传/取消上传    |
+| CRVIDEOSDK_RECORDFILE_NOT_EXIST | 1201 | 录制文件不存在    |
+| CRVIDEOSDK_IPCAM_URLERR | 1300 | 网络摄像头url不正确    |
+| CRVIDEOSDK_IPCAM_ALREADYEXIST | 1301 | 网络摄像头已存在    |
+| CRVIDEOSDK_IPCAM_TOOMUCH | 1302 | 网络摄像头达到最大数量    |
+| CRVIDEOSDK_FILE_NOT_EXIST | 1400 | 文件不存在    |
+| CRVIDEOSDK_FILE_READ_ERR | 1401 | 文件读失败    |
+| CRVIDEOSDK_FILE_WRITE_ERR | 1402 | 文件写失败    |
+| CRVIDEOSDK_FILE_ALREADY_EXIST  | 1403  |  目标文件已存在 |
+| CRVIDEOSDK_FILE_OPERATOR_ERR   | 1404  | 文件操作失败  |
+| CRVIDEOSDK_WEB_OCX_NOTINSTALLED | 2001 | ocx未安装    |
+| CRVIDEOSDK_WEB_BROWER_NOTUPPORTED | 2002 | 不支持的浏览器    |
+| CRVIDEOSDK_OCX_VERSION_NOTUPPORTED | 2003 | 不支持的插件版本    |
 
 
-<h3 id=CRVideo_ASTATUS>麦克风状态</h3>
+<h2  id=CRVIDEOSDK_ASTATUS>麦克风状态</h2>
 <!-- ## 麦克风状态  -->
 
->CRVideo_ASTATUS
+>CRVIDEOSDK_ASTATUS
 
 ----
 
@@ -118,10 +116,10 @@
 |AACCEPTING |   5   |向服务器发送帮助他人开麦中 |
 
 
-<h3 id=CRVideo_VIDEO_SHOW_SIZE>视频尺寸定义</h3>
+<h2  id=CRVIDEOSDK_VIDEO_SHOW_SIZE>视频尺寸定义</h2>
 <!-- ## 视频尺寸定义  -->
 
->CRVideo_VIDEO_SHOW_SIZE
+>CRVIDEOSDK_VIDEO_SHOW_SIZE
 
 ----
 
@@ -141,10 +139,10 @@
 |VSIZE_SZ_720	|12|推荐码率：1mbps（16:9时分辨率1280*720）	|
 |VSIZE_SZ_1080	|13|推荐码率：2mbps（16:9时分辨率1920*1080）	|
 
-<h3 id=CRVideo_VSTATUS>摄像头（视频）状态定义</h3>
+<h2  id=CRVIDEOSDK_VSTATUS>摄像头（视频）状态定义</h2>
 <!-- ## 摄像头（视频）状态定义  -->
 
->CRVideo_VSTATUS
+>CRVIDEOSDK_VSTATUS
 
 ----
 
@@ -157,10 +155,10 @@
 | VOPENING|	4	|向服务器发送打开消息中	 |
 
 
-<h3 id=CRVideo_VIDEO_FORMAT>视频图像格式</h3>
+<h2  id=CRVIDEOSDK_VIDEO_FORMAT>视频图像格式</h2>
 <!-- ## 视频图像格式  -->
 
->CRVideo_VIDEO_FORMAT
+>CRVIDEOSDK_VIDEO_FORMAT
 
 ----
 
@@ -171,10 +169,10 @@
 
 
 
-<h3 id=CRVideo_VIDEO_CFG_TAB>视频配置参考表</h3>
+<h2  id=CRVIDEOSDK_VIDEO_CFG_TAB>视频配置参考表</h2>
 <!-- ## 视频尺寸定义  -->
 
->CRVideo_VIDEO_CFG_TAB
+>CRVIDEOSDK_VIDEO_CFG_TAB
 
 ----
 
@@ -195,10 +193,10 @@
 |1920\*1080|	推荐码率：2mbps	|
 
 
-<h3 id=CRVideo_RECORD_AUDIO_TYPE>录制语音类型</h3>
+<h2  id=CRVIDEOSDK_RECORD_AUDIO_TYPE>录制语音类型</h2>
 <!-- ## 录制语音类型  -->
 
->CRVideo_RECORD_AUDIO_TYPE
+>CRVIDEOSDK_RECORD_AUDIO_TYPE
 
 ----
 
@@ -209,10 +207,10 @@
 | REC_AUDIO_TYPE_OTHER|	2|	录制其他人语音	   |
 | REC_AUDIO_TYPE_ALL|	3	|录制本地+其他人语音	|
 
-<h3 id=CRVideo_RECORD_VIDEO_TYPE>录制图像类型</h3>
+<h2  id=CRVIDEOSDK_RECORD_VIDEO_TYPE>录制图像类型</h2>
 <!-- ## 录制图像类型  -->
 
->CRVideo_RECORD_VIDEO_TYPE
+>CRVIDEOSDK_RECORD_VIDEO_TYPE
 
 ----
 
@@ -223,10 +221,10 @@
 | REC_VCONTENT_VIDEOS|3|	录制视频图像   |
 
 
-<h3 id=CRVideo_RECORD_VLAYOUT>录制视频的布局类型</h3>
+<h2  id=CRVIDEOSDK_RECORD_VLAYOUT>录制视频的布局类型</h2>
 <!-- ## 录制视频的布局类型  -->
 
->CRVideo_RECORD_VLAYOUT
+>CRVIDEOSDK_RECORD_VLAYOUT
 
 ----
 
@@ -236,10 +234,10 @@
 | REC_VLAYOUT_PIP	|1|	画中画类型(只有在录两个视频时有效)	|
 
 
-<h3 id=CRVideo_MOUSE_MSG_TYPE>鼠标事件类型</h3>
+<h2  id=CRVIDEOSDK_MOUSE_MSG_TYPE>鼠标事件类型</h2>
 <!-- ## 鼠标事件类型  -->
 
->CRVideo_MOUSE_MSG_TYPE
+>CRVIDEOSDK_MOUSE_MSG_TYPE
 
 ----
 
@@ -251,10 +249,10 @@
 | MOUSE_DBCLICK	|3|	鼠标双击|
 
 
-<h3 id=CRVideo_MOUSE_KEY_TYPE>鼠标键类型</h3>
+<h2  id=CRVIDEOSDK_MOUSE_KEY_TYPE>鼠标键类型</h2>
 <!-- ## 鼠标键类型  -->
 
->CRVideo_MOUSE_KEY_TYPE
+>CRVIDEOSDK_MOUSE_KEY_TYPE
 
 ----
 
@@ -267,10 +265,10 @@
 | MOUSEKEY_WHEEL|	4|	鼠标滚轮	|
 | MOUSEKEY_X	|5	|鼠标侧键|
 
-<h3 id=CRVideo_KEY_MSG_TYPE>键盘事件类型</h3>
+<h2  id=CRVIDEOSDK_KEY_MSG_TYPE>键盘事件类型</h2>
 <!-- ## 键盘事件类型  -->
 
->CRVideo_KEY_MSG_TYPE
+>CRVIDEOSDK_KEY_MSG_TYPE
 
 ----
 
@@ -280,10 +278,10 @@
 | KEYT_UP	|1	|键值弹起|
 
 
-<h3 id=CRVideo_MAIN_PAGE_TYPE>功能类型</h3>
+<h2  id=CRVIDEOSDK_MAIN_PAGE_TYPE>功能类型</h2>
 <!-- ## 功能类型   -->
 
->CRVideo_MAIN_PAGE_TYPE
+>CRVIDEOSDK_MAIN_PAGE_TYPE
 
 ----
 
@@ -293,10 +291,10 @@
 | MAINPAGE_SHARE|	1|	共享	   |
 | MAINPAGE_WHITEBOARD|	2	|白板	|
 
-<h3 id=CRVideo_VIDEOLAYOUTMODE>视频墙分屏模式 </h3>
+<h2  id=CRVIDEOSDK_VIDEOLAYOUTMODE>视频墙分屏模式 </h2>
 <!-- ## 视频墙分屏模式  -->
 
->CRVideo_VIDEOLAYOUTMODE
+>CRVIDEOSDK_VIDEOLAYOUTMODE
 
 ----
 
@@ -313,10 +311,10 @@
 | VLO_WALL16|	8	|16分屏	|
 | VLO_WALL25	|9|	25分屏	|
 
-<h3 id=CRVideo_HTTP_TRANSFER_STATE>Http文件传输状态 </h3>
+<h2  id=CRVIDEOSDK_HTTP_TRANSFER_STATE>Http文件传输状态 </h2>
 <!-- ## Http文件传输状态  -->
 
-> CRVideo_HTTP_TRANSFER_STATE
+> CRVIDEOSDK_HTTP_TRANSFER_STATE
 
 ----
 
@@ -327,10 +325,10 @@
 |HTTPFS_TRANSFERING |2| 传输(上传/下载)中|
 |HTTPFS_FINISHED    |3| 传输完成|
 
-<h3 id=CRVideo_HTTP_TRANSFER_RESULT>Http文件传输结果 </h3>
+<h2  id=CRVIDEOSDK_HTTP_TRANSFER_RESULT>Http文件传输结果 </h2>
 <!-- ## Http文件传输结果  -->
 
-> CRVideo_HTTP_TRANSFER_RESULT
+> CRVIDEOSDK_HTTP_TRANSFER_RESULT
 
 ----
 
@@ -347,10 +345,10 @@
 |HTTPR_HTTPERR_BEGIN        |1000|  http错误码启始|
 |HTTPR_HTTPERR_END          |1999|  http错误码结束|
 
-<h3 id=CRVideo_ToolBarUI>影音播放工具条UI组件 </h3>
+<h2  id=CRVIDEOSDK_ToolBarUI>影音播放工具条UI组件 </h2>
 <!-- ## 影音播放工具条UI组件  -->
 
-> CRVideo_ToolBarUI
+> CRVIDEOSDK_ToolBarUI
 
 ----
 
@@ -360,10 +358,10 @@
 |BTN_Stop    |1|    停止|
 
 
-<h3 id=CRVideo_REC_DATATYPE>录制的内容类型 </h3>
+<h2  id=CRVIDEOSDK_REC_DATATYPE>录制的内容类型 </h2>
 <!-- ## 录制的内容类型  -->
 
-> CRVideo_REC_DATATYPE
+> CRVIDEOSDK_REC_DATATYPE
 
 ----
 
@@ -375,10 +373,10 @@
 |REC_VIDEO   |3|    录制视频|
 
 
-<h3 id=CRVideo_STOP_REASON>影音结束原因 </h3>
+<h2  id=CRVIDEOSDK_STOP_REASON>影音结束原因 </h2>
 <!-- ## 影音结束原因  -->
 
->CRVideo_STOP_REASON
+>CRVIDEOSDK_STOP_REASON
 
 ----
 
@@ -391,10 +389,10 @@
 |MEDIA_UNSUPPORT|	4	|影音格式不支持|
 |MEDIA_EXCEPTION|	5|	其他异常|
 
-<h3 id=CRVideo_VIDEO_WH_RATE>视频尺寸定义 </h3>
+<h2  id=CRVIDEOSDK_VIDEO_WH_RATE>视频尺寸定义 </h2>
 <!-- ## 视频尺寸定义  -->
 
->CRVideo_VIDEO_WH_RATE
+>CRVIDEOSDK_VIDEO_WH_RATE
 
 ----
 
@@ -406,10 +404,10 @@
 |RATE_3_4	|3	|3:4宽高比|
 |RATE_9_16	|4	|9:16宽高比|
 
-<h3 id=CRVideo_MIXER_VCONTENT_TYPE>混图内容类型 </h3>
+<h2  id=CRVIDEOSDK_MIXER_VCONTENT_TYPE>混图内容类型 </h2>
 <!-- ## 混图内容类型  -->
 
->CRVideo_MIXER_VCONTENT_TYPE
+>CRVIDEOSDK_MIXER_VCONTENT_TYPE
 
 ----
 
@@ -424,10 +422,10 @@
 |MIXVTP_WBOARD	|6	|白板|
 |MIXVTP_TEXT	|7	|文本|
 
-<h3 id=CRVideo_MIXER_STATE>混图器状态 </h3>
+<h2  id=CRVIDEOSDK_MIXER_STATE>混图器状态 </h2>
 <!-- ## 混图器状态  -->
 
->CRVideo_MIXER_STATE
+>CRVIDEOSDK_MIXER_STATE
 
 ----
 
@@ -439,10 +437,10 @@
 |MIXER_STOPPING	|4	|正在结束|
 
 
-<h3 id=CRVideo_MIXER_OUTPUT_TYPE>混图输出类型 </h3>
+<h2  id=CRVIDEOSDK_MIXER_OUTPUT_TYPE>混图输出类型 </h2>
 <!-- ## 混图输出类型   -->
 
->CRVideo_MIXER_OUTPUT_TYPE
+>CRVIDEOSDK_MIXER_OUTPUT_TYPE
 
 ----
 
@@ -451,10 +449,10 @@
 |MIXOT_FILE	|0	|录像文件|
 |MIXOT_LIVE	    |1	|直播流|
 
-<h3 id=CRVideo_OUTPUT_STATE>输出对象状态 </h3>
+<h2  id=CRVIDEOSDK_OUTPUT_STATE>输出对象状态 </h2>
 <!-- ## 输出对象状态   -->
 
->CRVideo_OUTPUT_STATE
+>CRVIDEOSDK_OUTPUT_STATE
 
 ----
 
@@ -467,10 +465,10 @@
 
 
 
-<h3 id=CRVideo_MEDIA_STOP_REASON>播放停止原因 </h3>
+<h2  id=CRVIDEOSDK_MEDIA_STOP_REASON>播放停止原因 </h2>
 <!-- ##  播放停止原因   -->
 
->CRVideo_MEDIA_STOP_REASON
+>CRVIDEOSDK_MEDIA_STOP_REASON
 
 ----
 
@@ -484,10 +482,10 @@
 | MEDIA_EXCEPTION 	|5	|其他异常  |
 
 
-<h3 id=CRVideo_E_LOG_LEVEL_DEF>写日志的级别 </h3>
+<h2  id=CRVIDEOSDK_E_LOG_LEVEL_DEF>写日志的级别 </h2>
 <!-- ##  写日志的级别   -->
 
->CRVideo_E_LOG_LEVEL_DEF
+>CRVIDEOSDK_E_LOG_LEVEL_DEF
 
 ----
 
@@ -499,24 +497,24 @@
 | LOGLEVEL_ERR	|3	| 报错 |
 
 
-<h3 id=CRVideo_MEETING_DROPPED_REASON>会议断线原因</h3>
+<h2  id=CRVIDEOSDK_MEETING_DROPPED_REASON>会议断线原因</h2>
 <!-- ## 会议断线原因  -->
 
->CRVideo_MEETING_DROPPED_REASON
+>CRVIDEOSDK_MEETING_DROPPED_REASON
 
 ----
 
 | 代码     | 数值        | 含义      |
 |:-------- |:-----------|:----------|
-|CRVIDEOSDK_DROPPED_TIMEOUT  |0|网络通信超时|
-|CRVIDEOSDK_DROPPED_KICKOUT  |1|被他人请出会议|
-|CRVIDEOSDK_DROPPED_BALANCELESS  |2|余额不足|
-|CRVIDEOSDK_DROPPED_TOKENINVALID  |3|Token鉴权方式下，token无效或过期|
+| CRVIDEOSDK_DROPPED_TIMEOUT  |0|网络通信超时|
+| CRVIDEOSDK_DROPPED_KICKOUT  |1|被他人请出会议|
+| CRVIDEOSDK_DROPPED_BALANCELESS  |2|余额不足|
+| CRVIDEOSDK_DROPPED_TOKENINVALID  |3|Token鉴权方式下，token无效或过期|
 
-<h3 id=CRVideo_VIRTUALBK_TYPE>虚拟背景类型</h3>
+<h2  id=CRVIDEOSDK_VIRTUALBK_TYPE>虚拟背景类型</h2>
 <!-- ##  虚拟背景类型   -->
 
->CRVideo_VIRTUALBK_TYPE
+>CRVIDEOSDK_VIRTUALBK_TYPE
 
 ----
 

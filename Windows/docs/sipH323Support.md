@@ -1,6 +1,6 @@
 # SIP/H.323设备支持
 
-## 功能简介
+## 功能介绍
 
 云屋SDK支持通过SIP和H.323标准协议与硬件视频会议系统或PSTN电话系统对接，可支持以下几种场景：
 
@@ -12,7 +12,7 @@
 以上对接端可以是支持SIP/H.323的硬件终端、传统电话、MCU会议
 
 
-<h3 id=svrConfig>1.功能开通</h3>
+<h2 id=svrConfig>功能开通</h2>
 
 1. 联系商务开通SIP/H.323对接功能，或在网站咨询客服。
 
@@ -24,7 +24,7 @@
 ![H323Cfg](./images/H323Cfg.jpg)
 
 
-<h3 id=callSipH323>2.SDK呼叫单个对接端</h3>
+<h2 id=callSipH323>SDK呼叫单个对接端</h2>
 
 :::danger
 
@@ -69,7 +69,7 @@ void callFailed(object sender, ICloudroomVideoMgrEvents_callFailEvent e){
 * [callFailed](API.md#callFail)
 
 
-<h3 id=inviteSipH323>3.SDK邀请多个对接端</h3>
+<h2 id=inviteSipH323>SDK邀请多个对接端</h2>
 
 :::danger
 
@@ -130,12 +130,12 @@ private void notifyInviteRejected(object sender, ICloudroomVideoSDKEvents_notify
 * [notifyInviteRejected](API.md#notifyInviteRejected)
 
 
-<h3 id=sipH323Called>4.对接端呼叫SDK</h3>
+<h2 id=sipH323Called>对接端呼叫SDK</h2>
 
 被呼叫的SDK端收到被他人呼叫通知，具体请参考 [SDK被呼叫](call.md#called) 部分
 
 
-<h3 id=sipH323EnterMeeting>5.对接端直接加入房间</h3>
+<h2 id=sipH323EnterMeeting>对接端直接加入房间</h2>
 
 下面以 Linphone 为例演示直接加入房间的方法：
 
@@ -151,11 +151,13 @@ private void notifyInviteRejected(object sender, ICloudroomVideoSDKEvents_notify
 ![sipDial3](./images/sipdial3.jpg)
 
 
-<h3 id=endpointConfig>6.配置终端</h3>
+<h2 id=endpointConfig>配置终端</h2>
 
 下面以宝利通硬终端和Linphone软终端为例，说明终端的配置方法。
 
-1. 宝利通终端，登录web管理页面，左侧导航栏选择管理设置→网络→IP网络
+### 宝利通终端
+
+- 登录web管理页面，左侧导航栏选择管理设置→网络→IP网络
 
 - 启用SIP呼叫，注：如果在SDK后台配置SIP时选择了协议，此处应选择一致的传输协议
 ![polycomSip](./images/polycomSip.png)
@@ -163,7 +165,8 @@ private void notifyInviteRejected(object sender, ICloudroomVideoSDKEvents_notify
 - 启用H.323呼叫：
 ![plycomH323](./images/polycomH323.png)
 
-2. Linphone软终端，打开偏好设置，选择视频，在下方添加H264解码器并确保开启
-![linphoneSip](./images/linphoneSip.jpg)
+### Linphone软终端
 
+- 打开偏好设置，选择视频，在下方添加H264解码器并确保开启
+![linphoneSip](./images/linphoneSip.jpg)
 

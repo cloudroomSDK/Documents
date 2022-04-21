@@ -1,8 +1,8 @@
-# 自定义房间和成员属性
+# 房间和成员自定义属性
 
 ## 功能介绍
 
-支持增删改查自定义房间属性、自定义房间内人员属性
+支持增删改查房间自定义属性、房间内人员自定义属性
 
 ## 示例项目
 
@@ -19,6 +19,7 @@ string meetAttrs = "{\"MeetingName\":\"xxx\",\"departmentName\":\"xxx\"}";
 g_sdkMain->getSDKMeeting().setMeetingAttrs(meetAttrs, NULL, "");
 
 ```
+
 - 回调通知：
 
 ```cpp
@@ -28,8 +29,12 @@ void setMeetingAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if(CRVSDKERR_NOERR != sdkErr)
   	{
-    	//设置会议属性失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
@@ -70,7 +75,8 @@ void getMeetingAllAttrsFail(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 
 相关API请参考：
 * [getMeetingAllAttrs](Apis.md#getMeetingAllAttrs)
-
+* [getMeetingAllAttrsSuccess](Apis.md#getMeetingAllAttrsSuccess)
+* [getMeetingAllAttrsFail](Apis.md#getMeetingAllAttrsFail)
 
 ## 3.获取房间特定属性
 
@@ -126,8 +132,12 @@ void addOrUpdateMeetingAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if(CRVSDKERR_NOERR != sdkErr)
   	{
-    	//更新会议属性失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
@@ -157,8 +167,12 @@ void delMeetingAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if(CRVSDKERR_NOERR != sdkErr)
   	{
-    	//删除会议属性失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
@@ -186,8 +200,12 @@ void clearMeetingAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if(CRVSDKERR_NOERR != sdkErr)
   	{
-    	//清除会议属性失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
@@ -217,8 +235,12 @@ void setUserAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if(CRVSDKERR_NOERR != sdkErr)
   	{
-    	//设置成员属性失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
@@ -272,6 +294,7 @@ string keys = "[\"name\", \"companyName\"]";
 g_sdkMain->getSDKMeeting().getUserAttrs(uids, keys, "");
 
 ```
+
 - 回调通知：
 
 ```cpp
@@ -306,6 +329,7 @@ string attrs = "{[\"key\":\"department\", \"value\":\"R&D\"],[\"key\":\"companyN
 g_sdkMain->getSDKMeeting().addOrUpdateUserAttrs(uids, attrs, NULL, "");
 
 ```
+
 - 回调通知：
 
 ```cpp
@@ -314,15 +338,19 @@ void addOrUpdateUserAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if (CRVSDKERR_NOERR != sdkErr)
   	{
-    	//增加或者更新成员属性失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
+
 相关API请参考:
 * [addOrUpdateUserAttrs](Apis.md#addOrUpdateUserAttrs)
 * [addOrUpdateUserAttrsRslt](Apis.md#addOrUpdateUserAttrsRslt)
-
 
 
 
@@ -337,6 +365,7 @@ string keys = "[\"department\", \"companyName\"]";
 g_sdkMain->getSDKMeeting().delUserAttrs(uids, keys, NULL, "");
 
 ```
+
 - 回调通知：
 
 ```cpp
@@ -345,8 +374,12 @@ void delUserAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if (CRVSDKERR_NOERR != sdkErr)
   	{
-    	//删除指定成员失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
@@ -366,6 +399,7 @@ string uids = "[\"111\", \"222\"]";
 g_sdkMain->getSDKMeeting().clearUserAttrs(uids, NULL, "");
 
 ```
+
 - 回调通知：
 
 ```cpp
@@ -374,11 +408,16 @@ void clearUserAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if (CRVSDKERR_NOERR != sdkErr)
   	{
-    	//清除当前指定成员全部属性失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
+
 相关API请参考:
 * [clearUserAttrs](Apis.md#clearUserAttrs)
 * [clearUserAttrsRslt](Apis.md#clearUserAttrsRslt)
@@ -393,6 +432,7 @@ void clearUserAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 g_sdkMain->getSDKMeeting().clearAllUserAttrs(NULL, "");
 
 ```
+
 - 回调通知：
 
 ```cpp
@@ -401,11 +441,16 @@ void clearAllUserAttrsRslt(CRVSDK_ERR_DEF sdkErr, const char* cookie)
 {
 	if (CRVSDKERR_NOERR != sdkErr)
   	{
-    	//清除当前房间内所有成员全部属性失败
+    	//失败
   	}
+	else
+	{
+		//成功
+	}
 }
 
 ```
+
 相关API请参考:
 * [clearAllUserAttrs](Apis.md#clearAllUserAttrs)
 * [clearAllUserAttrsRslt](Apis.md#clearAllUserAttrsRslt)

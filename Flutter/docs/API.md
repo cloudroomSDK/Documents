@@ -373,13 +373,13 @@
 
 <h3 id=notifyMeetingCustomMsg>通知发送房间内自定义广播消息结果</h3>
 
-- **订阅方法**: notifyMeetingCustomMsg(CrChatMsg msg)
+- **订阅方法**: notifyMeetingCustomMsg(MeetingCustomMsg msg)
 
 - **接收参数**:
 
 | 参数 | 类型      | 含义                                      |
 | :--- | :-------- | :---------------------------------------- |
-| msg  | CrChatMsg | [CrChatMsg](TypeDefinitions.md#CrChatMsg) |
+| msg  | MeetingCustomMsg | [MeetingCustomMsg](TypeDefinitions.md#MeetingCustomMsg) |
 
 <h3 id=getWatchableVideos>获取房间内所有可观看的摄像头</h3>
 

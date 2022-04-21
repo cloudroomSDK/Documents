@@ -12,20 +12,18 @@
 
 <h2 id=CreateMixer>1. 创建混图器</h2>
 
-录制文件时，可以根据业务需要，选择不同的录制布局。如下代码为创建左右布局的相关示例。
+- 左右布局示例图
 
-+ 设置混图器配置
+![左右布局示例图](./images/layout_2.jpg)
+
+- 接口调用：
 
 ```  java
 //混图器参数配置
 MixerCfg mixerCfg = new MixerCfg();
 mixerCfg.frameRate = 15;
 mixerCfg.dstResolution = new Size(864， 480);
-```
 
-+ 设置混图器内容
-
-```java
 // 图像内容集合 - 创建左右布局的摄像头录制内容
 ArrayList<MixerCotent> contents = new ArrayList<MixerCotent>();
 
@@ -40,11 +38,7 @@ Rect rightRect = new Rect(mixerCfg.dstResolution.width/2, 0, mixerCfg.dstResolut
 MixerCotent rightVideoItem = MixerCotent.createVideoContent(otherUserID, (short)-1, rightRect);
 // 添加到内容列表
 contents.add(rightVideoItem);
-```
 
-+ 创建混图器
-
-```java
 // 创建混图器, 设置混图器编号为1
 CRVIDEOSDK_ERR_DEF errCode = CloudroomVideoMeeting.getInstance().createLocMixer("1", mixerCfg, contents)；
 if(errCode == CRVIDEOSDK_ERR_DEF.CRVIDEOSDK_NOERR){
@@ -101,11 +95,14 @@ void locMixerOutputInfo(String mixerID, String nameOrUrl, MixerOutputInfo info){
 相关API请参考:
 + [locMixerOutputInfo](API.md#locMixerOutputInfo)
 
+
 <h2 id=UpdateVideoContent>4. 更新图像内容</h2>
 
-如下创建画中画布局作为更新后的本地录制内容
+- 画中画布局示例图
 
-+ 设置录制内容
+![画中画布局示例图](./images/layout_overlap.jpg)
+
+- 接口调用：
 
 ```java
 // 图像内容集合 - 创建画中画布局的摄像头录制内容， 
@@ -122,11 +119,7 @@ Rect smallRect = new Rect(0, 0, mixerCfg.dstResolution.width/5, mixerCfg.dstReso
 MixerCotent rightVideoItem = MixerCotent.createVideoContent(otherUserID, (short)-1, smallRect);
 // 添加到内容列表
 contents.add(rightVideoItem);
-```
 
-+ 更新混图器
-
-```java
 // 更新图像内容
 CRVIDEOSDK_ERR_DEF errCode = CloudroomVideoMeeting.getInstance().updateLocMixerCotent(“1”, contents)；
 if (errCode == CRVIDEOSDK_ERR_DEF.CRVIDEOSDK_NOERR) {
@@ -138,7 +131,6 @@ if (errCode == CRVIDEOSDK_ERR_DEF.CRVIDEOSDK_NOERR) {
 + [updateLocMixerCotent](API.md#updateLocMixerCotent)
 
 <h2 id=RecordingEnd>5. 结束录制</h2>
-</br>
 
 ```  java
 //消毁混图器， 输出自动结束

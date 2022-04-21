@@ -1,8 +1,8 @@
 # 房间和成员自定义属性
 
-## 功能简介
+## 功能介绍
 
-设置房间属性和房间内人员属性。
+支持增删改查房间自定义属性、房间内人员自定义属性
 
 <h2 id=setRoomAttr>1.设置房间属性</h2>
 
@@ -16,6 +16,7 @@ string options = "{\"notifyAll\":1}";
 axVideoSDK.setMeetingAttrs(attrs, options, "");
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -193,6 +194,7 @@ void delMeetingAttrsRslt(object sender, ICloudroomVideoMeetingEvents_delMeetingA
 axVideoSDK.clearMeetingAttrs("");
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -229,6 +231,7 @@ string attrs = "{\"key1\":\"value1\", \"key2\":\"value2\"}";
 axVideoSDK.setUserAttrs(uid, attrs, "");
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -264,6 +267,7 @@ string uids = "[\"111\", \"222\"]";
 axVideoSDK.getUserAttrs(uids, "");
 
 ```
+
 - 回调通知：
 
 
@@ -280,6 +284,7 @@ void getUserAttrsFail(object sender, ICloudroomVideoMeetingEvents_getUserAttrsFa
 }
 
 ```
+
 相关API请参考:
 * [getUserAttrs](API.md#getUserAttrs)
 * [getUserAttrsSuccess](API.md#getUserAttrsSuccess)
@@ -298,6 +303,7 @@ string keys = "[\"name\", \"companyName\"]";
 axVideoSDK.getUserAttrs(uids, keys, "");
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -332,6 +338,7 @@ string attrs = "{\"key1\":\"value1\", \"key2\":\"value2\"}";
 axVideoSDK.addOrUpdateUserAttrs(uid, attrs, "");
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -349,6 +356,7 @@ void addOrUpdateUserAttrsRslt(int err, const QString& cookie)
 }
 
 ```
+
 相关API请参考:
 * [addOrUpdateUserAttrs](API.md#addOrUpdateUserAttrs)
 * [addOrUpdateUserAttrsRslt](API.md#addOrUpdateUserAttrsRslt)
@@ -366,6 +374,7 @@ string keys = "[\"department\", \"companyName\"]";
 axVideoSDK.delUserAttrs(uid, keys, "");
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -398,6 +407,7 @@ string uid = "111";
 axVideoSDK.clearUserAttrs(uid);
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -415,6 +425,7 @@ void clearUserAttrsRslt(object sender, ICloudroomVideoMeetingEvents_clearUserAtt
 }
 
 ```
+
 相关API请参考:
 * [clearUserAttrs](API.md#clearUserAttrs)
 * [clearUserAttrsRslt](API.md#clearUserAttrsRslt)
@@ -429,6 +440,7 @@ void clearUserAttrsRslt(object sender, ICloudroomVideoMeetingEvents_clearUserAtt
 axVideoSDK.clearAllUserAttrs(“”);
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -446,6 +458,7 @@ void clearAllUserAttrsRslt(object sender, ICloudroomVideoMeetingEvents_clearAllU
 }
 
 ```
+
 相关API请参考:
 * [clearAllUserAttrs](API.md#clearAllUserAttrs)
 * [clearAllUserAttrsRslt](API.md#clearAllUserAttrsRslt)

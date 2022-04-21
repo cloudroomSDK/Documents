@@ -1,6 +1,6 @@
 # 远程协助
 
-## 功能简介
+## 功能介绍
 
 开启屏幕共享后，可以把共享区域的操作控制权限（例如：鼠标消息、键盘消息）赋予房间内的其他用户，之后控制端就可在axScreenShareUI里进行远程操作了。
 
@@ -78,6 +78,7 @@ CRVideo_GiveCtrlRight(UID);
 //收回其他用户的控制权限
 CRVideo_ReleaseCtrlRight(UID);
 ```
+
 相关API请参考:
 *  [CRVideo_ReleaseCtrlRight](API.md#CRVideo_ReleaseCtrlRight)
 

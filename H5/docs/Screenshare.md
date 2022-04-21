@@ -1,10 +1,6 @@
----
-sidebarDepth: 0
---- 
-
 # 屏幕共享 
 
-<h2 id=introduction>功能简介</h2>
+## 功能介绍
 
 在视频会话中为了提高沟通效率，可以将自己的屏幕内容分享给其他参与方观看。还支持在屏幕上进行标注，以及授权其他参与方进行远程控制。当屏幕共享者开启标注后，控件就进入标注模式。此时，房间内所有用户都可以进行标注，并观看他人标注的内容。  
 使用场景如下：
@@ -13,33 +9,11 @@ sidebarDepth: 0
 
 <font color="#FF0000">注意：同一个房间中，不支持多人同时开启屏幕共享。</font>
 
-----
-
-共享端：
- 1. [开始共享](#startshare)
- 1. [停止共享](#stopshare)
- 
- <!-- 
- 1. [开启标注](#startmark)
- 1. [停止标注](#stopmark)
-  -->
-
- 
- 观看端：
- 1. [观看共享的屏幕](#watch)
- 1. [屏幕共享停止通知](#notifyStop)
-
-<!-- 
- 1. [开启、停止标注通知](#notifyMark)
--->
 
 
-<h2  id="shareler" color=#000000 style="font-weight:bold;font-size:28px">共享端</h2>
-----
+## 共享端
 
-<h3 id="startshare" color=#000000 style="font-weight:bold;font-size:22px">1.开始共享</h3>
-
-使用接口启动共享，出现共享内容显示组件后，用组件上的功能开始标注和结束共享。
+<h3 id=startshare>1.开始共享</h3>
 
 - 接口调用：
 
@@ -101,69 +75,11 @@ CRVideo_StopScreenShareRslt.callback = function (sdkErr){
  * [CRVideo_StopScreenShareRslt](API.md#CRVideo_StopScreenShareRslt)
  
 
-<!-- 
- <h3 id=startmark>3.开启标注</h3>
 
-<font color="#FF0000">注意：只有主动开启屏幕共享的用户，才可以开启标注功能。观看他人屏幕的用户不能开启标注。</font>
+## 观看端
 
-- 接口调用：
+<h3 id=notifyStart>1.通知开始共享</h3>
 
-```js
-//开启标注
-CRVideo_StartScreenMark();
-
-```
-- 回调通知：
-
-```js
-//开启标注的结果
-CRVideo_StartScreenMarkRslt.callback = function(sdkErr){
-     if(sdkErr == CRVideo_NOERR){ //开启标注成功
-     }else{
-         console.log("开启标注失败，错误码：" + sdkErr);
-     }
-}
-
-```
-相关API请参考：
-* [CRVideo_StartScreenMark](API.md#CRVideo_StartScreenMark)
-* [CRVideo_StartScreenMarkRslt](API.md#CRVideo_StartScreenMarkRslt)
-
-
-
-<h3 id=stopmark>4.停止标注</h3>
-
-<font color="#FF0000">注意：只有主动开启屏幕共享的用户，才可以停止标注功能。观看他人屏幕的用户不能停止标注。</font>
-
-- 接口调用：
-
-```js
-//停止标注
-CRVideo_StopScreenMark();
-
-```
-- 回调通知：
-
-```js
-//停止标注的结果
-CRVideo_StopScreenMarkRslt.callback = function(sdkErr){
-    if(sdkErr == CRVideo_NOERR){ //停止标注成功
-     }else{
-         console.log("停止标注失败，错误码：" + sdkErr);
-     }
-}
-
-```
-
-相关API请参考：
-* [CRVideo_StopScreenMark](API.md#CRVideo_StopScreenMark)
-* [CRVideo_StopScreenMarkRslt](API.md#CRVideo_StopScreenMarkRslt)
-
- -->
-
-<h2  id="watcher" color=#000000 style="font-weight:bold;font-size:28px">观看端</h2>
-
-<h3 id=watch>1.观看共享的屏幕</h3>
 
 - 回调通知：
 
@@ -208,34 +124,4 @@ CRVideo_NotifyScreenShareStopped.callback = function(){
 
 相关API请参考：
  * [CRVideo_NotifyScreenShareStopped](API.md#CRVideo_NotifyScreenShareStopped)
-
-<!-- 
-
-<h3 id=notifyMark>3.开启、停止标注通知</h3>
-
-- 回调通知：
-
-```js
-//收到共享端已开启标注的通知
-CRVideo_NotifyScreenMarkStarted.callback = function(){
-
-}
-
-//收到共享端已停止标注的通知
-CRVideo_NotifyScreenMarkStopped.callback = function(){
-    
-}
-```
-
-相关API请参考：
-* [CRVideo_NotifyScreenMarkStarted](API.md#CRVideo_NotifyScreenMarkStarted)
-* [CRVideo_NotifyScreenMarkStopped](API.md#CRVideo_NotifyScreenMarkStopped)
-
- -->
-
-
-
-
-
-
 

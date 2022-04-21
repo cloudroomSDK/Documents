@@ -312,9 +312,9 @@
 | maxFPS | int  | 帧率, 缺省为 8 （当网络发不动时，帧率会自动下降） |
 | maxBps | int  | 最大码率，缺省为 800kbps                          |
 
-<h2 id=CrChatMsg>文本聊天对象</h2>
+<h2 id=MeetingCustomMsg>文本聊天对象</h2>
 
-> CrChatMsg
+> MeetingCustomMsg
 
 | 参数       | 类型   | 说明          |
 | :--------- | :----- | :------------ |

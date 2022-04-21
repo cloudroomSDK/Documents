@@ -5350,7 +5350,7 @@ b. 如果开启免打挽，系统就不会分配客户，如需服务客户可�
 |  usrExtDat | string  | 自定义扩展参数  |
 
 
-<h3 id=sendCmdRlst>void sendCmdRlst(const string &sendId, int sdkErr, const string &reserve)</h3>
+<h3 id=sendCmdRlst>void sendCmdRlst(const string &taskId, int sdkErr, const string &reserve)</h3>
 
 - **功能**：发送小块数据时，SDK通知发送结果
 
@@ -5362,7 +5362,7 @@ b. 如果开启免打挽，系统就不会分配客户，如需服务客户可�
 |  sdkEr | int  | 操作失败代码，定义见[ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)  |
 
 
-<h3 id=sendBufferRlst>void sendBufferRlst(const string &sendId, int sdkErr, const string &reserve)</h3>
+<h3 id=sendBufferRlst>void sendBufferRlst(const string &taskId, int sdkErr, const string &reserve)</h3>
 
 - **功能**：发送大块数据时，SDK通知发送结果
 
@@ -5374,7 +5374,7 @@ b. 如果开启免打挽，系统就不会分配客户，如需服务客户可�
 |  sdkEr | int  | 操作失败代码，定义见[ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)  |
 
 
-<h3 id=sendFileRlst>void sendFileRlst(const string &sendId, const string &fileName, int sdkErr, const string &reserve)</h3>
+<h3 id=sendFileRlst>void sendFileRlst(const string &taskId, const string &fileName, int sdkErr, const string &reserve)</h3>
 
 - **功能**：发送文件时，SDK通知发送结果
 
@@ -5387,7 +5387,7 @@ b. 如果开启免打挽，系统就不会分配客户，如需服务客户可�
 |  sdkEr | int  | 操作失败代码，定义见[ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)  |
 
 
-<h3 id=sendProgress>void sendProgress(const string &sendId, int sendedLen, int totalLen, const string &reserve)</h3>
+<h3 id=sendProgress>void sendProgress(const string &taskId, int sendedLen, int totalLen, const string &reserve)</h3>
 
 - **功能**：发送数据时，SDK通知发送进度
 
@@ -5400,7 +5400,7 @@ b. 如果开启免打挽，系统就不会分配客户，如需服务客户可�
 |  totalLen | int  | 需要发送的总长度  |
 
 
-<h3 id=cancelSendRlst>void cancelSendRlst(const string &sendId, int sdkErr, const string &reserve)</h3>
+<h3 id=cancelSendRlst>void cancelSendRlst(const string &taskId, int sdkErr, const string &reserve)</h3>
 
 - **功能**：取消发送响应
 
@@ -5450,7 +5450,7 @@ b. 如果开启免打挽，系统就不会分配客户，如需服务客户可�
 | orgFileName  | string  | 原始文件名  |
 
 
-<h3 id=notifyCancelSend>void notifyCancelSend(const string &sendId)</h3>
+<h3 id=notifyCancelSend>void notifyCancelSend(const string &taskId)</h3>
 
 - **功能**：SDK通知取消发送文件数据
 

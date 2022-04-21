@@ -2,7 +2,7 @@
 
 >相关数值及含义定义
 
-<h3 id=CRVIDEOSDK_ERR_DEF> 错误码</h3>
+<h2 id=CRVIDEOSDK_ERR_DEF> 错误码</h2>
 
 >CRVideo_ERR_DEF
 
@@ -95,7 +95,7 @@
 ----
 
 
-<h3 id=CRVideo_ASTATUS> 麦克风状态</h3>
+<h2 id=CRVideo_ASTATUS> 麦克风状态</h2>
 
 > CRVideo_ASTATUS
 
@@ -111,7 +111,7 @@
 ----
 
 
-<h3 id=CRVideo_VSTATUS> 摄像头（视频）状态定义</h3>
+<h2 id=CRVideo_VSTATUS> 摄像头（视频）状态定义</h2>
 
 > CRVideo_VSTATUS
 
@@ -125,7 +125,7 @@
 | 3 | 摄像头处于打开状态 |
 | 4 | 向服务器发送打开消息中 |
 
-<h3 id=CRVideo_MIXER_STATE> 混图器状态</h3>
+<h2 id=CRVideo_MIXER_STATE> 混图器状态</h2>
 
 > CRVideo_MIXER_STATE
 
@@ -138,7 +138,7 @@
 | 2 | 正在运行 |
 | 4 | 正在结束 |
 
-<h3 id=CRVideo_MIXER_OUTPUT_TYPE> 混图输出类型</h3>
+<h2 id=CRVideo_MIXER_OUTPUT_TYPE> 混图输出类型</h2>
 
 > CRVideo_MIXER_OUTPUT_TYPE
 
@@ -149,7 +149,7 @@
 | 0 | 录像文件 |
 | 1 | 直播流 |
 
-<h3 id=CRVideo_MIXER_VCONTENT_TYPE> 混图内容类型</h3>
+<h2 id=CRVideo_MIXER_VCONTENT_TYPE> 混图内容类型</h2>
 
 > CRVideo_MIXER_VCONTENT_TYPE
 

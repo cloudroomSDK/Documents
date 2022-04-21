@@ -93,12 +93,6 @@ module.exports = [{
     data: [commonUID]
   }
 }, {
-  // CRVideo_GetMicVolume	获取麦克风音量
-  // CRVideo_SetMicVolume	设置麦克风音量
-  // CRVideo_GetSpeakerVolume	获取扬声器音量
-  // CRVideo_SetSpeakerVolume	设置扬声器音量
-  // CRVideo_SetSpeakerMute	设置扬声器是否静音
-  // CRVideo_GetSpeakerMute	获取扬声器是否静音
   interface: "CRVideo_SetAllAudioClose",
   description: "关闭房间内所有人麦克风",
   detail: {
@@ -156,5 +150,19 @@ module.exports = [{
         explain: '现在的说话声音强度等级，0-10'
       }]
   }
-  // CRVideo_NotifyAudioPCMDat	通知语音PCM数据
+}, {
+  interface: "CRVideo_OpenMicFailed",
+  description: "通知，打开本地麦克风失败",
+  detail: {
+    content: 'CRVideo_OpenMicFailed.callback = function(errDesc){}',
+    type: 'callback',
+    callbackParam: [{
+      param: 'errDesc',
+      type: 'String',
+      explain: '错误描述'
+    }],
+    attent: `
+> 打开麦克风是异步的，所以SDK将以通知的方式通知业务层失败的情形。
+> 打开麦克风失败可能的原因有：设备被占用、用户未授权访问、硬件设备发生错误等`
+  },
 }]

@@ -2,7 +2,6 @@
 
 <h2 id=CRVIDEOSDK_ERR_DEF>ERR_DEF 错误码</h2>
 
-
 | 代码     | 数值        | 含义      |
 |:-------- |:-----------|:----------|
 |CRVIDEOSDK_NOERR  | 0 | 没有错误    |
@@ -21,8 +20,8 @@
 |CRVIDEOSDK_SERVER_EXCEPTION | 8 | 服务异常    |
 |CRVIDEOSDK_LOGINSTATE_ERROR | 9 | 登录状态错误    |
 |CRVIDEOSDK_KICKOUT_BY_RELOGIN | 10 | 帐号在别处被使用    |
-|CRVIDEOSDK_NOT_LOGIN | 12 | 还没有登录    |
 |CRVIDEOSDK_NOT_INIT   | 11  | sdk未初始化  |
+|CRVIDEOSDK_NOT_LOGIN | 12 | 还没有登录    |
 |CRVIDEOSDK_BASE64_COV_ERR | 13 | base64转换失败    |
 |CRVIDEOSDK_CUSTOMAUTH_NOINFO | 14 | 启用了第三方鉴权，但没有携带鉴权信息 |
 |CRVIDEOSDK_CUSTOMAUTH_NOTSUPPORT | 15 | 没有启用第三方鉴权，但携带了鉴权信息 |

@@ -2,84 +2,93 @@
 
 ## 帐号申请
 
-[点此注册](https://sdk.cloudroom.com/mgr_sdk/register.html)一个账号，或者联系商务代为开通，或在网站咨询客服。
+[点此注册](https://sdk.cloudroom.com/mgr_sdk/register.html) 一个账号，或者联系商务代为开通，或在网站咨询客服。
 
-<p id=getappid></p>  
+<h2 id=getappid>创建项目</h2>
 
-## 创建项目
 
-可以在[管理平台](https://sdk.cloudroom.com/mgr_sdk/)中创建新的项目（系统有一个默认项目，可以直接使用），如下图：
+可以在 [管理平台](https://sdk.cloudroom.com/mgr_sdk/) 中创建新的项目（系统有一个默认项目，可以直接使用），如下图：
 ![GetAPPID](./images/getAppID.png)
 
 为了保障接口安全，后台不再显示App Secret，所以请在创建项目成功显示App Secret时妥善保存好。 如果遗忘只能如下图更换App Secret：
 ![ChangeAppSecret](./images/ChangeAppSecret.png)
 
-## 防火墙开通 ${#fireWallSettings}
 
+<h2 id=fireWallSettings>防火墙开通</h2>
 
 在使用云屋SDK提供的相关服务之前，您需要打开下面这些特定的端口：
 
-<table border=0 cellpadding=0 cellspacing=0 style='border-collapse:collapse;table-layout:fixed;text-align:center;'>
+<table border=0 cellpadding=0 cellspacing=0 style='border-collapse:collapse;table-layout:fixed;'>
     <thead>
         <tr >
-            <th style='width:12%;' rowspan=2>协议</th>
-            <th style='width:12%;' rowspan=2>端口</th>
-            <th style='width:25%;' rowspan=2>功能说明</th>
-            <th style='width:23%;' colspan=4>适用SDK平台</th>
-        </tr>
-        <tr>
-            <th style='width:23%;'>Windows、Android、iOS、MacOS、网页插件</th>
-            <th style='width:10%;'>H5</th>
-            <th style='width:10%;'>小程序</th>
-            <th style='width:10%;'>直播观看</th>
+            <th style='width:12%;text-align:center'>端口</th>
+            <th style='width:25%;text-align:center'>功能说明</th>
+            <th style='width:23%;text-align:center'>Windows, Linux, Android, iOS, macOS, 网页插件</th>
+            <th style='width:10%;text-align:center'>H5 SDK</th>
+            <th style='width:10%;text-align:center'>小程序SDK</th>
+            <th style='width:10%;text-align:center'>直播观看SDK</th>
+            <th style='width:10%;text-align:center'>后台管理页面</th>
         </tr>
     </thead>
     <tbody>
     <tr>
-        <td rowspan=3>TCP</td>
-        <td>2726</td>
-        <td>信令端口1<br />(SDK缺省使用https)
+        <td>TCP 2725</td>
+        <td style='text-align:center'>后台管理服务端口</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style='text-align:center'>√</td>
+    </tr>
+    <tr>
+        <td>TCP 2726</td>
+        <td style='text-align:center'>https服务端口<br />(SDK缺省使用https)
         </td>
-        <td>√</td>
-        <td>√</td>
-        <td>√</td>
-        <td>√</td>
+        <td style='text-align:center'>√</td>
+        <td style='text-align:center'>√</td>
+        <td style='text-align:center'>√</td>
+        <td style='text-align:center'>√</td>
+        <td style='text-align:center'></td>
     </tr>
     <tr>
-        <td>2728</td>
-        <td>信令端口2</td>
-        <td>√</td>
+        <td>TCP 2728</td>
+        <td style='text-align:center'>信令服务端口</td>
+        <td style='text-align:center'>√</td>
+        <td style='text-align:center'></td>
+        <td style='text-align:center'></td>
+        <td style='text-align:center'></td>
+        <td style='text-align:center'></td>
+    </tr>
+    <tr>
+        <td>TCP 1935</td>
+        <td style='text-align:center'>直播观看端口</td>
+        <td></td>
+        <td></td>
+        <td style='text-align:center'>√</td>
+        <td style='text-align:center'>√</td>
+        <td style='text-align:center'></td>
+    </tr>
+    <tr>
+        <td>UDP 2698</td>
+        <td style='text-align:center'>服务器音视频流端口</td>
+        <td style='text-align:center'>√</td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
     </tr>
     <tr>
-        <td>1935</td>
-        <td>RTMP端口</td>
+        <td>UDP 2699</td>
+        <td style='text-align:center'>服务器音视频流端口(H5)</td>
         <td></td>
+        <td style='text-align:center'>√</td>
         <td></td>
-        <td>√</td>
-        <td>√</td>
-    </tr>
-    <tr>
-        <td rowspan=2>UDP</td>
-        <td>2698</td>
-        <td>音视频流媒体端口</td>
-        <td>√</td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>2699</td>
-        <td>音视频流媒体端口(H5)</td>
-        <td></td>
-        <td>√</td>
         <td></td>
         <td></td>
     </tr>    
     </tbody>
 </table>
+
 
 ## SDK下载
 - [点此下载](download.md#sdk下载地址) 

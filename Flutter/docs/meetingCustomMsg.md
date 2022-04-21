@@ -1,22 +1,11 @@
-# 文本聊天
+# 房间消息
 
-功能简介：
-实现房间内文本聊天，如果需要更加丰富的聊天内容，可自己定义文本格式，并进行相关解析。
+## 功能介绍
 
-:::danger
+实现房间内消息广播。此接口只能在进入房间后才能使用，房间内所有在线人员都能收到。
 
-注意：在登录成功后才可以谁有即时聊天。
 
-:::
-
----
-
-<!-- 呼叫功能使用流程如下：
-
-1. [发送聊天信息](#sendIM)
-1. [聊天信息通知](#notifyIm) -->
-
-<h2 id=sendIM>1.发送聊天信息</h2>
+## 发送房间广播消息
 
 - 调用接口：
 
@@ -33,7 +22,7 @@ CrSDK.instance.sendMeetingCustomMsg(text).then((int sdkErr) {
 });
 ```
 
-<h2 id=notifyIm>2.聊天信息通知</h2>
+## 处理房间广播消息
 
 ```dart
   @override
@@ -48,8 +37,8 @@ CrSDK.instance.sendMeetingCustomMsg(text).then((int sdkErr) {
     super.dispose();
   }
 
-  notifyMeetingCustomMsg(CrChatMsg msg) {}
+  notifyMeetingCustomMsg(MeetingCustomMsg msg) {}
 ```
 
 相关结构定义请参考：
-+ [CrChatMsg](TypeDefinitions.md#CrChatMsg)
++ [MeetingCustomMsg](TypeDefinitions.md#MeetingCustomMsg)

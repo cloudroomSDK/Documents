@@ -24,7 +24,6 @@ CRVideo_SetAudioCfg(cfg);
 
 ```
 
-
 相关API请参考:
 * [CRVideo_GetAudioMicNames](API.md#CRVideo_GetAudioMicNames)
 * [CRVideo_GetAudioSpkNames](API.md#CRVideo_GetAudioSpkNames)
@@ -35,7 +34,6 @@ CRVideo_SetAudioCfg(cfg);
 * [CRVideo_AudioCfg](TypeDefinitions.md#CRVideo_AudioCfg)
 
 <h2 id=openMic> 2.开关麦克风</h2>
-
 
 ```js
 string UserID = "12345678";
@@ -58,6 +56,7 @@ CRVideo_CloseMic(UserID);
 CRVideo_SetSpeakerVolume(255);
 
 ```
+
 相关API请参考:
 * [CRVideo_SetSpeakerVolume](API.md#CRVideo_SetSpeakerVolume)
 * [CRVideo_GetSpeakerVolume](API.md#CRVideo_GetSpeakerVolume)
@@ -71,6 +70,7 @@ CRVideo_SetSpeakerVolume(255);
 CRVideo_SetMicVolume(255);
 
 ```
+
 相关API请参考:
 * [CRVideo_SetMicVolume](API.md#CRVideo_SetMicVolume)
 * [CRVideo_GetMicVolume](API.md#CRVideo_GetMicVolume)

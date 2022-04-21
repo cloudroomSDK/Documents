@@ -55,7 +55,9 @@ module.exports = {
                         "call.md",
                         "live.md",
                         "srvLive.md",
-                        "transpChannel.md"
+                        "transpChannel.md",
+                        "meetingCustomMsg.md",
+                        "roomatts.md"
                     ]
                 }
             ]

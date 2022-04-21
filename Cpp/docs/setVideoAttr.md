@@ -19,9 +19,11 @@
 
 //获取所有摄像头设备
 CRBase::CRArray<CRVideoDevInfo> camDevs = g_sdkMain->getSDKMeeting().getAllVideoInfo(MainDialog::getMyUserID().constData());
+
 //获取当前默认摄像头
 int defCam = g_sdkMain->getSDKMeeting().getDefaultVideo(MainDialog::getMyUserID().constData());
-//将编号为camId的摄像头设置为主摄像头
+
+//将编号为camId的摄像头设置为默认摄像头
 g_sdkMain->getSDKMeeting().setDefaultVideo(camId);
 
 ```
@@ -40,7 +42,8 @@ g_sdkMain->getSDKMeeting().setDefaultVideo(camId);
 
 //获取摄像头编码参数
 CRVideoCfg vCfg = g_sdkMain->getSDKMeeting().getVideoCfg();
-//设置摄像头编码输出为1280*720，帧率15，其他采用默认设置, CRVideoCfg 参考其类型定义
+
+//设置摄像头编码输出为1280*720，帧率15，其他参数不变
 vCfg._size = CRSize(1280, 720);
 vCfg._fps = 15;
 g_sdkMain->getSDKMeeting().setVideoCfg(vCfg);

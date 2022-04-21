@@ -1,32 +1,13 @@
----
-sidebarDepth: 1
----
-
 # 呼叫
 
-<h2 id=introduction>功能简介</h2>
+## 功能介绍
 
-实现了用户之间的呼叫功能，流程是：A用户先创建一个房间，然后呼叫B用户，如果B用户接受呼叫，AB进入房间进行通讯。
-
+实现用户之间的呼叫功能，流程是：A用户先创建一个房间，然后呼叫B用户，如果B用户接受呼叫，AB进入房间进行通讯。</br>
 <font color="#FF0000">注意：在登录成功后才可以使用呼叫功能</font>
 
------
-
-<h2 id=flow>呼叫流程</h2>
-
-呼叫功能使用流程如下：
-
-1. [创建房间](#creat)
-1. [发起呼叫](#startCall)
-1. [接受/拒绝呼叫](#accept)
-1. [挂断](#hangup)
-1. [免打扰](#DND)
-
+## 主叫
 
 <h3 id=creat>1.创建房间</h3>
-
-
-输入房间标题，创建一个没有密码的房间
 
 - 调用接口：
 
@@ -57,7 +38,6 @@ CR.CreateMeetingFail.callback = function(sdkErr, cookie){
 <h3 id=startCall>2.发起呼叫</h3>
 
 <font color="#FF0000">注意：当用户A呼叫用户B时，只有B成功登录了，才可以收到被呼叫通知</font>  
-      
 
 - 调用接口：
 
@@ -134,7 +114,6 @@ CR.NotifyCallRejected.call = function(callID,meetObj,usrExtDat){
 
 <h3 id=hangup>4.挂断</h3>
 
-
 - 调用接口：
 
 ```js
@@ -171,7 +150,71 @@ CR.NotifyCallHungup.callback = function(callID, usrExtDat){
    - [CR.ExitMeeting](API.md#CRVideo_ExitMeeting)
 
 
-<h3 id=DND>5.免打扰</h3>
+## 被叫
+
+<h3 id=called>1.被呼叫</h3>
+
+- 回调通知：
+
+```js
+//通知有呼入
+CR.NotifyCallIn.callback = function(callID, MeetInfoObj, callerID, usrExtDat)
+{
+    console.log("有呼叫到来!");
+}
+```
+
+相关API请参考:
+* [CR.NotifyCallIn](API.md#NotifyCallIn)
+
+
+<h3 id=accept_rehect_Call>2.接受/拒绝呼叫</h3>
+
+- 调用接口： 
+
+```js
+//接受呼叫
+CR.AcceptCall(callID, meetObj, "", "");
+
+//拒绝呼叫
+CR.RejectCall(callID, "", "");
+```
+
+- 回调通知：
+
+```js
+//接受呼叫成功
+CR.AcceptCallSuccess.callback = function(callID, cookie)
+{
+}
+
+//接受呼叫失败
+CR.AcceptCallFail.callback = function(callID,sdkEr,cookie)
+{
+}
+
+//拒接呼叫成功
+CR.RejectCallSuccess.callback = function(callID,cookie)
+{
+}
+
+//拒接呼叫失败
+CR.RejectCallFail.callback = function(callID,sdkEr,cookie)
+{
+}
+
+```
+
+相关API请参考:
+* [CR.AcceptCall](API.md#CRVideo_AcceptCall)
+* [CR.RejectCall](API.md#CRVideo_RejectCall)
+* [CR.AcceptCallSuccess](API.md#CRVideo_AcceptCallSuccess)
+* [CR.AcceptCallFail](API.md#CRVideo_AcceptCallFail)
+* [CR.RejectCallSuccess](API.md#CRVideo_RejectCallSuccess)
+* [CR.RejectCallFail](API.md#CRVideo_RejectCallFail)
+
+
+<h3 id=DND>3.免打扰</h3>
 
 
 如果用户当前不希望被呼叫，可以把自己的状态设置为免打扰，注意在免打扰状态下不会被呼叫，但是可以主动发起呼叫。

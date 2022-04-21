@@ -7,7 +7,7 @@
 
 <h2 id=init>1. 初始化SDK</h2>
 
- 初始化是整个SDK的使用基础，通常在程序启动的时候进行初始化([init_2](API.md#init2))，退出后进行反初始化([uninit](API.md#uninit))，整个程序的生命周期中只进行一次初始化和反初始化。
+ 初始化是整个SDK的使用基础，通常在程序启动的时候进行初始化([init_2](API.md#init2))，退出的时候进行反初始化([uninit](API.md#uninit))，整个程序的生命周期中只进行一次初始化和反初始化。
 
 ```csharp
 
@@ -183,14 +183,21 @@ axVideoUI1.setVideo(myUID, -1);
 <h2 id=watchOther>6. 观看他人视频</h2>
 
 
-成功进入房间后，根据他人登录id ，设置并观看他人视频图像
+成功进入房间后，可以得到会议内所有人员 ，并设置观看其中某些人视频图像
 
 - 接口调用：
 
 ```csharp
-//axVideoUI2显示12345678的默认摄像头的视频
-string peerUid = "12345678";
-axVideoUI2.setVideo(peerUid, -1);
+
+//可以从会议中取到所有参数者，然后按业务逻辑选取想观看他人视频；(以下代码是随机选取一个非自已的视频)
+List<MemberInfo> allMembers = JsonConvert.DeserializeObject<List<MemberInfo>>(axVideoSDK.getAllMembers());
+for (MemberInfo &memb : allMembers) {
+    if ( memb.userId != myUserId )
+	{
+    	axVideoUI2.setVideo(memb.userId, -1);
+		break;
+    } 
+}
 
 ```
 

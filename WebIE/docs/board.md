@@ -1,5 +1,7 @@
-## 电子白板
-功能简介：  
+# 电子白板
+
+## 功能介绍
+
 实现文件内容实时同步共享。
 
 g_board_id = CRVideo_Createboard("Web Board-1", 960, 540, 1);

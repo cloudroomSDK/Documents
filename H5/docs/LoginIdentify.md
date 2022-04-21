@@ -1,16 +1,15 @@
----
-pageClass: pageDengLuJianQuan
----
 # 登录鉴权
 
-<b>SDK登录鉴权的目的： </b>  
-确保只有合法的身份才能使用sdk接入到服务器；
+## SDK登录鉴权的目的
 
-<b>SDK提供两种登录鉴权方案：</b>  
-1、密码鉴权方案： 此方案简单，配合https通信，适用于一般的安全要求；  
-2、动态token鉴权方案： 此方案每次登录token都不一样，并且可自定义token的有效期，具有更高的安全性；
+确保只有合法的身份才能使用sdk接入到服务器。
 
-- 密码鉴权方案说明
+<h2 id=AuthTypeDesc>SDK登录鉴权方案</h2>
+
+密码鉴权方案： 此方案简单，配合https通信，适用于一般的安全要求；</br>
+动态token鉴权方案： 此方案每次登录token都不一样，并且可自定义token的有效期，具有更高的安全性；</br>
+
+<h3 id=pswdMode>密码鉴权方案说明</h3>
 
 ![Image text](./images/login_1.png)
 
@@ -19,7 +18,7 @@ pageClass: pageDengLuJianQuan
 3. sdk通过https向云屋服务器发起登录时携带“appID及md5(密码)”；
 4. 云屋服务器校验密码是否正确；
 
-- 动态token鉴权方案说明
+<h3 id=tokenMode>动态token鉴权方案说明</h3>
 
 ![Image text](./images/login_2.png)
 

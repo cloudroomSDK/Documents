@@ -1,14 +1,12 @@
 
 # 设置音频属性
 
-功能简介：  
-在视频通话中，用户还可以设置音频属性，获取不同的用户体验。
+## 功能介绍
 
-<font color="#FF0000">注意：成功进入房间后，才可以设置音频属性。</font>
+成功进入房间后，可以设置音频设备、音量等。</br>
+<font color=Red>注意：成功进入房间后，才可以设置音频属性。</font>
 
-  -----
- 
-- 调用接口：
+<h2 id=initAudio> 1.设置音频参数</h2>
 
 ```js
 // 获取系统上的麦克风列表，可用于 CRVideo_SetAudioCfg
@@ -25,7 +23,6 @@ var cfg = {
 CRVideo_SetAudioCfg(cfg);
 
 ```
-
 
 相关API请参考:
 * [CRVideo_GetAudioMicNames](API.md#CRVideo_GetAudioMicNames)

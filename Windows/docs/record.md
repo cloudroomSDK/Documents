@@ -16,7 +16,6 @@
 
 ![左右布局示例图](./images/layout_2.jpg)
 
-
 - 接口调用：
 
 ```csharp
@@ -29,8 +28,8 @@ string mixerCfg = "{\"width\":640,\"height\":360,\"frameRate\":15}";
 //left，top，width，height 在混图画面中的区域（相对于混图器尺寸）
 //camid:摄像头编号
 string contentObj = "[\
-{\"type\":0,\"keepAspectRatio\":1,\"left\":0,\"top\":0,\"width\":320,\"height\":180,\"param\":{\"camid\":\"usr1.1\"}},\
-{\"type\":0,\"keepAspectRatio\":1,\"left\":320,\"top\":0,\"width\":320,\"height\":180,\"param\":{\"camid\":\"usr2.1\"}}\
+{\"type\":0,\"keepAspectRatio\":1,\"left\":0,\"top\":0,\"width\":320,\"height\":180,\"param\":{\"camid\":\"usr1.-1\"}},\
+{\"type\":0,\"keepAspectRatio\":1,\"left\":320,\"top\":0,\"width\":320,\"height\":180,\"param\":{\"camid\":\"usr2.-1\"}}\
 ]";
 
 //创建混图器
@@ -98,10 +97,10 @@ void Meeting_locMixerOutputInfo(object sender, ICloudroomVideoMeetingEvents_locM
 ```csharp
 //混图器编号
 string mixerID = "1";
-//混图器内容：画中画布局(示例图如下， 底层640*360， 上层160*90)，底层为user1的1号摄像头， 上层为user2的1号摄像头
+//混图器内容：画中画布局(示例图如下， 底层640*360， 上层160*90)，底层为user1的默认摄像头， 上层为user2的默认摄像头
 string mixerContent = "[\
-{\"type\":0,\"keepAspectRatio\":1,\"left\":0,\"top\":0,\"width\":640,\"height\":360,\"param\":{\"camid\":\"usr1.1\"}},\
-{\"type\":0,\"keepAspectRatio\":1,\"left\":475,\"top\":265,\"width\":160,\"height\":90,\"param\":{\"camid\":\"usr2.1\"}}\
+{\"type\":0,\"keepAspectRatio\":1,\"left\":0,\"top\":0,\"width\":640,\"height\":360,\"param\":{\"camid\":\"usr1.-1\"}},\
+{\"type\":0,\"keepAspectRatio\":1,\"left\":475,\"top\":265,\"width\":160,\"height\":90,\"param\":{\"camid\":\"usr2.-1\"}}\
 ]";
 //更新混图器内容
 int errCode = axVideoSDK.updateLocMixerContent(mixerID,mixerContent);

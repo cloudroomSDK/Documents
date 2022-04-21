@@ -274,6 +274,9 @@ module.exports.CONSTDEF = [{
     }, {
         code: 8006,
         description: '浏览器版本过低',
+    }, {
+        code: 8007,
+        description: '打开媒体设备失败',
     },]
 
 }, {

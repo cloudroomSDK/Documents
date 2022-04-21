@@ -17,63 +17,39 @@
 + 设置混图器配置
 
 ```  oc
-    //混图器参数配置
-    MixerCfg* mixerCfg = [[MixerCfg alloc]init];
-    mixerCfg.fps = 15;
-    mixerCfg.dstResolution = CGSizeMake(848,480);
-```
+//混图器参数配置
+MixerCfg* mixerCfg = [[MixerCfg alloc]init];
+mixerCfg.fps = 15;
+mixerCfg.dstResolution = CGSizeMake(848,480);
 
-+ 设置混图器内容
-
-```oc 
-   // 图像内容集合 - 创建左右布局的摄像头录制内容，
-    NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
-    //获取左边（自己）用户id
-    NSString *myUserID = [[CloudroomVideoMeeting shareInstance] getMyUserID];
-    //获取c摄像头id
-     short camID = [[CloudroomVideoMeeting shareInstance]  getDefaultVideo:myUserID];
-    //自己的摄像头（左边布局）, 设置摄像头录制视频大小，由于左右布局， 宽度只有录制布局的一半
-    CGRect leftRect = CGRectMake(0, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
-    // 添加到内容列表
-    RecVideoContentItem *leftVideoItem = [[RecVideoContentItem alloc] initWithRect:leftRect userID:myUserID camID:camID];
-    [contents addObject:leftVideoItem];
+// 图像内容集合 - 创建左右布局的摄像头录制内容，
+NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
+//自己的摄像头（左边布局）, 设置摄像头录制视频大小，由于左右布局， 宽度只有录制布局的一半
+CGRect leftRect = CGRectMake(0, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
+// 添加到内容列表
+RecVideoContentItem *leftVideoItem = [[RecVideoContentItem alloc] initWithRect:leftRect userID:myUserID camID:-1];
+[contents addObject:leftVideoItem];
     
-    //其他人的摄像头（右边布局）
-    CGRect rightRect = CGRectMake(mixerCfg.dstResolution.width/2, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
-    //此处otherUserID在进入用户进入会议时候可以保存，或者使用getAllMembers获取所有成员信息，找出对方id.
-    NSString *otherUserID = @"";
-    NSMutableArray <MemberInfo *> * allMemberInfo = [[CloudroomVideoMeeting shareInstance] getAllMembers];
-    for (MemberInfo *memberInfo in allMemberInfo) {
-        if(![memberInfo.userId isEqualToString:myUserID])
-        {
-            otherUserID = memberInfo.userId;
-            break;
-        }
-    }
-    short otherCamID = [[CloudroomVideoMeeting shareInstance]  getDefaultVideo:otherUserID];
+//其他人的摄像头（右边布局）
+RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:-1];
     
-    RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:otherCamID];
-    
-    // 添加到内容列表
-    [contents addObject:rightVideoItem];
+// 添加到内容列表
+[contents addObject:rightVideoItem];
 
-	MixerContent *recContent = [[MixerContent alloc]init];
-    recContent.contents = [contents copy];
-```
+MixerContent *recContent = [[MixerContent alloc]init];
+recContent.contents = [contents copy];
 
-+ 创建混图器
+//创建混图器
 
-```oc
-    CRVIDEOSDK_ERR_DEF rslt = [[CloudroomVideoMeeting shareInstance] createLocMixer:@"1" cfg:mixerCfg content:recContent];
-    if(rslt == CRVIDEOSDK_NOERR)
-    {
-        //创建成功
-    }
+CRVIDEOSDK_ERR_DEF rslt = [[CloudroomVideoMeeting shareInstance] createLocMixer:@"1" cfg:mixerCfg content:recContent];
+if(rslt == CRVIDEOSDK_NOERR)
+{
+    //创建成功
+}
 ```
 
 相关API请参考:
 + [createLocMixer](Apis.md#createLocMixer)
-+ [getDefaultVideo](Apis.md#getDefaultVideo)
 
 相关结构定义请参考：
 + [MixerCfg](TypeDefinitions.md#MixerCfg)
@@ -83,23 +59,23 @@
 </br>
 
 ```oc
-    NSMutableArray<OutputCfg*> *outputCfgs = [NSMutableArray array];
-    OutputCfg* outputCfg = [[OutputCfg alloc]init];
+NSMutableArray<OutputCfg*> *outputCfgs = [NSMutableArray array];
+OutputCfg* outputCfg = [[OutputCfg alloc]init];
     
-    [outputCfg setFileName:[PathUtil searchPathInCacheDir:[NSString stringWithFormat:@"CloudroomVideoSDK/%d_iOS.mp4", self.meetInfo.ID]]];
+[outputCfg setFileName:[PathUtil searchPathInCacheDir:[NSString stringWithFormat:@"CloudroomVideoSDK/%d_iOS.mp4", self.meetInfo.ID]]];
     
-    [outputCfgs addObject:outputCfg];
+[outputCfgs addObject:outputCfg];
     
-    self.currentRecordFileName = outputCfg.fileName;
+self.currentRecordFileName = outputCfg.fileName;
     
-    MixerOutput *mixerOutput = [[MixerOutput alloc]init];
-    mixerOutput.outputs = outputCfgs;
-    //mixerID是创建混图器设置的id
-    rslt = [[CloudroomVideoMeeting shareInstance] addLocMixer:mixerID outputs:mixerOutput];
+MixerOutput *mixerOutput = [[MixerOutput alloc]init];
+mixerOutput.outputs = outputCfgs;
+//mixerID是创建混图器设置的id
+rslt = [[CloudroomVideoMeeting shareInstance] addLocMixer:mixerID outputs:mixerOutput];
     
-    if (rslt !== CRVIDEOSDK_NOERR) {
-        //启动成功
-    }
+if (rslt !== CRVIDEOSDK_NOERR) {
+    //启动成功
+}
 ```
 
 相关API请参考:
@@ -126,53 +102,34 @@
 
 <h2 id=UpdateVideoContent>4. 更新图像内容</h2>
 
-如下创建画中画布局作为更新后的本地录制内容
+- 画中画布局示例图
 
-+ 设置录制内容
+![画中画布局示例图](./images/layout_overlap.jpg)
+
+- 接口调用：
 
 ```oc
 // 图像内容集合 - 创建画中画布局的摄像头录制内容，
-    NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
-    //获取left（自己）用户id
-    NSString *myUserID = [[CloudroomVideoMeeting shareInstance] getMyUserID];
-    //获取c摄像头id
-    short camID = [[CloudroomVideoMeeting shareInstance]  getDefaultVideo:myUserID];
-    //自己的摄像头（充满布局）
-   CGRect leftRect = CGRectMake(0, 0, mixerCfg.dstResolution.width, mixerCfg.dstResolution.height);
-    // 添加到内容列表
-    RecVideoContentItem *leftVideoItem = [[RecVideoContentItem alloc] initWithRect:leftRect userID:myUserID camID:camID];
-    [contents addObject:leftVideoItem];
+NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
+//自己的摄像头（充满布局）
+CGRect leftRect = CGRectMake(0, 0, mixerCfg.dstResolution.width, mixerCfg.dstResolution.height);
+// 添加到内容列表
+RecVideoContentItem *leftVideoItem = [[RecVideoContentItem alloc] initWithRect:leftRect userID:myUserID camID:-1];
+[contents addObject:leftVideoItem];
     
-    //其他人的摄像头（右边布局）
-    CGRect rightRect = CGRectMake(0, 0, mixerCfg.dstResolution.width/5, mixerCfg.dstResolution.height/5);
-    //此处otherUserID在进入用户进入会议时候可以保存，或者使用getAllMembers获取所有成员信息，找出对方id.
-    NSString *otherUserID = @"";
-    NSMutableArray <MemberInfo *> * allMemberInfo = [[CloudroomVideoMeeting shareInstance] getAllMembers];
-    for (MemberInfo *memberInfo in allMemberInfo) {
-        if(![memberInfo.userId isEqualToString:myUserID])
-        {
-            otherUserID = memberInfo.userId;
-            break;
-        }
-    }
-    short otherCamID = [[CloudroomVideoMeeting shareInstance]  getDefaultVideo:otherUserID];
+//其他人的摄像头（右边布局）
+RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:-1];
     
-    RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:otherCamID];
-    
-    // 添加到内容列表
-    [contents addObject:rightVideoItem];
-    MixerContent *recContent = [[MixerContent alloc]init];
-    recContent.contents = [contents copy];
-```
+// 添加到内容列表
+[contents addObject:rightVideoItem];
+MixerContent *recContent = [[MixerContent alloc]init];
+recContent.contents = [contents copy];
 
-+ 更新混图器
-
-```oc
 // 更新图像内容
-    CRVIDEOSDK_ERR_DEF rslt = [[CloudroomVideoMeeting shareInstance] updateLocMixerContent:@"1" content:contents]；
-    if (rslt == CRVIDEOSDK_NOERR) {
-        //更新配置成功
-    }
+CRVIDEOSDK_ERR_DEF rslt = [[CloudroomVideoMeeting shareInstance] updateLocMixerContent:@"1" content:contents]；
+if (rslt == CRVIDEOSDK_NOERR) {
+    //更新配置成功
+}
 ```
 
 相关API请参考: 

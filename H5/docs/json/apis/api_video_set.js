@@ -313,4 +313,19 @@ module.exports = [{
     attent: `
 > 获取到成员的视频流后，可以给界面上的&lt;video&gt;标签设置srcObject属性显示此视频流的画面，一般不建议这样使用，可以直接通过创建该成员的视频UI组件 [CRVideo_CreatVideoObj](#CRVideo_CreatVideoObj) 来显示他的画面`
   }
+}, {
+  interface: "CRVideo_OpenVideoFailed",
+  description: "通知，打开本地摄像头失败",
+  detail: {
+    content: 'CRVideo_OpenVideoFailed.callback = function(errDesc){}',
+    type: 'callback',
+    callbackParam: [{
+      param: 'errDesc',
+      type: 'String',
+      explain: '错误描述'
+    }],
+    attent: `
+> 打开摄像头是异步的，所以SDK将以通知的方式通知业务层失败的情形。
+> 打开摄像头失败可能的原因有：设备被占用、用户未授权访问、硬件设备发生错误等`
+  },
 }]

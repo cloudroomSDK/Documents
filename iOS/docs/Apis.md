@@ -194,7 +194,7 @@
 |:-------- |:-----------|:----------|
 | cookie| NSString| 自定义数据(在响应消息中回传给调用者)，不需要时传空字符串| 
 
-<h3 id=createMeeting>- (void)createMeeting:(NSString *)meetSubject createPswd:(BOOL)createPswd cookie:(NSString *)cookie</h3>
+<h3 id=createMeeting>- (void)createMeeting:(NSString *)cookie</h3>
 
   + **功能**:  创建视频房间
   
@@ -1570,7 +1570,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 |:-------- |:-----------|:----------|
 | filename| NSString|    文件名，不含路径| 
 
-<h3 id=startSvrMixer>-(CRVIDEOSDK_ERR_DEF)startSvrMixer:(NSMutableDictionary&lt;NSString*,MixerCfg* &gt;*)cfgs  contents:(NSMutableDictionary&lt;NSString*,MixerContent* &gt;*)contents outputs:(NSMutableDictionary&lt;NSString*,MixerOutput* &gt;*)outputs;
+<h3 id=createCloudMixer>- (CRVIDEOSDK_ERR_DEF)createCloudMixer:(NSString *)cfg rsltMixerID:(NSString **)rsltMixerID;
 </h3>
 
   + **功能**:  开始云端录制、云端直播
@@ -1586,11 +1586,11 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 
 - <p style="color:red; font-size:20px">注意事项:</p>
   
-  + 启动云端功能有一定耗时，请关注混图器的状态变化事件svrMixerStateChanged*
-  + 每个输出有私有的状态变化事件svrMixerOutputInfo
+  + 启动云端功能有一定耗时，请关注混图器的状态变化事件cloudMixerStateChanged*
+  + 每个输出有私有的状态变化事件cloudMixerOutputInfo
 
 
-<h3 id=updateSvrMixerContent>-(CRVIDEOSDK_ERR_DEF)updateSvrMixerContent:(NSMutableDictionary&lt;NSString*,MixerContent* &gt;*)contents;</h3>
+<h3 id=updateCloudMixerContent>- (CRVIDEOSDK_ERR_DEF)updateCloudMixerContent:(NSString *)mixerID cfg:(NSString *)cfg;</h3>
 
   + **功能**:  更新云端录制、云端直播内容
   
@@ -1601,7 +1601,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 |:-------- |:-----------|:----------|
 | contents|  NSMutableDictionary&lt;NSString*,MixerContent* *&gt;* * |    服务器混图内容，详见定义[MixerContent](TypeDefinitions.md#YWMixerContent)  | 
 
-<h3 id=stopSvrMixer>-(void)stopSvrMixer</h3>
+<h3 id=destroyCloudMixer>- (void)destroyCloudMixer:(NSString *)mixerID;</h3>
 
   + **功能**:  停止云端录制、云端直播
   
@@ -1609,11 +1609,11 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 
 - <p style="color:red; font-size:20px">注意事项:</p>
 
-  + 停止有一定耗时，请关注混图器的状态变化事件svrMixerStateChanged*
-  + 每个输出有私有的状态变化事件svrMixerOutputInfo*
+  + 停止有一定耗时，请关注混图器的状态变化事件cloudMixerStateChanged*
+  + 每个输出有私有的状态变化事件cloudMixerOutputInfo*
 
 
-<h3 id=getSvrMixerState>-(MIXER_STATE)getSvrMixerState</h3>
+<h3 id=getCloudMixerInfo>- (NSString *)getCloudMixerInfo:(NSString *)mixerID;</h3>
 
   + **功能**:  获取云端录制、云端直播状态
   
@@ -2325,7 +2325,7 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
   + **返回值**:  无
 
 
-<h3 id=svrMixerOutputInfo>-(void)svrMixerOutPutInfo:(OutputInfo*)outputInfo</h3>
+<h3 id=svrMixerOutPutInfo>-(void)svrMixerOutPutInfo:(OutputInfo*)outputInfo</h3>
 
   + **功能**:  云端录制文件、云端直播信息变化通知
   

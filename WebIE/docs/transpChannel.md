@@ -1,20 +1,14 @@
+# 点对点消息
 
-<!-- ## 透明通道 {#transpChannel} -->
-# 透明通道
-功能简介：
-根据发送数据的大小，提供了发送小块数据、发送大块数据、发送文件三种方式。
+## 功能介绍
 
------------
+实现点对点的透明消息发送功能， 根据发送内容可选择：发送命令数据， 发送内存数据， 发送文件三种类型。
 
-1. [发送小块数据](#tc_cmd)
-1. [发送大块数据](#tc_buffer)
-1. [发送文件](#tc_file)
-1. [发送进度通知](#tc_progress)
-1. [取消发送](#tc_cancel)
 
-<h3 id=tc_cmd> 1.发送小块数据</h3>
 
-<font color="#FF0000">注意：此接口使用后，不能使用CRVideo_CancelSend。一次性发送，也不会有进度通知</font>
+<h2 id=SendCmd>1.发送命令数据</h2>
+
+此接口发送的数据不能被cancelSend，一次性发送，也不会有进度通知。
 
 - 调用接口：
 
@@ -22,6 +16,7 @@
 //发送小块数据,taskId为分配的任务ID
 var taskId = CRVideo_SendCmd(UID, data);
 ```
+
 - 回调通知：
 
 ```js
@@ -41,8 +36,7 @@ CRVideo_SendCmdRlst.callback = function(taskID, sdkErr, cookie)
 相关结构定义请参考：
 - [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-
-<h3 id=tc_buffer> 2.发送大块数据</h3>
+<h2 id=sendBuffer>2.发送内存数据</h2>
 
 分块发送，进度通知事件[CRVideo_SendProgress](API.md#CRVideo_SendProgress), 调用[CRVideo_CancelSend](API.md#CRVideo_CancelSend)取消发送。
 
@@ -72,7 +66,7 @@ CRVideo_SendBufferRlst.callback = function(taskID, sdkErr, cookie)
 - [CRVideo_SendBufferRlst](API.md#CRVideo_SendBufferRlst)
 
 
-<h3 id=tc_file> 3.发送文件</h3>
+<h2 id=sendFile> 3.发送文件</h2>
 
 分块发送，进度通知事件[CRVideo_SendProgress](API.md#CRVideo_SendProgress), 调用[CRVideo_CancelSend](API.md#CRVideo_CancelSend)取消发送。
 
@@ -102,7 +96,7 @@ CRVideo_SendFileRlst.callback = function(taskID, sdkErr, cookie)
 - [CRVideo_SendFileRlst](API.md#CRVideo_SendFileRlst)
 
 
-<h3 id=tc_progress> 4.发送进度通知</h3>
+<h2 id=sendProgress> 4.发送进度通知</h2>
 
 - 回调通知：
 
@@ -119,7 +113,7 @@ CRVideo_SendProgress.callback = function(taskID,sendedLen, totalLen,cookie)
 - [CRVideo_SendProgress](API.md#CRVideo_SendProgress)
 
 
-<h3 id=tc_cancel> 5.取消发送</h3>
+<h2 id=cancelSend>5.取消发送</h2>
 
 - 调用接口：
 
@@ -139,18 +133,9 @@ CRVideo_CancelSendRlst.callback = function(taskID, sdkErr, cookie)
         console.log("取消发送失败，错误码："+sdkErr);
     }
 }
-
 ```
 
 相关API请参考:
 - [CRVideo_CancelSend](API.md#CRVideo_CancelSend)
 - [CRVideo_CancelSendRlst](API.md#CRVideo_CancelSendRlst)
-
-
-
-
-
-
-
-
 

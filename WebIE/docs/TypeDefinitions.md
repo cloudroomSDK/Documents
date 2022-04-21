@@ -1,8 +1,6 @@
 # 类型定义
 
-<h1 id=TypeDefinitions>类型定义</h1>
-
-<h3 id=CRVideo_AddFileToRecordMgr>CRVideo_AddFileToRecordMgr</h3>
+<h2 id=CRVideo_AddFileToRecordMgr>CRVideo_AddFileToRecordMgr</h2>
 
 >添加本地文件到录制文件管理中
 
@@ -13,7 +11,7 @@
 | fileName |string	    |文件名，不含路径	     |
 | filePath|string       |	文件路径，不含文件名	|
 
-<h3 id=CRVideo_AudioCfg>CRVideo_AudioCfg</h3>
+<h2 id=CRVideo_AudioCfg>CRVideo_AudioCfg</h2>
 
 >音频配置
 
@@ -29,7 +27,7 @@
 | aec | number       |	是否开启回声消除，0：不开启；1：开启（默认值）|
 
 
-<h3 id=CRVideo_HttpReqInfoObj>CRVideo_HttpReqInfoObj</h3>
+<h2 id=CRVideo_HttpReqInfoObj>CRVideo_HttpReqInfoObj</h2>
 
 >Http文件传输请求对象 
 
@@ -53,7 +51,7 @@
 
 
 
-<h3 id=CRVideo_HttpFileInfoObj>CRVideo_HttpFileInfoObj</h3>
+<h2 id=CRVideo_HttpFileInfoObj>CRVideo_HttpFileInfoObj</h2>
 
 >Http文件传输状态信息对象
 
@@ -80,7 +78,7 @@
 |state	|CRVideo_HTTP_TRANSFER_STAT|	文件传输状态，详见：[CRVideo_HTTP_TRANSFER_STATE](Constant.md#CRVideo_HTTP_TRANSFER_STATE)|
 
 
-<h3 id=CRVideo_HttpFileInfoObjs>CRVideo_HttpFileInfoObjs</h3>
+<h2 id=CRVideo_HttpFileInfoObjs>CRVideo_HttpFileInfoObjs</h2>
 
 >Http文件传输状态信息对象列表
 
@@ -94,7 +92,7 @@
 
 ```
 
-<h3 id=CRVideo_MediaInfoObj>CRVideo_MediaInfoObj</h3>
+<h2 id=CRVideo_MediaInfoObj>CRVideo_MediaInfoObj</h2>
 
 >影音文件信息
 
@@ -106,7 +104,7 @@
 | state|number       |	播放状态 0:播放 1:暂停 2:未播放	|
 | mediaName|string       |	影音文件名	|
 
-<h3 id=CRVideo_MemberInfo>CRVideo_MemberInfo</h3>
+<h2 id=CRVideo_MemberInfo>CRVideo_MemberInfo</h2>
 
 >成员信息
 
@@ -119,7 +117,7 @@
 |audioStatus|	[CRVideo_ASTATUS](Constant.md#CRVideo_ASTATUS)	|音频状态，数值参考麦克风状态|
 |videoStatus|	[CRVideo_VSTATUS](Constant.md#CRVideo_VSTATUS)|视频状态，数值参考摄像头（视频）状态定义|
 
-<h3 id=CRVideo_QueueInfo>CRVideo_QueueInfo</h3>
+<h2 id=CRVideo_QueueInfo>CRVideo_QueueInfo</h2>
 
 >队列信息
 
@@ -138,7 +136,7 @@
 |desc	|string|	队列描述|
 |prio	|int|	优先级，值越小优先级越高|
 
-<h3 id=CRVideo_QueueStatusObj>CRVideo_QueueStatusObj</h3>
+<h2 id=CRVideo_QueueStatusObj>CRVideo_QueueStatusObj</h2>
 
 >队列状态
 
@@ -155,7 +153,7 @@
 |wait_num	|int|等待人数|
 |srv_num	|int|	正在服务人数|
 
-<h3 id=CRVideo_QueuingInfo>CRVideo_QueuingInfo</h3>
+<h2 id=CRVideo_QueuingInfo>CRVideo_QueuingInfo</h2>
 
 >排队信息
 
@@ -167,7 +165,7 @@
 |position	|string	|我的位置|
 |queuingTime|	string|	我排队的时长（单位s）|
 
-<h3 id=CRVideo_RecordFileInfo>CRVideo_RecordFileInfo</h3>
+<h2 id=CRVideo_RecordFileInfo>CRVideo_RecordFileInfo</h2>
 
 >录制文件信息
 
@@ -182,7 +180,7 @@
 |uploadPercent|	number |	上传进度，state为1时关注此字段|
 |httpUrl| string|文件的http访问地址（只有上传到云屋服务器此字段才有效）|
 
-<h3 id=CRVideo_RecordUploadCfg>CRVideo_RecordUploadCfg</h3>
+<h2 id=CRVideo_RecordUploadCfg>CRVideo_RecordUploadCfg</h2>
 
 >上传配置参数
 
@@ -193,7 +191,7 @@
 |type	|number	|0:云屋网盘（默认），1:http|
 |speakerName	|string	|上传地址|
 
-<h3 id=CRVideo_RecordVideoInfo>CRVideo_RecordVideoInfo</h3>
+<h2 id=CRVideo_RecordVideoInfo>CRVideo_RecordVideoInfo</h2>
 
 >需要录制的视频信息
 
@@ -207,7 +205,7 @@
 |height|	number	|高|
 |param	|object|	附加参数<p>Properties</p><p>Name Type Description</p>type [CRVideo_MIXER_VCONTENT_TYPE](Constant.md#CRVideo_MIXER_VCONTENT_TYPE)	录制类型
 
-<h3 id=CRVideo_ScreenShareCfgObj>CRVideo_ScreenShareCfgObj</h3>
+<h2 id=CRVideo_ScreenShareCfgObj>CRVideo_ScreenShareCfgObj</h2>
 
 >屏幕共享配置对象
 
@@ -222,7 +220,7 @@
 |monitorID|	int|	显视器id，缺省或-1时共享的是主显视器|
 
 
-<h3 id=CRVideo_SessionInfo>CRVideo_SessionInfo</h3>
+<h2 id=CRVideo_SessionInfo>CRVideo_SessionInfo</h2>
 
 >会话信息
 
@@ -239,7 +237,7 @@
 |duration|	number|	房间持续的时长（单位s）|
 
 
-<h3 id=CRVideo_VideoIDsObj>CRVideo_VideoIDsObj</h3>
+<h2 id=CRVideo_VideoIDsObj>CRVideo_VideoIDsObj</h2>
 
 >视频设备对象
 
@@ -252,7 +250,7 @@
 
 
 
-<h3 id=CRVideo_Board>CRVideo_Board</h3>
+<h2 id=CRVideo_Board>CRVideo_Board</h2>
 
 >白板信息
 
@@ -267,7 +265,7 @@
 |height	|number	|白板高度|
 
 
-<h3 id=CRVideo_QueInfo>CRVideo_QueInfo</h3>
+<h2 id=CRVideo_QueInfo>CRVideo_QueInfo</h2>
 
 >队列信息
 
@@ -280,7 +278,7 @@
 |desc	|string|	队列描述|
 |prio	|number|	优先级，值越小优先级越高|
 
-<h3 id=CRVideo_QueStatus>CRVideo_QueStatus</h3>
+<h2 id=CRVideo_QueStatus>CRVideo_QueStatus</h2>
 
 >队列状态
 
@@ -293,7 +291,7 @@
 |wait_num| 	number| 	排队客户数量|
 |srv_num	| number| 	正在服务的客户数量|
 
-<h3 id=CRVideo_QueUser>CRVideo_QueUser</h3>
+<h2 id=CRVideo_QueUser>CRVideo_QueUser</h2>
 
 >队列用户信息
 
@@ -307,7 +305,7 @@
 |queuingTime|	string|	已排队时长（秒）|
 |usrExtDat	|string|	用户排队时携带的扩展数据|
 
-<h3 id=CRVideo_Rect>CRVideo_Rect</h3>
+<h2 id=CRVideo_Rect>CRVideo_Rect</h2>
 
 >区域
 
@@ -320,7 +318,7 @@
 |width	| number| 	区域宽度|
 |height| 	number| 	区域高度|
 
-<h3 id=CRVideo_SubPage>CRVideo_SubPage</h3>
+<h2 id=CRVideo_SubPage>CRVideo_SubPage</h2>
 
 >子功能区信息
 
@@ -331,7 +329,7 @@
 |userID	|number|	用户ID|
 |boardID	|number|	白板id|
 
-<h3 id=CRVideo_ListDocFileRslt>CRVideo_ListDocFileRslt</h3>
+<h2 id=CRVideo_ListDocFileRslt>CRVideo_ListDocFileRslt</h2>
 
 >文档列表
 
@@ -372,7 +370,7 @@
 |orgSize | number|  文件的原始大小|
 |convertStatus | number| 文档的转换状态： 0, 代表转换完成; 1, 代表文档转换中; 2, 代表未转换（或转换失败） |
 
-<h3 id=CRVideo_GetDocPageInfoRslt>CRVideo_GetDocPageInfoRslt</h3>
+<h2 id=CRVideo_GetDocPageInfoRslt>CRVideo_GetDocPageInfoRslt</h2>
 
 >获取文档页信息结果
 
@@ -393,7 +391,7 @@
 |fileList | string[]|  每页文档在服务器上的路径文件名|
 
 
-<h3 id=CRVideo_VirtualBkCfg>CRVideo_VirtualBkCfg</h3>
+<h2 id=CRVideo_VirtualBkCfg>CRVideo_VirtualBkCfg</h2>
 
 >虚拟背景参数
 
@@ -410,7 +408,7 @@
 | bkImgFile  |  string | 背景全路径文件名。（当前只支持jpg格式） |
 
 
-<h3 id=CRVideo_GetMeetingsParam>CRVideo_GetMeetingsParam</h3>
+<h2 id=CRVideo_GetMeetingsParam>CRVideo_GetMeetingsParam</h2>
 
 >获取房间列表的参数
 
@@ -420,7 +418,7 @@
 |:-------- |:-----------|:----------           |
 |QueryMode	|number|	0:查询全部， 1:查询我创建的房间|
 
-<h3 id=CRVideo_CreatInfoObj>CRVideo_CreatInfoObj</h3>
+<h2 id=CRVideo_CreatInfoObj>CRVideo_CreatInfoObj</h2>
 
 >创建房间信息
 
@@ -432,7 +430,7 @@
 |needPswd	|number|	是否创建密码（0:房间无密码，1:系统为房间室创建一个密码）|
 |isRegular	|number|	是否固定房间；（0:普通房间，房间室无人30分钟后，自动消毁; 1:固定房间，房间室一直存在直到用户主动消毁它）|
 
-<h3 id=CRVideo_MixerCfgObj>CRVideo_MixerCfgObj</h3>
+<h2 id=CRVideo_MixerCfgObj>CRVideo_MixerCfgObj</h2>
 
 - **混图器规格配置**
 
@@ -452,7 +450,7 @@
 |gop	|number|	I帧周期(I帧越少码率越小，但直播延时会越大）； 文件录制建议15秒一个I帧取值：frameRate x 15（frameRate的15倍）； 直播建议4秒一个I帧取值: frameRate x 4（frameRate的4倍）;|
 
 
-<h3 id=CRVideo_MutiMixerCfgsObj>CRVideo_MutiMixerCfgsObj</h3>
+<h2 id=CRVideo_MutiMixerCfgsObj>CRVideo_MutiMixerCfgsObj</h2>
 
 - **混图器规格配置列表**
 
@@ -472,7 +470,7 @@
 |id 	|number|	混图器编号|
 |cfg 	|CRVideo_MixerCfgObj|	混图器规格配置，参见[CRVideo_MixerCfgObj](TypeDefinitions.md#CRVideo_MixerCfgObj)|
 
-<h3 id=CRVideo_MixerContentObj>CRVideo_MixerContentObj</h3>
+<h2 id=CRVideo_MixerContentObj>CRVideo_MixerContentObj</h2>
 
 - **混图器内容配置**
 
@@ -525,7 +523,7 @@
 <span style=" color:#00f;">2018-03-01</span> 
 ```
 
-<h3 id=CRVideo_MutiMixerContentsObj>CRVideo_MutiMixerContentsObj</h3>
+<h2 id=CRVideo_MutiMixerContentsObj>CRVideo_MutiMixerContentsObj</h2>
 
 - **混图器内容配置列表**
 
@@ -550,7 +548,7 @@
 |id 	|number|	混图器编号|
 |content 	|CRVideo_MixerContentObj|	混图器内容配置，参见[CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj)|
 
-<h3 id=CRVideo_MixerOutputObj>CRVideo_MixerOutputObj</h3>
+<h2 id=CRVideo_MixerOutputObj>CRVideo_MixerOutputObj</h2>
 
 - **混图器输出配置** 
 
@@ -586,7 +584,7 @@
 
 
 
-<h3 id=CRVideo_MutiMixerOutputsObj>CRVideo_MutiMixerOutputsObj</h3>
+<h2 id=CRVideo_MutiMixerOutputsObj>CRVideo_MutiMixerOutputsObj</h2>
 
 - **混图器输出配置列表** 
 
@@ -610,7 +608,7 @@
 |output  	|混图器输出配置|	参见[CRVideo_MixerOutputObj](TypeDefinitions.md#CRVideo_MixerOutputObj)|
 
 
-<h3 id=CRVideo_MixerOutputInfoObj>CRVideo_MixerOutputInfoObj</h3>
+<h2 id=CRVideo_MixerOutputInfoObj>CRVideo_MixerOutputInfoObj</h2>
 
 - **录制文件、直播信息**  
 
@@ -638,7 +636,7 @@
 >   3:输出对象异常；可以从结构中取得：err参数；
 
 
-<h3 id=CRVideo_MeetInfoObj>CRVideo_MeetInfoObj</h3>
+<h2 id=CRVideo_MeetInfoObj>CRVideo_MeetInfoObj</h2>
 
 >房间对象
 
@@ -665,7 +663,7 @@ memberCount |  房间内人数
 startTime   | 会议开始时间(从1970年1月1日00:00:00起)
 
 
-<h3 id=CRVideo_MeetInfoObjs>CRVideo_MeetInfoObjs</h3>
+<h2 id=CRVideo_MeetInfoObjs>CRVideo_MeetInfoObjs</h2>
 
 >房间对象列表
 
@@ -685,7 +683,7 @@ startTime   | 会议开始时间(从1970年1月1日00:00:00起)
 "memberCount":4},... ]
 ```
 
-<h3 id=CRVideo_MemberObj>CRVideo_MemberObj</h3>
+<h2 id=CRVideo_MemberObj>CRVideo_MemberObj</h2>
 
 >成员对象
 
@@ -703,7 +701,7 @@ nickName        |  用户昵称
 audioStatus     |  音频状态,数值参考麦克风状态[CRVideo_ASTATUS](Constant.md#CRVideo_ASTATUS)
 videoStatus     |  视频状态,数值参考视频状态定义[CRVideo_VSTATUS](Constant.md#CRVideo_VSTATUS)
 
-<h3 id=CRVideo_MembersObj>CRVideo_MembersObj</h3>
+<h2 id=CRVideo_MembersObj>CRVideo_MembersObj</h2>
 
 >成员对象列表
 
@@ -715,7 +713,7 @@ videoStatus     |  视频状态,数值参考视频状态定义[CRVideo_VSTATUS](
 ```
 
 
-<h3 id=CRVideo_VideoCfg>CRVideo_VideoCfg</h3>
+<h2 id=CRVideo_VideoCfg>CRVideo_VideoCfg</h2>
 
 >视频配置
 
@@ -737,7 +735,7 @@ qp_max     |  最差质量(18~51, 越大质量越差) (未配置则使用内部�
 >- maxbps码率控制，是为了确保结果一定不大于“目标码率”（体积受控）；
 >- 当要超出码率控制时，自动降低质量；当质量达到目标时，自动减少码率甚至无码率输出。
 
-<h3 id=CRVideo_VideoImgObj>CRVideo_VideoImgObj</h3>
+<h2 id=CRVideo_VideoImgObj>CRVideo_VideoImgObj</h2>
 
 >视频帧图像
 
@@ -758,7 +756,7 @@ width     |  图像宽度（要求8的倍数）
 height     |  图像高度（要求8的倍数）
 frameTime     |  图像的时戳
 
-<h3 id=CRVideo_VideoInfoObj>CRVideo_VideoInfoObj</h3>
+<h2 id=CRVideo_VideoInfoObj>CRVideo_VideoInfoObj</h2>
 
 >用户视频信息
 
@@ -776,7 +774,7 @@ videoName     |  设备名称
 isIPCamera     |  是否为网络摄像头 （只有获取自已的才有此字段）
 
 
-<h3 id=CRVideo_VideoInfosObj>CRVideo_VideoInfosObj</h3>
+<h2 id=CRVideo_VideoInfosObj>CRVideo_VideoInfosObj</h2>
 
 >用户视频信息列表
 
@@ -789,7 +787,7 @@ isIPCamera     |  是否为网络摄像头 （只有获取自已的才有此字�
 ]
 ```
 
-<h3 id=CRVideo_VideoIDObjs>CRVideo_VideoIDObjs</h3>
+<h2 id=CRVideo_VideoIDObjs>CRVideo_VideoIDObjs</h2>
 
 >用户视频列表
 
@@ -805,7 +803,7 @@ isIPCamera     |  是否为网络摄像头 （只有获取自已的才有此字�
 userID          |  用户id
 videoID       |  设备id
 
-<h3 id=CRVideo_ScreenShareCfgObj>CRVideo_ScreenShareCfgObj</h3>
+<h2 id=CRVideo_ScreenShareCfgObj>CRVideo_ScreenShareCfgObj</h2>
 
 >屏幕共享配置
 
@@ -835,7 +833,7 @@ catchWnd       |  共享窗口的窗口句柄，用于实现窗口共享
 maxFPS       |  最大帧率, 缺省为8 (当网络发不动时，帧率会自动下降)
 maxKbps       | 最大码率，缺省800kbps
 
-<h3 id=CRVideo_RecordVideosObj>CRVideo_RecordVideosObj</h3>
+<h2 id=CRVideo_RecordVideosObj>CRVideo_RecordVideosObj</h2>
 
 >录制视频对象列表
 
@@ -861,7 +859,7 @@ param         |  具体值与type相关；
 
 
 
-<h3 id=CRVideo_RecordVideosObj>CRVideo_RecordVideosObj</h3>
+<h2 id=CRVideo_RecordVideosObj>CRVideo_RecordVideosObj</h2>
 
 >影音文件
 
@@ -875,7 +873,7 @@ userID          |  用户id径
 state       |   播放状态 0:播放 1:暂停 2:未播放
 mediaName       |  影音文件名
 
-<h3 id=CRVideo_PicResourceObj>CRVideo_PicResourceObj</h3>
+<h2 id=CRVideo_PicResourceObj>CRVideo_PicResourceObj</h2>
 
 >图片资源
 
@@ -890,7 +888,7 @@ dat       |   <p>资源数据，不同格式时，要提供的数据各不一样
 width          |  图像宽度(像素), 在fmt为"yuv420p"，"rgb32"时，需要此参数
 height          |  图像高度(像素), 在fmt为"yuv420p"，"rgb32"时，需要此参数
 
-<h3 id=CRVideo_BoardObjs>CRVideo_BoardObjs</h3>
+<h2 id=CRVideo_BoardObjs>CRVideo_BoardObjs</h2>
 
 >白板信息列表
 
@@ -904,7 +902,7 @@ height          |  图像高度(像素), 在fmt为"yuv420p"，"rgb32"时，需�
 ]
 ```
 
-<h3 id=CRVideo_BoardObj>CRVideo_BoardObj</h3>
+<h2 id=CRVideo_BoardObj>CRVideo_BoardObj</h2>
 
 >白板对象
 
@@ -924,7 +922,7 @@ width、height      |  白板的宽、高
 pageCount    |  页数(建议白板是一页，文档是实际页面数)
 
 
-<h3 id=CRVideo_PenColorObj>CRVideo_PenColorObj</h3>
+<h2 id=CRVideo_PenColorObj>CRVideo_PenColorObj</h2>
 
 >白板的画笔颜色值对象
 
@@ -939,7 +937,7 @@ opacity    |  画笔颜色的透明度（0~1的数值）
 color      |   画笔颜色的rgb值（格式为“#ff3030”的字符串）
 
 
-<h3 id=CRVideo_BoardElementObjs>CRVideo_BoardElementObjs</h3>
+<h2 id=CRVideo_BoardElementObjs>CRVideo_BoardElementObjs</h2>
 
 >白板图元列表
 
@@ -953,7 +951,7 @@ color      |   画笔颜色的rgb值（格式为“#ff3030”的字符串）
 ```
 
 
-<h3 id=CRVideo_BoardElementObj>CRVideo_BoardElementObj</h3>
+<h2 id=CRVideo_BoardElementObj>CRVideo_BoardElementObj</h2>
 
 >白板图元
 
@@ -969,7 +967,7 @@ left、top     |  图元在页内的左上角位置
 …    |  可自由扩展
 说明：    | <p>1.elementID必须调用createElementID（）获取, 即使是曾经调此接口创建的然后存入了磁盘文件，再次读入房间时，所有elementID也需要重新生重。</p><p>2.如果要和云屋产品互通，那就需要按云屋的定义取值，可以联系云屋获取相关文档</p>
 
-<h3 id=VideoAttributesObj>VideoAttributesObj</h3>
+<h2 id=VideoAttributesObj>VideoAttributesObj</h2>
 
 >视频设备私有属性
 
@@ -993,7 +991,7 @@ quality2  | 第二档质量配置，支持的属性有：size, maxbps, qp_min, q
 说明：     <p>1.一个摄像头出多档质量的视频流，将带来很大的cpu开销；</p><p>2.quality2、quality3未配置或配为空，代表关闭对应档位视频流；</p><p>3.通过 setVideo2 可以选择观看的视频流； </p>
 
 
-<h3 id=CRVideo_NetworkProxyObj>CRVideo_NetworkProxyObj</h3>
+<h2 id=CRVideo_NetworkProxyObj>CRVideo_NetworkProxyObj</h2>
 
 >网络代理数据
 
@@ -1015,7 +1013,7 @@ pswd    |  使用http代理的密码
 type   | 0：不使用代理，与json串为空一样效果；1：http代理；255：使用IE的代理配置；
 
 
-<h3 id=CRVideo_MeetingAttrObj>CRVideo_MeetingAttrObj</h3>
+<h2 id=CRVideo_MeetingAttrObj>CRVideo_MeetingAttrObj</h2>
 
 >会议属性
 
@@ -1027,7 +1025,7 @@ type   | 0：不使用代理，与json串为空一样效果；1：http代理；2
 
 >key最大长度为64B，value最大长度为8KB（下同）
 
-<h3 id=CRVideo_MeetingAttrObjs>CRVideo_MeetingAttrObjs</h3>
+<h2 id=CRVideo_MeetingAttrObjs>CRVideo_MeetingAttrObjs</h2>
 
 >会议属性列表
 
@@ -1054,7 +1052,7 @@ type   | 0：不使用代理，与json串为空一样效果；1：http代理；2
 
 
 
-<h3 id=CRVideo_UserMeetingAttrObjs>CRVideo_UserMeetingAttrObjs</h3>
+<h2 id=CRVideo_UserMeetingAttrObjs>CRVideo_UserMeetingAttrObjs</h2>
 
 >用户属性列表
 
@@ -1091,7 +1089,7 @@ type   | 0：不使用代理，与json串为空一样效果；1：http代理；2
 ```
 
 
-<h3 id=CRVideo_UserStatus>CRVideo_UserStatus</h3>
+<h2 id=CRVideo_UserStatus>CRVideo_UserStatus</h2>
 
 >用户的在线状态(json格式字符串)
 
@@ -1107,7 +1105,7 @@ userStatus      |  用户的在线状态(0离线 ；1在线空闲 ；2在线忙�
 DNDType      |  用户免打扰状态（0代表关闭免打扰，其它值代表开启免打扰）
 
 
-<h3 id=CRVideo_MeetingAttrOptions>CRVideo_MeetingAttrOptions</h3>
+<h2 id=CRVideo_MeetingAttrOptions>CRVideo_MeetingAttrOptions</h2>
 
 >操作房间属性选项
 

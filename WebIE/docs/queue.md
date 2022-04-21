@@ -1,6 +1,6 @@
 # 排队
 
-## 功能简介
+## 功能介绍
 
 在呼叫中心的业务场景下，有多个客户呼叫进来，有多个坐席提供服务，简单的一对一呼叫无法满足业务需求。此时可以使用我们的排队功能，客户不再直接呼叫某个坐席，而是呼叫到一个坐席队列，由系统自动给客户分配一个空闲的坐席。
 - 多个坐席可以服务于一个队列，客户排队这个队列时，系统会自动分配一个空闲坐席来提供服务。
@@ -15,7 +15,6 @@
 
 :::
 
-
 <h2 id=createQueue>1.创建队列</h2>
 
 可以通过两种方式创建队列：
@@ -23,9 +22,7 @@
 - 第一种是[登录云屋SDK后台](https://sdk.cloudroom.com/mgr_sdk/login.html)并创建。如下图：
  ![登录云屋SDK后台并创建](./images/createQ.png)
 
-- 第二种是通过[Web API](http://sdk.cloudroom.com/sdkdoc/webapi)创建。
-
-
+- 第二种是通过[Web API](/sdk/document/queue/queue_add?platform=serverside)创建。
 
 
 <h2 id=initQueue>2.初始化队列</h2>
@@ -287,13 +284,5 @@ CRVideo_ReqAssignUserRslt.callback = function(sdkErr,user,cookie){
 
 <h2 id=callClient>6.坐席呼叫客户</h2>
 
-- 调用接口：
-
-```js
-//发起呼叫，邀请客户进入房间。
-var callID = CRVideo_Call(UID,meetObj,usrExtDat,cookie)
-```
-
-呼叫相关流程及API请参考:
-* [呼叫功能](call.md)
+接受系统分配的客户后， 就可以向客户发起呼叫处理， 相关流程参见：[呼叫功能](call.md)
 

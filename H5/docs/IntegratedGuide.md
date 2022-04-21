@@ -1,32 +1,12 @@
----
-sidebarDepth: 1
----
-
 # 实现音视频通话
 
-<h2 id=introduction>简介</h2>
+## 简要说明
 
 - 快速创建并进入房间，开始音视频通话；代码部分均为 js 代码，详细代码请参考 SDK包 目录下 Demo 源代码。
 
-- 请先准备[跑通示例项目](BeforeDevelop.md)中的相关内容：1.[Demo下载](BeforeDevelop.md#download)， 2.[准备运行环境](BeforeDevelop.md#firewall)，以及连接相关的麦克风摄像头并确认设备工作正常。
- 
------
+- 请先准备[跑通示例项目](BeforeDevelop.md#download)中的相关内容，并确认音视频设备工作正常。
 
-<h2 id=flow>基本步骤</h2>
-
-基本步骤如下：
-
-1. [初始化SDK](#init)
-1. [登录连接视频服务器](#login)
-1. [创建房间](#create)
-1. [进入房间](#enter)
-1. [打开麦克风/摄像头](#audio)
-1. [观看他人视频](#watchOther)
-1. [退出房间](#exit)
-1. [注销登录](#logout)
-1. [反初始化，退出SDK](#uninit)
-
-<h3 id=init>1. 初始化SDK</h3>
+<h2 id=init>1. 初始化SDK</h2>
 
  初始化是整个SDK的使用基础，通常在程序启动的时候进行初始化([CRVideo_Init](API.md#CRVideo_Init))，退出后进行反初始化([CRVideo_Uninit](API.md#CRVideo_Uninit))，整个程序的生命周期中只进行一次初始化和反初始化。
 
@@ -44,7 +24,7 @@ CRVideo_Init(initObj).then(res => {
 * [CRVideo_Uninit](API.md#CRVideo_Uninit)
 
 
-<h3 id=login>2. 登录连接视频服务器</h3>
+<h2 id=login>2. 登录连接视频服务器</h2>
 
  设置视频服务器地址，然后使用appID和md5加密后的appSecret登录。[(获取App ID及App Secret)](BeforeDevelop.html#getappid)
 
@@ -92,7 +72,7 @@ CRVideo_LineOff.callback=function(sdkErr){
 * [CRVideo_LineOff.callback](API.md#CRVideo_LineOff) （通知，登录掉线）
 
 
-<h3 id=create>3. 创建房间</h3>
+<h2 id=create>3. 创建房间</h2>
 
   创建一个没有密码的，固定的房间
 
@@ -123,7 +103,7 @@ CRVideo_CreateMeetingFail.callback = function(sdkErr,cookie){
 * [CRVideo_CreateMeetingFail](API.md#CRVideo_CreateMeetingFail) （创建房间失败）
 
 
-<h3 id=enter>4. 进入房间</h3>
+<h2 id=enter>4. 进入房间</h2>
 
  用创建成功的房间信息（房间ID）进入房间，其他用户也是利用此房间信息进入该房间。
 
@@ -157,7 +137,7 @@ CRVideo_MeetingDropped.callback = function() {
 *  [CRVideo_MeetingDropped.callback](API.md#CRVideo_MeetingDropped) （通知，从房间中掉线了）
 
 
-<h3 id=audio>5. 打开麦克风/摄像头</h3>
+<h2 id=audio>5. 打开麦克风/摄像头</h2>
 
  接第4步，进入房间成功后，打开自己的麦克风和摄像头，以便本地、远端显示自己的视频图像
 
@@ -188,7 +168,7 @@ myVideoUI.setVideo(UID);    // 将用户的视频画面挂载在UI组件上，�
 
 
 
-<h3 id=watchOther>6. 观看他人视频</h3>
+<h2 id=watchOther>6. 观看他人视频</h2>
 
 成功进入房间后，根据他人登录id ，设置并观看他人视频图像
 
@@ -198,7 +178,7 @@ myVideoUI.setVideo(UID);    // 将用户的视频画面挂载在UI组件上，�
 // 创建成员视频UI显示组件，并订阅某个成员的视频画面
 var otherVideoUI = CRVideo_CreatVideoObj();  // 调用接口，创建视频ui组件
 document.body.appendChild(otherVideoUI.handler()) // 获取组件中的DOM并显示在页面上
-otherVideoUI.setVideo(UID);    // 将成员的视频画面挂载在UI组件上，传入他人的UID。UID可通过接口 CRVideo_GetAllMembers 获取
+otherVideoUI.setVideo(UID);    // 将成员的视频画面挂载在UI组件上。UID可通过CRVideo_GetAllMembers获取，或集成方业务逻辑确定
 ```
 
 相关API请参考：
@@ -207,7 +187,7 @@ otherVideoUI.setVideo(UID);    // 将成员的视频画面挂载在UI组件上�
 
 
 
-<h3 id=exit>7.退出房间</h3>
+<h2 id=exit>7.退出房间</h2>
 
 ```js
 // 退出房间
@@ -222,7 +202,7 @@ CRVideo_DestroyMeeting()
 * [CRVideo_DestroyMeeting](API.md#CRVideo_DestroyMeeting) （销毁房间）
 
 
-<h3 id=logout> 8. 注销登录</h3>
+<h2 id=logout> 8. 注销登录</h2>
 
  ```js
 // 注销本次登录
@@ -233,7 +213,7 @@ CRVideo_Logout()
 * [CRVideo_Logout](API.md#CRVideo_Logout)
 
 
-<h3 id=uninit>9.反初始化，退出SDK</h2>
+<h2 id=uninit>9.反初始化，退出SDK</h2>
 
  执行反初始化后SDK功能不再可用。
 

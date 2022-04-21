@@ -1,6 +1,6 @@
 # 云端直播推流
 
-## 功能简介
+## 功能介绍
 
 用于多个主播实时连麦互动。技术实现上，我们会把房间里多个主播的音视频在服务器合成一路流后推流到CDN流媒体服务器，直播观众可以获取RTMP或HLS流观看直播。
 <p id=layout style="font-weight:normal;">互动直播架构图:  </p>
@@ -12,9 +12,9 @@
 - 获取直播推流地址请参见：[Web API 获取推流地址](https://sdk.cloudroom.com/sdkdoc/live/queryLiveAPI.html)。
 
 
-<h2 id=record_startCloudMixer> 2.开始互动直播</h2>
+<h2 id=record_startCloudMixer> 2.开始云端直播推流</h2>
 
-<p id=layout style="font-weight:normal;">左右布局示例图:  </p>
+- 左右布局示例图：
 
 ![左右布局示例图](./images/layout_2.jpg)
 
@@ -22,12 +22,12 @@
 
 ```csharp
 
-//配置混图器编码参数：1280*720,  15帧
+//配置混图器编码参数：1280*720, 15帧, 推流到rtmp://xxx
 string cloudMixerCfg =
 "{\
     \"mode\": 0,\
     \"videoFileCfg\": {\
-        \"svrPathName\": \"/2021-09-24/2021-09-24_13-47-41_Win32_73542046.mp4\",\
+        \"svrPathName\": \"rtmp://xxx\",\
         \"vWidth\": 1280,\
         \"vHeight\": 720,\
         \"vFps\": 15,\
@@ -70,7 +70,7 @@ string mixerID = axVideoSDK.createCloudMixer(cloudMixerCfg);
 
 <h2 id=record_updateCloudMixerContent> 3.更新互动直播内容</h2>
 
-<p id=layout_overlap style="font-weight:normal;">更新成画中画布局示例图:  </p>
+- 更新成画中画布局示例图：
 
 ![画中画布局示例图](./images/layout_overlap.jpg)
 
@@ -113,11 +113,17 @@ axVideoSDK.updateCloudMixerContent(mixerID, cloudMixerCfg);
 [updateCloudMixerContent](API.md#updateCloudMixerContent)</br>
 
 
-<h2 id=record_stopCloudMixer> 4.停止互动直播</h2>
+<h2 id=record_watch> 4.观众观看直播</h2>
+
+通过 [播放器SDK](https://sdk.cloudroom.com/sdkdoc/live/SDK_summary.html)观看直播。
+
+
+<h2 id=record_stopCloudMixer> 5.停止互动直播</h2>
 
 停止云端直播推流后，会触发事件[cloudMixerStateChanged](API.md#cloudMixerStateChanged)
 
 - 接口调用：
+
 ```csharp
 
 axVideoSDK.destroyCloudMixer();
@@ -128,7 +134,7 @@ axVideoSDK.destroyCloudMixer();
 [cloudMixerStateChanged](API.md#cloudMixerStateChanged)</br>
 
 
-<h2 id=record_vod> 5.回放点播</h2>
+<h2 id=record_vod> 6.回放点播</h2>
 
 通过 [云屋点播API](https://sdk.cloudroom.com/sdkdoc/live/db_summary.html)回放点播。
 

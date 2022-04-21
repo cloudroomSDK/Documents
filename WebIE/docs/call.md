@@ -1,14 +1,9 @@
 # 呼叫
 
-## 功能简介
+## 功能介绍
 
-实现用户之间的呼叫功能，流程是：A用户先创建一个房间，然后呼叫B用户，如果B用户接受呼叫，AB进入房间进行通讯。
-
-:::danger
-
-注意：在登录成功后才可以使用呼叫功能。
-
-:::
+实现用户之间的呼叫功能，流程是：A用户先创建一个房间，然后呼叫B用户，如果B用户接受呼叫，AB进入房间进行通讯。</br>
+<font color="#FF0000">注意：在登录成功后才可以使用呼叫功能</font>
 
 ## 主叫
 
@@ -42,14 +37,7 @@ CRVideo_CreateMeetingFail.callback = function(sdkErr,cookie){
 
 <h3 id=CallerStartcall>2.发起呼叫</h3>
 
-
-:::danger
-
-注意：
-1. 当用户A呼叫用户B时，只有B成功登录了，才可以收到被呼叫通知，否则被呼叫者是无法收到被呼叫的消息的。
-
-:::
-
+<font color="#FF0000">注意：当用户A呼叫用户B时，只有B成功登录了，才可以收到被呼叫通知</font>  
 
 - 调用接口：
 
@@ -102,6 +90,7 @@ CRVideo_NotifyCallAccepted.call = function(callID,meetObj,usrExtDat){
     //A此时可以进入房间
     CRVideo_EnterMeeting(meetObj.ID, meetObj.pswd, UID, nickName, cookie);
 }
+
 //当 B 拒绝呼叫时，A会收到如下通知：
 CRVideo_NotifyCallRejected.call = function(callID,meetObj,usrExtDat){
     console.log("客户拒绝呼叫了");
@@ -163,11 +152,11 @@ CRVideo_NotifyCallHungup.callback = function(callID,usrExtDat)
 ```
 
 相关API请参考:
-   - [CRVideo_HungupCall](API.md#CRVideo_HungupCall)   
-   - [CRVideo_ExitMeeting](API.md#CRVideo_ExitMeeting)
-   - [CRVideo_HangupCallSuccess](API.md#CRVideo_HangupCallSuccess)
-   - [CRVideo_HangupCallFail](API.md#CRVideo_HangupCallFail)
-   - [CRVideo_NotifyCallHungup](API.md#CRVideo_NotifyCallHungup)
+- [CRVideo_HungupCall](API.md#CRVideo_HungupCall)   
+- [CRVideo_ExitMeeting](API.md#CRVideo_ExitMeeting)
+- [CRVideo_HangupCallSuccess](API.md#CRVideo_HangupCallSuccess)
+- [CRVideo_HangupCallFail](API.md#CRVideo_HangupCallFail)
+- [CRVideo_NotifyCallHungup](API.md#CRVideo_NotifyCallHungup)
 
 
 
@@ -267,6 +256,6 @@ CRVideo_SetDNDStatusFail.callback=function(sdkErr, cookie){
 ```
 
 相关API请参考:
-   - [CRVideo_SetDNDStatus](API.md#CRVideo_SetDNDStatus)
-   - [CRVideo_SetDNDStatusSuccess](API.md#CRVideo_SetDNDStatusSuccess) 
-   - [CRVideo_SetDNDStatusFail](API.md#CRVideo_SetDNDStatusFail) 
+- [CRVideo_SetDNDStatus](API.md#CRVideo_SetDNDStatus)
+- [CRVideo_SetDNDStatusSuccess](API.md#CRVideo_SetDNDStatusSuccess) 
+- [CRVideo_SetDNDStatusFail](API.md#CRVideo_SetDNDStatusFail) 

@@ -1,26 +1,21 @@
----
-sidebarDepth: 1
----
-
 # 回调服务
 
 ## 说明
 
 回调服务会以 HTTP 请求形式向你发送回调，回调的具体内容在请求包体中以 JSON 对象形式返回，根据事件不同，请求包体中 JSON 对象所包含的字段也不一样。使用回调服务之前需要先在管理后台配置回调服务的地址和需要回调的功能。
 
+```json
 {
-
-​	"EventType": "",
-
-​	"Time": ,
-
-​	"Signature": "",
-
-​	"Details": {
-
-​	}
-
+	"EventType": "",
+	"Time":,
+	"Signature": "",
+	"Details":{
+	
+	}
 }
+```
+
+
 
 字段说明
 
@@ -57,6 +52,7 @@ sidebarDepth: 1
     </tbody>
 </table>
 
+
 事件说明
 
 <table>
@@ -90,6 +86,7 @@ sidebarDepth: 1
     </tbody>
 </table>
 
+
 ## 创建房间回调
 
 字段说明
@@ -115,21 +112,20 @@ sidebarDepth: 1
 
 示例
 
+```json
 {
-
-​	"EventType": "ROOM_CREATE",
-
-​	"Time": 1624356396 ,
-
-​	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
-
-​	"Details": {
-
-​		"RoomId": 12345678
-
-​	}
-
+	"EventType": "ROOM_CREATE",
+	"Time": 1624356396 ,
+	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
+	"Details": {
+		"RoomId": 12345678
+	}
 }
+```
+
+
+
+
 
 ## 销毁房间回调
 
@@ -156,21 +152,20 @@ sidebarDepth: 1
 
 示例
 
+```json
 {
-
-​	"EventType": "ROOM_DELETE",
-
-​	"Time": 1624356396 ,
-
-​	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
-
-​	"Details": {
-
-​		"RoomId": 12345678
-
-​	}
-
+	"EventType": "ROOM_DELETE",
+	"Time": 1624356396 ,
+	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
+	"Details": {
+		"RoomId": 12345678
+	}
 }
+```
+
+
+
+
 
 ## 加入房间回调
 
@@ -203,23 +198,21 @@ sidebarDepth: 1
 
 示例
 
+```json
 {
-
-​	"EventType": "ROOM_JOIN",
-
-​	"Time": 1624356396 ,
-
-​	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
-
-​	"Details": {
-
-​		"RoomId": 12345678,
-
-​		"UID": "UID123456"
-
-​	}
-
+	"EventType": "ROOM_JOIN",
+	"Time": 1624356396 ,
+	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
+	"Details": {
+		"RoomId": 12345678,
+		"UID": "UID123456"
+	}
 }
+```
+
+
+
+
 
 ## 离开房间回调
 
@@ -252,23 +245,21 @@ sidebarDepth: 1
 
 示例
 
+```json
 {
-
-​	"EventType": "ROOM_LEAVE",
-
-​	"Time": 1624356396 ,
-
-​	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
-
-​	"Details": {
-
-​		"RoomId": 12345678,
-
-​		"UID": "UID123456"
-
-​	}
-
+	"EventType": "ROOM_LEAVE",
+	"Time": 1624356396 ,
+	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
+	"Details": {
+		"RoomId": 12345678,
+		"UID": "UID123456"
+	}
 }
+```
+
+
+
+
 
 ## 录制完成回调
 
@@ -307,25 +298,20 @@ sidebarDepth: 1
 
 示例
 
+```json
 {
-
-​	"EventType": "RECORD_FINISH",
-
-​	"Time": 1624356396 ,
-
-​	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
-
-​	"Details": {
-
-​		"RoomId": 12345678,
-
-​		"DirPath": "/",
-
-​		"FileName": "12345678.mp4"
-
-​	}
-
+	"EventType": "RECORD_FINISH",
+	"Time": 1624356396 ,
+	"Signature": "c8ac997a192f6ce3fc290d3a81b81c34",
+	"Details": {
+		"RoomId": 12345678,
+		"DirPath": "/",
+		"FileName": "12345678.mp4"
+	}
 }
+```
+
+
 
 
 

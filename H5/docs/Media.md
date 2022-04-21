@@ -1,37 +1,14 @@
----
-sidebarDepth: 1
----
-
 # 影音播放
 
-<h2 id=introduction>功能简介</h2>
+## 功能介绍
 
-把本地的一个视频文件播放给房间内其他用户观看，播放进度完全由播放端控制。  
-影音播放功能介绍分为播放端和观看端两部分。
-
-<font color="#FF0000">注意：一个房间中同一时间只支持进行一个影音播放。支持的影音格式因浏览器不同而不同。</font>
-
--------
-
-播放端：
-
- 1. [创建影音播放组件](#play_create)
- 1. [开始播放并观看影音](#cfg)
- 1. [设置播放进度](#pos)
- 1. [暂停、停止播放](#play)
+把一个本地视频文件、或网络流媒体播放给房间内其他用户观看，支持暂停、设置放位置等；</br>
+支持的影音文件格式有： mp4、mp3、webm格式；</br>
+一个房间中同一时间只支持进行一个影音播放；</br>
 
 
-观看端：
 
-1. [创建影音播放组件](#watch_create)
-1. [观看影音](#watch)
-1. [影音停止播放通知](#stopNotify)
-
-两端通用的功能
-
-1. [播放信息](#list)
-
-<h2 id=role_play>播放端</h2> 
+<h2 id=role_play>播放端</h2>
 
 <h3 id=play_create>1.创建影音播放组件</h3> 
 
@@ -48,7 +25,6 @@ var mediaObj = CRVideo_CreatMediaObj({
 <h3 id=cfg>2.开始播放并观看影音</h3> 
 
 每次只能播放一个视频，停止正在播放的视频才能播放下一个视频。通过设置播放配置，还可以控制房间内其他人看到的效果。
-
 
 - 接口调用：
 
@@ -130,13 +106,15 @@ var mediaObj = CRVideo_CreatMediaObj({
     loop: true, //视频是否循环播放 
 });
 ```
+
 相关API请参考：
 * [CRVideo_CreatMediaObj](API.md#CRVideo_CreatMediaObj)
 
 <h3 id=watch>2.观看影音</h3> 
 
+观看端收到开始播放影音的通知后显示影音播放组件，即可观看影音。
+
 ```js
-//观看端和播放端都会收到开始播放影音的通知。此时显示影音播放组件，即可观看影音
 CRVideo_NotifyMediaStart.callback = function(userid){
     mediaObj.setVideo(userid);  //将别人开启的共享，需要setVideo。如果是自己开启的共享，无需设置
     document.body.appendChlid(mediaObj.handler());  //把创建的组件放入DOM树中
@@ -159,20 +137,5 @@ CRVideo_NotifyMediaStop.callback = function(){
 ```
 
 
-<h2 id=all>两端通用的功能 </h2>
-
-<h3 id=list>播放信息</h3>
-
-- 调用接口：
-
-```js
-// 取得影音文件信息
-var mediaInfo =  CRVideo_Getmediainfo(UID)
-
-```
-
-相关API请参考:
-* [CRVideo_Getmediainfo](API.md#CRVideo_Getmediainfo)
-
-相关结构定义请参考:
-* [CRVideo_MediaInfoObj](TypeDefinitions.md#CRVideo_MediaInfoObj)
+相关API请参考：
+* [CRVideo_NotifyMediaStop](API.md#CRVideo_NotifyMediaStop)

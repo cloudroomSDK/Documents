@@ -1,32 +1,15 @@
----
-sidebarDepth: 1
----
-
 # 呼叫
 
-<h2 id=introduction>功能简介</h2>
+## 功能介绍
 
-实现了用户之间的呼叫功能，流程是：A用户先创建一个房间，然后呼叫B用户，如果B用户接受呼叫，AB进入房间进行通讯。
+实现用户之间的呼叫功能，流程是：A用户先创建一个房间，然后呼叫B用户，如果B用户接受呼叫，AB进入房间进行通讯。
 
 <font color="#FF0000">注意：在登录成功后才可以使用呼叫功能</font>
 
------
 
-<h2 id=flow>呼叫流程</h2>
-
-呼叫功能使用流程如下：
-
-1. [创建房间](#creat)
-1. [发起呼叫](#startCall)
-1. [接受/拒绝呼叫](#accept)
-1. [挂断](#hangup)
-1. [免打扰](#DND)
-
+## 主叫
 
 <h3 id=creat>1.创建房间</h3>
-
-
-输入房间标题，创建一个没有密码的房间
 
 - 调用接口：
 
@@ -134,7 +117,6 @@ CRVideo_NotifyCallRejected.call = function(callID,meetObj,usrExtDat){
 
 <h3 id=hangup>4.挂断</h3>
 
-
 - 调用接口：
 
 ```js
@@ -171,7 +153,67 @@ CRVideo_NotifyCallHungup.callback = function(callID, usrExtDat){
    - [CRVideo_NotifyCallHungup](API.md#CRVideo_NotifyCallHungup)
 
 
-<h3 id=DND>5.免打扰</h3>
+
+## 被叫
+
+<h3 id=called>1.被呼叫</h3>
+
+- 回调通知：
+
+```csharp
+// SDK通知用户 B 被他人 （即callerID） 呼叫
+CRVideo_NotifyCallIn.callback = function(callID,MeetInfoObj,callerID,userExtDat){
+}
+```
+
+相关API请参考:
+* [CRVideo_NotifyCallIn](API.md#CRVideo_NotifyCallIn)
+
+
+<h3 id=accept_rehect_Call>2.接受/拒绝呼叫</h3>
+
+- 调用接口： 
+
+```csharp
+//接受呼叫
+CRVideo_AcceptCall(callID, meetObj, "","");
+//拒绝呼叫
+CRVideo_RejectCall(callID, "", "");
+```
+
+- 回调通知：
+
+```csharp
+ 
+CRVideo_AcceptCallSuccess.callback = function(callID,cookie){
+	//接受呼叫成功处理
+}
+
+
+CRVideo_AcceptCallFail.callback = function(callID,sdkErr,cookie){
+	//接受呼叫失败处理
+}
+
+CRVideo_RejectCallSuccess.callback = function(callID,cookie){
+	//拒绝成功处理
+}
+
+CRVideo_RejectCallFail.callback = function(callID,sdkErr,cookie){
+	//拒绝失败处理
+}
+
+```
+
+被呼叫者相关API请参考:
+* [CRVideo_AcceptCall](API.md#CRVideo_AcceptCall)
+* [CRVideo_AcceptCallSuccess](API.md#CRVideo_AcceptCallSuccess)
+* [CRVideo_AcceptCallFail](API.md#CRVideo_AcceptCallFail)
+* [CRVideo_RejectCall](API.md#CRVideo_RejectCall)
+* [CRVideo_RejectCallSuccess](API.md#CRVideo_RejectCallSuccess)
+* [CRVideo_RejectCallFail](API.md#CRVideo_RejectCallFail)
+
+
+<h3 id=DND>3.免打扰</h3>
 
 
 如果用户当前不希望被呼叫，可以把自己的状态设置为免打扰，注意在免打扰状态下不会被呼叫，但是可以主动发起呼叫。

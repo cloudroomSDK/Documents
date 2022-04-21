@@ -1,6 +1,6 @@
 #  对象结构定义
 
-<h3 id=SdkInitDat> SdkInitDat</h3>
+<h2  id=SdkInitDat> SdkInitDat</h2>
 
 ><font size=4>Sdk初始化数据实体类</font>
 
@@ -15,7 +15,7 @@
 | datEncType  | NSString | 数据加密类型(0:敏感数据加密，1:全面加密; 缺省:1)    |
 | isMultiDelegate  | BOOL | 配置是否启用多代理模式    |
 
-<h3 id=LoginDat> LoginDat</h3>
+<h2  id=LoginDat> LoginDat</h2>
 
 ><font size=4>登录数据实体类</font>
 
@@ -28,7 +28,7 @@
 | privAuthCode  | NSString | 默认填空。只有开启第三方认证才需要填写。（开启第三方认证时，云屋SDK服务器将连接提前配好的业务方服务器进行实时验证。）   |
 | param  | NSString | 用户扩展信息    |
 
-<h3 id=MeetInfo>MeetInfo</h3>
+<h2  id=MeetInfo>MeetInfo</h2>
 
 ><font size=4>房间对象数据类</font>
 
@@ -40,7 +40,7 @@
 | pubMeetUrl  | NSString | 房间公共链接    |
 | hostPswd  | NSString | 主持人密码    |
 
-<h3 id=UserStatus>UserStatus</h3>
+<h2  id=UserStatus>UserStatus</h2>
 
 ><font size=4>用户状态</font>
 
@@ -50,7 +50,7 @@
 | userStatus  | CLIENT_STATUS | 用户的在线状态，参见[CLIENT_STATUS](Constant.md#CLIENT_STATUS)    |
 | DNDType  | int | 用户免打扰状态，参见[setDNDStatus](Apis.md#setDNDStatus)    |
 
-<h3 id=MemberInfo>MemberInfo</h3>
+<h2  id=MemberInfo>MemberInfo</h2>
 
 ><font size=4>房间成员信息</font>
 
@@ -61,7 +61,7 @@
 | audioStatus | int |  音频状态   |
 | videoStatus | int |  视频状态   |
 
-<h3 id=AudioCfg>AudioCfg</h3>
+<h2  id=AudioCfg>AudioCfg</h2>
 
 ><font size=4>音频配置</font>
 
@@ -73,7 +73,7 @@
 | ans | int | 是否开启降噪，0：不开启；1：开启（默认值） |
 | aec | int | 是否开启回声消除，0：不开启；1：开启（默认值） |
 
-<h3 id=VideoCfg>VideoCfg</h3>
+<h2  id=VideoCfg>VideoCfg</h2>
 
 ><font size=4>视频配置</font>
 
@@ -92,7 +92,7 @@
 	+ maxbps码率控制，是为了确保结果一定不大于“目标码率”（体积受控）, 当要超出码率控制时，自动降低质量；当质量达到目标时，自动减少码率甚至无码率输出 注：使用硬编时第二点是无效的。
 
 
-<h3 id=CamAttribute>CamAttribute</h3>
+<h2  id=CamAttribute>CamAttribute</h2>
 
 ><font size=4>视频设备私有属性</font>
 
@@ -107,7 +107,7 @@
 	+ 一个摄像头出多档质量的视频流，将带来很大的cpu开销；
 	+ 通过setUsrVideoId可以选择观看的视频流；
 
-<h3 id=RawFrame>VideoFrame</h3>
+<h2  id=RawFrame>VideoFrame</h2>
 
 ><font size=4>视频帧图像</font>
 
@@ -121,7 +121,7 @@
 | frameHeight  | int |   图像高度   |
 | frmTime  | unsigned long long |   图像的时间戳   |
 
-<h3 id=UsrVideoInfo>UsrVideoInfo</h3>
+<h2  id=UsrVideoInfo>UsrVideoInfo</h2>
 
 ><font size=4>用户视频信息</font>
 
@@ -130,7 +130,7 @@
 | videoDevPath  | NSString |    设备路径   |
 | videoName  | NSString |     设备名称   |
 
-<h3 id=UsrVideoId>UsrVideoId</h3>
+<h2  id=UsrVideoId>UsrVideoId</h2>
 
 ><font size=4>用户摄像头</font>
 
@@ -139,7 +139,7 @@
 | userId  | NSString |    用户id   |
 | videoID  | short |    设备id   |
 
-<h3 id=ScreenShareImg>ScreenShareImg</h3>
+<h2  id=ScreenShareImg>ScreenShareImg</h2>
 
 ><font size=4>屏幕共享帧图像</font>
 
@@ -150,7 +150,7 @@
 | rgbWidth  | int |    图像宽度   |
 | rgbHeight  | int |    图像高度   |
 
-<h3 id=MixerCfg>MixerCfg</h3>
+<h2  id=MixerCfg>MixerCfg</h2>
 
 ><font size=4>混图器规格配置</font>
 
@@ -192,7 +192,7 @@
 		
 	+ MIXVTP_TEXT时，width和height可为0，此时元素大小由文本信息自动确定
 
-<h3 id=MixerOutputCfg>OutputCfg</h3>
+<h2  id=MixerOutputCfg>OutputCfg</h2>
 
 ><font size=4>录制文件、直播信息输出信息</font>
 
@@ -208,7 +208,7 @@
 | errRetryTimes  | int |    失败时重试次数CRVSDK_EXPORT   |
 
 
-<h3 id=OutputInfo>OutputInfo</h3>
+<h2  id=OutputInfo>OutputInfo</h2>
 
 ><font size=4>录制文件、直播信息通知</font>
 
@@ -227,7 +227,7 @@
 	+ 输出对象异常；可以从结构中取得err参数；
 
 
-<h3 id=YWMixerContent>MixerContent</h3>
+<h2  id=YWMixerContent>MixerContent</h2>
 
 ><font size=4>混图器内容配置</font>
 
@@ -235,7 +235,7 @@
 |:-------- |:-----------|:----------|
 | contents  | NSMutableArray&lt;RecContentItem* *&gt;* * |    混图器内容   |
 
-<h3 id=YWMixerOutput>MixerOutput</h3>
+<h2  id=YWMixerOutput>MixerOutput</h2>
 
 ><font size=4>混图器输出配置</font>
 
@@ -244,7 +244,7 @@
 | outputs  | NSMutableArray&lt;OutputCfg* *&gt;* * |    混图器输出配置   |
 
 
-<h3 id=RecordFileInfo>RecordFileInfo</h3>
+<h2  id=RecordFileInfo>RecordFileInfo</h2>
 
 ><font size=4>录制文件</font>
 
@@ -284,7 +284,7 @@
     </tbody>
 </table>
 
-<h3 id=RecordFileShow>RecordFileShow</h3>
+<h2  id=RecordFileShow>RecordFileShow</h2>
 
 ><font size=4>录制文件</font>
 
@@ -295,7 +295,7 @@
 | state  | RECORD_FILE_STATE |    文件状态，详见定义RECORD_FILE_STATE  |
 | uploadPercent  | int |    录制结果中视频尺寸高度上传进度  |
 
-<h3 id=MediaInfo>MediaInfo</h3>
+<h2  id=MediaInfo>MediaInfo</h2>
 
 ><font size=4>影音文件信息</font>
 
@@ -306,14 +306,14 @@
 | mediaName  | NSString  |    影音文件名  |
 
 
-<h3 id=ScreenShareCfg>屏幕共享配置对象</h3>
+<h2  id=ScreenShareCfg>屏幕共享配置对象</h2>
 
 | 成员变量        | 类型         |   说明               |
 |:-------- |:-----------|:----------           |
 |maxFPS	|int|	帧率, 缺省为8 （当网络发不动时，帧率会自动下降）|
 |maxBps|	int|	最大码率，缺省为800kbps|
 
-<h3 id=MediaDataFrame>MediaDataFrame</h3>
+<h2  id=MediaDataFrame>MediaDataFrame</h2>
 
 ><font size=4>影音帧图像</font>
 
@@ -326,7 +326,7 @@
 | fmt  | int |    图像格式  |
 | ms  | int64_t |   pts   |
 
-<h3 id=SubPage>SubPage</h3>
+<h2  id=SubPage>SubPage</h2>
 
 ><font size=4>白板</font>
 
@@ -335,7 +335,7 @@
 | termID  | short |   终端ID  |
 | localID  | short |   本地D  |
 
-<h3 id=SubPageInfo>SubPageInfo</h3>
+<h2  id=SubPageInfo>SubPageInfo</h2>
 
 ><font size=4>白板信息</font>
 
@@ -350,7 +350,7 @@
 | pagePos1  | int  |扩展参数1  |
 | pagePos2  | int  |扩展参数2  |
 
-<h3 id=BoardElement>BoardElement</h3>
+<h2  id=BoardElement>BoardElement</h2>
 
 >白板图元
 
@@ -375,7 +375,7 @@
 
 :::
 
-<h3 id=FileInfo>FileInfo</h3>
+<h2  id=FileInfo>FileInfo</h2>
 
 ><font size=4>网盘文件</font>
 
@@ -391,7 +391,7 @@
 | orgSize  | int | 原始文件大小(单位B，类型ulong)  |
 | status  | int | 文件状态  |
 
-<h3 id=DiskSummary>DiskSummary</h3>
+<h2  id=DiskSummary>DiskSummary</h2>
 
 ><font size=4>网盘容量信息</font>
 
@@ -400,7 +400,7 @@
 | confDiskLimit  | int | 网盘总容量（KB）  |
 | confDiskUsed  | int | 网盘已用容量（KB）  |
 
-<h3 id=QueueInfo>QueueInfo</h3>
+<h2  id=QueueInfo>QueueInfo</h2>
 
 ><font size=4>队列信息</font>
 
@@ -411,7 +411,7 @@
 | desc  | NSString | 队列描述  |
 | prio  | int | 优先级，值越小优先级越高  |
 
-<h3 id=QueueStatus>QueueStatus</h3>
+<h2  id=QueueStatus>QueueStatus</h2>
 
 ><font size=4>队列状态</font>
 
@@ -422,7 +422,7 @@
 | wait_num  | int | 排队客户数量   |
 | srv_num  | int | 正在服务的客户数量   |
 
-<h3 id=QueuingInfo>QueuingInfo</h3>
+<h2  id=QueuingInfo>QueuingInfo</h2>
 
 ><font size=4>排队信息</font>
 
@@ -432,7 +432,7 @@
 | position  | int | 我的位置   |
 | queuingTime  | int | 我排队的时长(单位s)   |
 
-<h3 id=VideoSessionInfo>VideoSessionInfo</h3>
+<h2  id=VideoSessionInfo>VideoSessionInfo</h2>
 
 ><font size=4>会话信息</font>
 
@@ -446,7 +446,7 @@
 | meetingPswd | NSString  | 房间密码   |
 | duration |  int  | 会话持续的时长(秒)   |
 
-<h3 id=UserInfo>UserInfo</h3>
+<h2  id=UserInfo>UserInfo</h2>
 
 ><font size=4>队列用户</font>
 
@@ -457,7 +457,7 @@
 | name  | NSString | 用户昵称 |
 | queuingTime  | int | 用户排队的时长(单位s) |
 
-<h3 id=HttpReqInfo>HttpReqInfo</h3>
+<h2  id=HttpReqInfo>HttpReqInfo</h2>
 
 ><font size=4>Http文件传输请求对象</font>
 
@@ -469,7 +469,7 @@
 | params  |  NSString  |   特殊参数(如边录边传,云屋加密类型)  |
 | bUploadType  |  BOOL  |  是否上传  |
 
-<h3 id=FileTransInfo>FileTransInfo</h3>
+<h2  id=FileTransInfo>FileTransInfo</h2>
 
 ><font size=4>Http传输信息对象</font>
 
@@ -479,7 +479,7 @@
 | finishedSize  |  int  |  已传输大小 |
 | state  |  HTTP_TRANSFER_STATE  |  文件传输状态，详见[HTTP_TRANSFER_STATE](Constant.md#HTTP_TRANSFER_STATE)  |
 
-<h3 id=NetDiskDocDir>NetDiskDocDir</h3>
+<h2  id=NetDiskDocDir>NetDiskDocDir</h2>
 
 ><font size=4>文档列表</font>
 
@@ -489,7 +489,7 @@
 | files  | &lt;FileInfo *&gt;*  |  查询目录下的所有文件  |
 | dirs  |  &lt;NetDiskDocDir *&gt;* |  查询目录下的所有目录  |
 
-<h3 id=GetDocPageInfoRslt>GetDocPageInfoRslt</h3>
+<h2  id=GetDocPageInfoRslt>GetDocPageInfoRslt</h2>
 
 ><font size=4>获取文档页信息结果</font>
 

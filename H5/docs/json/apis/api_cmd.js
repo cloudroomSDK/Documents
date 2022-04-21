@@ -28,7 +28,7 @@ module.exports = [{
       param: 'data',
       type: 'String',
       necessary: '是',
-      explain: '要发送的数据，字符串'
+      explain: '要发送的数据，字符串(最大64KB)'
     }, commonCookie],
     attent: `
 > 发送点对点消息不需要进入房间，但是需要登录呼叫系统，即 [init](#CRVideo_Init) 时 isCallSer 参数的值不能为false
@@ -50,12 +50,11 @@ module.exports = [{
       param: 'data',
       type: 'String',
       necessary: '是',
-      explain: '要发送的数据'
+      explain: '要发送的数据(最大100MB)'
     }, commonCookie],
     attent: `
 > 发送进度通知 [CRVideo_SendProgress.callback](#CRVideo_SendProgress)
-> 发送结果回调 [CRVideo_SendBufferRslt.callback](#CRVideo_SendBufferRslt)
-      `
+> 发送结果回调 [CRVideo_SendBufferRslt.callback](#CRVideo_SendBufferRslt)`
   }
 }, {
   interface: "CRVideo_SendFile",
@@ -77,8 +76,7 @@ module.exports = [{
     }, commonCookie],
     attent: `
 > 发送进度通知 [CRVideo_SendProgress.callback](#CRVideo_SendProgress)
-> 发送结果回调 [CRVideo_SendFileRslt.callback](#CRVideo_SendFileRslt)
-      `
+> 发送结果回调 [CRVideo_SendFileRslt.callback](#CRVideo_SendFileRslt)`
   }
 }, {
   interface: "CRVideo_CancelSend",

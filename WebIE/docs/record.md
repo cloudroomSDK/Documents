@@ -16,7 +16,6 @@
 
 ![左右布局示例图](./images/layout_2.jpg)
 
-
 - 接口调用：
 
 ```js
@@ -38,7 +37,7 @@ var mixerCfg = {"width":recordWidth,
                 "gop":120
                 };
 
-//配置混图器内容： 左右布局(示例图如下)，左边为user1的1号摄像头， 右边为user2的1号摄像头
+//配置混图器内容： 左右布局(示例图如下)，左边为user1的默认摄像头， 右边为user2的默认摄像头
 var mixerContent = [];
 var leftCon = {}, rightCon = {};  //左右视频图像的内容配置
 leftCon["type"] = 0; //0： 录制类型为视频
@@ -46,7 +45,7 @@ leftCon["left"] = 0 ;
 leftCon["top"] = (recordHeight-sHeight/2)/2;   //视频图像垂直居中
 leftCon["width"] = sWidth/2;
 leftCon["height"] =  sHeight/2;
-leftCon["param"] = {"camid":"user1.1"};
+leftCon["param"] = {"camid":"user1.-1"};
 leftCon["keepAspectRatio"] = 1;
 mixerContent.push(leftCon);
 
@@ -55,7 +54,7 @@ rightCon["left"] = sWidth/2;
 rightCon["top"] = (recordHeight-sHeight/2)/2;   //视频图像垂直居中
 rightCon["width"] = sWidth/2;
 rightCon["height"] =  sHeight/2;
-rightCon["param"] = {"camid":"user2.1"};
+rightCon["param"] = {"camid":"user2.-1"};
 rightCon["keepAspectRatio"] = 1;
 mixerContent.push(rightCon);
 							               
@@ -184,7 +183,7 @@ var SHeight = recordWidth/rate;
 
 //更新录制布局为：画中画
 
-//混图器内容：画中画布局(示例图如下， 底层640*360， 上层160*90)，底层为user1的1号摄像头， 上层为user2的1号摄像头
+//混图器内容：画中画布局(示例图如下， 底层640*360， 上层160*90)，底层为user1的默认摄像头， 上层为user2的默认摄像头
 var mixerContent = [];
 var leftCon = {}, rightCon = {};  //左右视频图像的内容配置
 leftCon["type"] = 0; //0： 录制类型为视频
@@ -192,7 +191,7 @@ leftCon["left"] = 0 ;
 leftCon["top"] = 0;   //视频图像垂直居中
 leftCon["width"] = sWidth;
 leftCon["height"] =  sHeight;
-leftCon["param"] = {"camid":"user1.1"};
+leftCon["param"] = {"camid":"user1.-1"};
 leftCon["keepAspectRatio"] = 1;
 mixerContent.push(leftCon);
 
@@ -201,7 +200,7 @@ rightCon["left"] = sWidth - 160 - 5;  //上层图像距离最右边 5px
 rightCon["top"] = sHeight - 90 -5;   //上层图像距离最下边 5px
 rightCon["width"] = 160;
 rightCon["height"] = 90;
-rightCon["param"] = {"camid":"user2.1"};
+rightCon["param"] = {"camid":"user2.-1"};
 rightCon["keepAspectRatio"] = 1;
 mixerContent.push(rightCon);
 

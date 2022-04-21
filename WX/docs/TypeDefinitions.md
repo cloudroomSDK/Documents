@@ -1,6 +1,6 @@
 # 类型定义
 
-<h3 id=CRVideo_InitObj>CRVideo_InitObj</h3>
+<h2 id=CRVideo_InitObj>CRVideo_InitObj</h2>
 
 > 初始化配置
 
@@ -12,7 +12,7 @@
 | isCallSer |boolean	    |	  	是否启用callSer模块。如需用到透明通道、呼叫、队列等功能需要开启   |
 
 
-<h3 id=CRVideo_MediaInfoObj>CRVideo_MediaInfoObj</h3>
+<h2 id=CRVideo_MediaInfoObj>CRVideo_MediaInfoObj</h2>
 
 >影音文件信息
 
@@ -24,7 +24,7 @@
 | state|number       |	播放状态 0:播放 1:暂停 2:未播放	|
 | mediaName|string       |	影音文件名	|
 
-<h3 id=CRVideo_MemberInfo>CRVideo_MemberInfo</h3>
+<h2 id=CRVideo_MemberInfo>CRVideo_MemberInfo</h2>
 
 >成员信息
 
@@ -37,7 +37,7 @@
 |audioStatus|	[CRVideo_ASTATUS](Constant.md#CRVideo_ASTATUS)	|音频状态，数值参考麦克风状态|
 |videoStatus|	[CRVideo_VSTATUS](Constant.md#CRVideo_VSTATUS)|视频状态，数值参考摄像头（视频）状态定义|
 
-<h3 id=CRVideo_QueueInfo>CRVideo_QueueInfo</h3>
+<h2 id=CRVideo_QueueInfo>CRVideo_QueueInfo</h2>
 
 >队列信息
 
@@ -51,7 +51,7 @@
 |prio	|number|	优先级，值越小优先级越高|
 
 
-<h3 id=CRVideo_ClientStatus>CRVideo_ClientStatus</h3>
+<h2 id=CRVideo_ClientStatus>CRVideo_ClientStatus</h2>
 
 >客户状态
 
@@ -63,7 +63,7 @@
 |queuingInfo	|object	|当前排队状态，若无该字段则当前不在排队，属性参考[CRVideo_QueuingInfo](#CRVideo_QueuingInfo)|
 
 
-<h3 id=CRVideo_ServingStatus>CRVideo_ServingStatus</h3>
+<h2 id=CRVideo_ServingStatus>CRVideo_ServingStatus</h2>
 
 >客户状态
 
@@ -74,7 +74,7 @@
 |callInfo	|object	|呼叫状态，若无该字段则不在呼叫，属性参考[CRVideo_SessionInfo](#CRVideo_SessionInfo)|
 |queIDs	|array	|当前服务的队列数组|
 
-<h3 id=CRVideo_UserStatus>CRVideo_UserStatus</h3>
+<h2 id=CRVideo_UserStatus>CRVideo_UserStatus</h2>
 
 >用户在线状态
 
@@ -86,7 +86,7 @@
 |userStatus	|number	|用户的在线状态(0离线 ；1在线空闲 ；2在线忙碌；3在线房间中)|
 |isDND|number|	用户免打扰状态（0代表关闭免打扰，其它值代表开启免打扰）|
 
-<h3 id=CRVideo_QueuingInfo>CRVideo_QueuingInfo</h3>
+<h2 id=CRVideo_QueuingInfo>CRVideo_QueuingInfo</h2>
 
 >排队信息
 
@@ -98,7 +98,7 @@
 |position	|string	|我的位置|
 |queuingTime|	string|	我排队的时长（单位s）|
 
-<h3 id=CRVideo_ScreenShareCfgObj>CRVideo_ScreenShareCfgObj</h3>
+<h2 id=CRVideo_ScreenShareCfgObj>CRVideo_ScreenShareCfgObj</h2>
 
 >屏幕共享配置对象
 
@@ -111,7 +111,7 @@
 |maxFPS	|number|	最大帧率, 缺省为8 （当网络发不动时，帧率会自动下降）|
 |maxKbps|	number|	最大码率，缺省为800kbps|
 
-<h3 id=CRVideo_SessionInfo>CRVideo_SessionInfo</h3>
+<h2 id=CRVideo_SessionInfo>CRVideo_SessionInfo</h2>
 
 >呼叫信息
 
@@ -127,7 +127,7 @@
 |duration|	number|	房间持续的时长（单位s）|
 
 
-<h3 id=CRVideo_VideoIDsObj>CRVideo_VideoIDsObj</h3>
+<h2 id=CRVideo_VideoIDsObj>CRVideo_VideoIDsObj</h2>
 
 >视频设备对象
 
@@ -140,7 +140,7 @@
 
 
 
-<h3 id=CRVideo_Board>CRVideo_Board</h3>
+<h2 id=CRVideo_Board>CRVideo_Board</h2>
 
 >白板信息
 
@@ -155,7 +155,7 @@
 |height	|number	|白板高度|
 
 
-<h3 id=CRVideo_QueInfo>CRVideo_QueInfo</h3>
+<h2 id=CRVideo_QueInfo>CRVideo_QueInfo</h2>
 
 >队列信息
 
@@ -168,7 +168,7 @@
 |desc	|string|	队列描述|
 |prio	|number|	优先级，值越小优先级越高|
 
-<h3 id=CRVideo_QueStatus>CRVideo_QueStatus</h3>
+<h2 id=CRVideo_QueStatus>CRVideo_QueStatus</h2>
 
 >队列状态
 
@@ -181,7 +181,7 @@
 |wait_num| 	number| 	排队客户数量|
 |srv_num	| number| 	正在服务的客户数量|
 
-<h3 id=CRVideo_QueUser>CRVideo_QueUser</h3>
+<h2 id=CRVideo_QueUser>CRVideo_QueUser</h2>
 
 >队列用户信息
 
@@ -195,7 +195,7 @@
 |queuingTime|	string|	已排队时长（秒）|
 |usrExtDat	|string|	用户排队时携带的扩展数据|
 
-<h3 id=CRVideo_Rect>CRVideo_Rect</h3>
+<h2 id=CRVideo_Rect>CRVideo_Rect</h2>
 
 >区域
 
@@ -208,7 +208,7 @@
 |width	| number| 	区域宽度|
 |height| 	number| 	区域高度|
 
-<h3 id=CRVideo_SubPage>CRVideo_SubPage</h3>
+<h2 id=CRVideo_SubPage>CRVideo_SubPage</h2>
 
 >子功能区信息
 
@@ -219,7 +219,7 @@
 |userID	|number|	用户ID|
 |boardID	|number|	白板id|
 
-<h3 id=CRVideo_MixerCfgObj>CRVideo_MixerCfgObj</h3>
+<h2 id=CRVideo_MixerCfgObj>CRVideo_MixerCfgObj</h2>
 
 - **混图器规格配置**
 
@@ -239,7 +239,7 @@
 |gop	|number|	I帧周期(I帧越少码率越小，但直播延时会越大）； 文件录制建议15秒一个I帧取值：frameRate x 15（frameRate的15倍）； 直播建议4秒一个I帧取值: frameRate x 4（frameRate的4倍）;|
 
 
-<h3 id=CRVideo_MutiMixerCfgsObj>CRVideo_MutiMixerCfgsObj</h3>
+<h2 id=CRVideo_MutiMixerCfgsObj>CRVideo_MutiMixerCfgsObj</h2>
 
 - **混图器规格配置列表**
 
@@ -259,7 +259,7 @@
 |id 	|number|	混图器编号|
 |cfg 	|CRVideo_MixerCfgObj|	混图器规格配置，参见[CRVideo_MixerCfgObj](TypeDefinitions.md#CRVideo_MixerCfgObj)|
 
-<h3 id=CRVideo_MixerContentObj>CRVideo_MixerContentObj</h3>
+<h2 id=CRVideo_MixerContentObj>CRVideo_MixerContentObj</h2>
 
 - **混图器内容配置**
 
@@ -318,7 +318,7 @@
 <span style=" color:#00f;">2018-03-01</span> 
 ```
 
-<h3 id=CRVideo_MutiMixerContentsObj>CRVideo_MutiMixerContentsObj</h3>
+<h2 id=CRVideo_MutiMixerContentsObj>CRVideo_MutiMixerContentsObj</h2>
 
 - **混图器内容配置列表**
 
@@ -352,7 +352,7 @@
 |id 	|number|	混图器编号|
 |content 	|CRVideo_MixerContentObj|	混图器内容配置，参见[CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj)|
 
-<h3 id=CRVideo_MixerOutputObj>CRVideo_MixerOutputObj</h3>
+<h2 id=CRVideo_MixerOutputObj>CRVideo_MixerOutputObj</h2>
 
 - **混图器输出配置** 
 
@@ -385,7 +385,7 @@
 
 
 
-<h3 id=CRVideo_MutiMixerOutputsObj>CRVideo_MutiMixerOutputsObj</h3>
+<h2 id=CRVideo_MutiMixerOutputsObj>CRVideo_MutiMixerOutputsObj</h2>
 
 - **混图器输出配置列表** 
 
@@ -409,7 +409,7 @@
 |output  	|混图器输出配置|	参见[CRVideo_MixerOutputObj](TypeDefinitions.md#CRVideo_MixerOutputObj)|
 
 
-<h3 id=CRVideo_MixerOutputInfoObj>CRVideo_MixerOutputInfoObj</h3>
+<h2 id=CRVideo_MixerOutputInfoObj>CRVideo_MixerOutputInfoObj</h2>
 
 - **录制文件、直播信息**  
 
@@ -437,7 +437,7 @@
 >   3:输出对象异常；可以从结构中取得：err参数；
 
 
-<h3 id=CRVideo_MeetInfoObj>CRVideo_MeetInfoObj</h3>
+<h2 id=CRVideo_MeetInfoObj>CRVideo_MeetInfoObj</h2>
 
 >房间对象
 
@@ -464,7 +464,7 @@ memberCount |  房间内人数
 startTime   | 会议开始时间(从1970年1月1日00:00:00起)
 
 
-<h3 id=CRVideo_MeetInfoObjs>CRVideo_MeetInfoObjs</h3>
+<h2 id=CRVideo_MeetInfoObjs>CRVideo_MeetInfoObjs</h2>
 
 >房间对象列表
 
@@ -484,7 +484,7 @@ startTime   | 会议开始时间(从1970年1月1日00:00:00起)
 "memberCount":4},... ]
 ```
 
-<h3 id=CRVideo_MemberObj>CRVideo_MemberObj</h3>
+<h2 id=CRVideo_MemberObj>CRVideo_MemberObj</h2>
 
 >成员对象
 
@@ -502,7 +502,7 @@ nickName        |  用户昵称
 audioStatus     |  音频状态,数值参考麦克风状态[CRVideo_ASTATUS](Constant.md#CRVideo_ASTATUS)
 videoStatus     |  视频状态,数值参考视频状态定义[CRVideo_VSTATUS](Constant.md#CRVideo_VSTATUS)
 
-<h3 id=CRVideo_MembersObj>CRVideo_MembersObj</h3>
+<h2 id=CRVideo_MembersObj>CRVideo_MembersObj</h2>
 
 >成员对象列表
 
@@ -513,7 +513,7 @@ videoStatus     |  视频状态,数值参考视频状态定义[CRVideo_VSTATUS](
 "audioStatus":1,"videoStatus":1}]
 ```
 
-<h3 id=CRVideo_VideoInfoObj>CRVideo_VideoInfoObj</h3>
+<h2 id=CRVideo_VideoInfoObj>CRVideo_VideoInfoObj</h2>
 
 >用户视频信息
 
@@ -531,7 +531,7 @@ videoName     |  设备名称
 isIPCamera     |  是否为网络摄像头 （只有获取自已的才有此字段）
 
 
-<h3 id=CRVideo_VideoInfosObj>CRVideo_VideoInfosObj</h3>
+<h2 id=CRVideo_VideoInfosObj>CRVideo_VideoInfosObj</h2>
 
 >用户视频信息列表
 
@@ -544,7 +544,7 @@ isIPCamera     |  是否为网络摄像头 （只有获取自已的才有此字�
 ]
 ```
 
-<h3 id=CRVideo_VideoIDObjs>CRVideo_VideoIDObjs</h3>
+<h2 id=CRVideo_VideoIDObjs>CRVideo_VideoIDObjs</h2>
 
 >用户视频列表
 
@@ -560,7 +560,7 @@ isIPCamera     |  是否为网络摄像头 （只有获取自已的才有此字�
 userID          |  用户id
 videoID       |  设备id
 
-<h3 id=CRVideo_ScreenShareCfgObj>CRVideo_ScreenShareCfgObj</h3>
+<h2 id=CRVideo_ScreenShareCfgObj>CRVideo_ScreenShareCfgObj</h2>
 
 >屏幕共享配置
 
@@ -591,7 +591,7 @@ maxFPS       |  最大帧率, 缺省为8 (当网络发不动时，帧率会自�
 maxKbps       | 最大码率，缺省800kbps
 
 
-<h3 id=CRVideo_RecordVideosObj>CRVideo_RecordVideosObj</h3>
+<h2 id=CRVideo_RecordVideosObj>CRVideo_RecordVideosObj</h2>
 
 >影音文件
 
@@ -605,7 +605,7 @@ userID          |  用户id径
 state       |   播放状态 0:播放 1:暂停 2:未播放
 mediaName       |  影音文件名
 
-<h3 id=CRVideo_BoardObj>CRVideo_BoardObj</h3>
+<h2 id=CRVideo_BoardObj>CRVideo_BoardObj</h2>
 
 >白板对象
 
@@ -626,7 +626,7 @@ title      |   白板的名字
 width、height      |  白板的宽、高
 pageCount    |  白板页数
 
-<h3 id=CRVideo_BoardObjs>CRVideo_BoardObjs</h3>
+<h2 id=CRVideo_BoardObjs>CRVideo_BoardObjs</h2>
 
 >白板信息列表
 
@@ -637,7 +637,7 @@ pageCount    |  白板页数
 ]
 ```
 
-<h3 id=CRVideo_BoardPageObj>CRVideo_BoardPageObj</h3>
+<h2 id=CRVideo_BoardPageObj>CRVideo_BoardPageObj</h2>
 
 >白板页初始化对象
 
@@ -659,7 +659,7 @@ pageNo       |  白板页序号
 elementList  |  此页的所有图元
 
 
-<h3 id=CRVideo_BoardElementObjs>CRVideo_BoardElementObjs</h3>
+<h2 id=CRVideo_BoardElementObjs>CRVideo_BoardElementObjs</h2>
 
 >白板图元列表
 
@@ -673,7 +673,7 @@ elementList  |  此页的所有图元
 ```
 
 
-<h3 id=CRVideo_BoardElementObj>CRVideo_BoardElementObj</h3>
+<h2 id=CRVideo_BoardElementObj>CRVideo_BoardElementObj</h2>
 
 >白板图元
 
@@ -690,7 +690,7 @@ left、top     |  图元在页内的左上角位置
 说明：    | <p>1.elementID必须调用createElementID（）获取, 即使是曾经调此接口创建的然后存入了磁盘文件，再次读入房间时，所有elementID也需要重新生重。</p><p>2.如果要和云屋产品互通，那就需要按云屋的定义取值，可以联系云屋获取相关文档</p>
 
 
-<h3 id=MeetingAttrOptions>MeetingAttrOptions</h3>
+<h2 id=MeetingAttrOptions>MeetingAttrOptions</h2>
 
 >操作房间属性选项
 
@@ -704,7 +704,7 @@ notifyAll    |   number  |  1：通知房间所有人员，0（默认值）:不�
 
 
 
-<h3 id=CRVideo_MeetingAttrOptions>MeetingAttrObjs</h3>
+<h2 id=CRVideo_MeetingAttrOptions>MeetingAttrObjs</h2>
 
 >会议属性集
 
@@ -730,7 +730,7 @@ lastModifyUserID    |   string  |  最后修改者
 lastModifyTs    |   number  |  最后的修改时间，1970-1-1 0:00:00以来的秒数
 
 
-<h3 id=CRVideo_UsrMeetingAttrObjs>UsrMeetingAttrObjs</h3>
+<h2 id=CRVideo_UsrMeetingAttrObjs>UsrMeetingAttrObjs</h2>
 
 >用户属性集
 

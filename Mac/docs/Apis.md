@@ -194,7 +194,7 @@
 |:-------- |:-----------|:----------|
 | cookie| NSString| 自定义数据(在响应消息中回传给调用者)，不需要时传空字符串| 
 
-<h3 id=createMeeting>- (void)createMeeting:(NSString *)meetSubject createPswd:(BOOL)createPswd cookie:(NSString *)cookie</h3>
+<h3 id=createMeeting>- (void)createMeeting:(NSString *)cookie</h3>
 
   + **功能**:  创建视频房间
   
@@ -2325,7 +2325,7 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
   + **返回值**:  无
 
 
-<h3 id=svrMixerOutputInfo>-(void)svrMixerOutPutInfo:(OutputInfo*)outputInfo</h3>
+<h3 id=svrMixerOutPutInfo>-(void)svrMixerOutPutInfo:(OutputInfo*)outputInfo</h3>
 
   + **功能**:  云端录制文件、云端直播信息变化通知
   

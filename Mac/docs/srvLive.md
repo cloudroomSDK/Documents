@@ -1,6 +1,6 @@
 # 云端直播推流
 
-## 功能简介
+## 功能介绍
 
 用于多个主播实时连麦互动。技术实现上，我们会把房间里多个主播的音视频在服务器合成一路流后推流到CDN流媒体服务器，直播观众可以获取RTMP或HLS流观看直播。
 <p id=layout style="font-weight:normal;">互动直播架构图:  </p>
@@ -12,54 +12,42 @@
 - 获取直播推流地址请参见：[Web API 获取推流地址](https://sdk.cloudroom.com/sdkdoc/live/queryLiveAPI.html)。
 
 
-<h2 id=record_startSvrMixer> 2.开始互动直播</h2>
+<h2 id=startSvrMixer> 2.开始互动直播</h2>
+
+- 左右布局示例图：
+
+![左右布局示例图](./images/layout_2.jpg)
 
 - 调用接口：
 
 ```oc
 //配置混图器编码参数：尺寸为640*360，其他采用默认设置
-  MixerCfg *cfg = [[MixerCfg alloc] init];
-  [cfg setDstResolution:(CGSize){640, 360}];
+MixerCfg *cfg = [[MixerCfg alloc] init];
+[cfg setDstResolution:(CGSize){640, 360}];
   
-  NSMutableDictionary<NSString*,MixerCfg*> *cfgDic = [NSMutableDictionary dictionary];
-  [cfgDic setValue:cfg forKey:@"1"];
+NSMutableDictionary<NSString*,MixerCfg*> *cfgDic = [NSMutableDictionary dictionary];
+[cfgDic setValue:cfg forKey:@"1"];
 
 // 图像内容集合 - 创建左右布局的摄像头录制内容，
-  NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
-  //获取left（自己）用户id
-  NSString *myUserID = [[CloudroomVideoMeeting shareInstance] getMyUserID];
-  //获取c摄像头id
-  short camID = [[CloudroomVideoMeeting shareInstance]  getDefaultVideo:myUserID];
-  //自己的摄像头（左边布局）, 设置摄像头录制视频大小，由于左右布局， 宽度只有录制布局的一半
-  CGRect leftRect = CGRectMake(0, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
-  // 添加到内容列表
-  RecVideoContentItem *leftVideoItem = [[RecVideoContentItem alloc] initWithRect:leftRect userID:myUserID camID:camID];
-  [contents addObject:leftVideoItem];
+NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
+//自己的摄像头（左边布局）, 设置摄像头录制视频大小，由于左右布局， 宽度只有录制布局的一半
+CGRect leftRect = CGRectMake(0, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
+// 添加到内容列表
+RecVideoContentItem *leftVideoItem = [[RecVideoContentItem alloc] initWithRect:leftRect userID:myUserID camID:-1];
+[contents addObject:leftVideoItem];
   
-  //其他人的摄像头（右边布局）
-  CGRect rightRect = CGRectMake(mixerCfg.dstResolution.width/2, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
-  //此处otherUserID在进入用户进入会议时候可以保存，或者使用getAllMembers获取所有成员信息，找出对方id.
-  NSString *otherUserID = @"";
-  NSMutableArray <MemberInfo *> * allMemberInfo = [[CloudroomVideoMeeting shareInstance] getAllMembers];
-  for (MemberInfo *memberInfo in allMemberInfo) {
-      if(![memberInfo.userId isEqualToString:myUserID])
-      {
-          otherUserID = memberInfo.userId;
-          break;
-      }
-  }
-  short otherCamID = [[CloudroomVideoMeeting shareInstance]  getDefaultVideo:otherUserID];
+//其他人的摄像头（右边布局）
+CGRect rightRect = CGRectMake(mixerCfg.dstResolution.width/2, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
+RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:-1];
   
-  RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:otherCamID];
+// 添加到内容列表
+[contents addObject:rightVideoItem];
   
-  // 添加到内容列表
-  [contents addObject:rightVideoItem];
+MixerContent *recContent = [[MixerContent alloc]init];
+recContent.contents = [contents copy];
   
-  MixerContent *recContent = [[MixerContent alloc]init];
-  recContent.contents = [contents copy];
-  
-  NSMutableDictionary<NSString*,MixerContent*> *contentDic = [NSMutableDictionary dictionary];
-  [contentDic setObject:recContent forKey:@"1"];
+NSMutableDictionary<NSString*,MixerContent*> *contentDic = [NSMutableDictionary dictionary];
+[contentDic setObject:recContent forKey:@"1"];
 
 
 //配置混图器输出：直播推流地址为rtmp://xxx
@@ -81,27 +69,9 @@ output.outputs = outputCfgs;
 int rst = [[CloudroomVideoMeeting shareInstance] startSvrMixer:cfgDic contents:contentDic outputs:outputDic];;
 if(rst != 0)
 {
-  //开启 互动直播 出错!
-  ...
+    //开启 互动直播 出错!
+    ...
 }
-```
-相关API请参考:
-* [startSvrMixer](Apis.md#startSvrMixer)
-
-
-<p id=layout style="font-weight:normal;">左右布局示例图:  </p>
-
-![左右布局示例图](./images/layout_2.jpg)
-
-- 回调通知：
-
-```oc
-//互动直播状态变化通知
-- (void)svrMixerStateChanged:(MIXER_STATE)state err:(CRVIDEOSDK_ERR_DEF)sdkErr opratorID:(NSString*)opratorID
-{
-  ...
-}
-
 ```
 
 相关API请参考:
@@ -109,71 +79,54 @@ if(rst != 0)
 * [svrMixerStateChanged](Apis.md#svrMixerStateChanged)
 
 
-<h2 id=record_updateSvrMixerContent> 3.更新互动直播内容</h2>
+<h2 id=updateSvrMixerContent> 3.更新互动直播内容</h2>
 
+- 更新成画中画布局示例图：
+
+![画中画布局示例图](./images/layout_overlap.jpg)
 
 - 接口调用：
 
 ```oc
 //更新为画中画模式
- NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
-  //获取left（自己）用户id
-  NSString *myUserID = [[CloudroomVideoMeeting shareInstance] getMyUserID];
-  //获取c摄像头id
-  short camID = [[CloudroomVideoMeeting shareInstance]  getDefaultVideo:myUserID];
-  //自己的摄像头
-  CGRect bigRect = CGRectMake(0, 0, mixerCfg.dstResolution.width, mixerCfg.dstResolution.height);
-  // 添加到内容列表
-  RecVideoContentItem *bigVideoItem = [[RecVideoContentItem alloc] initWithRect:bigRect userID:myUserID camID:camID];
-  [contents addObject:leftVideoItem];
+NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
+//自己的摄像头
+CGRect bigRect = CGRectMake(0, 0, mixerCfg.dstResolution.width, mixerCfg.dstResolution.height);
+// 添加到内容列表
+RecVideoContentItem *bigVideoItem = [[RecVideoContentItem alloc] initWithRect:bigRect userID:myUserID camID:-1];
+[contents addObject:leftVideoItem];
   
-  //右下角摄像头
-  CGRect rightRect = CGRectMake(mixerCfg.dstResolution.width-160, mixerCfg.dstResolution.height - 90, 160 ,90);
-  //此处otherUserID在进入用户进入会议时候可以保存，或者使用getAllMembers获取所有成员信息，找出对方id.
-  NSString *otherUserID = @"";
-  NSMutableArray <MemberInfo *> * allMemberInfo = [[CloudroomVideoMeeting shareInstance] getAllMembers];
-  for (MemberInfo *memberInfo in allMemberInfo) {
-      if(![memberInfo.userId isEqualToString:myUserID])
-      {
-          otherUserID = memberInfo.userId;
-          break;
-      }
-  }
-  short otherCamID = [[CloudroomVideoMeeting shareInstance]  getDefaultVideo:otherUserID];
+//右下角摄像头
+CGRect rightRect = CGRectMake(mixerCfg.dstResolution.width-160, mixerCfg.dstResolution.height - 90, 160 ,90);
+RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:-1];
   
-  RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:otherCamID];
+// 添加到内容列表
+[contents addObject:rightVideoItem];
   
-  // 添加到内容列表
-  [contents addObject:rightVideoItem];
+MixerContent *recContent = [[MixerContent alloc]init];
+recContent.contents = [contents copy];
   
-  MixerContent *recContent = [[MixerContent alloc]init];
-  recContent.contents = [contents copy];
-  
-  NSMutableDictionary<NSString*,MixerContent*> *contentDic = [NSMutableDictionary dictionary];
-  [contentDic setObject:recContent forKey:@"1"];
+NSMutableDictionary<NSString*,MixerContent*> *contentDic = [NSMutableDictionary dictionary];
+[contentDic setObject:recContent forKey:@"1"];
 
 [[CloudroomVideoMeeting shareInstance] updateSvrMixerContent:contentsDic];
 
 ```
-
-<p id=layout_overlap style="font-weight:normal;">（2）画中画布局示例图:  </p>
-
-![画中画布局示例图](./images/layout_overlap.jpg)
-
 相关API请参考:
 * [updateSvrMixerContent](Apis.md#updateSvrMixerContent)
 
 
-<h2 id=record_getSvrMixerState> 4.观众观看直播</h2>
+<h2 id=watch> 4.观众观看直播</h2>
 
 通过 [播放器SDK](https://sdk.cloudroom.com/sdkdoc/live/SDK_summary.html)观看直播.
 
 
-<h2 id=record_stopSvrMixer> 5.停止互动直播</h2>
+<h2 id=stopSvrMixer> 5.停止互动直播</h2>
 
 停止互动直播后，也会触发事件[svrMixerStateChanged](Apis.md#svrMixerStateChanged)
 
 - 接口调用：
+
 ```oc
 [[CloudroomVideoMeeting shareInstance] stopSvrMixer];
 ```
@@ -183,6 +136,7 @@ if(rst != 0)
 
 
 
-<h2 id=record_vod> 7.回放点播</h2>
+<h2 id=vod> 6.回放点播</h2>
 
 通过 [云屋点播API](https://sdk.cloudroom.com/sdkdoc/live/db_summary.html)回放点播。
+

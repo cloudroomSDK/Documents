@@ -303,7 +303,7 @@ module.exports.TYPEDEF = [{
         }, {
             param: 'autoGainControl',
             type: 'Bool',
-            explain: '是否开启麦克风自动增益'
+            explain: '是否开启麦克风自动增益（AGC）'
         }, {
             param: 'echoCancellation',
             type: 'Bool',
@@ -312,7 +312,14 @@ module.exports.TYPEDEF = [{
             param: 'noiseSuppression',
             type: 'Bool',
             explain: '是否开启麦克风噪声消除'
-        }]
+        }, {
+            param: 'micVolume',
+            type: 'Number',
+            explain: '设置麦克风音量（静态增益）'
+        }],
+        attent: `
+> 设置麦克风音量必须在关闭麦克风自动增益时才能生效
+> 麦克风音量为0时，表示麦克风静音，100为正常音量，0-100为降低音量，>100时为增大音量`
     }
 }, {
     interface: 'CRVideo_VideoCfg',
@@ -608,7 +615,7 @@ module.exports.TYPEDEF = [{
         }],
         example: `
     // 摄像头画面
-    {"type":0,"left":0,"top":0,"width":1280,"height":720,"param":{"camid":"user_xxx.1"},"keepAspectRatio":1}   
+    {"type":0,"left":0,"top":0,"width":1280,"height":720,"param":{"camid":"user_xxx.1"},"keepAspectRatio":1}
     // 影音
     {"type":3,"left":0,"top":0,"width":1280,"height":720} 
     // 时间戳
@@ -622,24 +629,23 @@ module.exports.TYPEDEF = [{
         `,
         attent: `
 > type描述：
-> &ensp;&ensp;&ensp;当 type=0 时，表示混图的是摄像头，param必须包含camid；
-> &ensp;&ensp;&ensp;当 type=1 时，表示混图的是指定的图片，param必须包含resourceid（仅用于本地混图，暂不支持）；
-> &ensp;&ensp;&ensp;当 type=2 时，表示混图的是本地屏幕，param可以增加附加参数screenid/pid/area（暂不支持）；
-> &ensp;&ensp;&ensp;当 type=3 时，表示混图的是影音共享，不用附加任何参数；
-> &ensp;&ensp;&ensp;当 type=4 时，表示混图的是时戳，不用附加任何参数；
-> &ensp;&ensp;&ensp;当 type=5 时，表示混图的是共享中的屏幕，不用附加任何参数；
-> &ensp;&ensp;&ensp;当 type=6 时，表示混图的是白板，不用附加任何参数。（仅用于云端混图，本地混图应该用MIXVTP_PIC，暂不支持)；
-> &ensp;&ensp;&ensp;当 type=7 时，表示混图的是文本(支持简单html)，param必须包含text；
-> &ensp;&ensp;&ensp;注：当 type=7 时，width和height可为0，此时元素大小由文本信息自动确定；
-> param支持的参数如下：
-> &ensp;&ensp;&ensp;1.camid：用户id.摄像头id, 如："testuser.1"；
-> &ensp;&ensp;&ensp;2.text： 录制文本内容，支持一些简单的html标签，如：
-> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="font-weight:600; color:#00f;"&gt;客户姓名：&lt;/span&gt;
-> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="color:#00f;"&gt;张三&lt;/span&gt;&lt;br/&gt; 
-> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="font-weight:600; color:#00f;"&gt;录制日期：&lt;/span&gt;
-> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="color:#00f;"&gt;2018-03-01&lt;/span&gt; 
-> &ensp;&ensp;&ensp;3.录制纯音频文件时，param为某个用户的UID，表示录制该用户的声音；
-`
+> &ensp;&ensp;&ensp;当 type=0 时，表示混图的是摄像头，param必须包含camid； 
+> &ensp;&ensp;&ensp;当 type=1 时，表示混图的是指定的图片，param必须包含resourceid（仅用于本地混图，暂不支持）； 
+> &ensp;&ensp;&ensp;当 type=2 时，表示混图的是本地屏幕，param可以增加附加参数screenid/pid/area（暂不支持）； 
+> &ensp;&ensp;&ensp;当 type=3 时，表示混图的是影音共享，不用附加任何参数； 
+> &ensp;&ensp;&ensp;当 type=4 时，表示混图的是时戳，不用附加任何参数； 
+> &ensp;&ensp;&ensp;当 type=5 时，表示混图的是共享中的屏幕，不用附加任何参数； 
+> &ensp;&ensp;&ensp;当 type=6 时，表示混图的是白板，不用附加任何参数。（仅用于云端混图，本地混图应该用MIXVTP_PIC，暂不支持)； 
+> &ensp;&ensp;&ensp;当 type=7 时，表示混图的是文本(支持简单html)，param必须包含text； 
+> &ensp;&ensp;&ensp;注：当 type=7 时，width和height可为0，此时元素大小由文本信息自动确定； 
+> param支持的参数如下： 
+> &ensp;&ensp;&ensp;1.camid：用户id.摄像头id, 如："testuser.1"； 
+> &ensp;&ensp;&ensp;2.text： 录制文本内容，支持一些简单的html标签，如： 
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="font-weight:600; color:#00f;"&gt;客户姓名：&lt;/span&gt; 
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="color:#00f;"&gt;张三&lt;/span&gt;&lt;br/&gt;  
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="font-weight:600; color:#00f;"&gt;录制日期：&lt;/span&gt; 
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="color:#00f;"&gt;2018-03-01&lt;/span&gt;  
+> &ensp;&ensp;&ensp;3.录制纯音频文件时，param为某个用户的UID，表示录制该用户的声音； `
     },
 }, {
     interface: 'CRVideo_MixerOutputObj',

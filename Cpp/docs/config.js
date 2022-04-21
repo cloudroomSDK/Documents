@@ -47,7 +47,7 @@ module.exports = {
                         "customAudioOper.md",
                         "customVideoOper.md",
                         "transpChannel.md",
-                        "sendMeetingCustomMsg.md",
+                        "meetingCustomMsg.md",
                         "roomatts.md"
                     ]
                 }

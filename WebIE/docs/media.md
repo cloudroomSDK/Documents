@@ -1,6 +1,6 @@
 # 影音播放
 
-## 功能简介
+## 功能介绍
 
 把一个本地视频文件、或网络流媒体播放给房间内其他用户观看，支持暂停、设置放位置等；</br>
 支持的影音文件格式有： mov、rmvb、rm、flv、mp4、3gp、mp3、wav等市面上常见格式；支持http、rtmp、rtsp网络流媒体；</br>
@@ -24,6 +24,7 @@ if(g_mediaObj == null){
     $("#mediaContainer").append(g_mediaObj.handler());
 }
 ```
+
 相关API请参考：
 * [CRVideo_CreatMediaObj](API.md#CRVideo_CreatMediaObj)
 
@@ -39,8 +40,8 @@ if(g_mediaObj == null){
 */
 // 1.配置影音播放参数 
 var cfg = {
-    "size":"1920*1280", //指1920*1080,
-    "fps":12            //帧率
+    "size":"1280*720", //以720p清晰度共享,
+    "fps":24           //帧率
     };
 
 CRVideo_SetMediacfg(cfg)

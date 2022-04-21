@@ -1,4 +1,3 @@
-
 # 准备工作
 
 ## 帐号申请
@@ -98,7 +97,7 @@
 <p style="width:100%;background:#f7f7f7;">客户端的开发工具有很多，开发者可根据自己的喜好进行选择。在此，我们推荐开发者使用<font color="#718c00">Visual Studio</font> 作为自己的开发工具，本套开发指南也是针对<font color="#718c00">Visual Studio</font>开发环境下进行编写的。</p>
 
 ### SDK下载
-- [点此下载](https://sdk.cloudroom.com/pages/download#sdk) Windows SDK
+- [点此下载](https://sdk.cloudroom.com/pages/download) Windows SDK
 
 ### 安装SDK
 

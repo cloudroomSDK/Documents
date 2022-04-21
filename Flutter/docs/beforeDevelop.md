@@ -1,31 +1,30 @@
----
-sidebarDepth: 1
----
 
 # 准备工作
 
 ## 帐号申请
 
-[点此注册](https://sdk.cloudroom.com/mgr_sdk/register.html)一个账号，或者联系商务代为开通，或在网站咨询客服。
+[点此注册](https://sdk.cloudroom.com/mgr_sdk/register.html) 一个账号，或者联系商务代为开通，或在网站咨询客服。
 
-<p id=getappid></p>
+<h2 id=getappid>创建项目</h2>
 
-## 创建项目
 
-可以在[管理平台](https://sdk.cloudroom.com/mgr_sdk/)中创建新的项目（系统有一个默认项目，可以直接使用）。  
-项目信息页内可得到此项目的 App ID 及 App Secret。如下图：  
-![GetAPPID](./images/GetAPPID.png)
+可以在 [管理平台](https://sdk.cloudroom.com/mgr_sdk/) 中创建新的项目（系统有一个默认项目，可以直接使用），如下图：
+![GetAPPID](./images/getAppID.png)
 
-## 防火墙开通
+为了保障接口安全，后台不再显示App Secret，所以请在创建项目成功显示App Secret时妥善保存好。 如果遗忘只能如下图更换App Secret：
+![ChangeAppSecret](./images/ChangeAppSecret.png)
 
-在使用云屋 SDK 提供的相关服务之前，您需要打开下面这些特定的端口：
+
+<h2 id=fireWallSettings>防火墙开通</h2>
+
+在使用云屋SDK提供的相关服务之前，您需要打开下面这些特定的端口：
 
 <table border=0 cellpadding=0 cellspacing=0 style='border-collapse:collapse;table-layout:fixed;'>
     <thead>
         <tr >
             <th style='width:12%;text-align:center'>端口</th>
             <th style='width:25%;text-align:center'>功能说明</th>
-            <th style='width:23%;text-align:center'>Windows, Android, iOS,web插件版 SDK</th>
+            <th style='width:23%;text-align:center'>Windows, Linux, Android, iOS, macOS, 网页插件</th>
             <th style='width:10%;text-align:center'>H5 SDK</th>
             <th style='width:10%;text-align:center'>小程序SDK</th>
             <th style='width:10%;text-align:center'>直播观看SDK</th>
@@ -56,9 +55,9 @@ sidebarDepth: 1
         <td>TCP 2728</td>
         <td style='text-align:center'>信令服务端口</td>
         <td style='text-align:center'>√</td>
-        <td style='text-align:center'>√</td>
-        <td style='text-align:center'>√</td>
-        <td style='text-align:center'>√</td>
+        <td style='text-align:center'></td>
+        <td style='text-align:center'></td>
+        <td style='text-align:center'></td>
         <td style='text-align:center'></td>
     </tr>
     <tr>
@@ -116,6 +115,6 @@ Manifest.permission.READ_PHONE_STATE
 
 -keep class com.cloudroom.**  { *; }
 -keep class org.crmedia.**  { *; }
--keep class com.example.cr_flutter_sdk.** { *; }
+-keep class com.example.cloudroomvideosdk.** { *; }
 
 ```

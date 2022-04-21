@@ -1,6 +1,6 @@
 # 实现音视频通话
 
-## 概述
+## 简要说明
 
 - 快速创建并进入房间，开始音视频通话；代码部分均为 C++ 代码，详细代码请参考 APIDemo_CPP_Qt_Source 源代码。
 
@@ -283,12 +283,21 @@ protected:
 }
 
 CustomrenderWidget *pVideoUI = new CustomrenderWidget();
+
 // 观看自己的视频
 CRUserVideoID vID(myUID);
 pVideoUI->setVideoID(vID);
-// 观看userID为12345678的视频
-CRUserVideoID vID("12345678");
-pVideoUI->setVideoID(vID);
+
+//从会议中取到所有参数者，然后按业务逻辑选取想观看他人视频；(以下代码是随机选取一个非自已的视频)
+CRBase::CRArray<CRMeetingMember> allMembers = g_sdkMain->getSDKMeeting().getAllMembers();
+for (int i=0; i<allMembers.count(); i++) {
+	const CRMeetingMember &memb = allMembers.item(i);
+    if ( memb._userId != myUID )
+	{
+    	pVideoUI->setVideoID(memb._userId);
+		break;
+    } 
+}
 
 ```
 

@@ -46,7 +46,6 @@ g_sdkMain->getSDKMeeting().openMic(UserID);
 g_sdkMain->getSDKMeeting().closeMic(UserID);
 ```
 
-
 相关API请参考:
 * [openMic](Apis.md#openMic)
 * [closeMic](Apis.md#closeMic)
@@ -60,7 +59,6 @@ g_sdkMain->getSDKMeeting().closeMic(UserID);
 g_sdkMain->getSDKMeeting().setSpkVolume(vol);
 
 ```
-
 
 相关API请参考:
 * [setSpkVolume](Apis.md#setSpkVolume)
@@ -79,3 +77,4 @@ g_sdkMain->getSDKMeeting().setMicVolume(vol);
 相关API请参考:
 * [setMicVolume](Apis.md#setMicVolume)
 * [notifyMicEnergy](Apis.md#notifyMicEnergy)
+

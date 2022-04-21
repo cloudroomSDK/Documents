@@ -1522,19 +1522,19 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
 			<tr>
 				<td rowspan=4>CloudroomVideoMeeting</td>
 				<td rowspan=4 style='text-align:center'>主调</td>
-				<td><a href="Apis.md#startSvrMixer">startSvrMixer</a></td>
+				<td><a href="Apis.md#createCloudMixer">createCloudMixer</a></td>
 				<td>开始云端录制、云端直播</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#updateSvrMixerContent">updateSvrMixerContent</a></td>
+				<td><a href="Apis.md#updateCloudMixerContent">updateCloudMixerContent</a></td>
 				<td>更新云端录制、云端直播内容</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#stopSvrMixer">stopSvrMixer</a></td>
+				<td><a href="Apis.md#destroyCloudMixer">destroyCloudMixer</a></td>
 				<td>停止云端录制、云端直播</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#getSvrMixerState">getSvrMixerState</a></td>
+				<td><a href="Apis.md#getCloudMixerInfo">getCloudMixerInfo</a></td>
 				<td>获取云端录制、云端直播状态</td>
 			</tr>
 			<tr>

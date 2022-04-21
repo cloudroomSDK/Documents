@@ -1,25 +1,21 @@
 
 # 多方视频通话
 
-<h2 id=introduction>功能简介</h2>
+## 功能介绍
 
 多方视频通话时，根据当前业务场景合理设置视频编码参数，可以在较低的带宽占用下实现流畅清晰的音视频沟通，下面将针对几种常见场景进行介绍。
 
-------------
-<h2 id=scenario>场景</h2>
 
-<h3 id=one> 1.一对一</h3>
+<h2 id=one> 1.一对一</h2>
 
-</br>
+- 画中画布局示例图:
+
 视频通话中，画中画布局指视频图像布局上有重叠。只需控制ui组件的父盒子z-index属性即可
-</br>
-</br>
 
 ![画中画布局示例图](./images/layout_overlap.jpg)
 
-<font style="font-weight:bolder;font-size:20px;">描述：</font>比如双人视频聊天场景，双方通常都希望看到对方比较清晰的视频，此时可以使用较高的视频编码分辨率，比如720P或480P。
+常用于如双人视频聊天场景，双方通常都希望看到对方比较清晰的视频，此时可以使用较高的视频编码分辨率，比如720P或480P。
 
---------
 
 - 示例代码：
 ```json
@@ -96,24 +92,20 @@ this.setData({
 });
 
 ```
+
 相关组件请参考：
 * [CRVideoPusher](API.md#CRVideoPusher)
 * [CRVideoPlayer](API.md#CRVideoPlayer)
 * [CRAudioPlayer](API.md#CRAudioPlayer)
 
-------------
 
-<h3 id=more> 2.多方视频</h3>
-<br>
+<h2 id=more> 2.多方视频</h2>
 
-<!-- <h4 id=layout_more style="font-weight:normal;">多方视频示例图:  </h4>   -->
+- 多方视频示例图：
 
 ![多方视频示例图](./images/five.jpg)
 
-<font style="font-weight:bolder;font-size:20px;">描述：</font>
-比如在线教育场景，老师的视频画面比较大，可以使用较高的分辨率比如720P，下面学生的视频画面比较小，应采用较低的视频编码分辨率，比如360P或256P。
-
---------
+常用于在线教育场景，老师的视频画面比较大，可以使用较高的分辨率比如720P，下面学生的视频画面比较小，应采用较低的视频编码分辨率，比如360P或256P。
 
 
 - 示例代码：

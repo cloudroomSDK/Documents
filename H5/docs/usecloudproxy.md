@@ -11,14 +11,12 @@
 
 ## 使用云代理
 
-
-### 将云屋云代理服务器和端口添加到企业防火墙的白名单
+1、将云屋云代理服务器和端口添加到企业防火墙的白名单
 
 &emsp;云屋云代理服务器域名: proxy.cloudroom.com
 
 &emsp;云屋云代理服务端口与[云屋SDK需要的端口](BeforeDevelop.md#firewall)保持一致，无需暴露额外端口
 
-
-### 设置到登录服务器
+2、设置到登录服务器
 
 &emsp;把[登录](IntegratedGuide.md#login)服务器地址替换为:proxy.cloudroom.com

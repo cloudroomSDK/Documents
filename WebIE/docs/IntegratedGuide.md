@@ -199,7 +199,7 @@ otherVideoUI.height(270);
 
 //3.设置视频流
 setTimeout(function(){
-    otherVideoUI.setVideo(UID);  //UID为他人的登录ID
+    otherVideoUI.setVideo(UID);  // 将成员的视频画面挂载在UI组件上。UID可通过CRVideo_GetAllMembers获取，或集成方业务逻辑确定
 }, 500);
 
 ```

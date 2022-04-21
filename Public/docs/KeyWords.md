@@ -2,7 +2,7 @@
 
 ## SDK管理平台
 是云屋提供给SDK注册用户的[管理平台](https://sdk.cloudroom.com/mgr_sdk/)。 可以进行帐户管理、项目管理、录像管理、队列管理、 通信记录查询、用量监控等操作。  
-[点此注册](https://sdk.cloudroom.com/register.html)一个账号，或者联系商务代为开通，或在网站咨询客服。
+[点此注册](https://sdk.cloudroom.com/mgr_sdk/register.html)一个账号，或者联系商务代为开通，或在网站咨询客服。
 
 ## App ID
 用于区分不同的项目。每个项目都有属于自己唯一的App ID，不同App ID的项目完全独立，无法相互通信。  

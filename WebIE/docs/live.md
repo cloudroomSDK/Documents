@@ -1,18 +1,14 @@
----
-sidebarDepth: 1
----
-
 # 本地直播推流
 
-1. [创建混图器](#live_createLocMixer)
-1. [开启直播推流](#live_addLocMixerOutput)
-1. [直播推流事件处理](#live_locMixerOutputInfo)
-1. [更新图像内容](#live_updateLocMixerContent)
-1. [结束](#live_destroyLocMixer)
+## 功能介绍
 
+用于1个或多个主播实时连麦互动，然后图像和声音将在SDK本地进行混合，然后直接向CDN流媒体服务器推流，直播观众就可以获取RTMP或HLS流观看直播了。
 
-<h3 id=live_createLocMixer>1.创建混图器</h3>
+<h2 id=live_createLocMixer>1.创建混图器</h2>
 
+- 左右布局示例图
+
+![左右布局示例图](./images/layout_2.jpg)
 
 - 接口调用：
 
@@ -30,14 +26,14 @@ var mixerCfg = {"width":640,
                 "gop":120
                 };
 
-//混图器内容： 左右布局，左边为user1的1号摄像头， 右边为user2的1号摄像头
+//混图器内容： 左右布局，左边为user1的默认摄像头， 右边为user2的默认摄像头
 var mixerContent = [{"type":0,
                     "keepAspectRatio":1,
                     "left":5,
                     "top":10,
                     "width":633,
                     "height":356,
-                    "param":{"camid":"user1.1"}
+                    "param":{"camid":"user1.-1"}
                     },
                     {"type":0,
                     "keepAspectRatio":1,
@@ -45,7 +41,7 @@ var mixerContent = [{"type":0,
                     "top":10,
                     "width":633,
                     "height":356,
-                    "param":{"camid":"user2.1"}
+                    "param":{"camid":"user2.-1"}
                     }];
 
 //创建混图器
@@ -61,9 +57,6 @@ else
 }
 
 ```
-<h4 id=layout style="font-weight:normal;">左右布局示例图:  </h4>  
-
-![左右布局示例图](./images/layout_2.jpg)
 
 相关API请参考：
 * [CRVideo_CreateLocMixer](API.md#CRVideo_CreateLocMixer)
@@ -72,7 +65,7 @@ else
 * [CRVideo_MixerCfgObj](TypeDefinitions.md#CRVideo_MixerCfgObj)
 * [CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj)
 
-<h3 id=live_addLocMixerOutput>2.开启直播推流</h3>
+<h2 id=live_addLocMixerOutput>2.开启直播推流</h2>
 
 添加混图器输出后，会触发CRVideo_LocMixerOutputInfo通知.如果输出异常，将自动停止推流。
 
@@ -106,7 +99,7 @@ else
 相关结构定义请参考：
 * [CRVideo_MixerOutputInfoObj](TypeDefinitions.md#CRVideo_MixerOutputInfoObj)
 
-<h3 id=live_locMixerOutputInfo>3.直播推流事件处理</h3>
+<h2 id=live_locMixerOutputInfo>3.直播推流事件处理</h2>
 
 录制过程中都会触发此事件。在此可以实时获得录像文件当前的时长、大小，以及录像文件异常等信息。
 
@@ -153,8 +146,11 @@ CRVideo_LocMixerOutputInfo.callback = function(mixerID,nameOrUrl,outputInfo) {
 相关结构定义请参考：
 * [CRVideo_MixerOutputInfoObj](TypeDefinitions.md#CRVideo_MixerOutputInfoObj)
 
-<h3 id=live_updateLocMixerContent>4.更新图像内容</h3>
+<h2 id=live_updateLocMixerContent>4.更新图像内容</h2>
 
+- 画中画布局示例图
+
+![画中画布局示例图](./images/layout_overlap.jpg)
 
 - 接口调用：
 
@@ -162,22 +158,22 @@ CRVideo_LocMixerOutputInfo.callback = function(mixerID,nameOrUrl,outputInfo) {
 //混图器编号
 var mixerID = "1";
 
-//混图器内容： 左右布局，左边为user1的1号摄像头， 右边为user1的2号摄像头
+//混图器内容：画中画布局(示例图如下， 底层640*360， 上层160*90)，底层为user1的默认摄像头， 上层为user2的默认摄像头
 var mixerContent = [{"type":0,
                     "keepAspectRatio":1,
-                    "left":5,
-                    "top":10,
-                    "width":633,
-                    "height":356,
-                    "param":{"camid":"user1.1"}
+                    "left":0,
+                    "top":0,
+                    "width":640,
+                    "height":360,
+                    "param":{"camid":"user1.-1"}
                     },
                     {"type":0,
                     "keepAspectRatio":1,
-                    "left":642,
-                    "top":10,
-                    "width":633,
-                    "height":356,
-                    "param":{"camid":"user1.2"}
+                    "left":475,
+                    "top":265,
+                    "width":160,
+                    "height":90,
+                    "param":{"camid":"user1.-2"}
                     }];
 
 //更新混图器内容
@@ -193,12 +189,12 @@ else
 }
 
 ```
-上述混图器内容左右布局，详见[左右布局](#layout)
 
 
 * API请参考: [CRVideo_UpdateLocMixerContent](API.md#CRVideo_UpdateLocMixerContent)
 
-<h3 id=live_destroyLocMixer>5.结束</h3>
+
+<h2 id=live_destroyLocMixer> 5.结束</h2>
 
 
 - 接口调用：

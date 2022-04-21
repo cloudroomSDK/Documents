@@ -231,10 +231,13 @@ selfView.setUsrVideoId(new UsrVideoId(myUserId, (short)-1);
 
 //设置观看对方视频
 VideoUIView peerView = (VideoUIView) findViewById(R.id.video_peer);
-ArrayList<UsrVideoId> videos = CloudroomVideoMeeting.getInstance().getWatchableVideos();
-for (UsrVideoId usrVideoId : videos) {
-    if (!usrVideoId.userId.equals(myUserId)) {
-	peerView.setUsrVideoId(usrVideoId);
+//可以从会议中取到所有参数者，然后按业务逻辑选取想观看他人视频；(以下代码是随机选取一个非自已的视频)
+ArrayList<MemberInfo> allMembers = getAllMembers();
+for (MemberInfo memb : allMembers) {
+    if (!memb.userId.equals(myUserId))
+	{
+    	peerView.setUsrVideoId(memb.userId);
+		break;
     } 
 }
 ```

@@ -12,7 +12,7 @@ module.exports = {
                         "README.md",
                         "Mainfunctions.md",
                         "KeyWords.md",
-                        "SecurityIssue.md"
+                        "History.md"
                     ]
                 },
                 {
@@ -53,6 +53,8 @@ module.exports = {
                         "Call.md",
                         "SrvLive.md",
                         "TranspChannel.md",
+                        "meetingCustomMsg.md",
+                        "Roomatts.md"
                     ]
                 }
             ]
@@ -65,71 +67,13 @@ module.exports = {
                      "title": "API参考",
                      "route": "apis",
                      "islink": false,
-                     "children": [
-                         {
-                             title: "API",
-                             link: "API2.md",
-                             alias: "API"
-                         },
-                         {
-                             link: "Constant2.md",
-                             alias: "Constant"
-                         },
-                         {
-                             link: "TypeDefinitions2.md",
-                             alias: "TypeDefinitions"
-                         },
+                    "children": [
+                        "API.md",
+                        "Constant.md",
+                        "TypeDefinitions.md"
                      ]
                  }
            ]
         }
-        // {
-        //     "title": "API",
-        //     "route": "api",
-        //     "slidebar": [
-        //         {
-        //             "title": "API参考",
-        //             "route": "apis",
-        //             "islink": false,
-        //             "children": [
-        //                 {
-        //                     title: "API概述",
-        //                     link: "API/classify.md",
-        //                     // alias: "API"
-        //                 },
-        //                 {
-        //                     title: "接口描述",
-        //                     link: "API/description.md",
-        //                     // alias: "API"
-        //                 },
-        //                 {
-        //                     title: "接口详情",
-        //                     link: "API/details.md",
-        //                     // alias: "API"
-        //                 },
-        //             ]
-        //         }, {
-        //             "title": "常量定义",
-        //             "route": "constant",
-        //             "islink": true,
-        //             "children": [
-        //                 {
-        //                     link: "Constant2.md",
-        //                     alias: "Constant"
-        //                 },
-        //             ]
-        //         }, {
-        //             "title": "类型定义",
-        //             "route": "typeDefinitions",
-        //             "islink": true,
-        //             "children": [
-        //                 {
-        //                     link: "TypeDefinitions2.md",
-        //                     alias: "TypeDefinitions"
-        //                 },
-        //             ]
-        //         }
-        //     ]
-        // }
     ]
 }

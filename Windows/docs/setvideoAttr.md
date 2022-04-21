@@ -12,8 +12,8 @@
 
 ```csharp
 
-//设置摄像头编码输出为160*96，帧率12，其他采用默认设置, VideoCfgObj 参考其类型定义
-string videocfg = "[{\"size\":\"160*96\",\"fps\":12}]";
+//设置摄像头编码输出为1280*720，帧率15，其他采用默认设置, VideoCfgObj 参考其类型定义
+string videocfg = "[{\"size\":\"1280*720\",\"fps\":15}]";
 axVideoSDK.setVideoCfg(videocfg);
 
 ```

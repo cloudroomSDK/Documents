@@ -38,10 +38,9 @@ module.exports = [{
       // 可以通过错误码判断初始化失败的原因
         `,
     attent: `
-  > 注意:
-  > 程序开始时init，程序结束时uninit，整个程序的生命周期中只进行一次初始化和反初始化。
-  > webRTC默认不支持http协议（chrome78+已支持file:///协议），只能通过配置127.0.0.1或locallhost访问，或通过配置Chrome调试模式绕过此限制。
-        `
+> 注意:
+> 程序开始时init，程序结束时uninit，整个程序的生命周期中只进行一次初始化和反初始化。
+> webRTC默认不支持http协议（chrome78+已支持file:///协议），只能通过配置127.0.0.1或locallhost访问，或通过配置Chrome调试模式绕过此限制。`
   },
 }, {
   interface: 'CRVideo_Uninit',

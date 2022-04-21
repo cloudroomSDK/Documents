@@ -30,7 +30,7 @@
 | macOS | 10.11 及以上版本 | x86_64 |
 | Linux | CentOS：7 及以上版本</br> Ubuntu：12.04 及以上版本</br> Redhat：7 及以上版本</br> 麒麟</br> 统信UOS</br> | x86_64 |
 | 小程序 | 微信 7.0.4 及以上 | - |
-| web | **Windows：**</br>　Chrome：Chrome 68 及以上</br>　Edge：80 及以上</br>　Firefox：Firefox 78 及以上</br>　Opera：支持最新版本</br>　360浏览器(极速模式)：支持最新版本</br>　QQ浏览器(极速模式)：支持最新版本</br>　其他浏览器：使用Chrome内核版本68 及以上的其他浏览器</br></br> **macOS：**</br>　Chrome：Chrome 68 及以上</br>　Safari：Safari 11 及以上</br></br> **iOS：** </br>　Safari：Safari 11 及以上</br></br> **Android：**</br>　Chrome：Chrome 68 及以上</br>　微信内置浏览器：微信 7.0 及以上</br>　QQ内置浏览器：8.2及以上</br>　华为浏览器：10.0及以上</br>　Edge浏览器：最新版</br>　宙斯浏览器：最新版</br> | - |
+| Web | **Windows：**</br>　Chrome：Chrome 68 及以上</br>　Edge：80 及以上</br>　Firefox：Firefox 78 及以上</br>　Opera：支持最新版本</br>　360浏览器(极速模式)：支持最新版本</br>　QQ浏览器(极速模式)：支持最新版本</br>　其他浏览器：使用Chrome内核版本68 及以上的其他浏览器</br></br> **macOS：**</br>　Chrome：Chrome 68 及以上</br>　Safari：Safari 11 及以上</br></br> **iOS：** </br>　Safari：Safari 11 及以上</br></br> **Android：**</br>　Chrome：Chrome 68 及以上</br>　微信内置浏览器：微信 7.0 及以上</br>　QQ内置浏览器：8.2及以上</br>　华为浏览器：10.0及以上</br>　Edge浏览器：最新版</br>　宙斯浏览器：最新版</br> | - |
 | 网页插件 | **Windows：**</br>　IE：8.0 及以上</br>　Chrome：44 及以下 | - |
 | Flutter | Flutter 1.0.0 及以上 | - |
 

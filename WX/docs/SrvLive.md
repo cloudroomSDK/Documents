@@ -1,35 +1,22 @@
 # 云端直播推流
 
-<h2 id=introduction>功能简介</h2>
+## 功能介绍
 
 用于多个主播实时连麦互动。技术实现上，我们会把房间里多个主播的音视频在服务器合成一路流后推流到CDN流媒体服务器，直播观众可以获取RTMP或HLS流观看直播。
-
-<h3 id=layout style="font-weight:normal;">架构图</h3>  
-
-云端直播推流架构图：
+<p id=layout style="font-weight:normal;">互动直播架构图:  </p>
 <img src="./images/srvLive.jpg" style="width:54%;"></img>
 
--------
-
-<h2 id=flow>使用流程</h2>
-
-云端直播推流使用流程如下：
-
-1. [创建直播间并获得推流地址](#addr)
-1. [开始云端直播推流](#record_startSvrMixer)
-1. [更新云端直播推流内容](#record_updateSvrMixerContent)
-1. [观众观看直播](#record_getSvrMixerState)
-1. [停止云端直播推流](#record_stopSvrMixer)
-1. [回放点播](#record_vod)
-
-<h3 id=addr> 1.创建直播间并获得推流地址</h3>
+<h2 id=addr> 1.创建直播间并获得推流地址</h2>
 
 - 创建直播间请参见：Web API [创建直播](https://sdk.cloudroom.com/sdkdoc/live/createLiveAPI.html)。
-- 获取直播推流地址请参见：Web API [获取推流地址](https://sdk.cloudroom.com/sdkdoc/live//queryLiveAPI.html)。
+- 获取直播推流地址请参见：Web API [获取推流地址](https://sdk.cloudroom.com/sdkdoc/live/queryLiveAPI.html)。
 
 
-<h3 id=record_startSvrMixer> 2.开始云端直播推流</h3>
+<h2 id=record_startCloudMixer> 2.开始互动直播</h2>
 
+- 左右布局示例图：
+
+![左右布局示例图](./images/layout_2.jpg)
 
 - 调用接口：
 
@@ -112,10 +99,6 @@ var mutiMixerOutputs = [
 CR.StartSvrMixer(mutiMixerCfgs, mutiMixerContents, mutiMixerOutputs);
 ```
 
-<h4 id=layout style="font-weight:normal;">（1）左右布局示例图:  </h4>  
-
-![左右布局示例图](./images/layout_2.jpg)
-
 - 回调通知：
 
 ```js
@@ -134,9 +117,11 @@ CR.SvrRecordStateChanged.callback = function(state, err, operatorID){
 - [CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj)
 - [CRVideo_MutiMixerOutputsObj](TypeDefinitions.md#CRVideo_MutiMixerOutputsObj)
 
+<h2 id=record_updateCloudMixerContent> 3.更新互动直播内容</h2>
 
-<h3 id=record_updateSvrMixerContent> 3.更新云端直播推流内容</h3>
+- 更新成画中画布局示例图：
 
+![画中画布局示例图](./images/layout_overlap.jpg)
 
 - 接口调用：
 
@@ -152,7 +137,7 @@ var mixerID = "1";  //取之前的混图器id
 var size = 0;   //使用第1个分辨率
 
 //更新录制布局为：画中画
-//混图器内容：画中画布局(示例图如下， 底层640*360， 上层213*120)，底层为user1的1号摄像头， 上层为user2的1号摄像头
+//混图器内容：画中画布局(示例图如下， 底层640*360， 上层213*120)，底层为user1的默认摄像头， 上层为user2的默认摄像头
 
 var bigW = record_size_arr[size][0];  //640，底层视频的宽度
 var bigH = record_size_arr[size][1];  //360，底层视频的高度
@@ -167,8 +152,8 @@ var underCon = {
     "top": 0;
     "width": bigW;
     "height":  bigH;
-    //camid参数为: user1.1 ,表示该内容需要录制userID是user1的1号摄像头。后方可传入-1，表示为录制默认摄像头
-    "param": {"camid": "user1.1"};  
+    //camid参数为: user1.-1 ,表示该内容需要录制userID是user1的默认摄像头。
+    "param": {"camid": "user1.-1"};  
     "keepAspectRatio": 1;
 };
 //顶层视频图像的内容配置
@@ -178,7 +163,7 @@ var topCon = {
     "top": bigH - smallH;
     "width": smallW;
     "height":  smallH;
-    "param": {"camid": "user2.1"};
+    "param": {"camid": "user2.-1"};
     "keepAspectRatio": 1;
 };  
 
@@ -195,20 +180,16 @@ CR.UpdateSvrMixerContent(mutiMixerContents);
 
 ```
 
-<h4 id=layout_overlap style="font-weight:normal;">（2）画中画布局示例图:  </h4>  
-
-![画中画布局示例图](./images/layout_overlap.jpg)
-
 相关API请参考:
 - [CR.UpdateSvrMixerContent](API.md#CRVideo_UpdateSvrMixerContent)
 
 
-<h3 id=record_getSvrMixerState> 4.观众观看直播</h3>
+<h2 id=record_getSvrMixerState> 4.观众观看直播</h2>
 
 通过 [播放器SDK](https://sdk.cloudroom.com/sdkdoc/live/SDK_summary.html)观看直播.
 
 
-<h3 id=record_stopSvrMixer> 5.停止云端直播推流</h3>
+<h2 id=record_stopSvrMixer> 5.停止云端直播推流</h2>
 
 停止云端直播推流后，也会触发事件[CR.SvrRecordStateChanged](API.md#CRVideo_SvrRecordStateChanged)
 
@@ -220,6 +201,6 @@ CR.StopSvrMixer();
 相关API请参考:
 * [CR.StopSvrMixer](API.md#CRVideo_StopSvrMixer)
 
-<h3 id=record_vod> 6.回放点播</h3>
+<h2 id=record_vod> 6.回放点播</h2>
 
 通过 [云屋点播API](https://sdk.cloudroom.com/sdkdoc/live/index1.html)回放点播。

@@ -12,7 +12,7 @@ module.exports = {
                         "README.md",
                         "Mainfunctions.md",
                         "KeyWords.md",
-                        "securityIssue.md"
+                        "History.md"
                     ]
                 },
                 {
@@ -27,7 +27,7 @@ module.exports = {
                     "children": [
                         "beforeDevelop.md",
                         "wxconfig.md",
-                        "IntegratedGuide.md",
+                        "IntegratedGuide.md"
                     ]
                 },
                 {
@@ -41,7 +41,7 @@ module.exports = {
                         "SetvideoAttr.md",
                         "MultiVideos.md",
                         "Screenshare.md",
-                        "SrvRecord.md",
+                        "SrvRecord.md"
                     ]
                 },
                 {
@@ -54,8 +54,8 @@ module.exports = {
                         "Call.md",
                         "SrvLive.md",
                         "TranspChannel.md",
-                        "sendMeetingCustomMsg.md",
-                        "roomatts.md",
+                        "meetingCustomMsg.md",
+                        "roomatts.md"
                     ]
                 }
             ]

@@ -91,9 +91,9 @@
     </tbody>
 </table>
 
-## 跑通基于Qt的示例项目
 
-<p id=BeforeDevelop></p>  
+<h2 id=beforeDev>开发环境准备</h2>
+
 
 ### 前提条件
 

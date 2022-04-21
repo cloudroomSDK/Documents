@@ -127,4 +127,32 @@ module.exports = [{
             explain: '子页面标识（如创建白板时返回的boardID："2.58"），非必传。没有子页面标识的功能区，则为 "0.0"',
         }]
     }
+}, {
+    interface: 'CRVideo_PeerConnectionError',
+    description: '通知，媒体流连接错误',
+    detail: {
+        content: 'CRVideo_PeerConnectionError.callback = function(errDesc){}',
+        type: 'callback',
+        callbackParam: [{
+            param: 'errDesc',
+            type: 'String',
+            explain: '错误描述',
+        }],
+        attent: `
+> 媒体流连接发生错误时，表示当前音视频连接可能已经断开，将无法正常进行音视频通话，用户可以尝试退出重新进入房间来恢复连接。`
+    },
+}, {
+    interface: 'CRVideo_NetStateChanged',
+    description: '通知，网络状态变化',
+    detail: {
+        content: 'CRVideo_NetStateChanged.callback = function(score){}',
+        type: 'callback',
+        callbackParam: [{
+            param: 'score',
+            type: 'Number',
+            explain: '网络评分，0~10，10为最佳',
+        }],
+        attent: `
+> 网络评分>8为优秀，通话基本不受影响；5~8为一般，可能会出现卡顿或延迟，5>为差，可能无法正常通话或出现流媒体错误、掉线等。`
+    },
 }]

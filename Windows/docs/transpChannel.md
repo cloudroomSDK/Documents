@@ -1,6 +1,6 @@
 # 点对点消息
 
-## 功能简介
+## 功能介绍
 
 实现点对点的透明消息发送功能， 根据发送内容可选择：发送命令数据， 发送内存数据， 发送文件三种类型。
 
@@ -68,8 +68,8 @@ void sendBufferRlst(object sender, ICloudroomVideoMgrEvents_sendBufferRlstEvent 
 
 <h2 id=sendFile> 3.发送文件</h2>
 
-
 分块发送，进度通知事件[sendProgress](API.md#sendProgress), 调用[cancelSend](API.md#cancelSend)取消发送。
+
 - 调用接口：
 
 ```csharp
@@ -95,9 +95,7 @@ void sendFileRlst(object sender, ICloudroomVideoMgrEvents_sendBufferRlstEvent e)
 * [sendFileRlst](API.md#sendFileRlst)
 
 
-
 <h2 id=sendProgress> 4.发送进度通知</h2>
-
 
 - 回调通知：
 
@@ -125,6 +123,7 @@ void sendProgress(object sender, ICloudroomVideoMgrEvents_sendProgressEvent e)
 //取消发送数据,cancelTaskID为要取消的任务ID
 cancelSend(string cancelTaskID);
 ```
+
 - 回调通知：
 
 ```csharp
@@ -133,6 +132,8 @@ void cancelSendRlst(object sender, ICloudroomVideoMgrEvents_cancelSendRlstEvent 
   //取消成功或者失败处理
 }
 ```
+
 相关API请参考:
 * [cancelSend](API.md#cancelSend)
 * [cancelSendRlst](API.md#cancelSendRlst)
+

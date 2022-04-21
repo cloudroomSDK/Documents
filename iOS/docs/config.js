@@ -12,7 +12,8 @@ module.exports = {
                         "README.md",
                         "Mainfunctions.md",
                         "KeyWords.md",
-                        "securityIssue.md"
+                        "securityIssue.md",
+                        "History.md"
                     ]
                 },
                 {
@@ -55,7 +56,7 @@ module.exports = {
                         "live.md",
                         "srvLive.md",
                         "transpChannel.md",
-                        "sendMeetingCustomMsg.md",
+                        "meetingCustomMsg.md",
                         "roomatts.md"
                     ]
                 }

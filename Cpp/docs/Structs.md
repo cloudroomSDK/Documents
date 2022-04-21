@@ -466,7 +466,7 @@ getRawDatPtr(yuv, linesize, 3);
     "audioFileCfg": {
         "svrFileNameSuffix": ".mp3",
         "svrPath": "/xxx",
-        "subscribeAudios": "_cr_all_"
+        "subscribeAudios": ["_cr_all_"]
     },
     "videoFileCfg": {
         "aStreamType": 1,

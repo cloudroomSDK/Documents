@@ -2,7 +2,7 @@
 
 ## 功能介绍
 
-在服务器上对房间内的音视频、影音共享、屏幕共享等通讯内容进行录制，支持自定义录制内容和布局，录制文件在服务器保存，可以通过[WEB API](https://sdk.cloudroom.com/sdkdoc/webapi/)下载和删除
+在服务器上对房间内的音视频、影音共享、屏幕共享等通讯内容进行录制，支持自定义录制内容和布局，录制文件在服务器保存，可以通过[WEB API](/sdk/document/netdisk/netdisk_query?platform=serverside)下载和删除
 
 
 <h2 id=record_enbale> 1.开通云端录制服务</h2>
@@ -160,7 +160,7 @@ void Meeting_cloudMixerOutputInfoChanged(object sender, ICloudroomVideoSDKEvents
 
 录像停止后，录像文件会开始上传到录像文件存储服务器中（可关注[cloudMixerOutputInfoChanged](API.md#cloudMixerOutputInfoChanged)通知，得到上传完成事件）。 
 
-可以通过[WEB API](http://sdk.cloudroom.com/sdkdoc/webapi/)进行录像文件查询、下载和删除等处理。
+可以通过[WEB API](/sdk/document/netdisk/netdisk_query?platform=serverside)进行录像文件查询、下载和删除等处理。
 
 也可以登录[管理后台](https://sdk.cloudroom.com/mgr_sdk/)，在管理页面上回放和下载录像：
 ![recordMgr](./images/recordMgr.jpg)

@@ -1,11 +1,10 @@
 # 影音播放
 
-## 功能简介
+## 功能介绍
 
 把一个本地视频文件、或网络流媒体播放给房间内其他用户观看，支持暂停、设置放位置等；</br>
 支持的影音文件格式有： mov、rmvb、rm、flv、mp4、3gp、mp3、wav等市面上常见格式；支持http、rtmp、rtsp网络流媒体；</br>
 一个房间中同一时间只支持进行一个影音播放；</br>
-
 
 
 <h2 id=role_play>播放端</h2>
@@ -42,8 +41,8 @@ for(int i = 0; i < 2; i ++){
 - 接口调用：
 
 ```csharp
-// 配置影音共享参数1920*1080,帧率24(如果视频文件清晰度比配置低，则以文件为准)
-string mediaCfg = "[{\"width\":1920, \"height\":1080, \"fps\":24}]";
+// 配置影音共享参数1280*720, 帧率24(如果视频文件清晰度比配置低，则以文件为准)
+string mediaCfg = "[{\"width\":1280, \"height\":720, \"fps\":24}]";
 axVideoSDK.setMediaCfg(mediaCfg)
 //开始播放影音
 axVideoSDK.startPlayMedia("D:/1.mp4",0)
@@ -146,7 +145,6 @@ grid_medias.Children.Add(host);
 
 
 <h3 id=watch>2.观看影音</h3>
-观看端收到开始播放影音的通知后显示影音播放组件，即可观看影音。
 
 - 回调通知：
 ```csharp

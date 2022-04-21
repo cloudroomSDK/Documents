@@ -26,7 +26,6 @@ axVideoSDK.setAudioCfg(audiocfg);
 
 <h2 id=openMic> 2.开关麦克风</h2>
 
-
 ```csharp
 string UserID = "12345678";
 //打开麦克风
@@ -48,6 +47,7 @@ axVideoSDK.closeMic(UserID);
 axVideoSDK.speakerVolume = 255;
 
 ```
+
 相关API请参考:
 * [speakerVolume](API.md#getSpeakerVolume)
 
@@ -59,6 +59,7 @@ axVideoSDK.speakerVolume = 255;
 axVideoSDK.micVolume = 255;
 
 ```
+
 相关API请参考:
 * [micVolume](API.md#getMicVolume)
 * [micEnergyUpdate](API.md#micEnergyUpdate)

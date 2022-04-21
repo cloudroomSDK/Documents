@@ -1,17 +1,14 @@
 # 屏幕共享
 
-## 功能简介
+## 功能介绍
 
-在视频会话中为了提高沟通效率，可以将自己的屏幕内容分享给其他参与方观看。还支持在屏幕上进行标注，以及授权其他参与方进行远程控制。当屏幕共享者开启标注后，控件就进入标注模式。此时，房间内所有用户都可以进行标注，并观看他人标注的内容。
+在视频会话中为了提高沟通效率，可以将自己的屏幕内容分享给其他参与方观看。还支持在屏幕上进行标注，以及授权其他参与方进行远程控制。当屏幕共享者开启标注后，控件就进入标注模式。此时，房间内所有用户都可以进行标注，并观看他人标注的内容。</br>
 使用场景如下：
 * 视频会议场景中，屏幕共享可以将讲话者本地的文件、数据、网页、PPT 等画面分享给其他与会人；
 * 在线课堂场景中，屏幕共享可以将老师的课件、笔记、讲课内容等画面展示给学生观看。
 
-:::danger
+<font color="#FF0000">注意：同一个房间中，不支持多人同时开启屏幕共享。</font>
 
-注意：同一个房间中，不支持多人同时开启屏幕共享。
-
-:::
 
 
 ## 共享端
@@ -104,6 +101,7 @@ void startScreenMarkRslt(object sender, ICloudroomVideoMeetingEvents_startScreen
 axVideoSDK.stopScreenMark();
 
 ```
+
 - 回调通知：
 
 ```csharp
@@ -138,9 +136,14 @@ void stopScreenShareRslt(object sender, ICloudroomVideoMeetingEvents_stopScreenS
 
 ```
 
+相关API请参考：
+ * [stopScreenShare](API.md#stopScreenShare)
+ * [stopScreenShareRslt](API.md#stopScreenShareRslt)
+
 ## 观看端
 
 <h3 id=startshareNotify>1.通知开始共享</h3>
+
 - 回调通知：
 
 ```csharp
@@ -157,34 +160,28 @@ void notifyScreenShareStarted(object sender, EventArgs e){
 
 
 
-<h3 id=startmarkNotify>2.通知开启标注</h3>
+<h3 id=startmarkNotify>2.开启停止标注通知</h3>
+
 - 回调通知：
 
 ```csharp
-
 //收到屏幕共享已开启标注的通知
 void notifyScreenMarkStarted(object sender, ICloudroomVideoMeetingEvents_startScreenMarkRsltEvent e) {
   ...
 }
 
-```
-
-
-<h3 id=stopmarkNotify>3.通知停止标注</h3>
-
-- 回调通知：
-
-```csharp
-
 //收到屏幕共享停止标注的通知
 void notifyScreenMarkStopped(object sender, ICloudroomVideoMeetingEvents_startScreenMarkRsltEvent e){
   ...
 }
-
 ```
 
+相关API请参考：
+* [notifyScreenMarkStarted](API.md#notifyScreenMarkStarted)
+* [notifyScreenMarkStopped](API.md#notifyScreenMarkStopped)
 
-<h3 id=stopshareNotify>4.通知停止共享</h3>
+
+<h3 id=stopshareNotify>3.通知停止共享</h3>
 
 ```csharp
 

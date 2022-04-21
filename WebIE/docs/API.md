@@ -3232,25 +3232,25 @@
 
 ## 接口详情
 
-<h4 id=CRVideo_GetSDKJsVersion>CRVideo_GetSDKJsVersion()</h4>
+<h3 id=CRVideo_GetSDKJsVersion>CRVideo_GetSDKJsVersion()</h3>
 
 - **功能**: 获取Web	js版本号
 
 - **返回值**:云屋SDK js的版本号(string)
 
-<h4 id=CRVideo_PluginVersion>CRVideo_PluginVersion()</h4>
+<h3 id=CRVideo_PluginVersion>CRVideo_PluginVersion()</h3>
 
 - **功能**: 获取Plugin版本号
 
 - **返回值**:Plugin版本号(string)
 
-<h4 id=CRVideo_SdkPath>CRVideo_SdkPath()</h4>
+<h3 id=CRVideo_SdkPath>CRVideo_SdkPath()</h3>
 
 - **功能**: 获取sdk所在的目录
 
 - **返回值**:返回sdk所在的目录(string)
 
-<h4 id=CRVideo_EnableLog2File>CRVideo_EnableLog2File(bEnable)</h4>
+<h3 id=CRVideo_EnableLog2File>CRVideo_EnableLog2File(bEnable)</h3>
 
 - **功能**: 设置是否开启日志
 
@@ -3262,7 +3262,7 @@
 
 >SDK中日志功能默认是打开的,这个接口在CRVideo_Init2之前可调用
 
-<h4 id=CRVideo_EnableLogReport>CRVideo_EnableLogReport(bEnable)</h4>
+<h3 id=CRVideo_EnableLogReport>CRVideo_EnableLogReport(bEnable)</h3>
 
 - **功能**: 设置是否开启日志上报
 
@@ -3274,7 +3274,7 @@
 
 >SDK中日志上报默认是打开的,这个接口在CRVideo_Init2之前可调用
 
-<h4 id=CRVideo_SetSDKParams>CRVideo_SetSDKParams(jsonVal)</h4>
+<h3 id=CRVideo_SetSDKParams>CRVideo_SetSDKParams(jsonVal)</h3>
 
 - **功能**: 设置SDK参数
 
@@ -3295,7 +3295,7 @@
 
 >这个接口在init之前调用有效
 
-<h4 id=CRVideo_SetFileUploadRate>CRVideo_SetFileUploadRate(maxbps)</h4>
+<h3 id=CRVideo_SetFileUploadRate>CRVideo_SetFileUploadRate(maxbps)</h3>
 
 - **功能**: 文件上传的流量控制(SDK默认不开启流控,目前对文件上传控制的功能有：录制文件上传、网盘文件上传。)
 
@@ -3305,7 +3305,7 @@
 |:-------- |:-----------|:----------|
 | maxbps| number | 每秒上传的最大字节数，小于等于0表示不开启流控|
 
-<h4 id=CRVideo_SetFileDownloadRate>CRVideo_SetFileDownloadRate(maxBytePerSec)</h4>
+<h3 id=CRVideo_SetFileDownloadRate>CRVideo_SetFileDownloadRate(maxBytePerSec)</h3>
 
 - **功能**: 文件下载的流量控制
 
@@ -3316,7 +3316,7 @@
 | maxBytePerSec| number | 每秒下载的最大字节数。-1代表不进行流控|
 
 
-<h4 id=CRVideo_SetAliyunOssAccountInfo>CRVideo_SetAliyunOssAccountInfo(accessKey,accessSecret)</h4>
+<h3 id=CRVideo_SetAliyunOssAccountInfo>CRVideo_SetAliyunOssAccountInfo(accessKey,accessSecret)</h3>
 
 - **功能**: 设置阿里云OSS信息
 
@@ -3329,7 +3329,7 @@
 
 >参考阿里云的用户签名验证相关文档 ：https://help.aliyun.com/document_detail/31950.html?spm=a2c4g.11186623.6.707.44c0734ctzHsOa
 
-<h4 id=CRVideo_WriteLog>CRVideo_WriteLog(level, log)</h4>
+<h3 id=CRVideo_WriteLog>CRVideo_WriteLog(level, log)</h3>
 
 - **功能**: 向日志文件中写入内容
 
@@ -3340,7 +3340,7 @@
 | level| number |详见[CRVideo_E_LOG_LEVEL_DEF](Constant.md#CRVideo_E_LOG_LEVEL_DEF)|
 | log| string |日志内容|
 
-<h4 id=CRVideo_Init2>CRVideo_Init2(sdkFilePath, isCallSer, isMediaSer, isHttp)</h4>
+<h3 id=CRVideo_Init2>CRVideo_Init2(sdkFilePath, isCallSer, isMediaSer, isHttp)</h3>
 
 - **功能**: 登录
 
@@ -3359,7 +3359,7 @@
 
 <font color="#FF0000">CRVideo_Init2等价于CRVideo_Init，功能一致；CRVideo_Init2为新增的接口，比CRVideo_Init少了一个oemID参数。两个方法是完全兼容，新版本均使用CRVideo_Init2方法</font>
 
-<h4 id=CRVideo_Uninit>CRVideo_Uninit()</h4>
+<h3 id=CRVideo_Uninit>CRVideo_Uninit()</h3>
 
 - **功能**: SDK反初始化
 
@@ -3367,7 +3367,7 @@
 
 - **参数**:无
   
-<h4 id=CRVideo_SetServerAddr>CRVideo_SetServerAddr(serverList)</h4>
+<h3 id=CRVideo_SetServerAddr>CRVideo_SetServerAddr(serverList)</h3>
 
 - **功能**: 设置服务器地址
 
@@ -3377,7 +3377,7 @@
 |:-------- |:-----------|:----------|
 |serverList	|string	|服务器地址，多个服务器地址使用分号隔开（如：www.cloudroom.com:8080;183.60.47.52:8080;）|
 
-<h4 id=CRVideo_SetNetworkProxy>CRVideo_SetNetworkProxy(proxy)</h4>
+<h3 id=CRVideo_SetNetworkProxy>CRVideo_SetNetworkProxy(proxy)</h3>
 
 - **功能**: 设置网络代理
 
@@ -3387,7 +3387,7 @@
 |:-------- |:-----------|:----------|
 |proxy	|json	|json格式，详见[CRVideo_NetworkProxyObj](TypeDefinitions.md#CRVideo_NetworkProxyObj)|
 
-<h4 id=CRVideo_Login>CRVideo_Login(appID, md5_appSecret, nickName, UID, userAuthCode, cookie)</h4>
+<h3 id=CRVideo_Login>CRVideo_Login(appID, md5_appSecret, nickName, UID, userAuthCode, cookie)</h3>
 
 - **功能**: 登录
 - **返回值**:无
@@ -3404,7 +3404,7 @@
 >登陆成功则回调[CRVideo_LoginSuccess](#CRVideo_LoginSuccess),登陆失败则回调[CRVideo_LoginFail](#CRVideo_LoginFail)
 
 
-<h4 id=CRVideo_LoginByToken>CRVideo_LoginByToken(token,nickName,userID,userAuthCode,cookie)</h4>
+<h3 id=CRVideo_LoginByToken>CRVideo_LoginByToken(token,nickName,userID,userAuthCode,cookie)</h3>
 
 - **功能**: Token登录
 - **返回值**:无
@@ -3419,7 +3419,7 @@
 
 >    登陆成功则回调CRVideo_LoginSuccess,登陆失败则回调CRVideo_LoginFail
 
-<h4 id=CRVideo_UpdateToken>CRVideo_UpdateToken(token)</h4>
+<h3 id=CRVideo_UpdateToken>CRVideo_UpdateToken(token)</h3>
 
 - **功能**: Token登录
 - **返回值**:无
@@ -3429,21 +3429,21 @@
 |token	|string	|Token鉴权码|
 
 
-<h4 id=CRVideo_LoginSuccess>CRVideo_LoginSuccess.callback = function(UID,cookie){}</h4>
+<h3 id=CRVideo_LoginSuccess>CRVideo_LoginSuccess.callback = function(UID,cookie){}</h3>
 
 - **功能**: 登录成功回调
 - **返回值**:无
 
 
-<h4 id=CRVideo_LoginFail>CRVideo_LoginFail.callback = function(sdkErr,cookie){}</h4>
+<h3 id=CRVideo_LoginFail>CRVideo_LoginFail.callback = function(sdkErr,cookie){}</h3>
 
 - **功能**: 登录失败回调,登录出错，可以弹出错误提示，或调用登录接口再次重试登录
 
-<h4 id=CRVideo_NotifyTokenWillExpire>CRVideo_NotifyTokenWillExpire.callback = function(){}</h4>
+<h3 id=CRVideo_NotifyTokenWillExpire>CRVideo_NotifyTokenWillExpire.callback = function(){}</h3>
 
 - **功能**: Token即将失效的通知
 
-<h4 id=CRVideo_Logout>CRVideo_Logout</h4>
+<h3 id=CRVideo_Logout>CRVideo_Logout</h3>
 
 - **功能**: 注销
 
@@ -3458,7 +3458,7 @@ CRVideo_Logout()
 退出程序时，必须注销本次登录，然后再进行SDK反初始化操作
 
 
-<h4 id=CRVideo_GetAllMembers>CRVideo_GetAllMembers()</h4>
+<h3 id=CRVideo_GetAllMembers>CRVideo_GetAllMembers()</h3>
 
 - **功能**: 房间成员列表
 
@@ -3466,7 +3466,7 @@ CRVideo_Logout()
 - **返回值**:返回含多个成员信息（Array ------[CRVideo_MemberInfo](TypeDefinitions.md#CRVideo_MemberInfo)）
 
 
-<h4 id=CRVideo_GetMemberInfo>CRVideo_GetMemberInfo(UID)</h4>
+<h3 id=CRVideo_GetMemberInfo>CRVideo_GetMemberInfo(UID)</h3>
 
 - **功能**: 房间成员信息
 
@@ -3477,7 +3477,7 @@ CRVideo_Logout()
 |UID |string |用户ID|
 
 
-<h4 id=CRVideo_GetMemberNickName>CRVideo_GetMemberNickName(UID)</h4>
+<h3 id=CRVideo_GetMemberNickName>CRVideo_GetMemberNickName(UID)</h3>
 
 - **功能**: 房间成员昵称
 
@@ -3488,7 +3488,7 @@ CRVideo_Logout()
 |UID |string |用户ID|
 
 
-<h4 id=CRVideo_IsUserInMeeting>CRVideo_IsUserInMeeting(UID)</h4>
+<h3 id=CRVideo_IsUserInMeeting>CRVideo_IsUserInMeeting(UID)</h3>
 
 - **功能**: 用户是否在房间中
 
@@ -3500,7 +3500,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetNickName>CRVideo_SetNickName(userid,strNickName)</h4>
+<h3 id=CRVideo_SetNickName>CRVideo_SetNickName(userid,strNickName)</h3>
 
 - **功能**: 设置某个用户的昵称
 
@@ -3514,7 +3514,7 @@ CRVideo_Logout()
 > 回调函数 [CRVideo_SetNickNameRsp](API.md#CRVideo_SetNickNameRsp)
 > 调用此接口如果设置成功，其他会话用户会收到 [CRVideo_NotifyNickNameChanged](API.md#CRVideo_NotifyNickNameChanged)
 
-<h4 id=CRVideo_GetMeetingAllAttrs>CRVideo_GetMeetingAllAttrs( cookie)</h4>
+<h3 id=CRVideo_GetMeetingAllAttrs>CRVideo_GetMeetingAllAttrs( cookie)</h3>
 
 - **功能**:获取房间属性
 
@@ -3527,7 +3527,7 @@ CRVideo_Logout()
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#stream)|
 
 
-<h4 id=CRVideo_GetMeetingAttrs >CRVideo_GetMeetingAttrs( keys,   cookie)</h4>
+<h3 id=CRVideo_GetMeetingAttrs >CRVideo_GetMeetingAttrs( keys,   cookie)</h3>
 
 - **功能**:获取房间部分属性
 
@@ -3542,7 +3542,7 @@ CRVideo_Logout()
 
 >keys示例：[\"name\",\"time\"]
 
-<h4 id=CRVideo_SetMeetingAttrs >CRVideo_SetMeetingAttrs(  attrs, options, cookie)</h4>
+<h3 id=CRVideo_SetMeetingAttrs >CRVideo_SetMeetingAttrs(  attrs, options, cookie)</h3>
 
 - **功能**:设置房间属性
 
@@ -3557,7 +3557,7 @@ CRVideo_Logout()
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_AddOrUpdateMeetingAttrs >CRVideo_AddOrUpdateMeetingAttrs(  attrs,  options,  cookie)</h4>
+<h3 id=CRVideo_AddOrUpdateMeetingAttrs >CRVideo_AddOrUpdateMeetingAttrs(  attrs,  options,  cookie)</h3>
 
 - **功能**:增加或者更新房间属性
 
@@ -3572,7 +3572,7 @@ CRVideo_Logout()
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_DelMeetingAttrs >CRVideo_DelMeetingAttrs(  keys,  options, cookie)</h4>
+<h3 id=CRVideo_DelMeetingAttrs >CRVideo_DelMeetingAttrs(  keys,  options, cookie)</h3>
 
 - **功能**:删除房间属性
 
@@ -3589,7 +3589,7 @@ CRVideo_Logout()
 >keys示例：[\"name\",\"time\"]
 
 
-<h4 id=CRVideo_ClearMeetingAttrs >CRVideo_ClearMeetingAttrs(options, cookie)</h4>
+<h3 id=CRVideo_ClearMeetingAttrs >CRVideo_ClearMeetingAttrs(options, cookie)</h3>
 
 - **功能**:清除房间所有属性
 
@@ -3603,7 +3603,7 @@ CRVideo_Logout()
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_GetUserAttrs >CRVideo_GetUserAttrs( uids, keys, cookie)</h4>
+<h3 id=CRVideo_GetUserAttrs >CRVideo_GetUserAttrs( uids, keys, cookie)</h3>
 
 - **功能**:获取用户属性
 
@@ -3620,7 +3620,7 @@ CRVideo_Logout()
 >例如想要查询lucy和Drake的是否允许聊天、用户身份等信息，uids:[\"lucy\",\"Drake\"...], keys:["","",...]
 
 
-<h4 id=CRVideo_SetUserAttrs >CRVideo_SetUserAttrs( uid,  attrs, options, cookie)</h4>
+<h3 id=CRVideo_SetUserAttrs >CRVideo_SetUserAttrs( uid,  attrs, options, cookie)</h3>
 
 - **功能**:设置用户属性
 
@@ -3636,7 +3636,7 @@ CRVideo_Logout()
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_AddOrUpdateUserAttrs >CRVideo_AddOrUpdateUserAttrs( uid,  attrs,options, cookie)</h4>
+<h3 id=CRVideo_AddOrUpdateUserAttrs >CRVideo_AddOrUpdateUserAttrs( uid,  attrs,options, cookie)</h3>
 
 - **功能**:增加或更新用户属性
 
@@ -3652,7 +3652,7 @@ CRVideo_Logout()
 |cookie| string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_DelUserAttrs >CRVideo_DelUserAttrs( uid,  keys,  options,cookie)</h4>
+<h3 id=CRVideo_DelUserAttrs >CRVideo_DelUserAttrs( uid,  keys,  options,cookie)</h3>
 
 - **功能**:删除用户的特定属性
 
@@ -3668,7 +3668,7 @@ CRVideo_Logout()
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_ClearAllUserAttrs >CRVideo_ClearAllUserAttrs(options, cookie)</h4>
+<h3 id=CRVideo_ClearAllUserAttrs >CRVideo_ClearAllUserAttrs(options, cookie)</h3>
 
 - **功能**:清除所有用户的所有属性
 
@@ -3682,7 +3682,7 @@ CRVideo_Logout()
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_ClearUserAttrs >CRVideo_ClearUserAttrs( uid, options, cookie)</h4>
+<h3 id=CRVideo_ClearUserAttrs >CRVideo_ClearUserAttrs( uid, options, cookie)</h3>
 
 - **功能**:清除特定用户属性
 
@@ -3697,7 +3697,7 @@ CRVideo_Logout()
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_GetQueueUsers>CRVideo_GetQueueUsers(queID)</h4>
+<h3 id=CRVideo_GetQueueUsers>CRVideo_GetQueueUsers(queID)</h3>
 
 - **功能**: 获取指定队列的客户
 
@@ -3708,7 +3708,7 @@ CRVideo_Logout()
 |queID	 |string	|队列ID|
 
 
-<h4 id=CRVideo_ReqAssignUser2>CRVideo_ReqAssignUser2(queID, userID, cookie)</h4>
+<h3 id=CRVideo_ReqAssignUser2>CRVideo_ReqAssignUser2(queID, userID, cookie)</h3>
 
 - **功能**: 请求分配一个指定的客户
 
@@ -3723,7 +3723,7 @@ CRVideo_Logout()
 >回调函数：[CRVideo_ReqAssignUserRslt](#CRVideo_ReqAssignUserRslt)
 >当关闭免打扰时，系统将自动分配客户，无需调用此函数； 当开启免打扰时，系统不再自动分配客户，座席如需服务指定的客户可使用此函数分配
 
-<h4 id=CRVideo_GetMeetingAttrsSuccess > CRVideo_GetMeetingAttrsSuccess.callback = function( attrs,  cookie){} </h4>
+<h3 id=CRVideo_GetMeetingAttrsSuccess > CRVideo_GetMeetingAttrsSuccess.callback = function( attrs,  cookie){} </h3>
 
 - **功能**:成功获取到房间指定属性
 
@@ -3734,7 +3734,7 @@ CRVideo_Logout()
 | attrs | string  | json格式字符串，需要自行转换为json结构体。json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs)|
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
 
-<h4 id=CRVideo_GetMeetingAttrsFail > CRVideo_GetMeetingAttrsFail.callback = function( err,  cookie){} </h4>
+<h3 id=CRVideo_GetMeetingAttrsFail > CRVideo_GetMeetingAttrsFail.callback = function( err,  cookie){} </h3>
 
 - **功能**:获取房间指定属性失败
 
@@ -3746,7 +3746,7 @@ CRVideo_Logout()
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
 
 
-<h4 id=CRVideo_GetMeetingAllAttrsSuccess > CRVideo_GetMeetingAllAttrsSuccess.callback = function( attrs,  cookie){} </h4>
+<h3 id=CRVideo_GetMeetingAllAttrsSuccess > CRVideo_GetMeetingAllAttrsSuccess.callback = function( attrs,  cookie){} </h3>
 
 - **功能**:成功获取到所有房间属性
 
@@ -3758,7 +3758,7 @@ CRVideo_Logout()
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
 
 
-<h4 id=CRVideo_GetMeetingAllAttrsFail > CRVideo_GetMeetingAllAttrsFail.callback = function( err,  cookie){} </h4>
+<h3 id=CRVideo_GetMeetingAllAttrsFail > CRVideo_GetMeetingAllAttrsFail.callback = function( err,  cookie){} </h3>
 
 - **功能**:获取所有房间属性失败
 
@@ -3769,7 +3769,7 @@ CRVideo_Logout()
 | err | number  | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
 
-<h4 id=CRVideo_SetMeetingAttrsRslt >CRVideo_SetMeetingAttrsRslt.callback = function( err,  cookie) {}</h4>
+<h3 id=CRVideo_SetMeetingAttrsRslt >CRVideo_SetMeetingAttrsRslt.callback = function( err,  cookie) {}</h3>
 
 - **功能**:设置房间属性结果
 
@@ -3782,7 +3782,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_AddOrUpdateMeetingAttrsRslt > CRVideo_AddOrUpdateMeetingAttrsRslt.callback = function( err,  cookie){}</h4>
+<h3 id=CRVideo_AddOrUpdateMeetingAttrsRslt > CRVideo_AddOrUpdateMeetingAttrsRslt.callback = function( err,  cookie){}</h3>
 
 - **功能**:增加或更新房间属性结果
 
@@ -3794,7 +3794,7 @@ CRVideo_Logout()
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
 
 
-<h4 id=CRVideo_DelMeetingAttrsRslt > CRVideo_DelMeetingAttrsRslt.callback = function( err,  cookie){} </h4>
+<h3 id=CRVideo_DelMeetingAttrsRslt > CRVideo_DelMeetingAttrsRslt.callback = function( err,  cookie){} </h3>
 
 - **功能**:删除房间属性结果
 
@@ -3806,7 +3806,7 @@ CRVideo_Logout()
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#stream)  |
 
 
-<h4 id=CRVideo_ClearMeetingAttrsRslt >CRVideo_ClearMeetingAttrsRslt.callback = function( err,  cookie) {}</h4>
+<h3 id=CRVideo_ClearMeetingAttrsRslt >CRVideo_ClearMeetingAttrsRslt.callback = function( err,  cookie) {}</h3>
 
 - **功能**:清除房间属性结果
 
@@ -3817,7 +3817,7 @@ CRVideo_Logout()
 | err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
 
-<h4 id=CRVideo_GetUserAttrsSuccess >CRVideo_GetUserAttrsSuccess.callback = function( attrsMap,  cookie){} </h4>
+<h3 id=CRVideo_GetUserAttrsSuccess >CRVideo_GetUserAttrsSuccess.callback = function( attrsMap,  cookie){} </h3>
 
 - **功能**:获取房间内用户属性结果
 
@@ -3830,7 +3830,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetUserAttrsFail > CRVideo_GetUserAttrsFail.callback = function( err,  cookie) {}</h4>
+<h3 id=CRVideo_GetUserAttrsFail > CRVideo_GetUserAttrsFail.callback = function( err,  cookie) {}</h3>
 
 - **功能**:获取房间内用户属性失败
 
@@ -3842,7 +3842,7 @@ CRVideo_Logout()
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
 
 
-<h4 id=CRVideo_SetUserAttrsRslt > CRVideo_SetUserAttrsRslt.callback = function( err,  cookie) {}</h4>
+<h3 id=CRVideo_SetUserAttrsRslt > CRVideo_SetUserAttrsRslt.callback = function( err,  cookie) {}</h3>
 
 - **功能**:设置用户属性结果
 
@@ -3855,7 +3855,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_AddOrUpdateUserAttrsRslt > CRVideo_AddOrUpdateUserAttrsRslt.callback = function( err,  cookie){} </h4>
+<h3 id=CRVideo_AddOrUpdateUserAttrsRslt > CRVideo_AddOrUpdateUserAttrsRslt.callback = function( err,  cookie){} </h3>
 
 - **功能**:增加或者更新用户属性结果
 
@@ -3867,7 +3867,7 @@ CRVideo_Logout()
 | cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
 
 
-<h4 id=CRVideo_DelUserAttrsRslt > CRVideo_DelUserAttrsRslt.callback = function( err,  cookie){} </h4>
+<h3 id=CRVideo_DelUserAttrsRslt > CRVideo_DelUserAttrsRslt.callback = function( err,  cookie){} </h3>
 
 - **功能**:删除特定用户属性结果
 
@@ -3881,7 +3881,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_ClearAllUserAttrsRslt > CRVideo_ClearAllUserAttrsRslt.callback = function( err,  cookie){} </h4>
+<h3 id=CRVideo_ClearAllUserAttrsRslt > CRVideo_ClearAllUserAttrsRslt.callback = function( err,  cookie){} </h3>
 
 - **功能**:删除所有用户属性结果
 
@@ -3894,7 +3894,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_ClearUserAttrsRslt > CRVideo_ClearUserAttrsRslt.callback = function(err, cookie){} </h4>
+<h3 id=CRVideo_ClearUserAttrsRslt > CRVideo_ClearUserAttrsRslt.callback = function(err, cookie){} </h3>
 
 - **功能**:删除特定用户属性结果
 
@@ -3907,7 +3907,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_NotifyMeetingAttrsChanged >CRVideo_NotifyMeetingAttrsChanged.callback = function(attrs) {}</h4>
+<h3 id=CRVideo_NotifyMeetingAttrsChanged >CRVideo_NotifyMeetingAttrsChanged.callback = function(attrs) {}</h3>
 
 - **功能**:通知房间属性发生改变
 
@@ -3918,7 +3918,7 @@ CRVideo_Logout()
 | attrs | string  |房间属性，json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
 
 
-<h4 id=CRVideo_NotifyUserAttrsChanged >CRVideo_NotifyUserAttrsChanged.callback = function(uid, adds, updates, delKeys) </h4>
+<h3 id=CRVideo_NotifyUserAttrsChanged >CRVideo_NotifyUserAttrsChanged.callback = function(uid, adds, updates, delKeys) </h3>
 
 - **功能**:通知用户属性发生改变
 
@@ -3931,14 +3931,14 @@ CRVideo_Logout()
 | updates | string  |变化的用户属性集，json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
 | delKeys | string  |被删除的用户属性列表，json格式，如:["key1", "key2"] |
 
-<h4 id=CRVideo_GetScreenShareCfg>CRVideo_GetScreenShareCfg()</h4>
+<h3 id=CRVideo_GetScreenShareCfg>CRVideo_GetScreenShareCfg()</h3>
 
 - **功能**: 获取屏幕共享配置
 
 - **返回值**:屏幕共享配置（[CRVideo_ScreenShareCfgObj](TypeDefinitions.md#CRVideo_ScreenShareCfgObj)）
 
 
-<h4 id=CRVideo_SetScreenShareCfg>CRVideo_SetScreenShareCfg(jsonCfg)</h4>
+<h3 id=CRVideo_SetScreenShareCfg>CRVideo_SetScreenShareCfg(jsonCfg)</h3>
 
 - **功能**: 设置屏幕共享配置
 
@@ -3949,7 +3949,7 @@ CRVideo_Logout()
 |jsonCfg	|[CRVideo_ScreenShareCfgObj](TypeDefinitions.md#CRVideo_ScreenShareCfgObj) |	屏幕共享配置|
 
 
-<h4 id=CRVideo_StartScreenShare>CRVideo_StartScreenShare()</h4>
+<h3 id=CRVideo_StartScreenShare>CRVideo_StartScreenShare()</h3>
 
 - **功能**: 开启屏幕共享
 
@@ -3957,7 +3957,7 @@ CRVideo_Logout()
 - **返回值**:无
 
 
-<h4 id=CRVideo_StopScreenShare>CRVideo_StopScreenShare()</h4>
+<h3 id=CRVideo_StopScreenShare>CRVideo_StopScreenShare()</h3>
 
 - **功能**: 停止屏幕共享
 
@@ -3965,12 +3965,12 @@ CRVideo_Logout()
 - **返回值**:无
 
 
-<h4 id=CRVideo_RejectShareRequestion>CRVideo_RejectShareRequestion(requesterId,param)</h4>
+<h3 id=CRVideo_RejectShareRequestion>CRVideo_RejectShareRequestion(requesterId,param)</h3>
 
 - **功能**: 拒绝分享请求
 
 
-<h4 id=CRVideo_SetCustomizeScreenImg>CRVideo_SetCustomizeScreenImg(format, width, heigh, dat)</h4>
+<h3 id=CRVideo_SetCustomizeScreenImg>CRVideo_SetCustomizeScreenImg(format, width, heigh, dat)</h3>
 
 - **功能**: 自定义的抓屏图像数据
 
@@ -3984,7 +3984,7 @@ CRVideo_Logout()
 |dat	|string	|承载argb数据，base64编码|
 
 
-<h4 id=CRVideo_GiveCtrlRight>CRVideo_GiveCtrlRight(UID)</h4>
+<h3 id=CRVideo_GiveCtrlRight>CRVideo_GiveCtrlRight(UID)</h3>
 
 - **功能**: 赋予控制权限
 
@@ -3995,7 +3995,7 @@ CRVideo_Logout()
 |UID	|string|	用户ID|
 
 
-<h4 id=CRVideo_ReleaseCtrlRight>CRVideo_ReleaseCtrlRight(UID)</h4>
+<h3 id=CRVideo_ReleaseCtrlRight>CRVideo_ReleaseCtrlRight(UID)</h3>
 
 - **功能**: 收回控制权限
 
@@ -4006,7 +4006,7 @@ CRVideo_Logout()
 |UID	|string	|用户ID|
 
 
-<h4 id=CRVideo_SendMouseCtrlMsg>CRVideo_SendMouseCtrlMsg(msgType, mouseMsgType, x, y)</h4>
+<h3 id=CRVideo_SendMouseCtrlMsg>CRVideo_SendMouseCtrlMsg(msgType, mouseMsgType, x, y)</h3>
 
 - **功能**: 发送鼠标控制消息
 
@@ -4020,7 +4020,7 @@ CRVideo_Logout()
 | y	| number| 	鼠标在屏幕中的纵坐标|
 
 
-<h4 id=CRVideo_SendKeyCtrlMsg>CRVideo_SendKeyCtrlMsg(keyMsgType, vk, bExtendedKey)</h4>
+<h3 id=CRVideo_SendKeyCtrlMsg>CRVideo_SendKeyCtrlMsg(keyMsgType, vk, bExtendedKey)</h3>
 
 - **功能**: 发送键盘控制消息
 
@@ -4033,14 +4033,14 @@ CRVideo_Logout()
 |bExtendedKey|	number	|-|
 
 
-<h4 id=CRVideo_GetShareScreenDecodeImg>CRVideo_GetShareScreenDecodeImg()</h4>
+<h3 id=CRVideo_GetShareScreenDecodeImg>CRVideo_GetShareScreenDecodeImg()</h3>
 
 - **功能**: 屏幕共享图像数据
 
 - **返回值**:([CRVideo_VideoImgObj](TypeDefinitions.md#CRVideo_VideoImgObj))
 
 
-<h4 id=CRVideo_StartScreenShareRslt>CRVideo_StartScreenShareRslt.callback = function(sdkEr){}</h4>
+<h3 id=CRVideo_StartScreenShareRslt>CRVideo_StartScreenShareRslt.callback = function(sdkEr){}</h3>
 
 - **功能**: 开启屏幕共享的响应事件
 
@@ -4049,7 +4049,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_StopScreenShareRslt>CRVideo_StopScreenShareRslt.callback = function(sdkEr){}</h4>
+<h3 id=CRVideo_StopScreenShareRslt>CRVideo_StopScreenShareRslt.callback = function(sdkEr){}</h3>
 
 - **功能**停止屏幕共享的响应事件
 
@@ -4058,7 +4058,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_NotifyRequestShare>CRVideo_NotifyRequestShare.callback = function(sharerId,requesterId, param){}</h4>
+<h3 id=CRVideo_NotifyRequestShare>CRVideo_NotifyRequestShare.callback = function(sharerId,requesterId, param){}</h3>
 
 
 - **功能**：SDK通知请求屏幕共享
@@ -4069,7 +4069,7 @@ CRVideo_Logout()
     - param ----- 自定义参数
 
 
-<h4 id=CRVideo_NotifyCancelShareRequestion>CRVideo_NotifyCancelShareRequestion.callback = function(sharerId,requesterId){}</h4>
+<h3 id=CRVideo_NotifyCancelShareRequestion>CRVideo_NotifyCancelShareRequestion.callback = function(sharerId,requesterId){}</h3>
 
 
 - **功能**：SDK通知取消屏幕共享请求
@@ -4079,7 +4079,7 @@ CRVideo_Logout()
     - requesterId ----- 请求者ID
 
 
-<h4 id=CRVideo_NotifyRejectShareRequestion>CRVideo_NotifyRejectShareRequestion.callback = function(requesterId,sharerId, param){}</h4>
+<h3 id=CRVideo_NotifyRejectShareRequestion>CRVideo_NotifyRejectShareRequestion.callback = function(requesterId,sharerId, param){}</h3>
 
 - **功能**：SDK通知拒绝屏幕共享请求
 
@@ -4090,7 +4090,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_RequestShare>CRVideo_RequestShare(sharerId,param)</h4>
+<h3 id=CRVideo_RequestShare>CRVideo_RequestShare(sharerId,param)</h3>
 
 - **功能**: 请求某人开启屏幕共享
 
@@ -4102,7 +4102,7 @@ CRVideo_Logout()
 |param| string|	自定义参数，可传空 |
 
 
-<h4 id=CRVideo_CancelShareRequestion>CRVideo_CancelShareRequestion(sharerId)</h4>
+<h3 id=CRVideo_CancelShareRequestion>CRVideo_CancelShareRequestion(sharerId)</h3>
 
 - **功能**: 取消屏幕共享请求
 
@@ -4113,7 +4113,7 @@ CRVideo_Logout()
 |sharerId| number|	需要取消的共享者ID,与CRVideo_RequestShare的参数对应|
 
 
-<h4 id=CRVideo_RejectShareRequestion>CRVideo_RejectShareRequestion(requesterId,param)</h4>
+<h3 id=CRVideo_RejectShareRequestion>CRVideo_RejectShareRequestion(requesterId,param)</h3>
 
 - **功能**: 拒绝分享请求
 
@@ -4125,7 +4125,7 @@ CRVideo_Logout()
 |param| string|	自定义参数，可传空 |
 
 
-<h4 id=CRVideo_NotifyScreenShareStarted>CRVideo_NotifyScreenShareStarted.callback = function(userID){}</h4>
+<h3 id=CRVideo_NotifyScreenShareStarted>CRVideo_NotifyScreenShareStarted.callback = function(userID){}</h3>
 
 
 - **功能**：收到他人开启了屏幕共享的通知
@@ -4134,13 +4134,13 @@ CRVideo_Logout()
     - userID ----- 开启共享者的用户ID
 
 
-<h4 id=CRVideo_NotifyScreenShareStopped>CRVideo_NotifyScreenShareStopped.callback = function(){}</h4>
+<h3 id=CRVideo_NotifyScreenShareStopped>CRVideo_NotifyScreenShareStopped.callback = function(){}</h3>
 
 - **功能**: 收到他人停止了屏幕共享的通知
 
 
 
-<h4 id=CRVideo_NotifyScreenShareData>CRVideo_NotifyScreenShareData.callback = function(UID,rect){}</h4>
+<h3 id=CRVideo_NotifyScreenShareData>CRVideo_NotifyScreenShareData.callback = function(UID,rect){}</h3>
 
 - **功能**：通知对端屏幕图像有变化
 
@@ -4148,7 +4148,7 @@ CRVideo_Logout()
     - UID ----- 用户ID
     - rect ----- 变化的区域；（可以只重绘这块区域）
 
-<h4 id=CRVideo_NotifyGiveCtrlRight>CRVideo_NotifyGiveCtrlRight.callback = function(operId,targetId){}</h4>
+<h3 id=CRVideo_NotifyGiveCtrlRight>CRVideo_NotifyGiveCtrlRight.callback = function(operId,targetId){}</h3>
 
 - **功能**：SDK通知远程控制权限给予了他人
 
@@ -4157,7 +4157,7 @@ CRVideo_Logout()
     - targetId ----- 控制权限给予了谁
 
 
-<h4 id=CRVideo_NotifyReleaseCtrlRight>CRVideo_NotifyReleaseCtrlRight.callback = function(operId,targetId){}</h4>
+<h3 id=CRVideo_NotifyReleaseCtrlRight>CRVideo_NotifyReleaseCtrlRight.callback = function(operId,targetId){}</h3>
 
 - **功能**：SDK通知他人收回屏幕共享操作权限
 
@@ -4166,7 +4166,7 @@ CRVideo_Logout()
     - targetId ----- 收回了谁的控制权限
 
 
-<h4 id=CRVideo_NotifyShareRectChanged>CRVideo_NotifyShareRectChanged.callback = function(w,h){}</h4>
+<h3 id=CRVideo_NotifyShareRectChanged>CRVideo_NotifyShareRectChanged.callback = function(w,h){}</h3>
 
 
 - **功能**：通知屏幕共享大小改变
@@ -4176,7 +4176,7 @@ CRVideo_Logout()
     - h ----- 高度
 
 
-<h4 id=CRVideo_CreateLocMixer>CRVideo_CreateLocMixer(mixerID, mixerCfg, mixerContent)</h4>
+<h3 id=CRVideo_CreateLocMixer>CRVideo_CreateLocMixer(mixerID, mixerCfg, mixerContent)</h3>
 
 - **功能**: 创建本地混图器
 
@@ -4190,7 +4190,7 @@ CRVideo_Logout()
 |mixerContent| [CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj)	 |混图器内容配置，json格式|
 
 
-<h4 id=CRVideo_UpdateLocMixerContent>CRVideo_UpdateLocMixerContent(mixerID,mixerContent)</h4>
+<h3 id=CRVideo_UpdateLocMixerContent>CRVideo_UpdateLocMixerContent(mixerID,mixerContent)</h3>
 
 - **功能**: 更新本地混图器内容
 
@@ -4202,7 +4202,7 @@ CRVideo_Logout()
 |mixerContent| [CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj)	 |混图器内容配置，json格式|
 
 
-<h4 id=CRVideo_DestroyLocMixer>CRVideo_DestroyLocMixer(mixerID)</h4>
+<h3 id=CRVideo_DestroyLocMixer>CRVideo_DestroyLocMixer(mixerID)</h3>
 
 - **功能**: 消毁本地混图器
 
@@ -4213,7 +4213,7 @@ CRVideo_Logout()
 |mixerID| string|	混图器唯一标识|
 
 
-<h4 id=CRVideo_GetLocMixerState>CRVideo_GetLocMixerState(mixerID)</h4>
+<h3 id=CRVideo_GetLocMixerState>CRVideo_GetLocMixerState(mixerID)</h3>
 
 - **功能**: 获取本地混图器状态
 
@@ -4224,7 +4224,7 @@ CRVideo_Logout()
 |mixerID| string|	混图器唯一标识|
 
 
-<h4 id=CRVideo_AddLocMixerOutput>CRVideo_AddLocMixerOutput(mixerID, mixerOutput)</h4>
+<h3 id=CRVideo_AddLocMixerOutput>CRVideo_AddLocMixerOutput(mixerID, mixerOutput)</h3>
 
 - **功能**: 开启本地录制、直播推流
 
@@ -4243,7 +4243,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_RmLocMixerOutput>CRVideo_RmLocMixerOutput(mixerID,nameOrUrl)</h4>
+<h3 id=CRVideo_RmLocMixerOutput>CRVideo_RmLocMixerOutput(mixerID,nameOrUrl)</h3>
 
 - **功能**: 停止本地录制、直播推流
 
@@ -4257,7 +4257,7 @@ CRVideo_Logout()
 >注意事项：所有输出停止后并不会消毁混图器，如果混图器不再需要请手工消毁；
 
 
-<h4 id=CRVideo_GetAllRecordFiles>CRVideo_GetAllRecordFiles()</h4>
+<h3 id=CRVideo_GetAllRecordFiles>CRVideo_GetAllRecordFiles()</h3>
 
 - **功能**: 录制文件列表
 
@@ -4265,7 +4265,7 @@ CRVideo_Logout()
 - **返回值**:返回含多个录制文件信息(Array-[CRVideo_RecordFileInfo](TypeDefinitions.md#CRVideo_RecordFileInfo))
 
 
-<h4 id=CRVideo_CancelUploadRecordFile>CRVideo_CancelUploadRecordFile(filename)</h4>
+<h3 id=CRVideo_CancelUploadRecordFile>CRVideo_CancelUploadRecordFile(filename)</h3>
 
 - **功能**: 取消上传录像文件
 
@@ -4277,7 +4277,7 @@ CRVideo_Logout()
 |filename	|string	|文件名|
 
 
-<h4 id=CRVideo_UploadRecordFile>CRVideo_UploadRecordFile(filename)</h4>
+<h3 id=CRVideo_UploadRecordFile>CRVideo_UploadRecordFile(filename)</h3>
 
 - **功能**: 上传录像文件
 
@@ -4290,7 +4290,7 @@ CRVideo_Logout()
 >上传文件在默认位置
 
 
-<h4 id=CRVideo_UploadRecordFile2>CRVideo_UploadRecordFile2(fileName,svrPathFileName)</h4>
+<h3 id=CRVideo_UploadRecordFile2>CRVideo_UploadRecordFile2(fileName,svrPathFileName)</h3>
 
 - **功能**: 上传录像文件
 
@@ -4304,7 +4304,7 @@ CRVideo_Logout()
 >上传文件到服务器指定位置
 
 
-<h4 id=CRVideo_PlaybackRecordFile>CRVideo_PlaybackRecordFile(filename)</h4>
+<h3 id=CRVideo_PlaybackRecordFile>CRVideo_PlaybackRecordFile(filename)</h3>
 
 - **功能**: 回放录制文件
 
@@ -4316,7 +4316,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_LocMixerStateChanged>CRVideo_LocMixerStateChanged.callback = function(mixerID,state){}</h4>
+<h3 id=CRVideo_LocMixerStateChanged>CRVideo_LocMixerStateChanged.callback = function(mixerID,state){}</h3>
 
 - **功能**：SDK通知本地录制、本地直播状态变化
 
@@ -4325,7 +4325,7 @@ CRVideo_Logout()
     - state ----- 见 [CRVideo_MIXER_STATE](Constant.md#CRVideo_MIXER_STATE)
 
 
-<h4 id=CRVideo_LocMixerOutputInfo>CRVideo_LocMixerOutputInfo.callback = function(mixerID,nameOrUrl,outputInfo){}</h4>
+<h3 id=CRVideo_LocMixerOutputInfo>CRVideo_LocMixerOutputInfo.callback = function(mixerID,nameOrUrl,outputInfo){}</h3>
 
 
 - **功能**：SDK通知本地录制文件、本地直播信息通知
@@ -4337,7 +4337,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_NotifyRecordFileStateChanged>CRVideo_NotifyRecordFileStateChanged.callback = function(fileName,state){}</h4>
+<h3 id=CRVideo_NotifyRecordFileStateChanged>CRVideo_NotifyRecordFileStateChanged.callback = function(fileName,state){}</h3>
 
 
 - **功能**：SDK通知录制文件状态更改
@@ -4347,7 +4347,7 @@ CRVideo_Logout()
     - state ----- 状态： 0未上传 1上传中 2已上传
 
 
-<h4 id=CRVideo_NotifyRecordFileUploadProgress>CRVideo_NotifyRecordFileUploadProgress.callback = function(fileName,percent){}</h4>
+<h3 id=CRVideo_NotifyRecordFileUploadProgress>CRVideo_NotifyRecordFileUploadProgress.callback = function(fileName,percent){}</h3>
 
 
 - **功能**：SDK通知上传录制文件进度
@@ -4358,7 +4358,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_UploadRecordFileErr>CRVideo_UploadRecordFileErr.callback = function(fileName,sdkEr){}</h4>
+<h3 id=CRVideo_UploadRecordFileErr>CRVideo_UploadRecordFileErr.callback = function(fileName,sdkEr){}</h3>
 
 - **功能**：上传录制文件错误通知
 
@@ -4370,7 +4370,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_StartSvrMixer>CRVideo_StartSvrMixer(mutiMixerCfgs, mutiMixerContents,mutiMixerOutputs)</h4>
+<h3 id=CRVideo_StartSvrMixer>CRVideo_StartSvrMixer(mutiMixerCfgs, mutiMixerContents,mutiMixerOutputs)</h3>
 
 - **功能**: 开始云端录制、云端直播
 
@@ -4387,7 +4387,7 @@ CRVideo_Logout()
 >每个输出有私有的状态变化事件CRVideo_SvrMixerOutputInfo
 
 
-<h4 id=CRVideo_UpdateSvrMixerContent>CRVideo_UpdateSvrMixerContent(mutiMixerContents)</h4>
+<h3 id=CRVideo_UpdateSvrMixerContent>CRVideo_UpdateSvrMixerContent(mutiMixerContents)</h3>
 
 - **功能**: 更新云端录制、云端直播内容
 
@@ -4398,7 +4398,7 @@ CRVideo_Logout()
 |mutiMixerContents|  [CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj)	 |服务器混图内容	|
 
 
-<h4 id=CRVideo_StopSvrMixer>CRVideo_StopSvrMixer()</h4>
+<h3 id=CRVideo_StopSvrMixer>CRVideo_StopSvrMixer()</h3>
 
 - **功能**: 停止云端录制、云端直播
 
@@ -4410,7 +4410,7 @@ CRVideo_Logout()
 >每个输出有私有的状态变化事件svrMixerOutputInfo
 
 
-<h4 id=CRVideo_GetSvrMixerState>CRVideo_GetSvrMixerState()</h4>
+<h3 id=CRVideo_GetSvrMixerState>CRVideo_GetSvrMixerState()</h3>
 
 - **功能**: 获取云端录制、云端直播状态
 
@@ -4419,7 +4419,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SvrMixerStateChanged>CRVideo_SvrMixerStateChanged.callback = function(state, err,operatorID){}</h4>
+<h3 id=CRVideo_SvrMixerStateChanged>CRVideo_SvrMixerStateChanged.callback = function(state, err,operatorID){}</h3>
 
 
 - **功能**：SDK通知云端录制、云端直播状态变化
@@ -4430,13 +4430,13 @@ CRVideo_Logout()
     - operatorID ----- 引起变化的用户id
 
 
-<h4 id=CRVideo_SvrMixerCfgChanged>CRVideo_SvrMixerCfgChanged.callback = function(){}</h4>
+<h3 id=CRVideo_SvrMixerCfgChanged>CRVideo_SvrMixerCfgChanged.callback = function(){}</h3>
 
 - **功能**：SDK通知云端录制、云端直播内容变化
 - **参数**：无
 
 
-<h4 id=CRVideo_SvrMixerOutputInfo>CRVideo_SvrMixerOutputInfo.callback = function(outputInfo){}</h4>
+<h3 id=CRVideo_SvrMixerOutputInfo>CRVideo_SvrMixerOutputInfo.callback = function(outputInfo){}</h3>
 
 
 
@@ -4446,7 +4446,7 @@ CRVideo_Logout()
     - outputInfo ----- 通知内容，json结构,请参见[CRVideo_MixerOutputInfoObj](TypeDefinitions.md#CRVideo_MixerOutputInfoObj)
 
 
-<h4 id=CRVideo_Createboard>CRVideo_Createboard(title, width, height, pageCount)</h4>
+<h3 id=CRVideo_Createboard>CRVideo_Createboard(title, width, height, pageCount)</h3>
 
 - **功能**: 创建白板
 
@@ -4462,7 +4462,7 @@ CRVideo_Logout()
 >其他参会者会收到：[CRVideo_NotifyCreateBoard](#CRVideo_NotifyCreateBoard)事件;同时后台会记录下白板数据，新入会者会收到：[CRVideo_NotifyInitBoards](#CRVideo_NotifyInitBoards)事件.注意：创建完白板后，一定要及尽快调用[CRVideo_InitBoardPageDat](#CRVideo_InitBoardPageDat)初始化各页数据
 
 
-<h4 id=CRVideo_Closeboard>CRVideo_Closeboard(boardID)</h4>
+<h3 id=CRVideo_Closeboard>CRVideo_Closeboard(boardID)</h3>
 
 - **功能**: 关闭白板
 
@@ -4475,7 +4475,7 @@ CRVideo_Logout()
 >其他参会者将收到[CRVideo_NotifyCloseBoard](#CRVideo_NotifyCloseBoard)事件；同时后台会移除对应白板的所有信息
 
 
-<h4 id=CRVideo_InitBoardPageDat>CRVideo_InitBoardPageDat(boardID, boardPageNo, imgID, elemets)</h4>
+<h3 id=CRVideo_InitBoardPageDat>CRVideo_InitBoardPageDat(boardID, boardPageNo, imgID, elemets)</h3>
 
 - **功能**: 初始化白板图元数据
 
@@ -4496,7 +4496,7 @@ CRVideo_Logout()
 
 
  
- <h4 id=CRVideo_CreateElementID>CRVideo_CreateElementID()</h4>
+ <h3 id=CRVideo_CreateElementID>CRVideo_CreateElementID()</h3>
 
 - **功能**: 生成白板图元ID
 
@@ -4505,7 +4505,7 @@ CRVideo_Logout()
 >本地操作；所有白板图元id，必须由此接口创建；（历史文件存储的图元id，在房间内不能再使用，应重新创建）
 
 
-<h4 id=CRVideo_Addboardelement>CRVideo_Addboardelement(boardID, boardPageNo, element)</h4>
+<h3 id=CRVideo_Addboardelement>CRVideo_Addboardelement(boardID, boardPageNo, element)</h3>
 
 - **功能**: 添加图元信息
 
@@ -4520,7 +4520,7 @@ CRVideo_Logout()
 >其他参会者会收到：[CRVideo_NotifyAddBoardElement](#CRVideo_NotifyAddBoardElement)事件;同时后台会保存图元，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中得到这些图元
 
 
-<h4 id=CRVideo_ModifyBoardElement>CRVideo_ModifyBoardElement(boardID, boardPageNo, element)</h4>
+<h3 id=CRVideo_ModifyBoardElement>CRVideo_ModifyBoardElement(boardID, boardPageNo, element)</h3>
 
 - **功能**: 修改图元信息
 
@@ -4535,7 +4535,7 @@ CRVideo_Logout()
 >说明：其他参会者会收到：[CRVideo_NotifyModifyBoardElement](#CRVideo_NotifyModifyBoardElement)事件;同时后台会覆盖对应图元的数据，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中得到这些图元
 
 
-<h4 id=CRVideo_Delboardelement>CRVideo_Delboardelement(boardID, boardPageNo, elementIDs)</h4>
+<h3 id=CRVideo_Delboardelement>CRVideo_Delboardelement(boardID, boardPageNo, elementIDs)</h3>
 
 - **功能**: 删除图元
 
@@ -4550,7 +4550,7 @@ CRVideo_Logout()
 >说明：其他参会者会收到：[CRVideo_NotifyDelBoardElement](#CRVideo_NotifyDelBoardElement)事件；同时后台会移除这些图元，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中将不包含这些图元
 
 
-<h4 id=CRVideo_Setmousehotspot>CRVideo_Setmousehotspot(boardID, boardPageNo, x, y)</h4>
+<h3 id=CRVideo_Setmousehotspot>CRVideo_Setmousehotspot(boardID, boardPageNo, x, y)</h3>
 
 - **功能**: 设置白板鼠标热点
 
@@ -4566,7 +4566,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetBoardCurPageNo>CRVideo_SetBoardCurPageNo(boardID, boardPageNo, pagePos1, pagePos2)</h4>
+<h3 id=CRVideo_SetBoardCurPageNo>CRVideo_SetBoardCurPageNo(boardID, boardPageNo, pagePos1, pagePos2)</h3>
 
 - **功能**: 白板翻页
 
@@ -4580,7 +4580,7 @@ CRVideo_Logout()
 |pagePos2	|number |私有扩展参数2（如可用于页内y方向滚动位置）|
 
 
-<h4 id=CRVideo_ListNetDiskDocFile>CRVideo_ListNetDiskDocFile(dir)</h4>
+<h3 id=CRVideo_ListNetDiskDocFile>CRVideo_ListNetDiskDocFile(dir)</h3>
 
 - **功能**: 查询文档列表
 
@@ -4593,7 +4593,7 @@ CRVideo_Logout()
 >查询服务器指定目录下的内容（子目录名、上传的文档源文件及文档转换状态）
 
 
-<h4 id=CRVideo_UploadDocFileToNetDisk>CRVideo_UploadDocFileToNetDisk(svrPathFileName,locPathFileName)</h4>
+<h3 id=CRVideo_UploadDocFileToNetDisk>CRVideo_UploadDocFileToNetDisk(svrPathFileName,locPathFileName)</h3>
 
 - **功能**: 上传文档并转换
 
@@ -4609,7 +4609,7 @@ CRVideo_Logout()
 >说明:支持的文件格式有：doc，docx, ppt, pptx, pps, ppsx, xls, xlsx, et, ett, wps, wpt, dps, pdf, txt, log, ini, bmp, png, jpg, jpeg；
 
 
-<h4 id=CRVideo_DownloadDocSrcFile>CRVideo_DownloadDocSrcFile(svrPathFileName, locPathFileName)</h4>
+<h3 id=CRVideo_DownloadDocSrcFile>CRVideo_DownloadDocSrcFile(svrPathFileName, locPathFileName)</h3>
 
 - **功能**: 下载源始文档
 
@@ -4624,7 +4624,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_CancelTransforNetDiskDocFile>CRVideo_CancelTransforNetDiskDocFile(svrPathFileName)</h4>
+<h3 id=CRVideo_CancelTransforNetDiskDocFile>CRVideo_CancelTransforNetDiskDocFile(svrPathFileName)</h3>
 
 - **功能**: 取消文档传输
 
@@ -4636,7 +4636,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_DeleteNetDiskDocFile>CRVideo_DeleteNetDiskDocFile(svrPathFileName)</h4>
+<h3 id=CRVideo_DeleteNetDiskDocFile>CRVideo_DeleteNetDiskDocFile(svrPathFileName)</h3>
 
 - **功能**: 删除文档
 
@@ -4648,7 +4648,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetNetDiskDocFilePageInfo>CRVideo_GetNetDiskDocFilePageInfo(svrPathFileName)</h4>
+<h3 id=CRVideo_GetNetDiskDocFilePageInfo>CRVideo_GetNetDiskDocFilePageInfo(svrPathFileName)</h3>
 
 - **功能**: 获取文档的转换信息
 
@@ -4662,7 +4662,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_DownloadNetDiskDocFilePage>CRVideo_DownloadNetDiskDocFilePage(pagePathFileName, locPathFileName)</h4>
+<h3 id=CRVideo_DownloadNetDiskDocFilePage>CRVideo_DownloadNetDiskDocFilePage(pagePathFileName, locPathFileName)</h3>
 
 - **功能**: 下载文档转换后的页文件
 
@@ -4676,7 +4676,7 @@ CRVideo_Logout()
 >说明:页文件格式： 6字节保留，4字节图像格式（2:jpg, 4:png），4字节图像内容长度，图像内容 
 
 
-<h4 id=CRVideo_SetPicResource>CRVideo_SetPicResource(resourceid, picJsonVal)</h4>
+<h3 id=CRVideo_SetPicResource>CRVideo_SetPicResource(resourceid, picJsonVal)</h3>
 
 - **功能**: (为本地录制的录像文件)添加图片资源
 
@@ -4690,8 +4690,8 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_NotifyInitBoards>CRVideo_NotifyInitBoards.callback = function(BoardObjs){}
-</h4>
+<h3 id=CRVideo_NotifyInitBoards>CRVideo_NotifyInitBoards.callback = function(BoardObjs){}
+</h3>
 
 
 - **功能**：SDK入会后通知房间中已经存在的白板列表
@@ -4700,7 +4700,7 @@ CRVideo_Logout()
     - BoardObjs ----- 已经创建好的白板列表， json结构体请参见[CRVideo_BoardObjs](TypeDefinitions.md#CRVideo_BoardObjs)说明
 
 
-<h4 id=CRVideo_NotifyInitBoardPageDat>CRVideo_NotifyInitBoardPageDat.callback = function(boardID,boardPageNo,imgID,elementDatas,operatorID){}</h4>
+<h3 id=CRVideo_NotifyInitBoardPageDat>CRVideo_NotifyInitBoardPageDat.callback = function(boardID,boardPageNo,imgID,elementDatas,operatorID){}</h3>
 
 - **功能**：通知初始化白板内图元数据
 
@@ -4712,7 +4712,7 @@ CRVideo_Logout()
     - operatorID ----- 初始化用户（为空时，代表入会时后台事件）
 
 
-<h4 id=CRVideo_NotifyCreateBoard>CRVideo_NotifyCreateBoard.callback = function(jsonBoard,operatorID){}</h4>
+<h3 id=CRVideo_NotifyCreateBoard>CRVideo_NotifyCreateBoard.callback = function(jsonBoard,operatorID){}</h3>
 
 - **功能**：SDK通知创建白板
 
@@ -4721,7 +4721,7 @@ CRVideo_Logout()
     - operatorID ----- 创建白板的用户ID
 
 
-<h4 id=CRVideo_NotifyCloseBoard>CRVideo_NotifyCloseBoard.callback = function(boardID,operatorID){}</h4>
+<h3 id=CRVideo_NotifyCloseBoard>CRVideo_NotifyCloseBoard.callback = function(boardID,operatorID){}</h3>
 
 - **功能**：SDK通知关闭白板
 
@@ -4730,7 +4730,7 @@ CRVideo_Logout()
     - operatorID ----- 关闭白板的用户ID
 
 
-<h4 id=CRVideo_NotifyBoardBkImage>CRVideo_NotifyBoardBkImage.callback = function(subPage,imgFileID,operatorID){}</h4>
+<h3 id=CRVideo_NotifyBoardBkImage>CRVideo_NotifyBoardBkImage.callback = function(subPage,imgFileID,operatorID){}</h3>
 
 - **功能**：SDK通知白板背景
 
@@ -4740,7 +4740,7 @@ CRVideo_Logout()
     - operatorID ----- 操作用户ID
 
 
-<h4 id=CRVideo_NotifyAddBoardElement>CRVideo_NotifyAddBoardElement.callback = function(boardID,boardPageNo,element,operatorID){}</h4>
+<h3 id=CRVideo_NotifyAddBoardElement>CRVideo_NotifyAddBoardElement.callback = function(boardID,boardPageNo,element,operatorID){}</h3>
 
 
 - **功能**：SDK通知添加图元信息
@@ -4752,7 +4752,7 @@ CRVideo_Logout()
     - operatorID ----- 添加图元的用户ID
 
 
-<h4 id=CRVideo_NotifyModifyBoardElement>CRVideo_NotifyModifyBoardElement.callback = function(boardID,boardPageNo,element,operatorID){}</h4>
+<h3 id=CRVideo_NotifyModifyBoardElement>CRVideo_NotifyModifyBoardElement.callback = function(boardID,boardPageNo,element,operatorID){}</h3>
 
 
 - **功能**：SDK通知图元信息被修改
@@ -4765,7 +4765,7 @@ CRVideo_Logout()
 
 >应从页内找到旧的图元并替换；
 
-<h4 id=CRVideo_NotifyDelBoardElement>CRVideo_NotifyDelBoardElement.callback = function(boardID,boardPageNo,elementIDs,operatorID){}</h4>
+<h3 id=CRVideo_NotifyDelBoardElement>CRVideo_NotifyDelBoardElement.callback = function(boardID,boardPageNo,elementIDs,operatorID){}</h3>
 
 - **功能**：SDK通知删除图元
 
@@ -4776,7 +4776,7 @@ CRVideo_Logout()
     - operatorID ----- 删除图元的用户ID
 
 
-<h4 id=CRVideo_NotifyMouseHotSpot>CRVideo_NotifyMouseHotSpot.callback = function(boardID,x,y,operatorID){}</h4>
+<h3 id=CRVideo_NotifyMouseHotSpot>CRVideo_NotifyMouseHotSpot.callback = function(boardID,x,y,operatorID){}</h3>
 
 - **功能**：SDK通知设置鼠标热点消息
 
@@ -4788,7 +4788,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_NotifyBoardCurPageNo>CRVideo_NotifyBoardCurPageNo.callback = function(boardID, pageNo, pagePos1, pagePos2, operatorID){}</h4>
+<h3 id=CRVideo_NotifyBoardCurPageNo>CRVideo_NotifyBoardCurPageNo.callback = function(boardID, pageNo, pagePos1, pagePos2, operatorID){}</h3>
 
 - **功能**：SDK通知通知白板翻页
 
@@ -4800,7 +4800,7 @@ CRVideo_Logout()
     - operatorID ----- 操作者的用户ID
 
 
-<h4 id=CRVideo_UndoEnableChange>CRVideo_UndoEnableChange.callback = function(isEnable){}</h4>
+<h3 id=CRVideo_UndoEnableChange>CRVideo_UndoEnableChange.callback = function(isEnable){}</h3>
 
 
 - **功能**：SDK通知白板的“撤消”功能是否可用
@@ -4809,7 +4809,7 @@ CRVideo_Logout()
     - isEnable -----  撤消功能是否可用(bool)
 
 
-<h4 id=CRVideo_RedoEnableChange>CRVideo_RedoEnableChange.callback = function(isEnable){}</h4>
+<h3 id=CRVideo_RedoEnableChange>CRVideo_RedoEnableChange.callback = function(isEnable){}</h3>
 
 - **功能**：SDK通知白板的“恢复”功能是否可用
 
@@ -4819,7 +4819,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_ListNetDiskDocFileRslt>CRVideo_ListNetDiskDocFileRslt.callback = function(dir, sdkErr, rslt){}</h4>
+<h3 id=CRVideo_ListNetDiskDocFileRslt>CRVideo_ListNetDiskDocFileRslt.callback = function(dir, sdkErr, rslt){}</h3>
 
 - **功能** 通知查询文档列表结果
 
@@ -4829,7 +4829,7 @@ CRVideo_Logout()
     - rslt ----- 成功时的查询的结果，参见json格式之[CRVideo_ListDocFileRslt](TypeDefinitions.md#CRVideo_ListDocFileRslt)
 
 
-<h4 id=CRVideo_GetNetDiskDocFilePageInfoRslt>CRVideo_GetNetDiskDocFilePageInfoRslt.callback = function(svrPathFileName, sdkErr,rslt) {}</h4>
+<h3 id=CRVideo_GetNetDiskDocFilePageInfoRslt>CRVideo_GetNetDiskDocFilePageInfoRslt.callback = function(svrPathFileName, sdkErr,rslt) {}</h3>
 
 
 - **功能** 通知查询文档转换结果
@@ -4841,7 +4841,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_DeleteNetDiskDocFileRslt>CRVideo_DeleteNetDiskDocFileRslt.callback = function(svrPathFileName, sdkERR) {}</h4>
+<h3 id=CRVideo_DeleteNetDiskDocFileRslt>CRVideo_DeleteNetDiskDocFileRslt.callback = function(svrPathFileName, sdkERR) {}</h3>
 
 - **功能**: 通知删除文档结果
 
@@ -4850,7 +4850,7 @@ CRVideo_Logout()
   - sdkERR ----- 删除结果，0代表删除成功, 错误码取值参考[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 
-<h4 id=CRVideo_NotifyNetDiskDocFileTrsfProgress>CRVideo_NotifyNetDiskDocFileTrsfProgress.callback = function(svrPathFileName, percent){}</h4>
+<h3 id=CRVideo_NotifyNetDiskDocFileTrsfProgress>CRVideo_NotifyNetDiskDocFileTrsfProgress.callback = function(svrPathFileName, percent){}</h3>
 
 
 - **功能** 通知文档传输进度
@@ -4860,14 +4860,14 @@ CRVideo_Logout()
   - percent ----- 传输进度（等于100代表传输完成）
 
 
-<h4 id=CRVideo_NotifyNetDiskIsFull>CRVideo_NotifyNetDiskIsFull.callback = function(fileList){}</h4>
+<h3 id=CRVideo_NotifyNetDiskIsFull>CRVideo_NotifyNetDiskIsFull.callback = function(fileList){}</h3>
 
 - **功能**：SDK通知网盘空间已满，容量不足
 
 + **参数**：
     - fileList ----- 文件列表
 
-<h4 id=CRVideo_GetOpenFileName>CRVideo_GetOpenFileName(title,directory,filter)</h4>
+<h3 id=CRVideo_GetOpenFileName>CRVideo_GetOpenFileName(title,directory,filter)</h3>
 
 - **功能**：获取用户打开的全路径文件名
 
@@ -4879,7 +4879,7 @@ CRVideo_Logout()
 |directory|    string| 打开对话框初始路径,不设初始值时请传空|
 |filter|    string| 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)"|
 
-<h4 id=CRVideo_GetSaveFileName>CRVideo_GetSaveFileName(title,directory,filter)</h4>
+<h3 id=CRVideo_GetSaveFileName>CRVideo_GetSaveFileName(title,directory,filter)</h3>
 
 - **功能**：获取用户保存的全路径文件名
 
@@ -4891,7 +4891,7 @@ CRVideo_Logout()
 |directory|    string| 打开对话框初始路径,不设初始值时请传空|
 |filter|    string| 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)"|
 
-<h4 id=CRVideo_SendCmd>CRVideo_SendCmd(targetUserId, data)</h4>
+<h3 id=CRVideo_SendCmd>CRVideo_SendCmd(targetUserId, data)</h3>
 
 - **功能**：发送小块数据
 
@@ -4904,7 +4904,7 @@ CRVideo_Logout()
 
 >一次性发送不会有进度通知，发送结果事件[CRVideo_SendCmdRlst](#CRVideo_SendCmdRlst)，CRVideo_SendCmd不能被[CRVideo_CancelSend](#CRVideo_CancelSend)
 
-<h4 id=CRVideo_SendBuffer>CRVideo_SendBuffer(targetUserId, data)</h4>
+<h3 id=CRVideo_SendBuffer>CRVideo_SendBuffer(targetUserId, data)</h3>
 
 - **功能**：发送大块数据（分块发送）
 
@@ -4917,7 +4917,7 @@ CRVideo_Logout()
 
 >进度通知事件[CRVideo_SendProgress](#CRVideo_SendProgress)，发送结果事件[CRVideo_SendBufferRlst](#CRVideo_SendBufferRlst)，取消发送[CRVideo_CancelSend](#CRVideo_CancelSend)
 
-<h4 id=CRVideo_SendFile>CRVideo_SendFile(targetUserId, fileName)</h4>
+<h3 id=CRVideo_SendFile>CRVideo_SendFile(targetUserId, fileName)</h3>
 
 - **功能**：发送文件（分块发送 ）
 
@@ -4931,7 +4931,7 @@ CRVideo_Logout()
 >进度通知事件[CRVideo_SendProgress](#CRVideo_SendProgress)，发送结果事件[CRVideo_SendFileRlst](#CRVideo_SendFileRlst)，取消发送[CRVideo_CancelSend](#CRVideo_CancelSend))
 
 
-<h4 id=CRVideo_CancelSend>CRVideo_CancelSend(taskID)</h4>
+<h3 id=CRVideo_CancelSend>CRVideo_CancelSend(taskID)</h3>
 
 - **功能**： 取消数据发送
 
@@ -4944,7 +4944,7 @@ CRVideo_Logout()
 >取消数据发送 操作完成则回调[CRVideo_CancelSendRlst](#CRVideo_CancelSendRlst)
 
 
-<h4 id=CRVideo_Invite>CRVideo_Invite(invitedUserID, usrExtDat, cookie)</h4>
+<h3 id=CRVideo_Invite>CRVideo_Invite(invitedUserID, usrExtDat, cookie)</h3>
 
 - **功能**: 发送邀请
 
@@ -4958,7 +4958,7 @@ CRVideo_Logout()
 
 >邀请成功则触发回调[CRVideo_InviteSuccess](#CRVideo_InviteSuccess)，失败则触发回调[CRVideo_InviteFail](#CRVideo_InviteFail)。
 
-<h4 id=CRVideo_AcceptInvite>CRVideo_AcceptInvite(inviteID, usrExtDat, cookie)</h4>
+<h3 id=CRVideo_AcceptInvite>CRVideo_AcceptInvite(inviteID, usrExtDat, cookie)</h3>
 
 - **功能**: 接受对方的邀请
 
@@ -4973,7 +4973,7 @@ CRVideo_Logout()
 >操作成功则回调[CRVideo_AcceptInviteSuccess](#CRVideo_AcceptInviteSuccess),失败则回调[CRVideo_AcceptInviteFail](#CRVideo_AcceptInviteFail)。另外，对方（主动邀请者）会收到回调[CRVideo_NotifyInviteAccepted](#CRVideo_NotifyInviteAccepted)。
 
 
-<h4 id=CRVideo_RejectInvite>CRVideo_RejectInvite(inviteID, usrExtDat, cookie)</h4>
+<h3 id=CRVideo_RejectInvite>CRVideo_RejectInvite(inviteID, usrExtDat, cookie)</h3>
 
 - **功能**: 拒绝对方的邀请
 
@@ -4987,7 +4987,7 @@ CRVideo_Logout()
 
 >操作成功则触发回调[CRVideo_RejectInviteSuccess](#CRVideo_RejectInviteSuccess),失败则触发回调[CRVideo_RejectInviteFail](#CRVideo_RejectInviteFail)。另外，对方（主动邀请者）会收到回调[CRVideo_NotifyInviteRejected](#CRVideo_NotifyInviteRejected)。
 
-<h4 id=CRVideo_CancelInvite>CRVideo_CancelInvite(inviteID, usrExtDat, cookie)</h4>
+<h3 id=CRVideo_CancelInvite>CRVideo_CancelInvite(inviteID, usrExtDat, cookie)</h3>
 
 - **功能**: 取消自己发送的邀请
 
@@ -5001,7 +5001,7 @@ CRVideo_Logout()
 
 >操作成功则触发回调[CRVideo_CancelInviteSuccess](#CRVideo_CancelInviteSuccess),失败则触发回调[CRVideo_CancelInviteFail](#CRVideo_CancelInviteFail)。另外，对方（被邀请者） 收到回调[CRVideo_NotifyInviteCanceled](#CRVideo_NotifyInviteCanceled)。
 
-<h4 id=CRVideo_InviteSuccess>CRVideo_InviteSuccess.callback = function(inviteID,cookie){}</h4>
+<h3 id=CRVideo_InviteSuccess>CRVideo_InviteSuccess.callback = function(inviteID,cookie){}</h3>
 
 - **功能**: 发送邀请成功
 
@@ -5010,7 +5010,7 @@ CRVideo_Logout()
 |inviteID|string|  邀请ID|
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
-<h4 id=CRVideo_InviteFail>CRVideo_InviteFail.callback = function(inviteID,sdkErr,cookie){}</h4>
+<h3 id=CRVideo_InviteFail>CRVideo_InviteFail.callback = function(inviteID,sdkErr,cookie){}</h3>
 
 - **功能**: 发送邀请失败
 
@@ -5020,7 +5020,7 @@ CRVideo_Logout()
 |sdkErr|number|  操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
-<h4 id=CRVideo_CancelInviteSuccess>CRVideo_CancelInviteSuccess.callback = function(inviteID,cookie){}</h4>
+<h3 id=CRVideo_CancelInviteSuccess>CRVideo_CancelInviteSuccess.callback = function(inviteID,cookie){}</h3>
 
 - **功能**: 取消自己发送的邀请成功
 
@@ -5029,7 +5029,7 @@ CRVideo_Logout()
 |inviteID|string|  邀请ID|
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
-<h4 id=CRVideo_CancelInviteFail>CRVideo_CancelInviteFail.callback = function(inviteID,sdkErr,cookie){}</h4>
+<h3 id=CRVideo_CancelInviteFail>CRVideo_CancelInviteFail.callback = function(inviteID,sdkErr,cookie){}</h3>
 
 - **功能**: 取消自己发送的邀请失败
 
@@ -5039,7 +5039,7 @@ CRVideo_Logout()
 |sdkErr|number|  操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
-<h4 id=CRVideo_AcceptInviteSuccess>CRVideo_AcceptInviteSuccess.callback = function(inviteID,cookie){}</h4>
+<h3 id=CRVideo_AcceptInviteSuccess>CRVideo_AcceptInviteSuccess.callback = function(inviteID,cookie){}</h3>
 
 - **功能**: 接受对方的邀请成功
 
@@ -5048,7 +5048,7 @@ CRVideo_Logout()
 |inviteID|string|  邀请ID|
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
-<h4 id=CRVideo_AcceptInviteFail>CRVideo_AcceptInviteFail.callback = function(inviteID,sdkErr,cookie){}</h4>
+<h3 id=CRVideo_AcceptInviteFail>CRVideo_AcceptInviteFail.callback = function(inviteID,sdkErr,cookie){}</h3>
 
 - **功能**: 接受对方的邀请失败
 
@@ -5059,7 +5059,7 @@ CRVideo_Logout()
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_RejectInviteSuccess>CRVideo_RejectInviteSuccess.callback = function(inviteID,cookie){}</h4>
+<h3 id=CRVideo_RejectInviteSuccess>CRVideo_RejectInviteSuccess.callback = function(inviteID,cookie){}</h3>
 
 - **功能**: 拒绝对方的邀请成功
 
@@ -5068,7 +5068,7 @@ CRVideo_Logout()
 |inviteID|string|  邀请ID|
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
-<h4 id=CRVideo_RejectInviteFail>CRVideo_RejectInviteFail.callback = function(inviteID,sdkErr,cookie){}</h4>
+<h3 id=CRVideo_RejectInviteFail>CRVideo_RejectInviteFail.callback = function(inviteID,sdkErr,cookie){}</h3>
 
 - **功能**: 拒绝对方的邀请失败
 
@@ -5078,7 +5078,7 @@ CRVideo_Logout()
 |sdkErr|number|  操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
-<h4 id=CRVideo_NotifyInviteIn>CRVideo_NotifyInviteIn.callback = function(inviteID,inviterUsrID,usrExtDat){}</h4>
+<h3 id=CRVideo_NotifyInviteIn>CRVideo_NotifyInviteIn.callback = function(inviteID,inviterUsrID,usrExtDat){}</h3>
 
 - **功能**: 通知有人邀请
 
@@ -5088,7 +5088,7 @@ CRVideo_Logout()
 |inviterUsrID|string|  邀请者用户ID|
 |usrExtDat	|string|	用户扩展数据|
 
-<h4 id=CRVideo_NotifyInviteAccepted>CRVideo_NotifyInviteAccepted.callback = function(inviteID,usrExtDat){}</h4>
+<h3 id=CRVideo_NotifyInviteAccepted>CRVideo_NotifyInviteAccepted.callback = function(inviteID,usrExtDat){}</h3>
 
 - **功能**: 通知邀请被接受
 
@@ -5097,7 +5097,7 @@ CRVideo_Logout()
 |inviteID|string|  邀请ID|
 |usrExtDat	|string|	用户扩展数据|
 
-<h4 id=CRVideo_NotifyInviteRejected>CRVideo_NotifyInviteRejected.callback = function(inviteID,reason,usrExtDat){}</h4>
+<h3 id=CRVideo_NotifyInviteRejected>CRVideo_NotifyInviteRejected.callback = function(inviteID,reason,usrExtDat){}</h3>
 
 - **功能**: 通知邀请被拒绝
 
@@ -5107,7 +5107,7 @@ CRVideo_Logout()
 |reason|number|邀请被拒绝原因，定义见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
 |usrExtDat	|string|	用户扩展数据|
 
-<h4 id=CRVideo_NotifyInviteCanceled>CRVideo_NotifyInviteCanceled.callback = function(inviteID,reason,usrExtDat){}</h4>
+<h3 id=CRVideo_NotifyInviteCanceled>CRVideo_NotifyInviteCanceled.callback = function(inviteID,reason,usrExtDat){}</h3>
 
 - **功能**: 通知邀请被取消
 
@@ -5118,7 +5118,7 @@ CRVideo_Logout()
 |usrExtDat	|string|	用户扩展数据|
 
 
-<h4 id=CRVideo_InitQueueDat>CRVideo_InitQueueDat(cookie)</h4>
+<h3 id=CRVideo_InitQueueDat>CRVideo_InitQueueDat(cookie)</h3>
 
 - **功能**: 初始化队列
 
@@ -5131,7 +5131,7 @@ CRVideo_Logout()
 >操作完成回调[CRVideo_InitQueueDatRslt](#CRVideo_InitQueueDatRslt)，队列初始化成功后才可获取队列队列相关信息
 
 
-<h4 id=CRVideo_RefreshAllQueueStatus>CRVideo_RefreshAllQueueStatus()</h4>
+<h3 id=CRVideo_RefreshAllQueueStatus>CRVideo_RefreshAllQueueStatus()</h3>
 
 - **功能**: 刷新所有队列状态
 
@@ -5140,14 +5140,14 @@ CRVideo_Logout()
 >操作完成则触发[CRVideo_QueueStatusChanged](#CRVideo_QueueStatusChanged)（当前排队的队列，或服务的队列，sdk自动有状态变化回调）
 
 
-<h4 id=CRVideo_GetAllQueueInfo>CRVideo_GetAllQueueInfo()</h4>
+<h3 id=CRVideo_GetAllQueueInfo>CRVideo_GetAllQueueInfo()</h3>
 
 - **功能**: 查询队列
 
 - **返回值**:返回所有队列信息（Array ----- [CRVideo_QueueInfo](TypeDefinitions.md#CRVideo_QueueInfo)）
 
 
-<h4 id=CRVideo_GetQueueStatus>CRVideo_GetQueueStatus(queID)</h4>
+<h3 id=CRVideo_GetQueueStatus>CRVideo_GetQueueStatus(queID)</h3>
 
 - **功能**: 获取队列状态
 
@@ -5158,14 +5158,14 @@ CRVideo_Logout()
 |queID	 |string	|队列ID|
 
 
-<h4 id=CRVideo_GetQueuingInfo>CRVideo_GetQueuingInfo()</h4>
+<h3 id=CRVideo_GetQueuingInfo>CRVideo_GetQueuingInfo()</h3>
 
 - **功能**: 获取我的排队信息
 
 - **返回值**:返回排队信息（[CRVideo_QueuingInfo](TypeDefinitions.md#CRVideo_QueuingInfo)）
 
 
-<h4 id=CRVideo_GetServingQueues>CRVideo_GetServingQueues()</h4>
+<h3 id=CRVideo_GetServingQueues>CRVideo_GetServingQueues()</h3>
 
 - **功能**: 获取我服务的所有队列
 
@@ -5173,14 +5173,14 @@ CRVideo_Logout()
 - **返回值**:返回我服务的队列列表（Array）
 
 
-<h4 id=CRVideo_GetSessionInfo>CRVideo_GetSessionInfo()</h4>
+<h3 id=CRVideo_GetSessionInfo>CRVideo_GetSessionInfo()</h3>
 
 - **功能**: 获取我的房间信息
 
 - **返回值**: 返回房间信息（[CRVideo_SessionInfo](TypeDefinitions.md#CRVideo_SessionInfo)）
 
 
-<h4 id=CRVideo_StartQueuing2>CRVideo_StartQueuing2(queID,usrExtDat,cookie)</h4>
+<h3 id=CRVideo_StartQueuing2>CRVideo_StartQueuing2(queID,usrExtDat,cookie)</h3>
 
 - **功能**: 开始排队
 
@@ -5197,7 +5197,7 @@ CRVideo_Logout()
 >操作完成回调[CRVideo_StartQueuingRslt](#CRVideo_StartQueuingRslt)
 
 
-<h4 id=CRVideo_StopQueuing>CRVideo_StopQueuing(cookie)</h4>
+<h3 id=CRVideo_StopQueuing>CRVideo_StopQueuing(cookie)</h3>
 
 - **功能**: 停止排队
 
@@ -5211,7 +5211,7 @@ CRVideo_Logout()
 >操作完成回调[CRVideo_StopQueuingRslt](#CRVideo_StopQueuingRslt)
 
 
-<h4 id=CRVideo_StartService2>CRVideo_StartService2(queID,priority,cookie)</h4>
+<h3 id=CRVideo_StartService2>CRVideo_StartService2(queID,priority,cookie)</h3>
 
 - **功能**: 开始服务队列
 
@@ -5231,7 +5231,7 @@ CRVideo_Logout()
 > 1. 优先级高的座席变空闲时，不抢夺已分配的客户；
 
 
-<h4 id=CRVideo_StopService>CRVideo_StopService(queID, cookie)</h4>
+<h3 id=CRVideo_StopService>CRVideo_StopService(queID, cookie)</h3>
 
 - **功能**: 停止服务队列
 
@@ -5245,7 +5245,7 @@ CRVideo_Logout()
 >操作完成回调[CRVideo_StopServiceRslt](#CRVideo_StopServiceRslt)
 
 
-<h4 id=CRVideo_ReqAssignUser>CRVideo_ReqAssignUser(cookie)</h4>
+<h3 id=CRVideo_ReqAssignUser>CRVideo_ReqAssignUser(cookie)</h3>
 
 - **功能**: 请求分配一个客户
 
@@ -5261,7 +5261,7 @@ CRVideo_Logout()
 >当关闭免打扰时，系统将自动分配客户，无需调用此函数； 当开启免打扰时，系统不再自动分配客户，座席如需服务客户可使用此函数分配
 
 
-<h4 id=CRVideo_AcceptAssignUser>CRVideo_AcceptAssignUser(queID, UID, cookie)</h4>
+<h3 id=CRVideo_AcceptAssignUser>CRVideo_AcceptAssignUser(queID, UID, cookie)</h3>
 
 - **功能**: 接受分配的客户
 
@@ -5273,7 +5273,7 @@ CRVideo_Logout()
 |cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
 
 
-<h4 id=CRVideo_RejectAssignUser>CRVideo_RejectAssignUser(queID, UID, cookie)</h4>
+<h3 id=CRVideo_RejectAssignUser>CRVideo_RejectAssignUser(queID, UID, cookie)</h3>
 
 - **功能**: 拒绝分配的客户
 
@@ -5288,7 +5288,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_InitQueueDatRslt>CRVideo_InitQueueDatRslt.callback = function(sdkEr,cookie){}</h4>
+<h3 id=CRVideo_InitQueueDatRslt>CRVideo_InitQueueDatRslt.callback = function(sdkEr,cookie){}</h3>
 
 
 - **功能**：队列初始化操作结果
@@ -5299,7 +5299,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_QueueStatusChanged>CRVideo_QueueStatusChanged.callback = function(queStatus){}</h4>
+<h3 id=CRVideo_QueueStatusChanged>CRVideo_QueueStatusChanged.callback = function(queStatus){}</h3>
 
 - **功能**：队列状态变化通知
 
@@ -5307,7 +5307,7 @@ CRVideo_Logout()
     - queStatus ----- [队列状态](TypeDefinitions.md#CRVideo_QueStatus)
 
 
-<h4 id=CRVideo_QueuingInfoChanged>CRVideo_QueuingInfoChanged.callback = function(queuingInfo){}</h4>
+<h3 id=CRVideo_QueuingInfoChanged>CRVideo_QueuingInfoChanged.callback = function(queuingInfo){}</h3>
 
 
 - **功能**：排队信息变化通知
@@ -5316,7 +5316,7 @@ CRVideo_Logout()
     - queuingInfo ----- [排队信息](TypeDefinitions.md#CRVideo_QueuingInfo)
 
 
-<h4 id=CRVideo_StartQueuingRslt>CRVideo_StartQueuingRslt.callback = function(sdkEr,cookie){}</h4>
+<h3 id=CRVideo_StartQueuingRslt>CRVideo_StartQueuingRslt.callback = function(sdkEr,cookie){}</h3>
 
 
 - **功能**：开始排队操作结果
@@ -5326,7 +5326,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_StopQueuingRslt>CRVideo_StopQueuingRslt.callback = function(sdkEr,cookie){}</h4>
+<h3 id=CRVideo_StopQueuingRslt>CRVideo_StopQueuingRslt.callback = function(sdkEr,cookie){}</h3>
 
 - **功能**：停止排队操作结果
 
@@ -5335,7 +5335,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_StartServiceRslt>CRVideo_StartServiceRslt.callback = function(queID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_StartServiceRslt>CRVideo_StartServiceRslt.callback = function(queID,sdkEr,cookie){}</h3>
 
 - **功能**：开始服务队列操作结果
 
@@ -5345,7 +5345,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_StopServiceRslt>CRVideo_StopServiceRslt.callback = function(queID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_StopServiceRslt>CRVideo_StopServiceRslt.callback = function(queID,sdkEr,cookie){}</h3>
 
 - **功能**：停止服务队列操作结果
 
@@ -5355,7 +5355,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_ResponseAssignUserRslt>CRVideo_ResponseAssignUserRslt.callback = function(sdkEr,cookie){}</h4>
+<h3 id=CRVideo_ResponseAssignUserRslt>CRVideo_ResponseAssignUserRslt.callback = function(sdkEr,cookie){}</h3>
 
 
 - **功能**：响应分配客户操作结果
@@ -5365,7 +5365,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_AutoAssignUser>CRVideo_AutoAssignUser.callback = function(user){}</h4>
+<h3 id=CRVideo_AutoAssignUser>CRVideo_AutoAssignUser.callback = function(user){}</h3>
 
 
 - **功能**：系统自动安排客户
@@ -5374,7 +5374,7 @@ CRVideo_Logout()
     - user ----- 队列用户信息，详见[CRVideo_QueUser](TypeDefinitions.md#CRVideo_QueUser)。如果想停止系统的自动分配，请通[CRVideo_SetDNDStatus](API.md#CRVideo_SetDNDStatus)设置免打扰功能
 
 
-<h4 id=CRVideo_ReqAssignUserRslt>CRVideo_ReqAssignUserRslt.callback = function(sdkEr,user,cookie){}</h4>
+<h3 id=CRVideo_ReqAssignUserRslt>CRVideo_ReqAssignUserRslt.callback = function(sdkEr,user,cookie){}</h3>
 
 
 - **功能**：请求分配客户操作结果
@@ -5385,7 +5385,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_CancelAssignUser>CRVideo_CancelAssignUser.callback = function(queID,userid){}</h4>
+<h3 id=CRVideo_CancelAssignUser>CRVideo_CancelAssignUser.callback = function(queID,userid){}</h3>
 
 - **功能**：系统取消之前分配的的客户
 
@@ -5397,7 +5397,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_UserEnter>CRVideo_UserEnter(queID, jsonUsr)</h4>
+<h3 id=CRVideo_UserEnter>CRVideo_UserEnter(queID, jsonUsr)</h3>
 
 - **功能**：客户进入通知
 
@@ -5409,7 +5409,7 @@ CRVideo_Logout()
 | jsonUsr	 | json格式 |队列用户信息	|
 
 
-<h4 id=CRVideo_UserLeave>CRVideo_UserLeave(queID, usrID, inService)</h4>
+<h3 id=CRVideo_UserLeave>CRVideo_UserLeave(queID, usrID, inService)</h3>
 
 - **功能**：客户离开通知
 
@@ -5425,7 +5425,7 @@ CRVideo_Logout()
 > 系统通过接口[CRVideo_AutoAssignUser](#CRVideo_AutoAssignUser)给队列服务者自动推送客户（或队列服务者通过[CRVideo_ReqAssignUser](#CRVideo_ReqAssignUser)请求分配客户），收到系统分配的客户后，如果队列服务者30秒之内不接受[CRVideo_AcceptAssignUser](#CRVideo_AcceptAssignUser)也不拒绝[CRVideo_RejectAssignUser](#CRVideo_RejectAssignUser)推送的客户，系统将通过本接口取消分配，然后将客户分配给其他空闲的服务者。
 
 
-<h4 id=CRVideo_Call>CRVideo_Call(calledUserID, meetObj, usrExtDat, cookie)</h4>
+<h3 id=CRVideo_Call>CRVideo_Call(calledUserID, meetObj, usrExtDat, cookie)</h3>
 
 - **功能**: 发起呼叫
 
@@ -5441,7 +5441,7 @@ CRVideo_Logout()
 >操作成功则触发回调[CRVideo_CallSuccess](#CRVideo_CallSuccess),失败则触发回调[CRVideo_CallFail](#CRVideo_CallFail)。 呼叫时，对方迟迟不响应，30秒后系统自动结束呼叫
 
 
-<h4 id=CRVideo_AcceptCall>CRVideo_AcceptCall(callID, meetObj, usrExtDat, cookie)</h4>
+<h3 id=CRVideo_AcceptCall>CRVideo_AcceptCall(callID, meetObj, usrExtDat, cookie)</h3>
 
 - **功能**: 接受对方发起的呼叫
 
@@ -5455,7 +5455,7 @@ CRVideo_Logout()
 >开始进入视频房间。操作成功则回调[CRVideo_AcceptCallSuccess](#CRVideo_AcceptCallSuccess)，失败则回调[CRVideo_AcceptCallFail](#CRVideo_AcceptCallFail)
 
 
-<h4 id=CRVideo_RejectCall>CRVideo_RejectCall(callID, usrExtDat, cookie)</h4>
+<h3 id=CRVideo_RejectCall>CRVideo_RejectCall(callID, usrExtDat, cookie)</h3>
 
 - **功能**: 拒绝对方发起的呼叫
 
@@ -5470,7 +5470,7 @@ CRVideo_Logout()
 >操作成功则回调[CRVideo_RejectCallSuccess](#CRVideo_RejectCallSuccess)，失败则回调[CRVideo_RejectCallFail](#CRVideo_RejectCallFail)
 
 
-<h4 id=CRVideo_HungupCall>CRVideo_HungupCall(callID, usrExtDat, cookie)</h4>
+<h3 id=CRVideo_HungupCall>CRVideo_HungupCall(callID, usrExtDat, cookie)</h3>
 
 - **功能**: 挂断呼叫
 
@@ -5486,7 +5486,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_CallSuccess>CRVideo_CallSuccess.callback = function(callID ,cookie){}</h4>
+<h3 id=CRVideo_CallSuccess>CRVideo_CallSuccess.callback = function(callID ,cookie){}</h3>
 
 
 - **功能**：呼叫他人操作成功响应
@@ -5496,7 +5496,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_CallFail>CRVideo_CallFail.callback = function(callID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_CallFail>CRVideo_CallFail.callback = function(callID,sdkEr,cookie){}</h3>
 
 
 - **功能**：呼叫他人操作失败响应
@@ -5507,7 +5507,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_AcceptCallSuccess>CRVideo_AcceptCallSuccess.callback = function(callID,cookie){}</h4>
+<h3 id=CRVideo_AcceptCallSuccess>CRVideo_AcceptCallSuccess.callback = function(callID,cookie){}</h3>
 
 
 - **功能**：接受他人呼叫操作成功响应
@@ -5517,7 +5517,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_AcceptCallFail>CRVideo_AcceptCallFail.callback = function(callID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_AcceptCallFail>CRVideo_AcceptCallFail.callback = function(callID,sdkEr,cookie){}</h3>
 
 
 - **功能**：接受他人呼叫操作失败响应
@@ -5528,7 +5528,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_RejectCallSuccess>CRVideo_RejectCallSuccess.callback = function(callID,cookie){}</h4>
+<h3 id=CRVideo_RejectCallSuccess>CRVideo_RejectCallSuccess.callback = function(callID,cookie){}</h3>
 
 - **功能**：拒绝他人的呼叫成功响应
 
@@ -5537,7 +5537,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_RejectCallFail>CRVideo_RejectCallFail.callback = function(callID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_RejectCallFail>CRVideo_RejectCallFail.callback = function(callID,sdkEr,cookie){}</h3>
 
 - **功能**：拒绝他人的呼叫失败响应
 
@@ -5547,7 +5547,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_HangupCallSuccess>CRVideo_HangupCallSuccess.callback = function(callID,cookie){}</h4>
+<h3 id=CRVideo_HangupCallSuccess>CRVideo_HangupCallSuccess.callback = function(callID,cookie){}</h3>
 
 
 
@@ -5558,7 +5558,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_HangupCallFail>CRVideo_HangupCallFail.callback = function(callID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_HangupCallFail>CRVideo_HangupCallFail.callback = function(callID,sdkEr,cookie){}</h3>
 
 
 
@@ -5570,7 +5570,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_NotifyCallIn>CRVideo_NotifyCallIn.callback = function(callID,meetObj,callerID,usrExtDat){}</h4>
+<h3 id=CRVideo_NotifyCallIn>CRVideo_NotifyCallIn.callback = function(callID,meetObj,callerID,usrExtDat){}</h3>
 
 
 - **功能**：SDK通知自己被呼叫
@@ -5582,7 +5582,7 @@ CRVideo_Logout()
     - usrExtDat ----- 自定义扩展参数
 
 
-<h4 id=CRVideo_NotifyCallAccepted>CRVideo_NotifyCallAccepted.callback = function(callID,meetObj,usrExtDat){}</h4>
+<h3 id=CRVideo_NotifyCallAccepted>CRVideo_NotifyCallAccepted.callback = function(callID,meetObj,usrExtDat){}</h3>
 
 
 - **功能**：SDK通知自己视频呼叫被对方接受
@@ -5593,7 +5593,7 @@ CRVideo_Logout()
     - usrExtDat ----- 自定义扩展参数
 
 
-<h4 id=CRVideo_NotifyCallRejected>CRVideo_NotifyCallRejected.callback = function(callID,sdkErr,usrExtDat){}</h4>
+<h3 id=CRVideo_NotifyCallRejected>CRVideo_NotifyCallRejected.callback = function(callID,sdkErr,usrExtDat){}</h3>
 
 
 - **功能**：SDK通知自己呼叫被对方拒绝
@@ -5604,7 +5604,7 @@ CRVideo_Logout()
     - usrExtDat ----- 自定义扩展参数
 
 
-<h4 id=CRVideo_NotifyCallHungup>CRVideo_NotifyCallHungup.callback = function(callID,usrExtDat){}</h4>
+<h3 id=CRVideo_NotifyCallHungup>CRVideo_NotifyCallHungup.callback = function(callID,usrExtDat){}</h3>
 
 - **功能**：SDK通知自己呼叫被挂断
 
@@ -5613,7 +5613,7 @@ CRVideo_Logout()
     - usrExtDat ----- 自定义扩展参数
 
 
-<h4 id=CRVideo_SendCmdRlst>CRVideo_SendCmdRlst.callback = function(taskID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_SendCmdRlst>CRVideo_SendCmdRlst.callback = function(taskID,sdkEr,cookie){}</h3>
 
 
 - **功能**：发送小块数据时，SDK通知发送结果
@@ -5624,7 +5624,7 @@ CRVideo_Logout()
     - cookie  ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_SendBufferRlst>CRVideo_SendBufferRlst.callback = function(taskID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_SendBufferRlst>CRVideo_SendBufferRlst.callback = function(taskID,sdkEr,cookie){}</h3>
 
 
 - **功能**：发送大块数据时，SDK通知发送结果
@@ -5635,7 +5635,7 @@ CRVideo_Logout()
     - cookie  ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_SendFileRlst>CRVideo_SendFileRlst.callback = function(taskID,fileName,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_SendFileRlst>CRVideo_SendFileRlst.callback = function(taskID,fileName,sdkEr,cookie){}</h3>
 
 
 - **功能**：发送文件时，SDK通知发送结果
@@ -5647,7 +5647,7 @@ CRVideo_Logout()
     - cookie  ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_SendProgress>CRVideo_SendProgress.callback = function(taskID,sendedLen,totalLen,cookie){}</h4>
+<h3 id=CRVideo_SendProgress>CRVideo_SendProgress.callback = function(taskID,sendedLen,totalLen,cookie){}</h3>
 
 
 - **功能**：发送数据时，SDK通知发送进度
@@ -5659,7 +5659,7 @@ CRVideo_Logout()
     - cookie  ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_CancelSendRlst>CRVideo_CancelSendRlst.callback = function(taskID,sdkEr,cookie){}</h4>
+<h3 id=CRVideo_CancelSendRlst>CRVideo_CancelSendRlst.callback = function(taskID,sdkEr,cookie){}</h3>
 
 
 
@@ -5671,7 +5671,7 @@ CRVideo_Logout()
     - cookie  ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_NotifyCmdData>CRVideo_NotifyCmdData.callback = function(sourceUserId,data){}</h4>
+<h3 id=CRVideo_NotifyCmdData>CRVideo_NotifyCmdData.callback = function(sourceUserId,data){}</h3>
 
 
 - **功能**：SDK通知收到小块数据
@@ -5681,7 +5681,7 @@ CRVideo_Logout()
     - data ----- 数据的内容（string）
 
 
-<h4 id=CRVideo_NotifyBufferData>CRVideo_NotifyBufferData.callback = function(sourceUserId,data){}</h4>
+<h3 id=CRVideo_NotifyBufferData>CRVideo_NotifyBufferData.callback = function(sourceUserId,data){}</h3>
 
 
 
@@ -5692,7 +5692,7 @@ CRVideo_Logout()
     - data ----- 数据的内容（string）      
 
 
-<h4 id=CRVideo_NotifyFileData>CRVideo_NotifyFileData.callback = function(sourceUserId,tmpFile,orgFileName){}</h4>
+<h3 id=CRVideo_NotifyFileData>CRVideo_NotifyFileData.callback = function(sourceUserId,tmpFile,orgFileName){}</h3>
 
 
 - **功能**：SDK通知收到文件数据（收到的文件生成在系统临时目录下，请尽快移走对应文件）
@@ -5703,7 +5703,7 @@ CRVideo_Logout()
     - orgFileName ----- 源始文件名
 
 
-<h4 id=CRVideo_NotifyCancelSend>CRVideo_NotifyCancelSend.callback = function(taskID){}</h4>
+<h3 id=CRVideo_NotifyCancelSend>CRVideo_NotifyCancelSend.callback = function(taskID){}</h3>
 
 
 - **功能**：SDK通知取消发送文件数据
@@ -5714,14 +5714,14 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetVideoWallMode2>CRVideo_GetVideoWallMode2()</h4>
+<h3 id=CRVideo_GetVideoWallMode2>CRVideo_GetVideoWallMode2()</h3>
 
 - **功能**: 获取视频墙当前分屏模式
 
 - **返回值**:分屏模式(业务层自由定义)
 
 
-<h4 id=CRVideo_SetVideoWallMode2>CRVideo_SetVideoWallMode2(videoWallMode)</h4>
+<h3 id=CRVideo_SetVideoWallMode2>CRVideo_SetVideoWallMode2(videoWallMode)</h3>
 
 - **功能**: 设置视频墙分屏模式
 
@@ -5733,7 +5733,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetVideoCfg>CRVideo_GetVideoCfg()</h4>
+<h3 id=CRVideo_GetVideoCfg>CRVideo_GetVideoCfg()</h3>
 
 - **功能**: 获取视频参数
 
@@ -5742,7 +5742,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetVideoCfg>CRVideo_SetVideoCfg(cfg)</h4>
+<h3 id=CRVideo_SetVideoCfg>CRVideo_SetVideoCfg(cfg)</h3>
 
 - **功能**: 视频设置
 
@@ -5756,7 +5756,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetVideoStatus>CRVideo_GetVideoStatus(UID)</h4>
+<h3 id=CRVideo_GetVideoStatus>CRVideo_GetVideoStatus(UID)</h3>
 
 - **功能**: 视频状态
 
@@ -5767,7 +5767,7 @@ CRVideo_Logout()
 |UID	|string|	用户ID|
 
 
-<h4 id=CRVideo_GetDefaultVideo>CRVideo_GetDefaultVideo(UID)</h4>
+<h3 id=CRVideo_GetDefaultVideo>CRVideo_GetDefaultVideo(UID)</h3>
 
 - **功能**: 获取默认视频
 
@@ -5778,7 +5778,7 @@ CRVideo_Logout()
 |UID	 |string	|用户ID|
 
 
-<h4 id=CRVideo_SetDefaultVideo>CRVideo_SetDefaultVideo(UID, videoID)</h4>
+<h3 id=CRVideo_SetDefaultVideo>CRVideo_SetDefaultVideo(UID, videoID)</h3>
 
 - **功能**: 设置默认视频
 
@@ -5796,7 +5796,7 @@ CRVideo_Logout()
 >4、如果用户有多个摄像头，想用到其中部分几个摄像头，不用设置默认摄像头，但是要先[启用多摄像头](#CRVideo_SetEnableMutiVideo),然后调用[CRVideo_SetLocVideoAttributes](#CRVideo_SetLocVideoAttributes)把不想用的禁用了，之后打开的时候就只打开没禁用的那几个；
 
 
-<h4 id=CRVideo_GetAllVideoInfo>CRVideo_GetAllVideoInfo(userID)</h4>
+<h3 id=CRVideo_GetAllVideoInfo>CRVideo_GetAllVideoInfo(userID)</h3>
 
 - **功能**: 获取用户的所有摄像头信息
 
@@ -5807,7 +5807,7 @@ CRVideo_Logout()
 |userID|	string|	用户ID|
 
 
-<h4 id=CRVideo_SetVideoDenoise>CRVideo_SetVideoDenoise(bDenoise)</h4>
+<h3 id=CRVideo_SetVideoDenoise>CRVideo_SetVideoDenoise(bDenoise)</h3>
 
 - **功能**: 开启或关闭摄像头降噪处理
 
@@ -5818,7 +5818,7 @@ CRVideo_Logout()
 |bDenoise|	bool|	取值true时，开启降噪处理|
  
 
-<h4 id=CRVideo_GetVideoDenoise>CRVideo_GetVideoDenoise()</h4>
+<h3 id=CRVideo_GetVideoDenoise>CRVideo_GetVideoDenoise()</h3>
 
 - **功能**: 获取是否开启摄像头降噪
 
@@ -5827,7 +5827,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_CreateScreenCamDev>CRVideo_CreateScreenCamDev(camName,monitor)</h4>
+<h3 id=CRVideo_CreateScreenCamDev>CRVideo_CreateScreenCamDev(camName,monitor)</h3>
 
 - **功能**: 创建桌面摄像头(sdk最大支持5个)
 
@@ -5841,7 +5841,7 @@ CRVideo_Logout()
 >添加成功后与本地摄像头处理一致；getAllVideoInfo接口可以识别摄像头类型。
 
 
-<h4 id=CRVideo_UpdateScreenCamDev>CRVideo_UpdateScreenCamDev(videoID,monitor)</h4>
+<h3 id=CRVideo_UpdateScreenCamDev>CRVideo_UpdateScreenCamDev(videoID,monitor)</h3>
 
 - **功能**: 更新桌面摄像头
 
@@ -5853,7 +5853,7 @@ CRVideo_Logout()
 |monitor|	number|	显示器序号，与系统显示编号一致，-1代表主屏。(monitorID不存在时将失败）|
 
 
-<h4 id=CRVideo_DestroyScreenCamDev>CRVideo_DestroyScreenCamDev(videoID)</h4>
+<h3 id=CRVideo_DestroyScreenCamDev>CRVideo_DestroyScreenCamDev(videoID)</h3>
 
 - **功能**: 消毁桌面摄像头
 
@@ -5864,7 +5864,7 @@ CRVideo_Logout()
 |videoID|	number|	摄像头id|
 
 
-<h4 id=CRVideo_CreateCustomVideoDev>CRVideo_CreateCustomVideoDev(camName,pixFmt,width,height,extParams)</h4>
+<h3 id=CRVideo_CreateCustomVideoDev>CRVideo_CreateCustomVideoDev(camName,pixFmt,width,height,extParams)</h3>
 
 - **功能**: 创建自定义摄像头(sdk最大支持5个)
 
@@ -5881,7 +5881,7 @@ CRVideo_Logout()
 >添加成功后与本地摄像头处理一致；getAllVideoInfo接口可以识别摄像头类型。
 
 
-<h4 id=CRVideo_DestroyCustomVideoDev>CRVideo_DestroyCustomVideoDev(videoID)</h4>
+<h3 id=CRVideo_DestroyCustomVideoDev>CRVideo_DestroyCustomVideoDev(videoID)</h3>
 
 - **功能**: 消毁自定义摄像头
 
@@ -5892,7 +5892,7 @@ CRVideo_Logout()
 |videoID| number|	摄像头id (CRVideo_CreateCustomVideoDev返回值)|
 
 
-<h4 id=CRVideo_InputCustomVideoDat>CRVideo_InputCustomVideoDat(videoID,base64Dat,timeStamp)</h4>
+<h3 id=CRVideo_InputCustomVideoDat>CRVideo_InputCustomVideoDat(videoID,base64Dat,timeStamp)</h3>
 
 - **功能**: 输入摄像头图像数据
 
@@ -5906,7 +5906,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetWatchableVideos>CRVideo_GetWatchableVideos()</h4>
+<h3 id=CRVideo_GetWatchableVideos>CRVideo_GetWatchableVideos()</h3>
 
 - **功能**: 房间内可观看摄像头列表
 
@@ -5916,7 +5916,7 @@ CRVideo_Logout()
 >只有摄像头打开才能被获取到，能获取到自已的和房间里其他人的
 
 
-<h4 id=CRVideo_OpenVideo>CRVideo_OpenVideo(UID)</h4>
+<h3 id=CRVideo_OpenVideo>CRVideo_OpenVideo(UID)</h3>
 
 - **功能**: 打开用户的摄像头
 
@@ -5929,7 +5929,7 @@ CRVideo_Logout()
 >打开用户的摄像头，以便本地、远端显示视频图像
 
 
-<h4 id=CRVideo_CloseVideo>CRVideo_CloseVideo(UID)</h4>
+<h3 id=CRVideo_CloseVideo>CRVideo_CloseVideo(UID)</h3>
 
 - **功能**: 关闭用户的摄像头
 
@@ -5941,7 +5941,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetEnableMutiVideo>CRVideo_GetEnableMutiVideo(UID)</h4>
+<h3 id=CRVideo_GetEnableMutiVideo>CRVideo_GetEnableMutiVideo(UID)</h3>
 
 - **功能**: 获取是否启用多摄像头
 
@@ -5952,7 +5952,7 @@ CRVideo_Logout()
 |UID	 |string	|用户ID|
 
 
-<h4 id=CRVideo_GetVideoImg>CRVideo_GetVideoImg()</h4>
+<h3 id=CRVideo_GetVideoImg>CRVideo_GetVideoImg()</h3>
 
 - **功能**: 摄像头图像数据
 
@@ -5965,7 +5965,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_ShowVideoAdvCfgDlg>CRVideo_ShowVideoAdvCfgDlg(videoID, hParenWnd)</h4>
+<h3 id=CRVideo_ShowVideoAdvCfgDlg>CRVideo_ShowVideoAdvCfgDlg(videoID, hParenWnd)</h3>
 
 - **功能**: 调出摄像头驱动的高级配置（只对真实物理摄像头有效）
 
@@ -5978,7 +5978,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetLocVideoAttributes>CRVideo_SetLocVideoAttributes(videoID, jsonAttributes)</h4>
+<h3 id=CRVideo_SetLocVideoAttributes>CRVideo_SetLocVideoAttributes(videoID, jsonAttributes)</h3>
 
 - **功能**: 视频设备私有参数配置
 
@@ -5992,7 +5992,7 @@ CRVideo_Logout()
 >注：未设置的参数，使用全局参数
 
 
-<h4 id=CRVideo_GetLocVideoAttributes>CRVideo_GetLocVideoAttributes(videoID)</h4>
+<h3 id=CRVideo_GetLocVideoAttributes>CRVideo_GetLocVideoAttributes(videoID)</h3>
 
 - **功能**: 获取某个摄像头私有参数
 
@@ -6006,7 +6006,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetEnableMutiVideo>CRVideo_SetEnableMutiVideo(UID,enable)</h4>
+<h3 id=CRVideo_SetEnableMutiVideo>CRVideo_SetEnableMutiVideo(UID,enable)</h3>
 
 - **功能**: 设置用户是否启用多摄像头
 
@@ -6019,7 +6019,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_AddIPCam>CRVideo_AddIPCam(url)</h4>
+<h3 id=CRVideo_AddIPCam>CRVideo_AddIPCam(url)</h3>
 
 - **功能**: 添加网络摄像头（sdk最大支持5个）
 
@@ -6031,7 +6031,7 @@ CRVideo_Logout()
 >添加成功后与本地摄像头处理一致；[CRVideo_GetAllVideoInfo](API.md#CRVideo_GetAllVideoInfo)接口可以识别哪些是网络摄像头。
 
 
-<h4 id=CRVideo_DelIPCam>CRVideo_DelIPCam(url)</h4>
+<h3 id=CRVideo_DelIPCam>CRVideo_DelIPCam(url)</h3>
 
 - **功能**: 移除网络摄像头
 
@@ -6042,7 +6042,7 @@ CRVideo_Logout()
 |url|	string|	网络摄像头url，支持协议:rtmp,rtsp|
 
 
-<h4 id=CRVideo_BSupportVirtualBackground>CRVideo_BSupportVirtualBackground(type)</h4>
+<h3 id=CRVideo_BSupportVirtualBackground>CRVideo_BSupportVirtualBackground(type)</h3>
 
 - **功能**: 检查是否支持对应虚拟背景功能
 
@@ -6053,7 +6053,7 @@ CRVideo_Logout()
 |type|	number|检查是否支持type类型虚拟背景，取值参见：[CRVideo_VIRTUALBK_TYPE](Constant.md#CRVideo_VIRTUALBK_TYPE)|
 
 
-<h4 id=CRVideo_SetVirtualBackground>CRVideo_SetVirtualBackground(cfg)</h4>
+<h3 id=CRVideo_SetVirtualBackground>CRVideo_SetVirtualBackground(cfg)</h3>
 
 - **功能**: 配置虚拟背景参数
 
@@ -6064,20 +6064,20 @@ CRVideo_Logout()
 |cfg| json格式 |配置虚拟背景参数，json格式，参见：[CRVideo_VirtualBkCfg](TypeDefinitions.md#CRVideo_VirtualBkCfg)|
 
 
-<h4 id=CRVideo_GetVirtualBackground>CRVideo_GetVirtualBackground()</h4>
+<h3 id=CRVideo_GetVirtualBackground>CRVideo_GetVirtualBackground()</h3>
 
 - **功能**: 获取虚拟背景参数
 
 - **返回值**: json格式，参见：[CRVideo_VirtualBkCfg](TypeDefinitions.md#CRVideo_VirtualBkCfg)
 
-<h4 id=CRVideo_OpenVideoDevRslt>CRVideo_OpenVideoDevRslt.callback = function(videoID,isSucceed){}</h4>
+<h3 id=CRVideo_OpenVideoDevRslt>CRVideo_OpenVideoDevRslt.callback = function(videoID,isSucceed){}</h3>
 
 - **功能**：SDK通知打开摄像头结果
 + **参数**：
     - videoID ----- 摄像头索引 (number)
     - isSucceed ----- 是否打开成功 （bool）
 
-<h4 id=CRVideo_VideoDevChanged>CRVideo_VideoDevChanged.callback = function(UID){}</h4>
+<h3 id=CRVideo_VideoDevChanged>CRVideo_VideoDevChanged.callback = function(UID){}</h3>
 
 - **功能**：SDK通知用户的视频设备有变化
 
@@ -6086,7 +6086,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_VideoStatusChanged>CRVideo_VideoStatusChanged.callback = function(UID,oldStatus,newStatus){}</h4>
+<h3 id=CRVideo_VideoStatusChanged>CRVideo_VideoStatusChanged.callback = function(UID,oldStatus,newStatus){}</h3>
 
 
 - **功能**：SDK通知打开本地视频状态变化
@@ -6098,7 +6098,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_Switchtopage>CRVideo_Switchtopage(mainPage, pageID)</h4>
+<h3 id=CRVideo_Switchtopage>CRVideo_Switchtopage(mainPage, pageID)</h3>
 
 - **功能**: 功能切换
 
@@ -6110,28 +6110,28 @@ CRVideo_Logout()
 |pageID |	string |	子页面标识（如创建白板时返回的boardID）|
 
 
-<h4 id=CRVideo_Getcurrentmainpage>CRVideo_Getcurrentmainpage()</h4>
+<h3 id=CRVideo_Getcurrentmainpage>CRVideo_Getcurrentmainpage()</h3>
 
 - **功能**: 获取当前主功能区
 
 - **返回值**:功能区([CRVideo_MAIN_PAGE_TYPE](Constant.md#CRVideo_MAIN_PAGE_TYPE))
 
 
-<h4 id=CRVideo_Getcurrentsubpage>CRVideo_Getcurrentsubpage()</h4>
+<h3 id=CRVideo_Getcurrentsubpage>CRVideo_Getcurrentsubpage()</h3>
 
 - **功能**: 获取当前子页面
 
 - **返回值**:返回pageID(如：创建白板时返回的boardID）
 
 
-<h4 id=CRVideo_GetMainVideo>CRVideo_GetMainVideo()</h4>
+<h3 id=CRVideo_GetMainVideo>CRVideo_GetMainVideo()</h3>
 
 - **功能**: 获取当前哪个用户为主视频
 
 - **返回值**:用户ID (string)
 
 
-<h4 id=CRVideo_SetMainVideo>CRVideo_SetMainVideo(UID)</h4>
+<h3 id=CRVideo_SetMainVideo>CRVideo_SetMainVideo(UID)</h3>
 
 - **功能**: 设置当前哪个用户为主视频
 
@@ -6144,7 +6144,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetDNDStatus>CRVideo_SetDNDStatus(DNDStatus, cookie)</h4>
+<h3 id=CRVideo_SetDNDStatus>CRVideo_SetDNDStatus(DNDStatus, cookie)</h3>
 
 - **功能**: 设置免打扰状态
 
@@ -6160,7 +6160,7 @@ CRVideo_Logout()
 > - 如果是使用到了SDK的队列功能，则入会后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己.
 
 
-<h4 id=CRVideo_GetUserStatus>CRVideo_GetUserStatus(cookie)</h4>
+<h3 id=CRVideo_GetUserStatus>CRVideo_GetUserStatus(cookie)</h3>
 
 - **功能**: 获取企业下所有用户在线状态
 
@@ -6173,7 +6173,7 @@ CRVideo_Logout()
 >操作成功则回调[CRVideo_GetUserStatusSuccess](#CRVideo_GetUserStatusSuccess)，失败则回调[CRVideo_GetUserStatusFail](#CRVideo_GetUserStatusFail)
 
 
-<h4 id=CRVideo_GetOneUserStatus>CRVideo_GetOneUserStatus(usrID,cookie)</h4>
+<h3 id=CRVideo_GetOneUserStatus>CRVideo_GetOneUserStatus(usrID,cookie)</h3>
 
 - **功能**: 获取企业下指定用户的在线状态
 
@@ -6187,7 +6187,7 @@ CRVideo_Logout()
 >操作成功则回调[CRVideo_GetUserStatusSuccess](#CRVideo_GetUserStatusSuccess)，失败则回调[CRVideo_GetUserStatusFail](#CRVideo_GetUserStatusFail)
 
 
-<h4 id=CRVideo_StartUserStatusNotify>CRVideo_StartUserStatusNotify(cookie)</h4>
+<h3 id=CRVideo_StartUserStatusNotify>CRVideo_StartUserStatusNotify(cookie)</h3>
 
 - **功能**: 开启用户的状态推送
 
@@ -6204,7 +6204,7 @@ CRVideo_Logout()
 >企业下所有用户状态有变化时包括呼叫房间状态、免打扰状态），都会收到通知开启后，用户量越大消息量越大，所以请按需开启在[CRVideo_StartUserStatusNotify](#CRVideo_StartUserStatusNotify)前，应该先通过[CRVideo_GetUserStatus](#CRVideo_GetUserStatus)获取所有用户状态
 
 
-<h4 id=CRVideo_StopUserStatusNotify>CRVideo_StopUserStatusNotify(cookie)</h4>
+<h3 id=CRVideo_StopUserStatusNotify>CRVideo_StopUserStatusNotify(cookie)</h3>
 
 - **功能**: 关闭用户的状态推送
 
@@ -6219,8 +6219,8 @@ CRVideo_Logout()
 >  
 
 
-<h4 id=CRVideo_CreateMeeting>CRVideo_CreateMeeting(meetSubject, needPswd, cookie)</h4>
-<h4 id=CRVideo_CreateMeeting2>CRVideo_CreateMeeting2(json, cookie)</h4>
+<h3 id=CRVideo_CreateMeeting>CRVideo_CreateMeeting(meetSubject, needPswd, cookie)</h3>
+<h3 id=CRVideo_CreateMeeting2>CRVideo_CreateMeeting2(json, cookie)</h3>
 
 - **功能**: 创建房间
 
@@ -6236,7 +6236,7 @@ CRVideo_Logout()
 >操作成功则回调[CRVideo_CreateMeetingSuccess](#CRVideo_CreateMeetingSuccess)，失败则回调[CRVideo_CreateMeetingFail](#CRVideo_CreateMeetingFail)
 
 
-<h4 id=CRVideo_DestroyMeeting>CRVideo_DestroyMeeting(meetID, cookie)</h4>
+<h3 id=CRVideo_DestroyMeeting>CRVideo_DestroyMeeting(meetID, cookie)</h3>
 
 - **功能**: 销毁房间
 
@@ -6252,8 +6252,8 @@ CRVideo_Logout()
 >另外，会话中其他用户会收到[CRVideo_MeetingStopped](API.md#CRVideo_MeetingStopped)通知
 
 
-<h4 id=CRVideo_GetMeetings>CRVideo_GetMeetings(cookie)</h4>
-<h4 id=CRVideo_GetMeetings2>CRVideo_GetMeetings2(json,cookie)</h4>
+<h3 id=CRVideo_GetMeetings>CRVideo_GetMeetings(cookie)</h3>
+<h3 id=CRVideo_GetMeetings2>CRVideo_GetMeetings2(json,cookie)</h3>
 
 - **功能**: 获取房间列表
 
@@ -6269,7 +6269,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetNickNameRsp>CRVideo_SetNickNameRsp.callback = function(sdkErr,userid,newname){}</h4>
+<h3 id=CRVideo_SetNickNameRsp>CRVideo_SetNickNameRsp.callback = function(sdkErr,userid,newname){}</h3>
 
 - **功能**：SDK通知设置房间成员昵称的结果
 
@@ -6279,7 +6279,7 @@ CRVideo_Logout()
     - newname ----- 新的昵称 
 
 
-<h4 id=CRVideo_NotifyNickNameChanged>CRVideo_NotifyNickNameChanged.callback = function(userid,oldname,newname){}</h4>
+<h3 id=CRVideo_NotifyNickNameChanged>CRVideo_NotifyNickNameChanged.callback = function(userid,oldname,newname){}</h3>
 
 
 - **功能**：SDK通知某用户改变了昵称(改昵称的用户自身不会接收到此通知)
@@ -6290,7 +6290,7 @@ CRVideo_Logout()
     - newname ----- 改变昵称的某用户昵称(改变之后的昵称)
 
 
-<h4 id=CRVideo_NotifyVideoWallMode2>CRVideo_NotifyVideoWallMode2.callback = function(model){}</h4>
+<h3 id=CRVideo_NotifyVideoWallMode2>CRVideo_NotifyVideoWallMode2.callback = function(model){}</h3>
 
 - **功能**：SDK通知视频分屏模式切换
 
@@ -6298,12 +6298,12 @@ CRVideo_Logout()
     - model ----- 分屏模式
 
 
-<h4 id=CRVideo_NotifyMainVideoChanged>CRVideo_NotifyMainVideoChanged.callback = function(operId,targetId){}</h4>
+<h3 id=CRVideo_NotifyMainVideoChanged>CRVideo_NotifyMainVideoChanged.callback = function(operId,targetId){}</h3>
 
 - **功能**：SDK通知主视频更改
 
 
-<h4 id=CRVideo_NotifySwitchToPage>CRVideo_NotifySwitchToPage.callback = function(mainPage,pageID){}</h4>
+<h3 id=CRVideo_NotifySwitchToPage>CRVideo_NotifySwitchToPage.callback = function(mainPage,pageID){}</h3>
 
 
 - **功能**：SDK通知功能切换
@@ -6314,7 +6314,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_DefVideoChanged>CRVideo_DefVideoChanged.callback = function(UID,videoID){}</h4>
+<h3 id=CRVideo_DefVideoChanged>CRVideo_DefVideoChanged.callback = function(UID,videoID){}</h3>
 
 
 - **功能**：SDK通知用户的视频默认设备有变化
@@ -6324,7 +6324,7 @@ CRVideo_Logout()
     - videoID ----- 默认设备id
 
 
-<h4 id=CRVideo_NetStateChanged>CRVideo_NetStateChanged.callback = function(level){}</h4>
+<h3 id=CRVideo_NetStateChanged>CRVideo_NetStateChanged.callback = function(level){}</h3>
 
 
 - **功能**：SDK通知我的网络变化
@@ -6333,7 +6333,7 @@ CRVideo_Logout()
     - level ----- 网络状况等级（0~10，10分为最佳网络）
 
 
-<h4 id=CRVideo_EnterMeeting3>CRVideo_EnterMeeting3(meetID)</h4>
+<h3 id=CRVideo_EnterMeeting3>CRVideo_EnterMeeting3(meetID)</h3>
 
 - **功能**: 进入房间
 
@@ -6346,7 +6346,7 @@ CRVideo_Logout()
 >双方开始进入房间 操作完成则回调[CRVideo_EnterMeetingRslt](#CRVideo_EnterMeetingRslt)
 
 
-<h4 id=CRVideo_ExitMeeting>CRVideo_ExitMeeting()</h4>
+<h3 id=CRVideo_ExitMeeting>CRVideo_ExitMeeting()</h3>
 
 - **功能**: 离开房间
 
@@ -6354,7 +6354,7 @@ CRVideo_Logout()
 - **返回值**:无
 
 
-<h4 id=CRVideo_EnterMeetingRslt>CRVideo_EnterMeetingRslt.callback = function(sdkEr){}</h4>
+<h3 id=CRVideo_EnterMeetingRslt>CRVideo_EnterMeetingRslt.callback = function(sdkEr){}</h3>
 
 
 
@@ -6364,7 +6364,7 @@ CRVideo_Logout()
     - sdkEr ----- 操作失败代码，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 
-<h4 id=CRVideo_StopMeetingRslt>CRVideo_StopMeetingRslt.callback = function(sdkEr){}</h4>
+<h3 id=CRVideo_StopMeetingRslt>CRVideo_StopMeetingRslt.callback = function(sdkEr){}</h3>
 
 
 - **功能**：通知结束视频房间结果
@@ -6373,7 +6373,7 @@ CRVideo_Logout()
     - sdkEr ----- 操作失败代码，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 
-<h4 id=CRVideo_KickoutRslt>CRVideo_KickoutRslt(sdkErr, userID)</h4>
+<h3 id=CRVideo_KickoutRslt>CRVideo_KickoutRslt(sdkErr, userID)</h3>
 
 - **功能**：踢人结果
 
@@ -6385,7 +6385,7 @@ CRVideo_Logout()
 |  userID | string  | 被踢人UserID |
 
 
-<h4 id=CRVideo_UserEnterMeeting>CRVideo_UserEnterMeeting.callback = function(usrID){}</h4>
+<h3 id=CRVideo_UserEnterMeeting>CRVideo_UserEnterMeeting.callback = function(usrID){}</h3>
 
 - **功能**某用户进入了房间
 
@@ -6393,7 +6393,7 @@ CRVideo_Logout()
     - usrID ----- 进入房间的用户ID
 
 
-<h4 id=CRVideo_UserLeftMeeting>CRVideo_UserLeftMeeting.callback = function(id){}</h4>
+<h3 id=CRVideo_UserLeftMeeting>CRVideo_UserLeftMeeting.callback = function(id){}</h3>
 
 
 - **功能**：某用户离开了房间
@@ -6402,7 +6402,7 @@ CRVideo_Logout()
     - id ----- 离开房间的用户ID
 
 
-<h4 id=CRVideo_MeetingDropped>CRVideo_MeetingDropped.callback = function(reason){}</h4>
+<h3 id=CRVideo_MeetingDropped>CRVideo_MeetingDropped.callback = function(reason){}</h3>
 
 
 
@@ -6412,7 +6412,7 @@ CRVideo_Logout()
     - reason ----- 断线原因，定义见[CRVideo_MEETING_DROPPED_REASON](Constant.md#CRVideo_MEETING_DROPPED_REASON)
 
 
-<h4 id=CRVideo_MeetingStopped>CRVideo_MeetingStopped.callback = function(){}</h4>
+<h3 id=CRVideo_MeetingStopped>CRVideo_MeetingStopped.callback = function(){}</h3>
 
 
 - **功能**：房间已被结束
@@ -6421,7 +6421,7 @@ CRVideo_Logout()
 >他人离开房间的回调事件[CRVideo_UserLeftMeeting](#CRVideo_UserLeftMeeting)
 
 
-<h4 id=CRVideo_StopMeeting>CRVideo_StopMeeting(meetID,reserve)</h4>
+<h3 id=CRVideo_StopMeeting>CRVideo_StopMeeting(meetID,reserve)</h3>
 
 - **功能**: 停止房间
 
@@ -6437,7 +6437,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetDNDStatusSuccess>CRVideo_SetDNDStatusSuccess.callback = function(cookie){}</h4>
+<h3 id=CRVideo_SetDNDStatusSuccess>CRVideo_SetDNDStatusSuccess.callback = function(cookie){}</h3>
 
 
 
@@ -6447,7 +6447,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_SetDNDStatusFail>CRVideo_SetDNDStatusFail.callback = function(sdkEr,cookie){}</h4>
+<h3 id=CRVideo_SetDNDStatusFail>CRVideo_SetDNDStatusFail.callback = function(sdkEr,cookie){}</h3>
 
 
 - **功能**：客户端设置免打扰状态操作失败响应
@@ -6457,7 +6457,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_GetUserStatusSuccess>CRVideo_GetUserStatusSuccess.callback = function(userStatus,cookie){}</h4>
+<h3 id=CRVideo_GetUserStatusSuccess>CRVideo_GetUserStatusSuccess.callback = function(userStatus,cookie){}</h3>
 
 
 - **功能**：客获取所有用户在线状态成功响应
@@ -6467,7 +6467,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_GetUserStatusFail>CRVideo_GetUserStatusFail.callback = function(sdkEr ,cookie){}</h4>
+<h3 id=CRVideo_GetUserStatusFail>CRVideo_GetUserStatusFail.callback = function(sdkEr ,cookie){}</h3>
 
 - **功能**：获取所有用户在线状态失败响应
 
@@ -6476,7 +6476,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_StartUserStatusNotifyRslt>CRVideo_StartUserStatusNotifyRslt.callback = function(sdkEr ,cookie){}</h4>
+<h3 id=CRVideo_StartUserStatusNotifyRslt>CRVideo_StartUserStatusNotifyRslt.callback = function(sdkEr ,cookie){}</h3>
 
 
 - **功能**：启动用户状态推送响应
@@ -6486,7 +6486,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_StopUserStatusNotifyRslt>CRVideo_StopUserStatusNotifyRslt.callback = function(sdkEr ,cookie){}</h4>
+<h3 id=CRVideo_StopUserStatusNotifyRslt>CRVideo_StopUserStatusNotifyRslt.callback = function(sdkEr ,cookie){}</h3>
 
 
 - **功能**：结束用户状态推送响应
@@ -6496,7 +6496,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_NotifyUserStatus>CRVideo_NotifyUserStatus.callback = function(userStatus ,cookie){}</h4>
+<h3 id=CRVideo_NotifyUserStatus>CRVideo_NotifyUserStatus.callback = function(userStatus ,cookie){}</h3>
 
 
 
@@ -6507,7 +6507,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_LineOff>CRVideo_LineOff.callback = function(sdkEr){}</h4>
+<h3 id=CRVideo_LineOff>CRVideo_LineOff.callback = function(sdkEr){}</h3>
 
 
 - **功能**：SDK通知自己掉线
@@ -6516,7 +6516,7 @@ CRVideo_Logout()
     - sdkEr ----- 掉线原因，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 
-<h4 id=CRVideo_CreateMeetingSuccess>CRVideo_CreateMeetingSuccess.callback = function(meetObj,cookie){}</h4>
+<h3 id=CRVideo_CreateMeetingSuccess>CRVideo_CreateMeetingSuccess.callback = function(meetObj,cookie){}</h3>
 
 
 
@@ -6527,7 +6527,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_CreateMeetingFail>CRVideo_CreateMeetingFail.callback = function(sdkEr ,cookie){}</h4>
+<h3 id=CRVideo_CreateMeetingFail>CRVideo_CreateMeetingFail.callback = function(sdkEr ,cookie){}</h3>
 
 
 - **功能**：创建房间失败响应
@@ -6537,7 +6537,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_DestroyMeetingRslt>CRVideo_DestroyMeetingRslt.callback = function(sdkEr ,cookie){}</h4>
+<h3 id=CRVideo_DestroyMeetingRslt>CRVideo_DestroyMeetingRslt.callback = function(sdkEr ,cookie){}</h3>
 
 
 - **功能**：销毁房间响应
@@ -6547,7 +6547,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_GetMeetingsSuccess>CRVideo_GetMeetingsSuccess.callback = function(jsonMeetings,cookie){}</h4>
+<h3 id=CRVideo_GetMeetingsSuccess>CRVideo_GetMeetingsSuccess.callback = function(jsonMeetings,cookie){}</h3>
 
 
 - **功能**：获取房间列表成功响应
@@ -6557,7 +6557,7 @@ CRVideo_Logout()
     - cookie ----- 详细介绍见[关键词](KeyWords.md#cookie)
 
 
-<h4 id=CRVideo_GetMeetingsFail>CRVideo_GetMeetingsFail.callback = function(sdkEr,cookie){}</h4>
+<h3 id=CRVideo_GetMeetingsFail>CRVideo_GetMeetingsFail.callback = function(sdkEr,cookie){}</h3>
 
 - **功能**：获取房间列表失败响应
 
@@ -6567,7 +6567,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetMediacfg>CRVideo_SetMediacfg(jsonCfg)</h4>
+<h3 id=CRVideo_SetMediacfg>CRVideo_SetMediacfg(jsonCfg)</h3>
 
 - **功能**: 配置远程影音共享时，图像质量参数
 
@@ -6578,7 +6578,7 @@ CRVideo_Logout()
 |jsonCfg	|json格式|	详见[CRVideo_VideoCfg](TypeDefinitions.md#CRVideo_VideoCfg)说明|
 
 
-<h4 id=CRVideo_GetMediacfg>CRVideo_GetMediacfg()</h4>
+<h3 id=CRVideo_GetMediacfg>CRVideo_GetMediacfg()</h3>
 
 - **功能**: 获取影音共享时的图像质量参数
 
@@ -6586,7 +6586,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetAudioMicNames>CRVideo_GetAudioMicNames()</h4>
+<h3 id=CRVideo_GetAudioMicNames>CRVideo_GetAudioMicNames()</h3>
 
 - **功能**: 麦克风设备列表
 
@@ -6595,7 +6595,7 @@ CRVideo_Logout()
 >类似：["audiomic1","audiomic2"……,"audiomicN"]
 
 
-<h4 id=CRVideo_GetAudioSpkNames>CRVideo_GetAudioSpkNames()</h4>
+<h3 id=CRVideo_GetAudioSpkNames>CRVideo_GetAudioSpkNames()</h3>
 
 - **功能**: 扬声器设备列表
 
@@ -6604,7 +6604,7 @@ CRVideo_Logout()
 >类似：["AudioSpkName1","AudioSpkName2"……,"AudioSpkNameN"]
 
 
-<h4 id=CRVideo_StartGetAudioPCM>CRVideo_StartGetAudioPCM(aSide, getType, jsonParam)</h4>
+<h3 id=CRVideo_StartGetAudioPCM>CRVideo_StartGetAudioPCM(aSide, getType, jsonParam)</h3>
 
 - **功能**: 开始获取语音pcm数据
 
@@ -6617,7 +6617,7 @@ CRVideo_Logout()
 |jsonParam	|string	|当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "e:\\test.pcm" }|
 
 
-<h4 id=CRVideo_StopGetAudioPCM>CRVideo_StopGetAudioPCM(aSide)</h4>
+<h3 id=CRVideo_StopGetAudioPCM>CRVideo_StopGetAudioPCM(aSide)</h3>
 
 - **功能**: 停止获取语音pcm数据
 
@@ -6628,7 +6628,7 @@ CRVideo_Logout()
 |aSide	| number| 	声道类型 0:麦克风，1:扬声器|
 
 
-<h4 id=CRVideo_SetAudioCfg>CRVideo_SetAudioCfg(cfg)</h4>
+<h3 id=CRVideo_SetAudioCfg>CRVideo_SetAudioCfg(cfg)</h3>
 
 - **功能**: 设置系统音频参数
 
@@ -6639,14 +6639,14 @@ CRVideo_Logout()
 |cfg | 	[CRVideo_AudioCfg](TypeDefinitions.md#CRVideo_AudioCfg)|	设置参数|
 
 
-<h4 id=CRVideo_GetAudioCfg>CRVideo_GetAudioCfg()</h4>
+<h3 id=CRVideo_GetAudioCfg>CRVideo_GetAudioCfg()</h3>
 
 - **功能**: 获取系统音频参数
 
 - **返回值**:cfg对象（[CRVideo_AudioCfg](TypeDefinitions.md#CRVideo_AudioCfg)）
 
 
-<h4 id=CRVideo_GetMicEnergy>CRVideo_GetMicEnergy(UID)</h4>
+<h3 id=CRVideo_GetMicEnergy>CRVideo_GetMicEnergy(UID)</h3>
 
 - **功能**: 麦克风声音大小
 
@@ -6657,7 +6657,7 @@ CRVideo_Logout()
 |UID	 |string	|用户的ID|
 
 
-<h4 id=CRVideo_OpenMic>CRVideo_OpenMic(UID)</h4>
+<h3 id=CRVideo_OpenMic>CRVideo_OpenMic(UID)</h3>
 
 - **功能**: 打开麦克风
 
@@ -6670,7 +6670,7 @@ CRVideo_Logout()
 >打开自已的麦克风时，先会进入到AOPENING状态，等服务器处理后才会进入AOPEN状态，此时说话才能被采集到
 
 
-<h4 id=CRVideo_CloseMic>CRVideo_CloseMic(UID)</h4>
+<h3 id=CRVideo_CloseMic>CRVideo_CloseMic(UID)</h3>
 
 - **功能**: 关闭麦克风
 
@@ -6683,7 +6683,7 @@ CRVideo_Logout()
 >关麦操作是立即生效的，本地会立即停止采集
 
 
-<h4 id=CRVideo_GetAudioStatus>CRVideo_GetAudioStatus(UID)</h4>
+<h3 id=CRVideo_GetAudioStatus>CRVideo_GetAudioStatus(UID)</h3>
 
 - **功能**: 麦克风状态
 
@@ -6696,7 +6696,7 @@ CRVideo_Logout()
 >双方开始进入本次视频会话。操作完成则回调[CRVideo_EnterMeetingRslt](#CRVideo_EnterMeetingRslt)
 
 
-<h4 id=CRVideo_GetMicVolume>CRVideo_GetMicVolume()</h4>
+<h3 id=CRVideo_GetMicVolume>CRVideo_GetMicVolume()</h3>
 
 - **功能**: 获取麦克风音量
 
@@ -6704,7 +6704,7 @@ CRVideo_Logout()
 - **返回值**:返回麦克风音量（0~255）（number）
 
 
-<h4 id=CRVideo_SetMicVolume>CRVideo_SetMicVolume(level)</h4>
+<h3 id=CRVideo_SetMicVolume>CRVideo_SetMicVolume(level)</h3>
 
 - **功能**: 设置麦克风音量
 
@@ -6716,7 +6716,7 @@ CRVideo_Logout()
 |level	|number	|音量等级（ 取值范围：0~255）|
 
 
-<h4 id=CRVideo_SetSpeakerVolume>CRVideo_SetSpeakerVolume(level)</h4>
+<h3 id=CRVideo_SetSpeakerVolume>CRVideo_SetSpeakerVolume(level)</h3>
 
 - **功能**: 设置扬声器音量
 - **返回值**:设置成功则返回true,否则返回false（bool）
@@ -6726,7 +6726,7 @@ CRVideo_Logout()
 |level	|number|音量等级（ 取值范围：0~255）|
 
 
-<h4 id=CRVideo_GetSpeakerVolume>CRVideo_GetSpeakerVolume()</h4>
+<h3 id=CRVideo_GetSpeakerVolume>CRVideo_GetSpeakerVolume()</h3>
 
 - **功能**: 获取扬声器音量
 
@@ -6736,7 +6736,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_SetSpeakerMute>CRVideo_SetSpeakerMute(value)</h4>
+<h3 id=CRVideo_SetSpeakerMute>CRVideo_SetSpeakerMute(value)</h3>
 
 - **功能**: 设置扬声器是否静音
 
@@ -6748,7 +6748,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_GetSpeakerMute>CRVideo_GetSpeakerMute()</h4>
+<h3 id=CRVideo_GetSpeakerMute>CRVideo_GetSpeakerMute()</h3>
 
 - **功能**: 获取扬声器是否静音
 
@@ -6756,14 +6756,14 @@ CRVideo_Logout()
 - **返回值**:扬声器是否静音， 1,静音，0，不静音
 
 
-<h4 id=CRVideo_SetAllAudioClose>CRVideo_SetAllAudioClose()</h4>
+<h3 id=CRVideo_SetAllAudioClose>CRVideo_SetAllAudioClose()</h3>
 
 - **功能**: 关闭所有人麦克风
 
 - **返回值**:无
 
 
-<h4 id=CRVideo_SetCustomAudioCapture>CRVideo_SetCustomAudioCapture(enable, params)</h4>
+<h3 id=CRVideo_SetCustomAudioCapture>CRVideo_SetCustomAudioCapture(enable, params)</h3>
 
 - **功能**: 自定义音频采集
 
@@ -6775,7 +6775,7 @@ CRVideo_Logout()
 |param	|object|可选扩展参数，json格式，当前支持参数："fromIPCam":摄像头ID, 配置后sdk自动从IPCam中获取音频|
 
 
-<h4 id=CRVideo_SetCustomAudioPlayback>CRVideo_SetCustomAudioPlayback(enable, params)</h4>
+<h3 id=CRVideo_SetCustomAudioPlayback>CRVideo_SetCustomAudioPlayback(enable, params)</h3>
 
 - **功能**: 自定义音频播放
 
@@ -6788,7 +6788,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_AudioDevChanged>CRVideo_AudioDevChanged.callback = function(){}</h4>
+<h3 id=CRVideo_AudioDevChanged>CRVideo_AudioDevChanged.callback = function(){}</h3>
 
 - **功能**: 麦克风设备变化
 
@@ -6796,7 +6796,7 @@ CRVideo_Logout()
 - **功能**：SDK通知本地音频设备有变化
 
 
-<h4 id=CRVideo_AudioStatusChanged>CRVideo_AudioStatusChanged.callback = function(UID,oldStatus,newStatus){}</h4>
+<h3 id=CRVideo_AudioStatusChanged>CRVideo_AudioStatusChanged.callback = function(UID,oldStatus,newStatus){}</h3>
 
 
 - **功能**：SDK通知打开本地音频状态变化
@@ -6807,7 +6807,7 @@ CRVideo_Logout()
     - newStatus ----- 新状态
 
 
-<h4 id=CRVideo_MicEnergyUpdate>CRVideo_MicEnergyUpdate.callback = function(UID,oldLevel,newLevel){}</h4>
+<h3 id=CRVideo_MicEnergyUpdate>CRVideo_MicEnergyUpdate.callback = function(UID,oldLevel,newLevel){}</h3>
 
 
 - **功能**：SDK通知用户的说话声音强度更新
@@ -6819,7 +6819,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_StartPlayMedia>CRVideo_StartPlayMedia(filename, locPlay, bPauseWhenFinished)</h4>
+<h3 id=CRVideo_StartPlayMedia>CRVideo_StartPlayMedia(filename, locPlay, bPauseWhenFinished)</h3>
 
 - **功能**: 开始播放影音
 
@@ -6834,7 +6834,7 @@ CRVideo_Logout()
 
 >如果播放成功，其他人收到[CRVideo_NotifyMediaStart](#CRVideo_NotifyMediaStart)，如果播放失败，请关注通知事件[CRVideo_NotifyMediaStop](#CRVideo_NotifyMediaStop)
 
-<h4 id=CRVideo_PausePlayMedia>CRVideo_PausePlayMedia(bPause)</h4>
+<h3 id=CRVideo_PausePlayMedia>CRVideo_PausePlayMedia(bPause)</h3>
 
 - **功能**: 暂停或恢复播放影音
 
@@ -6846,7 +6846,7 @@ CRVideo_Logout()
 |bPause	|bool	|ture为暂停，false为恢复|
 
 
-<h4 id=CRVideo_StopPlayMedia>CRVideo_StopPlayMedia()</h4>
+<h3 id=CRVideo_StopPlayMedia>CRVideo_StopPlayMedia()</h3>
 
 - **功能**: 停止播放影音
 
@@ -6856,7 +6856,7 @@ CRVideo_Logout()
 >其他人收到[CRVideo_NotifyMediaStop](#CRVideo_NotifyMediaStop)
 
 
-<h4 id=CRVideo_SetMediaplaypos>CRVideo_SetMediaplaypos(pos)</h4>
+<h3 id=CRVideo_SetMediaplaypos>CRVideo_SetMediaplaypos(pos)</h3>
 
 - **功能**: 设置播放进度
 
@@ -6867,7 +6867,7 @@ CRVideo_Logout()
 |pos	|number	|设置播放位置，单位：毫秒|
 
 
-<h4 id=CRVideo_GetAllFilesInMediaPath>CRVideo_GetAllFilesInMediaPath()</h4>
+<h3 id=CRVideo_GetAllFilesInMediaPath>CRVideo_GetAllFilesInMediaPath()</h3>
 
 - **功能**: 取得影音文件夹下的所有可播放文件
 
@@ -6875,7 +6875,7 @@ CRVideo_Logout()
 
 >影音文件夹位于方法CRVideo_Init2的第一个参数sdkFilePath，sdk会在此文件中建立media的子文件夹，即为影音文件夹
 
-<h4 id=CRVideo_Getmediainfo>CRVideo_Getmediainfo(UID)</h4>
+<h3 id=CRVideo_Getmediainfo>CRVideo_Getmediainfo(UID)</h3>
 
 - **功能**: 影音播放信息
 
@@ -6887,7 +6887,7 @@ CRVideo_Logout()
 |UID	 |string	|用户id，详见[UID](KeyWords.md#UID)|
 
 
-<h4 id=CRVideo_Getmediaimg>CRVideo_Getmediaimg(UID)</h4>
+<h3 id=CRVideo_Getmediaimg>CRVideo_Getmediaimg(UID)</h3>
 
 - **功能**: 获取影音图像数据
 
@@ -6900,7 +6900,7 @@ CRVideo_Logout()
 
 
 
-<h4 id=CRVideo_NotifyMediaOpened>CRVideo_NotifyMediaOpened.callback = function(totalTime,w,h){}</h4>
+<h3 id=CRVideo_NotifyMediaOpened>CRVideo_NotifyMediaOpened.callback = function(totalTime,w,h){}</h3>
 
 
 - **功能**SDK通知影音文件打开
@@ -6911,7 +6911,7 @@ CRVideo_Logout()
     - h ----- 高度
 
 
-<h4 id=CRVideo_NotifyMediaStart>CRVideo_NotifyMediaStart.callback = function(userid){}</h4>
+<h3 id=CRVideo_NotifyMediaStart>CRVideo_NotifyMediaStart.callback = function(userid){}</h3>
 
 
 
@@ -6921,7 +6921,7 @@ CRVideo_Logout()
     - userid ----- 操作者的用户id
 
 
-<h4 id=CRVideo_NotifyMediaStop>CRVideo_NotifyMediaStop.callback = function(userid,reason){}</h4>
+<h3 id=CRVideo_NotifyMediaStop>CRVideo_NotifyMediaStop.callback = function(userid,reason){}</h3>
 
 
 
@@ -6932,7 +6932,7 @@ CRVideo_Logout()
     - reason ----- 播放停止原因，详见[CRVideo_MEDIA_STOP_REASON](Constant.md#CRVideo_MEDIA_STOP_REASON)
 
 
-<h4 id=CRVideo_NotifyMediaPause>CRVideo_NotifyMediaPause.callback = function(userid,pause){}</h4>
+<h3 id=CRVideo_NotifyMediaPause>CRVideo_NotifyMediaPause.callback = function(userid,pause){}</h3>
 
 
 
@@ -6943,7 +6943,7 @@ CRVideo_Logout()
     - pause ----- 是否暂停 1暂停 0播放
 
 
-<h4 id=CRVideo_NotifyPlayPosSetted>CRVideo_NotifyPlayPosSetted.callback = function(setPTS){}</h4>
+<h3 id=CRVideo_NotifyPlayPosSetted>CRVideo_NotifyPlayPosSetted.callback = function(setPTS){}</h3>
 
 
 
@@ -6953,7 +6953,7 @@ CRVideo_Logout()
     - setPTS ----- 播放进度
 
 
-<h4 id=CRVideo_NotifyAudioPCMDat>CRVideo_NotifyAudioPCMDat.callback = function(aSide,base64PcmDat){}</h4>
+<h3 id=CRVideo_NotifyAudioPCMDat>CRVideo_NotifyAudioPCMDat.callback = function(aSide,base64PcmDat){}</h3>
 
 
 - **功能**：SDK通知语音PCM数据
@@ -7508,28 +7508,28 @@ bReadOnly |  bool|  是否只读
 
 
 
-<h4 id=CRVideo_StartHttpMgr>CRVideo_StartHttpMgr()</h4>
+<h3 id=CRVideo_StartHttpMgr>CRVideo_StartHttpMgr()</h3>
 
 - **功能**: 启动http文档上传下载功能
 
 - **返回值**:无
 - **参数**:无
 
-<h4 id=CRVideo_StopHttpMgr>CRVideo_StopHttpMgr()</h4>
+<h3 id=CRVideo_StopHttpMgr>CRVideo_StopHttpMgr()</h3>
 
 - **功能**: 停止http文档上传下载功能
 
 - **返回值**:无
 - **参数**:无
 
-<h4 id=CRVideo_GetAllTransferInfos>CRVideo_GetAllTransferInfos()</h4>
+<h3 id=CRVideo_GetAllTransferInfos>CRVideo_GetAllTransferInfos()</h3>
 
 - **功能**: 获取本地所有上传、下载文件信息
 
 - **返回值**:详见 [CRVideo_HttpFileInfoObjs](TypeDefinitions.md#CRVideo_HttpFileInfoObjs)
 - **参数**:无
 
-<h4 id=CRVideo_GetTransferInfo>CRVideo_GetTransferInfo(filePathName)</h4>
+<h3 id=CRVideo_GetTransferInfo>CRVideo_GetTransferInfo(filePathName)</h3>
 
 - **功能**: 获取本地指定文件的上传、下载文件信息
 
@@ -7540,7 +7540,7 @@ bReadOnly |  bool|  是否只读
 |:-------- |:-----------|:----------|
 |filePathName	|string|	本地路径文件名|
 
-<h4 id=CRVideo_StartTransferFile>CRVideo_StartTransferFile(fileinfo)</h4>
+<h3 id=CRVideo_StartTransferFile>CRVideo_StartTransferFile(fileinfo)</h3>
 
 - **功能**: 开始下载/上传文件
 
@@ -7552,7 +7552,7 @@ bReadOnly |  bool|  是否只读
 |fileinfo	|json格式| 详见[CRVideo_HttpReqInfoObj](TypeDefinitions.md#CRVideo_HttpReqInfoObj)|
 
 
-<h4 id=CRVideo_CancelFileTransfer>CRVideo_CancelFileTransfer(fileName)</h4>
+<h3 id=CRVideo_CancelFileTransfer>CRVideo_CancelFileTransfer(fileName)</h3>
 
 - **功能**: 取消传输
 
@@ -7564,7 +7564,7 @@ bReadOnly |  bool|  是否只读
 
 >注意：取消时，只是停止了传输任务，不清理记录及断点文件。
 
-<h4 id=CRVideo_RmTransferInfo>CRVideo_RmTransferInfo(fileName,bRemoveLocFile)</h4>
+<h3 id=CRVideo_RmTransferInfo>CRVideo_RmTransferInfo(fileName,bRemoveLocFile)</h3>
 
 - **功能**: 删除传输记录及相关文件
 
@@ -7578,7 +7578,7 @@ bReadOnly |  bool|  是否只读
 >注意： 此接口将文件从管理器中移除（CRVideo_GetAllTransferInfos将不再返回相关信息），如果bRemoveLocFile为1时， 那么上传的源始文件、下载的临时文件或结果文件都将被移除。
 
 
-<h4 id=CRVideo_FileStateChanged>CRVideo_FileStateChanged.callback = function( fileName, state)){}</h4>
+<h3 id=CRVideo_FileStateChanged>CRVideo_FileStateChanged.callback = function( fileName, state)){}</h3>
 
 - **功能**: 通知用户文件状态更改
 
@@ -7587,7 +7587,7 @@ bReadOnly |  bool|  是否只读
     - state ----- 详细介绍见[CRVideo_HTTP_TRANSFER_STATE](Constant.md#CRVideo_HTTP_TRANSFER_STATE)
 
 
-<h4 id=CRVideo_FileProgress>CRVideo_FileProgress.callback = function( fileName, finisedSize, totalSize)){}</h4>
+<h3 id=CRVideo_FileProgress>CRVideo_FileProgress.callback = function( fileName, finisedSize, totalSize)){}</h3>
 
 - **功能**: 通知用户文件的传输进度
 
@@ -7596,7 +7596,7 @@ bReadOnly |  bool|  是否只读
     - finisedSize ----- 已传输大小(number)
     - totalSize ----- 文件总大小(number)
 
-<h4 id=CRVideo_FileFinished>CRVideo_FileFinished.callback = function( fileName, rslt)){}</h4>
+<h3 id=CRVideo_FileFinished>CRVideo_FileFinished.callback = function( fileName, rslt)){}</h3>
 
 - **功能**: 通知用户文件传输结束
 
@@ -7605,7 +7605,7 @@ bReadOnly |  bool|  是否只读
     - rslt ----- 传输结果,详见[CRVideo_HTTP_TRANSFER_RESULT](Constant.md#CRVideo_HTTP_TRANSFER_RESULT) 
  
 
-<h4 id=CRVideo_FileHttpRspHeader>CRVideo_FileHttpRspHeader.callback = function( fileName,  rspHeader)){}</h4>
+<h3 id=CRVideo_FileHttpRspHeader>CRVideo_FileHttpRspHeader.callback = function( fileName,  rspHeader)){}</h3>
 
 - **功能**: 通知http响应消息的header数据
 
@@ -7613,7 +7613,7 @@ bReadOnly |  bool|  是否只读
     - fileName ----- 文件名(string)
     - rspHeader ----- http响应头(string)
 
-<h4 id=CRVideo_FileHttpRspContent>CRVideo_FileHttpRspContent.callback = function( fileName,   rspContent)){}</h4>
+<h3 id=CRVideo_FileHttpRspContent>CRVideo_FileHttpRspContent.callback = function( fileName,   rspContent)){}</h3>
 
 - **功能**: 通知上传完成后，http的响应内容
 
@@ -7621,7 +7621,7 @@ bReadOnly |  bool|  是否只读
     - fileName ----- 文件名(string)
     - rspContent ----- http上传完成后的响应内容(string)
 
-<h4 id=CRVideo_TryReadFile>CRVideo_TryReadFile(diskPathFileName)</h4>
+<h3 id=CRVideo_TryReadFile>CRVideo_TryReadFile(diskPathFileName)</h3>
 
 - **功能**: 尝试读取文件
 
@@ -7631,7 +7631,7 @@ bReadOnly |  bool|  是否只读
 |:-------- |:-----------|:----------|
 |diskPathFileName   |string|    本地路径文件名|
 
-<h4 id=CRVideo_ReadFileAsBase64>CRVideo_ReadFileAsBase64(diskPathFileName)</h4>
+<h3 id=CRVideo_ReadFileAsBase64>CRVideo_ReadFileAsBase64(diskPathFileName)</h3>
 
 - **功能**: 读取文件
 
@@ -7641,7 +7641,7 @@ bReadOnly |  bool|  是否只读
 |:-------- |:-----------|:----------|
 |diskPathFileName   |string|    本地路径文件名|
 
-<h4 id=CRVideo_WriteBase64ToFile>CRVideo_WriteBase64ToFile(diskPathFileName, base64Dat)</h4>
+<h3 id=CRVideo_WriteBase64ToFile>CRVideo_WriteBase64ToFile(diskPathFileName, base64Dat)</h3>
 
 - **功能**: 创建或重写文件（如果目录不存在，则创建目录）
 
@@ -7655,7 +7655,7 @@ bReadOnly |  bool|  是否只读
 
 
 
-<h4 id=CRVideo_MoveFile>CRVideo_MoveFile(srcDiskFileName, dstDiskFileName)</h4>
+<h3 id=CRVideo_MoveFile>CRVideo_MoveFile(srcDiskFileName, dstDiskFileName)</h3>
 
 - **功能**: 移动文件
 
@@ -7671,7 +7671,7 @@ bReadOnly |  bool|  是否只读
 
 
 
-<h4 id=CRVideo_GetOpenFileName>CRVideo_GetOpenFileName(title,directory,filter)</h4>
+<h3 id=CRVideo_GetOpenFileName>CRVideo_GetOpenFileName(title,directory,filter)</h3>
 
 - **功能**: 获取用户打开的全路径文件名
 
@@ -7684,7 +7684,7 @@ bReadOnly |  bool|  是否只读
 |filter|    string| 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)"|
 
 
-<h4 id=CRVideo_GetSaveFileName>CRVideo_GetSaveFileName(title,directory,filter)</h4>
+<h3 id=CRVideo_GetSaveFileName>CRVideo_GetSaveFileName(title,directory,filter)</h3>
 
 - **功能**: 获取用户保存的全路径文件名
 
@@ -7696,7 +7696,7 @@ bReadOnly |  bool|  是否只读
 |directory|    string| 打开对话框初始路径,不设初始值时请传空|
 |filter|    string| 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)"|
 
-<h4 id=CRVideo_RemoveFromRecordMgr>CRVideo_RemoveFromRecordMgr(filename)</h4>
+<h3 id=CRVideo_RemoveFromRecordMgr>CRVideo_RemoveFromRecordMgr(filename)</h3>
 
 - **功能**: 从录制管理器删除文件
 
@@ -7709,7 +7709,7 @@ bReadOnly |  bool|  是否只读
 >上传中的文件会被取消上传,已上传完成的服务器文件不受影响
 
 
-<h4 id=CRVideo_AddFileToRecordMgr>CRVideo_AddFileToRecordMgr(fileName, filePath)</h4>
+<h3 id=CRVideo_AddFileToRecordMgr>CRVideo_AddFileToRecordMgr(fileName, filePath)</h3>
 
 - **功能**: 添加本地文件到录制文件管理中
 
@@ -7722,21 +7722,21 @@ bReadOnly |  bool|  是否只读
 
 >第三方录制文件调用此接口后可进行本地回放和上传到视频服务器上，和自己录制的文件一样可以正常在线播放和下载
 
-<h4 id=CRVideo_GetWriteablePathInIEProtectedMode>CRVideo_GetWriteablePathInIEProtectedMode()</h4>
+<h3 id=CRVideo_GetWriteablePathInIEProtectedMode>CRVideo_GetWriteablePathInIEProtectedMode()</h3>
 
 - **功能**: 获取ie的保护模式下可读写的路径（获取到的为numberernetCache目录，在系统重启或numberernetCache目录清理时，此目录下的内容将会丢失）
 
 - **返回值**:路径
 
 
-<h4 id=CRVideo_IsIEProtectedMode>CRVideo_IsIEProtectedMode()</h4>
+<h3 id=CRVideo_IsIEProtectedMode>CRVideo_IsIEProtectedMode()</h3>
 
 - **功能**: 检查插件是否运行在ie的保护模式下
 
 - **返回值**:true - ie保护模式下； false - 非ie或非保护模式{bool}
 
 
-<h4 id=CRVideo_SetMarkText>CRVideo_SetMarkText(videoFilePathName,msecond,markText)</h4>
+<h3 id=CRVideo_SetMarkText>CRVideo_SetMarkText(videoFilePathName,msecond,markText)</h3>
 
 - **功能**: 添加视频打点信息
 
@@ -7751,7 +7751,7 @@ bReadOnly |  bool|  是否只读
 >调用此接口会生成一个和视频文件同名且有.json后缀的打点文本文件
 
 
-<h4 id=CRVideo_RemoveMarkText>CRVideo_RemoveMarkText(videoFilePathName,msecond)</h4>
+<h3 id=CRVideo_RemoveMarkText>CRVideo_RemoveMarkText(videoFilePathName,msecond)</h3>
 
 - **功能**: 移除视频打点信息
 
@@ -7763,7 +7763,7 @@ bReadOnly |  bool|  是否只读
 |videoFilePathName   |string|    视频文件路径名|
 |msecond|    number| 视频播放的位置(毫秒)|
 
-<h4 id=CRVideo_GetVideoMarkFile>CRVideo_GetVideoMarkFile(videoFilePathName)</h4>
+<h3 id=CRVideo_GetVideoMarkFile>CRVideo_GetVideoMarkFile(videoFilePathName)</h3>
 
 - **功能**: 获取视频文件对应的打点文件
 
@@ -7773,7 +7773,7 @@ bReadOnly |  bool|  是否只读
 |:-------- |:-----------|:----------|
 |videoFilePathName   |string|    视频文件路径名|
 
-<h4 id=CRVideo_GetAllMarks>CRVideo_GetAllMarks(videoFilePathName)</h4>
+<h3 id=CRVideo_GetAllMarks>CRVideo_GetAllMarks(videoFilePathName)</h3>
 
 - **功能**:获取所有的视频打点信息
 
@@ -7783,7 +7783,7 @@ bReadOnly |  bool|  是否只读
 |:-------- |:-----------|:----------|
 |videoFilePathName   |string|    视频文件路径名|
 
-<h4 id=CRVideo_GetRecordFileInfo>CRVideo_GetRecordFileInfo(fileName)</h4>
+<h3 id=CRVideo_GetRecordFileInfo>CRVideo_GetRecordFileInfo(fileName)</h3>
 
 - **功能**:获取录制文件信息
 
@@ -7793,7 +7793,7 @@ bReadOnly |  bool|  是否只读
 |:-------- |:-----------|:----------|
 |fileName|    string  |文件名， 不含路径|
 
-<h4 id=CRVideo_Kickout>CRVideo_Kickout(userId)</h4>
+<h3 id=CRVideo_Kickout>CRVideo_Kickout(userId)</h3>
 
 - **功能**:踢出房间，离开房间
 
@@ -7803,20 +7803,20 @@ bReadOnly |  bool|  是否只读
 |:-------- |:-----------|:----------|
 |userId|    string  |用户id|
 
-<h4 id=CRVideo_GetUserAuthErrCode>CRVideo_GetUserAuthErrCode()</h4>
+<h3 id=CRVideo_GetUserAuthErrCode>CRVideo_GetUserAuthErrCode()</h3>
 
 - **功能**: 获取第三方鉴权失败码（只有在登录失败原因为：CRVIDEOSDK_CUSTOMAUTH_FAILED 时有效）
 
 - **返回值**: 第三方返回的失败码,(number)
 
 
-<h4 id=CRVideo_GetUserAuthErrDesc>CRVideo_GetUserAuthErrDesc()</h4>
+<h3 id=CRVideo_GetUserAuthErrDesc>CRVideo_GetUserAuthErrDesc()</h3>
 
 - **功能**: 获取第三方鉴权失败原因描述（只有在登录失败原因为：CRVIDEOSDK_CUSTOMAUTH_FAILED 时有效）
 
 - **返回值**: 第三方返回的描述串,(string)
 
-<h4 id=CRVideo_SetMarkText>CRVideo_SetMarkText(videoFilePathName,msecond,markText)</h4>
+<h3 id=CRVideo_SetMarkText>CRVideo_SetMarkText(videoFilePathName,msecond,markText)</h3>
 
 - **功能**: 添加视频打点信息
 
@@ -7833,7 +7833,7 @@ bReadOnly |  bool|  是否只读
 >调用此接口会生成一个和视频文件同名且有.json后缀的打点文本文件
 
 
-<h4 id=CRVideo_RemoveMarkText>CRVideo_RemoveMarkText( videoFilePathName,msecond)</h4>
+<h3 id=CRVideo_RemoveMarkText>CRVideo_RemoveMarkText( videoFilePathName,msecond)</h3>
 
 - **功能**: 移除视频打点信息
 
@@ -7847,7 +7847,7 @@ bReadOnly |  bool|  是否只读
 |videoFilePathName   |string|    视频文件路径名|
 |msecond|    number| 视频播放的位置(毫秒)|
 
-<h4 id=CRVideo_GetVideoMarkFile>CRVideo_GetVideoMarkFile( videoFilePathName)</h4>
+<h3 id=CRVideo_GetVideoMarkFile>CRVideo_GetVideoMarkFile( videoFilePathName)</h3>
 
 - **功能**: 获取视频文件对应的打点文件
 
@@ -7859,7 +7859,7 @@ bReadOnly |  bool|  是否只读
 |:-------- |:-----------|:----------|
 |videoFilePathName   |string|    视频文件路径名|
 
-<h4 id=CRVideo_GetAllMarks>CRVideo_GetAllMarks(videoFilePathName)</h4>
+<h3 id=CRVideo_GetAllMarks>CRVideo_GetAllMarks(videoFilePathName)</h3>
 
 - **功能**:获取所有的视频打点信息
 
@@ -7873,7 +7873,7 @@ bReadOnly |  bool|  是否只读
 
 
 
-<h4 id=CRVideo_SendMeetingCustomMsg>CRVideo_SendMeetingCustomMsg( msg,  cookie)</h4>
+<h3 id=CRVideo_SendMeetingCustomMsg>CRVideo_SendMeetingCustomMsg( msg,  cookie)</h3>
 
 - **功能**:发送房间内自定义广播消息
 
@@ -7886,7 +7886,7 @@ bReadOnly |  bool|  是否只读
 |msg|    string  |用户自定义消息|
 |cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#stream)|
 
-<h4 id=CRVideo_SendMeetingCustomMsgRslt >CRVideo_SendMeetingCustomMsgRslt.callback = function(  err,  cookie){} </h4>
+<h3 id=CRVideo_SendMeetingCustomMsgRslt >CRVideo_SendMeetingCustomMsgRslt.callback = function(  err,  cookie){} </h3>
 
 - **功能**:通知发送房间内自定义广播消息结果
 
@@ -7899,7 +7899,7 @@ bReadOnly |  bool|  是否只读
 
 
 
-<h4 id=CRVideo_NotifyMeetingCustomMsg >CRVideo_NotifyMeetingCustomMsg.callback = function( uid,  jsonDat){} </h4>
+<h3 id=CRVideo_NotifyMeetingCustomMsg >CRVideo_NotifyMeetingCustomMsg.callback = function( uid,  jsonDat){} </h3>
 
 - **功能**:通知接收到房间内用户自定义广播
 
@@ -7912,7 +7912,7 @@ bReadOnly |  bool|  是否只读
 
 
 
-<h4 id=CRVideo_StartSvrMixerFailed >CRVideo_StartSvrMixerFailed.callback = function(err){} </h4>
+<h3 id=CRVideo_StartSvrMixerFailed >CRVideo_StartSvrMixerFailed.callback = function(err){} </h3>
 
 - **功能**:开启云端录制失败
 

@@ -1,7 +1,5 @@
 # 主要功能
 
-支持一对一单聊和多人群聊，可实现语音通话和视频通话功能。
-
 ## 基本功能  
 
 <table border=0 cellpadding=0 cellspacing=0 style='border-collapse:collapse;table-layout:fixed;'>

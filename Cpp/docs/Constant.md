@@ -1,4 +1,4 @@
-<h1 id=begin>常量定义</h1>
+# 常量定义
 
 <h2 id=CRVSDK_ERR_DEF>CRVSDK_ERR_DEF 错误码</h2>
 

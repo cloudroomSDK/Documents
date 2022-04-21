@@ -5,7 +5,7 @@
 
 <!-- ## 错误码 {#CRVIDEOSDK_ERR_DEF} -->
 
-<h3 id=CRVIDEOSDK_ERR_DEF> 错误码</h3>
+<h2  id=CRVIDEOSDK_ERR_DEF> 错误码</h2>
 
 >CRVIDEOSDK_ERR_DEF
 
@@ -114,7 +114,7 @@
 |CRVIDEOSDK_NETDISK_TRANSFORMFAILED | 1506  | 文件转换失败  |
 |CRVIDEOSDK_NETDISK_NOSPACE   | 1507  | 空间不足  |
 
-<h3 id=CRVIDEOSDK_MEETING_DROPPED_REASON>房间断线原因</h3>
+<h2  id=CRVIDEOSDK_MEETING_DROPPED_REASON>房间断线原因</h2>
 
 >MEETING_DROPPED_REASON
 
@@ -128,7 +128,7 @@
 |CRVIDEOSDK_DROPPED_KICKOUT  |1|被他人请出会议|
 |CRVIDEOSDK_DROPPED_BALANCELESS  |2|余额不足|
 |CRVIDEOSDK_DROPPED_TOKENINVALID  |3|Token鉴权方式下，token无效或过期|
-<h3 id=CRVideo_ASTATUS>SDK日志等级定义</h3>
+<h2  id=CRVideo_ASTATUS>SDK日志等级定义</h2>
 <!-- ## 麦克风状态  -->
 
 >model.SDK_LOG_LEVEL_DEF
@@ -145,7 +145,7 @@
 
 
 
-<h3 id=ASTATUS>麦克风状态</h3>
+<h2  id=ASTATUS>麦克风状态</h2>
 <!-- ## 麦克风状态  -->
 
 >ASTATUS
@@ -162,7 +162,7 @@
 |AACCEPTING |   5   |向服务器发送帮助他人开麦中 |
 
 
-<h3 id=VIDEO_SIZE_TYPE>视频尺寸定义</h3>
+<h2  id=VIDEO_SIZE_TYPE>视频尺寸定义</h2>
 <!-- ## 视频尺寸定义  -->
 
 >VIDEO_SIZE_TYPE
@@ -185,7 +185,7 @@
 |VSIZE_SZ_1080	|11|1920*1080, 推荐码率：2mbps  |
 
 
-<h3 id=VSTATUS>摄像头（视频）状态定义</h3>
+<h2  id=VSTATUS>摄像头（视频）状态定义</h2>
 <!-- ## 摄像头（视频）状态定义  -->
 
 >VSTATUS
@@ -201,7 +201,7 @@
 | VOPENING|	4	|向服务器发送打开消息中	 |
 
 
-<h3 id=VIDEO_FORMAT>视频图像格式</h3>
+<h2  id=VIDEO_FORMAT>视频图像格式</h2>
 <!-- ## 视频图像格式  -->
 
 >VIDEO_FORMAT
@@ -214,7 +214,7 @@
 | VFMT_ARGB32	|1 |32-bit ARGB format (0xAARRGGBB)	 |
 
 
-<h3 id=MIXER_VCONTENT_TYPE>混图内容类型</h3>
+<h2  id=MIXER_VCONTENT_TYPE>混图内容类型</h2>
 <!-- ## 视频图像格式  -->
 
 >MIXER_VCONTENT_TYPE
@@ -232,7 +232,7 @@
 | MIXVTP_WBOARD|6	|白板	   |
 | MIXVTP_TEXT|7	|文本	   |
 
-<h3 id=MIXER_OUTPUT_TYPE>混图输出类型</h3>
+<h2  id=MIXER_OUTPUT_TYPE>混图输出类型</h2>
 <!-- ## 视频图像格式  -->
 
 >MIXER_OUTPUT_TYPE
@@ -244,7 +244,7 @@
 | MIXOT_FILE|0	|录像文件|
 | MIXOT_LIVE|1	|直播流	   |
 
-<h3 id=MIXER_STATE>混图器状态</h3>
+<h2  id=MIXER_STATE>混图器状态</h2>
 <!-- ## 视频图像格式  -->
 
 >MIXER_STATE
@@ -260,7 +260,7 @@
 
 
 
-<h3 id=MIXER_OUTPUT_STATE>混图器输出状态</h3>
+<h2  id=MIXER_OUTPUT_STATE>混图器输出状态</h2>
 <!-- ## 视频图像格式  -->
 
 >MIXER_OUTPUT_STATE
@@ -275,7 +275,7 @@
 | OUTPUT_CLOSED|3	|输出对象已关闭	   |
 | OUTPUT_ERR|4	|输出对象异常	   |
 
-<h3 id=RECORD_FILE_STATE>录制文件上传状态</h3>
+<h2  id=RECORD_FILE_STATE>录制文件上传状态</h2>
 <!-- ## 视频图像格式  -->
 
 >RECORD_FILE_STATE
@@ -289,7 +289,7 @@
 | RFS_Uploaded|2	|已上传	   |
 | RFS_UploadFail|3	|上传失败	   |
 
-<h3 id=MAIN_PAGE>主功能页类型</h3>
+<h2  id=MAIN_PAGE>主功能页类型</h2>
 <!-- ## 视频图像格式  -->
 
 >MAIN_PAGE
@@ -303,7 +303,7 @@
 | MAINPAGE_WHITEBOARD|2	|电子白板	   |
 | MAINPAGE_MEDIASHARE|3	|影音共享	   |
 
-<h3 id=MEDIA_STATE>影音播放状态</h3>
+<h2  id=MEDIA_STATE>影音播放状态</h2>
 <!-- ## 视频图像格式  -->
 
 >MEDIA_STATE
@@ -316,7 +316,7 @@
 | MEDIA_PAUSE|1	|暂停	   |
 | MEDIA_STOP|2	|停止	   |
 
-<h3 id=MEDIA_STOP_REASON>影音结束原因</h3>
+<h2  id=MEDIA_STOP_REASON>影音结束原因</h2>
 <!-- ## 视频图像格式  -->
 
 >MEDIA_STOP_REASON
@@ -332,7 +332,7 @@
 | MEDIA_UNSUPPORT|4	|影音格式不支持	   |
 | MEDIA_EXCEPTION|5 |其他异常	   |
 
-<h3 id=VIDEO_LAYOUT_MODE >视频墙分屏模式</h3>
+<h2  id=VIDEO_LAYOUT_MODE >视频墙分屏模式</h2>
 <!-- ## 视频图像格式  -->
 
 >VIDEO_LAYOUT_MODE 
@@ -352,7 +352,7 @@
 | VLO_WALL16|8	|16分屏|
 | VLO_WALL25|9	|25分屏|
 
-<h3 id=HTTP_TRANSFER_STATE >Http文件传输状态</h3>
+<h2  id=HTTP_TRANSFER_STATE >Http文件传输状态</h2>
 <!-- ## 视频图像格式  -->
 
 >HTTP_TRANSFER_STATE 
@@ -366,7 +366,7 @@
 | HTTPFS_TRANSFERING|2	|	传输(上传/下载)中|
 | HTTPFS_FINISHED|3	|	传输完成|
 
-<h3 id=HTTP_TRANSFER_RESULT >Http文件传输结果</h3>
+<h2  id=HTTP_TRANSFER_RESULT >Http文件传输结果</h2>
 <!-- ## 视频图像格式  -->
 
 >HTTP_TRANSFER_RESULT 
@@ -386,7 +386,7 @@
 | HTTPR_HTTPERR_BEGIN|1000	|	http错误码启始|
 | HTTPR_HTTPERR_END|1999	|	http错误码结束|
 
-<h3 id=CLIENT_STATUS >用户状态</h3>
+<h2  id=CLIENT_STATUS >用户状态</h2>
 <!-- ## 视频图像格式  -->
 
 >CLIENT_STATUS 
@@ -400,7 +400,7 @@
 | BUSY|2	|	在线，忙状态|
 | MEETING|3	|	在线，在房间中状态|
 
-<h3 id=INVITE_STATUS >呼叫状态</h3>
+<h2  id=INVITE_STATUS >呼叫状态</h2>
 <!-- ## 视频图像格式  -->
 
 >INVITE_STATUS 

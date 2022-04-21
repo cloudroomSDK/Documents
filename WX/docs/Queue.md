@@ -1,44 +1,28 @@
 # 排队
 
-<h2 id=introduction>功能简介</h2>    
+## 功能介绍
 
 在呼叫中心的业务场景下，有多个客户呼叫进来，有多个坐席提供服务，简单的一对一呼叫无法满足业务需求。此时可以使用我们的排队功能，客户不再直接呼叫某个坐席，而是呼叫到一个坐席队列，由系统自动给客户分配一个空闲的坐席。
-- 当坐席提供的是通用型服务时，多个坐席可以服务于一个队列，客户呼叫这个队列，系统就会自动给客户分配一个空闲坐席。
-- 如果是业务高峰期没有空闲的坐席了，客户将在队列中等待，一旦有坐席空闲了就会自动被分配给最先开始等待的客户。
-- 坐席可以同时服务多个队列，队列有优先级，当坐席从忙变成空闲时，优先被分配给高优先级的队列里的客户。
-- 同一个队列内的坐席可以配置不同的坐席优先级，客户接入时如果同时存在多个空闲坐席，会把客户分配给优先级更高的坐席。
+- 多个坐席可以服务于一个队列，客户排队这个队列时，系统会自动分配一个空闲坐席来提供服务。
+- 一个坐席可以同时服务多个队列，优先服务高优先级队列里的客户，队列优先级相同时优先服务最早排队的客户。
+- 业务高峰期没有空闲的坐席时，客户将在队列中排队等待，当有坐席空闲时，将为最早排队的客户提供服务。
+- 同一队列的坐席可以配置不同的坐席优先级，队列中的客户优先由空闲的高优先级的坐席来提供服务。
 
 
 <font color="#FF0000">注意：在登录成功并且启用呼叫功能的情况下才可以使用排队功能</font>
 
-  -----
 
-<h2 id=flow>排队流程</h2>
+<h2 id=createQueue>1.创建队列</h2>
 
-排队流程如下：
+可以通过两种方式创建队列：
 
- 1. [创建队列](#createQueue)
- 1. [初始化队列](#initQueue)
- 1. [获取队列信息](#getQueue)
- 1. [坐席进入队列](#servicesOpr)
- 1. [客户排队](#clientQueue)
- 1. [系统给坐席分配客户](#autoAssignUser)
- 1. [坐席呼叫客户](#callClient)
+- 第一种是[登录云屋SDK后台](https://sdk.cloudroom.com/mgr_sdk/login.html)并创建。如下图：
+ ![登录云屋SDK后台并创建](./images/createQ.png)
+
+- 第二种是通过[Web API](/sdk/document/queue/queue_add?platform=serverside)创建。
 
 
-
-<h3 id=createQueue>1.创建队列</h3>
-
-可以通过两种方式创建队列。第一种是[登录云屋SDK后台](https://sdk.cloudroom.com/mgr_sdk/)并创建。如下图：
- ![登录云屋SDK后台并创建](./images/cre_queue.png)
-
-第二种是通过[Web API](https://docs.cloudroom.com/sdk/document/room/room_create?platform=serverside)创建。
-
-
-
-
-<h3 id=initQueue>2.初始化队列</h3>
-
+<h2 id=initQueue>2.初始化队列</h2>
 
 在登录成功后，初始化队列信息
 
@@ -67,7 +51,7 @@ CR.InitQueueDatRslt.callback = function(sdkErr, cookie){
 * [CR.InitQueueDatRslt](API.md#CRVideo_InitQueueDatRslt)
 
 
-<h3 id=getQueue> 3.获取队列信息</h3>
+<h2 id=getQueue> 3.获取队列信息</h2>
 
 
 在初始化队列成功后，才可以使用获取队列信息。并且可以多次获取。
@@ -87,7 +71,7 @@ const queueList = CR.GetAllQueueInfo();
 
 
 
-<h3 id=servicesOpr>4.坐席进入队列</h3>
+<h2 id=servicesOpr>4.1坐席：服务队列</h2>
 
 
 - 调用接口：
@@ -136,7 +120,7 @@ CR.QueueStatusChanged.callback = function(queStatus){
 * [CR.QueStatus](TypeDefinitions.md#CRVideo_QueStatus)
 
 
-<h3 id=clientQueue>5.客户排队</h3>
+<h2 id=clientQueue>4.2客户：排队</h2>
 
 
 客户选择一个队列进行排队，每次只能排一个队列
@@ -193,8 +177,7 @@ CR.QueuingInfoChanged.callback = function(queuingInfo){
 相关结构定义请参考：
 * [CR.QueuingInfo](TypeDefinitions.md#CRVideo_QueuingInfo)
 
-
-<h3 id=autoAssignUser>6.系统给坐席分配客户</h3>
+<h2 id=autoAssignUser>5.系统给坐席分配客户</h2>
 
 
 客户分配模式有自动和手动两种：
@@ -290,19 +273,7 @@ CR.ReqAssignUserRslt.callback = function(sdkErr, user, cookie){
 
 
 
-<h3 id=callClient>7.坐席呼叫客户</h3>
+<h2 id=callClient>6.坐席呼叫客户</h2>
 
-- 调用接口：
-
-```js
-//发起呼叫，邀请客户进入房间。
-const callID = CR.Call(UID, meetObj, usrExtDat, cookie)
-```
-
-呼叫相关流程及API请参考:
-* [呼叫功能](Call.md)
-
-
-
-
+接受系统分配的客户后， 就可以向客户发起呼叫处理， 相关流程参见：[呼叫功能](call.md)
 

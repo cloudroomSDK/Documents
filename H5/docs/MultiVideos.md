@@ -1,27 +1,19 @@
 
 # 多方视频通话
 
-<h2 id=introduction>功能简介</h2>
+## 功能介绍
 
 多方视频通话时，根据当前业务场景合理设置视频编码参数，可以在较低的带宽占用下实现流畅清晰的音视频沟通，下面将针对几种常见场景进行介绍。
 
-------------
-<h2 id=scenario>场景</h2>
 
-<h3 id=one> 1.一对一</h3>
+<h2 id=one> 1.一对一</h2>
 
-<!-- <h4 id=layout_one style="font-weight:normal;">画中画布局示例图:  </h4>   -->
-
-</br>
-视频通话中，画中画布局指视频图像布局上有重叠。只需控制ui组件的父盒子z-index属性即可
-</br>
-</br>
+- 画中画布局示例图:
 
 ![画中画布局示例图](./images/layout_overlap.jpg)
 
-<font style="font-weight:bolder;font-size:20px;">描述：</font>比如双人视频聊天场景，双方通常都希望看到对方比较清晰的视频，此时可以使用较高的视频编码分辨率，比如720P或480P。
+常用于如双人视频聊天场景，双方通常都希望看到对方比较清晰的视频，此时可以使用较高的视频编码分辨率，比如720P或480P。
 
---------
 
 - 示例代码：
 
@@ -80,25 +72,21 @@ myVideoUI.setVideo(myUID);
 CRVideo_OpenVideo(myUID)
 
 ```
+
 相关API请参考：
 * [CRVideo_CreatVideoObj](API.md#CRVideo_CreatVideoObj)
 * [CRVideo_OpenVideo](API.md#CRVideo_OpenVideo)
 * [VideoObj.handler()](API.md#VideoObj_handler)
 * [VideoObj.setVideo()](API.md#VideoObj_setVideo)
 
-------------
 
-<h3 id=more> 2.多方视频</h3>
-<br>
+<h2 id=more> 2.多方视频</h2>
 
-<!-- <h4 id=layout_more style="font-weight:normal;">多方视频示例图:  </h4>   -->
+- 多方视频示例图：
 
 ![多方视频示例图](./images/five.jpg)
 
-<font style="font-weight:bolder;font-size:20px;">描述：</font>
-比如在线教育场景，老师的视频画面比较大，可以使用较高的分辨率比如720P，下面学生的视频画面比较小，应采用较低的视频编码分辨率，比如360P或256P。
-
---------
+常用于在线教育场景，老师的视频画面比较大，可以使用较高的分辨率比如720P，下面学生的视频画面比较小，应采用较低的视频编码分辨率，比如360P或256P。
 
 
 - 示例代码：
@@ -110,7 +98,6 @@ CRVideo_OpenVideo(myUID)
     <div class="smallVideo"></div>
 </div>
 ```
-<br>
 
 ```css
 /* css代码 */
@@ -191,22 +178,19 @@ CRVideo_OpenVideo(UID);  //自己的登录ID
 相关结构定义请参考：
 * [CRVideo_MemberInfo](TypeDefinitions.md#CRVideo_MemberInfo)
 
-<!-- 
 
-<h3 id=customize> 3.个性化视图：</h3>
+<h2 id=customize> 3.个性化视图</h2>
 
-<h4 id=layout_customize style="font-weight:normal;">图一:  </h4>  
+- 图一: 
 
 ![图一示例图](./images/nine.jpg)
 
-<h4 id=layout_customize2 style="font-weight:normal;">图二:  </h4>  
+- 图二:
 
 ![图2示例图](./images/one.jpg)
 
-<font style="font-weight:bolder;font-size:20px;">描述：</font>在某些业务场景下，同一个房间内的用户视图不一致，导致同一个视频在不同的用户那里呈现的画面尺寸不一样，比如9方通话场景下原先9个视频画面平铺（[如图一](#layout_customize)），大家都只需要编码256P的视频。某一个时刻用户D开始全屏观看A的视频（[如图二](#layout_customize2)），此时A需要编码高分辨率视频比如720P来确保D能看到A的清晰画面，这样一来房间中其他人虽然观看的是A的小画面，却也收到了A的720P视频流，浪费了带宽和解码性能，万一其他用户也做了类似D的操作，整个房间的通话将不可用。
-对于这种场景，我们可以启用[视频大小流](README.md#stream)机制，看A小画面的用户订阅A的小流，看A大画面的用户订阅A的大流，这样既能满足各自的清晰度要求，又不会浪费带宽和CPU性能。
-
---------
+<font style="font-weight:bolder;font-size:20px;">描述：</font>在某些业务场景下，同一个房间内的用户视图不一致，导致同一个视频在不同的用户那里呈现的画面尺寸不一样，比如9方通话场景下原先9个视频画面平铺（如图一），大家都只需要编码256P的视频。某一个时刻用户B开始全屏观看A的视频（如图二），此时A需要编码高分辨率视频比如720P来确保B能看到A的清晰画面，这样一来房间中其他人虽然观看的是A的小画面，却也收到了A的720P视频流，浪费了带宽和解码性能，万一其他用户也做了类似B的操作，整个房间的通话将不可用。
+对于这种场景，我们可以启用[视频大小流](KeyWords.md#stream)机制，看A小画面的用户订阅A的小流，看A大画面的用户订阅A的大流，这样既能满足各自的清晰度要求，又不会浪费带宽和CPU性能。
 
 - 示例代码：
 
@@ -251,5 +235,3 @@ otherVideoUI1.setVideo2(otherUID1, -1, 2);
 
 相关结构定义请参考：
 * [VideoAttributesObj](TypeDefinitions.md#VideoAttributesObj)
-
- -->

@@ -1,6 +1,6 @@
 # 点对点消息
 
-## 功能简介
+## 功能介绍
 
 实现点对点的透明消息发送功能， 根据发送内容可选择：发送命令数据， 发送内存数据， 发送文件三种类型。
 
@@ -129,6 +129,7 @@ virtual void notifyFileData(const char* sourceUserId, const char* tmpFile, const
 相关API请参考：
 * [sendFile](Apis.md#sendFile)
 * [sendFileRlst](Apis.md#sendFileRlst)
+* [notifySendProgress](Apis.md#notifySendProgress)
 * [notifyFileData](Apis.md#notifyFileData)
 
 

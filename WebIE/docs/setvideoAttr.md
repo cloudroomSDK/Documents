@@ -14,7 +14,7 @@
 ```js
 //设置全局的摄像头参数,json数据：CRVideo_VideoCfg
 var cfg = {};
-cfg.sizeType = 8; //640*360
+cfg.size = "640*360";
 cfg.fps = 12
 CRVideo_SetVideoCfg(cfg);
 

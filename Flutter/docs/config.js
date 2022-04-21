@@ -20,16 +20,15 @@ module.exports = {
         {
           title: "基础功能",
           route: "basicFunction",
-          children: ["setvideoAttr.md", "setAudioAttr.md", "screenShare.md"],
+          children: ["setvideoAttr.md", "setAudioAttr.md", "screenShare.md", "localRecord.md"],
         },
         {
           title: "高级功能",
           route: "advancedFunction",
           children: [
-            "localRecord.md",
             "remoteRecord.md",
             "media.md",
-            "chat.md",
+            "meetingCustomMsg.md"
           ],
         },
       ],

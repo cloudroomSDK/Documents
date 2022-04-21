@@ -1,5 +1,7 @@
 # 实现音视频通话
 
+## 简要说明
+
 - 学习本章节前，前务必阅读完[准备工作](beforeDevelop.md)章节
 
 - 通篇将SDK文件引入定义为"CR"
@@ -24,18 +26,6 @@
 ```
 
 ## 基本步骤
-
-1. [初始化SDK](#Init)
-1. [登录服务器](#Login)
-1. [创建房间](#CreateMeeting)
-1. [进入房间](#EnterMeeting)
-1. [打开麦克风/摄像头/房间声音](#Open)
-1. [观看他人视频](#Watch)
-1. [退出房间](#ExitMeeting)
-1. [注销登录](#Logout)
-1. [反初始化，退出SDK](#UnInit)
-
-------
 
 ### 1. 初始化SDK ${#Init}
 
@@ -256,9 +246,9 @@ CRAudioPlayer 是会议内音频拉流组件，会议内成员的麦克风声音
     }
     this.setData({CRVideoPlayer});  //配置
 
-    const UID = 'wx_10086'   //已知他人的UID
-    const otherUserInfo = CR.GetMemberInfo(UID); // 可以通过GetMemberInfo获取到自己的成员信息
 
+	//他人UID可通过CRVideo_GetAllMembers获取，或集成方业务逻辑确定
+	const otherUserInfo = CR.GetMemberInfo(UID); // 可以通过GetMemberInfo获取到自己的成员信息
     this.setData({otherUserInfo}); //将 myUserInfo 渲染为到页面，即可打开麦克风、摄像头设备
 
 ```

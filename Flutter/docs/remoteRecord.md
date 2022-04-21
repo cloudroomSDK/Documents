@@ -1,17 +1,8 @@
 # 云端录制
 
-功能简介：
-在服务器上对房间内的音视频、白板、屏幕共享等通讯内容进行录制，支持自定义录制内容和布局，录制文件在服务器保存，可以通过[WEB API](http://docs.cloudroom.com/sdk?platform=serverside)下载和删除。
+## 功能介绍
 
----
-
-<p>云端录制使用流程如下：</p>
-
-<!-- 1. [开始云端录制](#startSvrMixer)
-1. [云端录制文件信息变化通知](#svrMixerOutputInfo)
-1. [更新云端录制内容](#updateSvrMixerContent)
-1. [获取云端录制状态](#getSvrMixerState)
-1. [停止云端录制](#stopSvrMixer) -->
+在服务器上对房间内的音视频、白板、屏幕共享等通讯内容进行录制，支持自定义录制内容和布局，录制文件在服务器保存，可以通过[WEB API](/sdk/document/netdisk/netdisk_query?platform=serverside)下载和删除。
 
 <h2 id=startSvrMixer>1. 开始云端录制</h2>
 

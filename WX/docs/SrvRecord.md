@@ -1,21 +1,16 @@
-
 # 云端录制
 
-<h2 id=introduction>功能简介</h2>
+## 功能介绍
 
-在服务器上对房间内的音视频、白板、屏幕共享等通讯内容进行录制，支持自定义录制内容和布局，录制文件在服务器保存，可以通过API下载和删除。其中，下载需要先使用Web API[获取录像文件](https://docs.cloudroom.com/sdk/document/netdisk/netdisk_query?platform=serverside)，以及Web API实现[删除录像文件](https://docs.cloudroom.com/sdk/document/netdisk/netdisk_delete?platform=serverside)。
-
-
-<h2 id=flow>使用流程</h2>
-
-1. [开始云端录制](#record_startSvrMixer)
-1. [更新云端录制内容](#record_updateSvrMixerContent)
-1. [获取云端录制状态](#record_getSvrMixerState)
-1. [停止云端录制](#record_stopSvrMixer)
-1. [云端录制文件信息变化通知](#SvrRecFileStateChanged)
+在服务器上对房间内的音视频、影音共享、屏幕共享等通讯内容进行录制，支持自定义录制内容和布局，录制文件在服务器保存，可以通过[WEB API](/sdk/document/netdisk/netdisk_query?platform=serverside)下载和删除
 
 
-<h3 id=record_startSvrMixer> 1.开始云端录制</h3>
+<h2 id=record_enbale> 1.开通云端录制服务</h2>
+
+- 请确保您已成功[注册](https://sdk.cloudroom.com/mgr_sdk/register.html)了一个帐号。</br>
+- 请联系商务为对应帐号开通“云端录制服务”。
+
+<h2 id=record_startSvrMixer> 2.开始云端录制</h2>
 
 - 调用接口：
 
@@ -122,7 +117,7 @@ CR.SvrRecordStateChanged.callback = function(state, err, operatorID){
 - [CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj)
 - [CRVideo_MutiMixerOutputsObj](TypeDefinitions.md#CRVideo_MutiMixerOutputsObj)
 
-<h3 id=record_updateSvrMixerContent> 2.更新云端录制内容</h3>
+<h2 id=record_updateSvrMixerContent> 3.更新云端录制内容</h2>
 
 
 - 接口调用：
@@ -189,7 +184,7 @@ CR.UpdateSvrMixerContent(mutiMixerContents);
 - [CR.UpdateSvrMixerContent](API.md#CRVideo_UpdateSvrMixerContent)
 
 
-<h3 id=record_getSvrMixerState> 3.获取云端录制状态</h3>
+<h2 id=record_getSvrMixerState> 4.获取云端录制状态</h2>
 
 
 - 接口调用：
@@ -206,7 +201,7 @@ var state = CR.GetSvrMixerState()
 - [CRVideo_MIXER_STATE](Constant.md#CRVideo_MIXER_STATE)
 
 
-<h3 id=record_stopSvrMixer> 4.停止云端录制</h3>
+<h2 id=record_stopSvrMixer> 5.停止云端录制</h2>
 
 停止云端录制后，也会触发事件[CR.SvrRecordStateChanged](API.md#CRVideo_SvrRecordStateChanged)
 
@@ -220,7 +215,7 @@ CR.StopSvrMixer();
 
 
  
-<h3 id=SvrRecFileStateChanged> 5.云端录制文件信息变化通知</h3>
+<h2 id=SvrRecFileStateChanged> 6.云端录制文件信息变化通知</h2>
 
 录制过程中都会触发此事件。在此可以实时获得录制状态、录制文件当前的时长、大小，以及录制异常等信息。
 
