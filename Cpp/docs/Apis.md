@@ -2977,7 +2977,7 @@ sdk内部产生默认摄像头时，优先将将打开的多摄像头上选择�
 
 
 
-<h3 id=createCloudMixer>CRVSDK_ERR_DEF createCloudMixer(const char* cfg, CRString &rsltMixerID);</h3>
+<h3 id=createCloudMixer>CRString createCloudMixer(const char* cfg);</h3>
 
 - **功能**：创建云端混图器
 
@@ -2988,14 +2988,13 @@ sdk内部产生默认摄像头时，优先将将打开的多摄像头上选择�
 开启云端混图器在进入CRVSDK_MIXER_STARTING状态后，可以通过[updateCloudMixerContent](#updateCloudMixerContent)更新内容；</br>
 混图器如果在工作中遇到异常而停止时，将收到[notifyLocMixerStateChanged](#notifyLocMixerStateChanged)通知，进入CRVSDK_MIXER_NULL并携带错误原因；</br>
 
-- **返回值**： [CRVSDK_ERR_DEF](Constant.md#CRVSDK_ERR_DEF)，CRVSDKERR_NOERR代表调用成功
+- **返回值**： 云端混图器ID
 
 - **参数**：
 
 | 参数 | 类型 | 含义 |
 |:-|:-|:-|
 |cfg|char*| 云端混图器配置，josn格式，参见[CRCloudMixerCfgObj](Structs.md#CRCloudMixerCfgObj) |
-|rsltMixerID|[CRString](#CRString)| 输出值，返回混图器ID |
 
 
 

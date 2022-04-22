@@ -117,7 +117,6 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
                 <ul>
                     <li>Chrome 版本要求 58 或以上，建议使用 <b>Chrome 68</b> 或以上版本。</li>
                     <li>Chrome 72 或以上支持屏幕共享，72 以下版本需要安装屏幕共享插件。</li>
-                    <li>部分 API 的功能需要 Chrome 较高版本才支持，详情请参考 <a target="_blank" href="/sdk/api/apis/API?platform=Web">客户端 API</a>。</li>
                     <li>macOS 上 Chrome 84 存在缺陷，采用 H.264 格式进行编码时， WebRTC 有概率出现帧率突然下降导致图像卡顿。详见 Google 官方说明 <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1203206&amp;can=2&amp;q=webrtc%20drop%20component%3ABlink%3EWebRTC%3EVideo" id="" rel="nofollow">Issue 1088650</a> 和 <a href="https://bugs.chromium.org/p/webrtc/issues/detail?id=12704#c3" id="" rel="nofollow">Issue 12704</a>。解决方案：建议你在 macOS 上 Chrome 84 及以后版本中使用 VP8 ，直至 Google 修复该缺陷。</li>
                 </ul>
             </td>

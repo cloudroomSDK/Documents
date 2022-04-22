@@ -42,8 +42,8 @@
 //被呼叫的SIP/H.323设备的IP或E.164号码，以sip:或h323:为前缀
 string calledUID = "sip:192.168.0.10";   // 呼叫IP为192.168.0.10的SIP设备
 // string calledUID = "h323:149689338";  // 呼叫E.164号码为14989338的H.323设备
-string strMeeting = "{\"Meeting\":{\"ID\":xxx}}";
-axVideoSDK.call(calledUID, strMeeting, "", "");
+string strMeetingObj = "{\"ID\":xxx}";
+axVideoSDK.call(calledUID, strMeetingObj, "", "");
  
 ```
 

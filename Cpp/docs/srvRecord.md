@@ -33,13 +33,7 @@ string mixerCfg = "{\
 {\"type\":0,\"keepAspectRatio\":1,\"left\":320,\"top\":90,\"width\":320,\"height\":180,\"param\":{\"camid\":\"usr2.-1\"}}]\
 }}";
 
-string rsltMixerID; //开启成功返回混图器ID
-CRVSDK_ERR_DEF err = g_sdkMain->getSDKMeeting().createCloudMixer(mixerCfg.constData(), rsltMixerID);
-if (err != CRVSDKERR_NOERR)
-{
-    //开启 云端录制 出错
-    ...
-}
+string rsltMixerID = g_sdkMain->getSDKMeeting().createCloudMixer(mixerCfg.constData());
 ```
 
 相关API请参考:</br>

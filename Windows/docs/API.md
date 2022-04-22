@@ -2879,12 +2879,6 @@ Windows sdk提供如下COM组件
             <td rowspan=10>CloudroomVideoSDK</td>
         </tr>
         <tr>
-            <td><a href="#getCreateCloudMixerLastErr">getCreateCloudMixerLastErr</a></td>
-            <td>
-                获取云端录制、云端直播开始失败原因
-            </td>
-        </tr>
-        <tr>
             <td><a href="#updateCloudMixerContent">updateCloudMixerContent</a></td>
             <td>
                 更新云端录制、云端直播内容
@@ -4027,19 +4021,12 @@ Qt使用方法：
 开启云端混图器在进入MIXER_STARTING状态后，可以通过[updateCloudMixerContent](#updateCloudMixerContent)更新内容；</br>
 混图器如果在工作中遇到异常而停止时，将收到[notifyCloudMixerStateChanged](#notifyCloudMixerStateChanged)通知，进入MIXER_NULL并携带错误原因；</br>
 
-- **返回值**： MixerID， 如果MixerID为空， 可以调用[getCreateCloudMixerLastErr](#getCreateCloudMixerLastErr)获取错误原因
 
 - **参数**：
 
 | 参数 | 类型 | 含义 |
 |:-|:-|:-|
 |cfg|string| 云端混图器配置，josn格式，参见[CloudMixerCfgObj](TypeDefinitions.md#CloudMixerCfgObj) |
-
-<h3 id=getCreateCloudMixerLastErr>int getCreateCloudMixerLastErr()</h3>
-
-- **功能**：获取创建云端混图器失败的原因
-
-- **返回值**：错误原因参见[ERR_DEF](Constant.md#CRVIDEOSDK_CRVIDEOSDK_ERR_DEF)
 
 
 <h3 id=updateCloudMixerContent>int updateCloudMixerContent(string mixerID, string cfg)</h3>
