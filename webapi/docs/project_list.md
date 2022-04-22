@@ -5,9 +5,15 @@
 
 https://www.cloudroom.com/CLOUDROOM-API/project/query/list
 
+请求方式：`POST`
+
+
+
 ### 参数
 
 [公共参数](README#common_param)
+
+
 
 ### 返回数据
 

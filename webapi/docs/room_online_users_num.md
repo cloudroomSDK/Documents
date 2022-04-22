@@ -5,6 +5,10 @@
 
 https://www.cloudroom.com/CLOUDROOM-API/room/onlineUsersNum/query
 
+请求方式：`POST`
+
+
+
 ### 参数
 
 [公共参数](README#common_param)
@@ -28,6 +32,7 @@ https://www.cloudroom.com/CLOUDROOM-API/room/onlineUsersNum/query
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回数据
 
@@ -82,6 +87,7 @@ Data数据
     </tbody>   
 </table>
 
+
 ### 返回状态码RspCode说明
 
 <table>
@@ -122,4 +128,3 @@ Data数据
         </tr>
     </tbody>   
 </table>
-

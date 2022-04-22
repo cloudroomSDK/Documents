@@ -5,6 +5,10 @@
 
 https://www.cloudroom.com/CLOUDROOM-API/netDisk/delete
 
+请求方式：`POST`
+
+
+
 ### 参数
 
 [公共参数](README#common_param)
@@ -36,6 +40,8 @@ https://www.cloudroom.com/CLOUDROOM-API/netDisk/delete
 </table>
 注：FileName和FileID其中一个必须传值，两个都传值则以FileID为准
 
+
+
 ### 返回数据
 
 <table>
@@ -54,6 +60,7 @@ https://www.cloudroom.com/CLOUDROOM-API/netDisk/delete
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回状态码RspCode说明
 

@@ -5,6 +5,10 @@
 
 https://www.cloudroom.com/CLOUDROOM-API/netDisk/upload
 
+请求方式：`POST`
+
+
+
 ### 参数
 
 [公共参数](README#common_param)
@@ -42,6 +46,8 @@ https://www.cloudroom.com/CLOUDROOM-API/netDisk/upload
 </table>
 注：只支持MP4文件，文件大小不能大于500M
 
+
+
 ### 返回数据
 
 <table>
@@ -65,6 +71,7 @@ https://www.cloudroom.com/CLOUDROOM-API/netDisk/upload
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回状态码RspCode说明
 

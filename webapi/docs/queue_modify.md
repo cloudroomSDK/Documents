@@ -5,6 +5,10 @@
 
 https://www.cloudroom.com/CLOUDROOM-API/queue/modify
 
+请求方式：`POST`
+
+
+
 ### 参数
 
 [公共参数](README#common_param)
@@ -60,6 +64,8 @@ https://www.cloudroom.com/CLOUDROOM-API/queue/modify
 </table>
 注：队列ID和队列名称必须传值一个，以便确定需要修改的队列，多个同名队列时，不予修改
 
+
+
 ### 返回数据
 
 <table>
@@ -83,6 +89,7 @@ https://www.cloudroom.com/CLOUDROOM-API/queue/modify
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回状态码RspCode说明
 

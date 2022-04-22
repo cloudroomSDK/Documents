@@ -5,6 +5,10 @@
 
 https://www.cloudroom.com/CLOUDROOM-API/queue/query
 
+请求方式：`POST`
+
+
+
 ### 参数
 
 [公共参数](README#common_param)
@@ -53,6 +57,8 @@ https://www.cloudroom.com/CLOUDROOM-API/queue/query
     </tbody>   
 </table>
 注：队列ID和队列名称传值可以过滤查询单个队列，PageSize和PageNumber超出范围按默认值查询
+
+
 
 ### 返回数据
 
@@ -185,6 +191,7 @@ queueList数据
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回状态码RspCode说明
 

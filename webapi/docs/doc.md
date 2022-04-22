@@ -1,7 +1,3 @@
----
-sidebarDepth: 1
----
-
 # 文档管理
 
 ## 查询文档
@@ -9,6 +5,8 @@ sidebarDepth: 1
 ### API接口URL
 
 https://www.cloudroom.com/CLOUDROOM-API/doc/query
+
+
 
 ### 参数
 
@@ -57,6 +55,7 @@ https://www.cloudroom.com/CLOUDROOM-API/doc/query
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回数据
 
@@ -194,6 +193,7 @@ DirData
     </tbody>   
 </table>
 
+
 ### 返回状态码RspCode说明
 
 <table>
@@ -239,11 +239,14 @@ DirData
     </tbody>   
 </table>
 
+
 ## 删除文档
 
 ### API接口URL
 
 https://www.cloudroom.com/CLOUDROOM-API/doc/delete
+
+
 
 ### 参数
 
@@ -282,6 +285,8 @@ https://www.cloudroom.com/CLOUDROOM-API/doc/delete
 </table>
 注：当删除文件时，文件路径必传；当删除文件夹时，文件夹路径必须传
 
+
+
 ### 返回数据
 
 <table>
@@ -300,6 +305,7 @@ https://www.cloudroom.com/CLOUDROOM-API/doc/delete
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回状态码RspCode说明
 
@@ -370,11 +376,14 @@ https://www.cloudroom.com/CLOUDROOM-API/doc/delete
     </tbody>   
 </table>
 
+
 ## 上传文档
 
 ### API接口URL
 
 https://www.cloudroom.com/CLOUDROOM-API/doc/upload
+
+
 
 ### 参数
 
@@ -413,6 +422,8 @@ https://www.cloudroom.com/CLOUDROOM-API/doc/upload
 </table>
 注：大小不能超过50M；支持格式：doc、docx、dot、dotx、rtf、ppt、pptx、pps、ppsx、xls、xlsx、xlt、xltx、xlw、xlwx、et、ett、wps、wpt、dps、dpt、txt、log、ini、bmp、png、jpg、jpeg、pdf
 
+
+
 ### 返回数据
 
 <table>
@@ -436,6 +447,7 @@ https://www.cloudroom.com/CLOUDROOM-API/doc/upload
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回状态码RspCode说明
 

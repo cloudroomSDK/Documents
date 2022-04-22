@@ -4,6 +4,10 @@
 
 https://www.cloudroom.com/CLOUDROOM-API/project/add
 
+请求方式：`POST`
+
+
+
 ### 参数
 
 [公共参数](README#common_param)
@@ -87,6 +91,7 @@ Data数据
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回状态码RspCode说明
 

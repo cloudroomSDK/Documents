@@ -12,7 +12,8 @@ module.exports = {
                         "README.md",
                         "Mainfunctions.md",
                         "KeyWords.md",
-                        "History.md"
+                        "History.md",
+                        "Compatibility.md",
                     ]
                 },
                 {

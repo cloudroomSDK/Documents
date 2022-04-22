@@ -5,6 +5,10 @@
 
 https://www.cloudroom.com/CLOUDROOM-API/room/delete
 
+请求方式：`POST`
+
+
+
 ### 参数
 
 [公共参数](README#common_param)
@@ -29,6 +33,7 @@ https://www.cloudroom.com/CLOUDROOM-API/room/delete
     </tbody>   
 </table>
 
+
 ### 返回数据
 
 <table>
@@ -52,6 +57,7 @@ https://www.cloudroom.com/CLOUDROOM-API/room/delete
         </tr>
     </tbody>   
 </table>
+
 
 ### 返回状态码RspCode说明
 
