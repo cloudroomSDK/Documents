@@ -54,7 +54,7 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
         <tr>
             <td>企业微信内置浏览器</td>
             <td>-</td>
-            <td>仅支持拉流</td>
+            <td>企业微信中点击链接会自动跳转到系统默认浏览器</td>
         </tr>
         <tr>
             <td>其它使用Chromium<br>内核的浏览器</td>
@@ -84,13 +84,13 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
         </tr>
         <tr>
             <td>微信内置浏览器</td>
-            <td>微信3.4.0+</td>
-            <td>不支持屏幕共享</td>
+            <td>-</td>
+            <td>微信中点击链接会自动跳转到系统默认浏览器</td>
         </tr>
         <tr>
             <td>企业微信内置浏览器</td>
             <td>-</td>
-            <td>仅支持拉流</td>
+            <td>企业微信中点击链接会自动跳转到系统默认浏览器</td>
         </tr>
     </tbody>
 </table>
@@ -116,8 +116,8 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
                 <p></p>
                 <ul>
                     <li>Chrome 版本要求 58 或以上，建议使用 <b>Chrome 68</b> 或以上版本。</li>
-                    <li>Chrome 72 或以上支持屏幕共享，72 以下版本需要安装屏幕共享插件。</li>
-                    <li>macOS 上 Chrome 84 存在缺陷，采用 H.264 格式进行编码时， WebRTC 有概率出现帧率突然下降导致图像卡顿。详见 Google 官方说明 <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1203206&amp;can=2&amp;q=webrtc%20drop%20component%3ABlink%3EWebRTC%3EVideo" id="" rel="nofollow">Issue 1088650</a> 和 <a href="https://bugs.chromium.org/p/webrtc/issues/detail?id=12704#c3" id="" rel="nofollow">Issue 12704</a>。解决方案：建议你在 macOS 上 Chrome 84 及以后版本中使用 VP8 ，直至 Google 修复该缺陷。</li>
+                    <li>Chrome 72 或以上支持屏幕共享，72 以下版本需要安装<a href="https://sdk.cloudroom.com/web/download/screenShareEx.zip"> 屏幕共享插件</a>。</li>
+                    <li>macOS 上 Chrome 84 存在缺陷，采用 H.264 格式进行编码时， WebRTC 有概率出现帧率突然下降导致图像卡顿。</li>
                 </ul>
             </td>
         </tr>
@@ -174,7 +174,7 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
 ### 3.1 浏览器兼容性
 
 > Android：由于不同手机产商对自带浏览器或多或少会对其浏览器内核做出改动，无法保证自带浏览器能够很好地支持 WebRTC，建议使用 **Chrome 浏览器** 或 **微信内置浏览器**。
-> Android 平台原⽣ WebView 可⽀持⾃定义，因此不同平台不同设备以及不同应⽤的 WebView 实现可能存在差异。
+> Android 平台原⽣ WebView 可支持自定义，因此不同平台不同设备以及不同应⽤的 WebView 实现可能存在差异。
 > iOS 只支持系统 WebView，因此对 Web SDK 的支持只与 iOS 系统版本有关。
 
 <table>
@@ -220,7 +220,7 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
         <tr>
             <td>企业微信内置浏览器</td>
             <td>✔️</td>
-            <td>-</td>
+            <td>企业微信版本4.0.3+</td>
         </tr>
         <tr>
             <td>UC 浏览器</td>
@@ -233,9 +233,9 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
             <td>内核版本 Chrome/68.0 或以上</td>
         </tr>
         <tr>
-            <td>其它使用Chromium<br>内核的浏览器</td>
+            <td>其它使用Chromium<br>内核的浏览器 或 <br>WebView</td>
             <td>✔️</td>
-            <td>如系统 <b>自带浏览器</b> 等，内核版本 Chrome/68.0 或以上</td>
+            <td>如 系统自带浏览器 或 System WebView 等，内核版本 Chrome/68.0 或以上</td>
         </tr>
         <tr>
             <td>iOS 12.2+</td>
@@ -244,7 +244,7 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
             <td>-</td>
         </tr>
         <tr>
-            <td rowspan="3">iOS 14.3+</td>
+            <td rowspan="4">iOS 14.3+</td>
             <td>Safari 浏览器</td>
             <td>✔️</td>
             <td>-</td>
@@ -253,6 +253,11 @@ Cloudroom Web SDK 使用了 WebRTC 技术实现实时音视频功能。因此，
             <td>微信内置浏览器</td>
             <td>✔️</td>
             <td>微信 6.5 或以上</td>
+        </tr>
+        <tr>
+            <td>企业微信内置浏览器</td>
+            <td>✖</td>
+            <td>-</td>
         </tr>
         <tr>
             <td>内嵌 WebView 的应用</td>
@@ -282,7 +287,7 @@ Web SDK 在 **Android** 上的兼容性限制如下：
             <p></p>
             <li>均不支持屏幕共享。</li>
             <li>部分 Android 设备上可能无法获取到媒体设备的 device label。</li>
-            <li>浏览器是否兼容，和浏览器版本、运行内核，设备芯片等都相关，强烈建议在使用前，先进行兼容性检测。</li> 
+            <li>浏览器是否兼容，和浏览器版本、运行内核，设备芯片等都相关，强烈建议在使用前，先进行 <a href="https://sdk.cloudroom.com/web/webrtc/static/rtcTest.html">兼容性检测</a>。</li> 
             <li>部分自研安卓设备或应用未取得H.264授权，仅支持VP8编码格式。</li> 
         </ul>
     </td>
@@ -306,7 +311,7 @@ Web SDK 在 **Android** 上的兼容性限制如下：
     </td>
   </tr>
   <tr>
-    <td>微信内置<br>浏览器</td>
+    <td>微信<br>内置浏览器</td>
     <td>
         <p></p>
         <ul>
@@ -315,12 +320,21 @@ Web SDK 在 **Android** 上的兼容性限制如下：
     </td>
   </tr>
   <tr>
-    <td>系统自带<br>浏览器</td>
+    <td>企业微信<br>内置浏览器</td>
     <td>
         <p></p>
         <ul>
-            <li>系统自带浏览器需要满足Chromium内核版本要求：Chrome/68 或以上。</li>
-            <li>部分安卓系统自带浏览器不支持WebRTC，即使内核版本满足要求。</li>
+            <li>企业微信内置浏览器入会后第一次需要先打开麦克风后才能打开摄像头，后续再开关则不受影响</li>
+        </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>系统自带<br>浏览器 或<br>WebView</td>
+    <td>
+        <p></p>
+        <ul>
+            <li>系统自带浏览器 或 WebView 需要满足Chromium内核版本要求：Chrome/68 或以上。</li>
+            <li>部分安卓系统自带浏览器 或 WebView 不支持WebRTC，即使内核版本满足要求。</li>
         </ul>
     </td>
   </tr>
@@ -329,39 +343,58 @@ Web SDK 在 **Android** 上的兼容性限制如下：
 Web SDK 在 **iOS** 上的兼容性限制如下：
 
 <table>
-  <colgroup>
-    <col width="15%">
-    <col width="85%">
-  </colgroup>
-  <tbody><tr>
-    <th>浏览器</th>
-    <th>限制</th>
-  </tr>
-  <tr>
-    <td>所有浏览器 或 webview</td>
-    <td>
-        <p></p>
-        <ul>
-            <li>均不支持屏幕共享。</li>
-            <li>iOS 15.x: 浏览器或应用切换到后台后，音频流发送中断。</li>
-            <li>iOS 15.x: 被其它语音或视频通话应用、Siri 呼叫、闹钟等打断后，音视频播放有概率无法自动恢复。</li>
-            <li>iOS 15.x: 本地用户听到远端音频流的 <b>音量极低</b>。</li>
-            <li>iOS 15.x: 播放视频有概率出现黑屏。</li>
-            <li>iOS 15.1.x: 使用 H.264 编码发送视频流会导致 <b>页面崩溃</b>。</li>
-        </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Safari </td>
-    <td>
-        <p></p>
-        <ul>
-            <li>第二次调用浏览器的 “getUserMedia” 接口获取相同媒体类型的轨道，会导致第一次获取的媒体轨道静音或黑屏。</li>
-            <li>iOS 13 版本中可能出现远端音量大小随机变化的问题。</li>
-            <li>可能出现没有插耳机却从听筒出声或者插上了耳机仍然从扬声器出声的情况。</li>
-            <li>使用过其它音视频输入设备的 App 后（例如 Siri），无法采集本地音频或视频。（偶现）</li>
-            <li>iOS Safari 14.2 和 macOS Safari 14.0.1 上音频可能断断续续。</li>
-        </ul>
-    </td>
-  </tr>
-</tbody></table>
+    <colgroup>
+        <col width="15%">
+        <col width="85%">
+    </colgroup>
+    <tbody>
+        <tr>
+            <th>浏览器</th>
+            <th>限制</th>
+        </tr>
+        <tr>
+            <td>所有浏览器 或 webview</td>
+            <td>
+                <p></p>
+                <ul>
+                    <li>均不支持屏幕共享。</li>
+                    <li>iOS 15.x: 浏览器或应用切换到后台后，音频流发送中断。</li>
+                    <li>iOS 15.x: 被其它语音或视频通话应用、Siri 呼叫、闹钟等打断后，音视频播放有概率无法自动恢复。</li>
+                    <li>iOS 15.x: 本地用户听到远端音频流的 <b>音量极低</b>。</li>
+                    <li>iOS 15.x: 播放视频有概率出现黑屏。</li>
+                    <li>iOS 15.1.x: 使用 H.264 编码发送视频流会导致 <b>页面崩溃</b>。</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Safari </td>
+            <td>
+                <p></p>
+                <ul>
+                    <li>第二次调用浏览器的 “getUserMedia” 接口获取相同媒体类型的轨道，会导致第一次获取的媒体轨道静音或黑屏。</li>
+                    <li>iOS 13 版本中可能出现远端音量大小随机变化的问题。</li>
+                    <li>可能出现没有插耳机却从听筒出声或者插上了耳机仍然从扬声器出声的情况。</li>
+                    <li>使用过其它音视频输入设备的 App 后（例如 Siri），无法采集本地音频或视频。（偶现）</li>
+                    <li>iOS Safari 14.2 和 macOS Safari 14.0.1 上音频可能断断续续。</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+## 4. 兼容性检测
+
+我们提供了一个 [在线检测工具](https://sdk.cloudroom.com/web/webrtc/static/rtcTest.html)，帮助开发者自动检测设备浏览器能否正常运行 WebRTC 应用。
+
+该工具支持检测以下项目：
+
+* 浏览器对WebRTC基础API的支持性
+* 浏览器是否支持获取设备列表
+* 浏览器是否支持H.264或VP8编码
+* 浏览器是否支持H.264或VP8解码
+* 浏览器是否支持音频输入
+* 浏览器是否支持音频输出
+* 浏览器是否支持视频输入
+* 浏览器是否支持常见视频分辨率
+* 浏览器是否支持屏幕共享
+* 浏览器是否支持本地影音共享
