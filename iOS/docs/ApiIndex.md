@@ -2,9 +2,7 @@
 
 ## 模块介绍
 
-API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、[注册/反注册回调](#listener)、[登录/反注册](#login)、[成员管理](#members)、
-[队列管理](#queue)、[透明通道/呼叫排队](#call)、[房间管理](#room)、[音频管理](#audio)、[视频管理](#video)、
-[屏幕共享](#starshare)、[影音共享](#media)、[本地录制/本地直播](#record)、[云端录制/互动直播](#cloud)、
+API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、[注册/反注册回调](#listener)、[登录/反注册](#login)、[成员管理](#members)、[队列管理](#queue)、[透明通道/呼叫排队](#call)、[房间管理](#room)、[音频管理](#audio)、[视频管理](#video)、[屏幕共享](#starshare)、[影音共享](#media)、[本地录制/本地直播](#record)、[云端录制/互动直播](#cloud)、
 [电子白板/文档共享](#board)、[Http文件组件](#httpManager)
 
 <h2 id=basic>基础函数</h2>
@@ -626,7 +624,7 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             <td rowspan=7>CloudroomVideoMeeting</td>
             <td rowspan=7 style='text-align:center'>主调</td>
             <td><a href="Apis.md#enterMeeting">enterMeeting</a></td>
-            <td>使用房间ID和密码（可为空）进入指定的视频房间</td>
+            <td>使用房间ID进入指定的视频房间</td>
         </tr>
 		<tr>  
             <td><a href="Apis.md#exitMeeting">exitMeeting</a></td>

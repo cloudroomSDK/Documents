@@ -21,12 +21,12 @@
 - 调用接口：
 
 ```oc
-//配置混图器编码参数：640*360,  15帧
+//配置混图器编码参数：640*360,  15帧, 推流到rtmp://xxx
     NSString *cloudMixerCfg =
     @"{\
         \"mode\": 0,\
         \"videoFileCfg\": {\
-            \"svrPathName\": \"/2021-09-24/2021-09-24_13-47-41_Win32_73542046.mp4\",\
+            \"svrPathName\": \"rtmp://xxx\",\
             \"vWidth\": 640,\
             \"vHeight\": 360,\
             \"vFps\": 15,\
@@ -53,8 +53,7 @@
         }\
     }";
     
-    NSString *mixerID = nil;
-    CRVIDEOSDK_ERR_DEF err = [[CloudroomVideoMeeting shareInstance] createCloudMixer:cloudMixerCfg rsltMixerID:&mixerID];
+    NSString *mixerID = [cloudroomVideoMeeting createCloudMixer:cloudMixerCfg];
     if (mixerID.length <= 0) {
         //开启 互动直播 出错!
     }

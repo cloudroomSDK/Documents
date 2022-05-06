@@ -36,7 +36,7 @@ NSMutableDictionary *options = [NSMutableDictionary dictionary];
 * [notifyMeetingAttrsChanged](Apis.md#notifyMeetingAttrsChanged)
 
 相关结构定义请参考：
-* [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)
+* [CRVIDEOSDK_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 
 <h2 id=getRoomAttr>2.获取房间属性</h2>
@@ -251,7 +251,7 @@ NSArray<NSString*> *keys = @[@"name", @"companyName"];
 }
 ```
 相关API请参考:
-* [getUserAttrs](Apis.md#getUserAttrsWithKeys)
+* [getUserAttrs](Apis.md#getUserAttrs)
 * [setUserAttrs](Apis.md#setUserAttrs)
 
 

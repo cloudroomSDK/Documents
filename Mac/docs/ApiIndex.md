@@ -2,10 +2,8 @@
 
 ## 模块介绍
 
-API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、[注册/反注册回调](#listener)、[登录/反注册](#login)、[成员管理](#members)、
-[队列管理](#queue)、[透明通道/呼叫排队](#call)、[房间管理](#room)、[音频管理](#audio)、[视频管理](#video)、
-[屏幕共享](#starshare)、[影音共享](#media)、[本地录制/本地直播](#record)、[云端录制/互动直播](#cloud)、
-[电子白板/文档共享](#board)、[Http文件组件](#httpManager)
+API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、[注册/反注册回调](#listener)、[登录/反注册](#login)、[成员管理](#members)、[队列管理](#queue)、[透明通道/呼叫排队](#call)、[房间管理](#room)、[音频管理](#audio)、[视频管理](#video)、
+[屏幕共享](#starshare)、[影音共享](#media)、[本地录制/本地直播](#record)、[云端录制/互动直播](#cloud)、[电子白板/文档共享](#board)、[Http文件组件](#httpManager)
 
 <h2 id=basic>基础函数</h2>
 
@@ -626,7 +624,7 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             <td rowspan=7>CloudroomVideoMeeting</td>
             <td rowspan=7 style='text-align:center'>主调</td>
             <td><a href="Apis.md#enterMeeting">enterMeeting</a></td>
-            <td>使用房间ID和密码（可为空）进入指定的视频房间</td>
+            <td>使用房间ID进入指定的视频房间</td>
         </tr>
 		<tr>  
             <td><a href="Apis.md#exitMeeting">exitMeeting</a></td>
@@ -1522,19 +1520,19 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
 			<tr>
 				<td rowspan=4>CloudroomVideoMeeting</td>
 				<td rowspan=4 style='text-align:center'>主调</td>
-				<td><a href="Apis.md#startSvrMixer">startSvrMixer</a></td>
+				<td><a href="Apis.md#createCloudMixer">createCloudMixer</a></td>
 				<td>开始云端录制、云端直播</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#updateSvrMixerContent">updateSvrMixerContent</a></td>
+				<td><a href="Apis.md#updateCloudMixerContent">updateCloudMixerContent</a></td>
 				<td>更新云端录制、云端直播内容</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#stopSvrMixer">stopSvrMixer</a></td>
+				<td><a href="Apis.md#destroyCloudMixer">destroyCloudMixer</a></td>
 				<td>停止云端录制、云端直播</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#getSvrMixerState">getSvrMixerState</a></td>
+				<td><a href="Apis.md#getCloudMixerInfo">getCloudMixerInfo</a></td>
 				<td>获取云端录制、云端直播状态</td>
 			</tr>
 			<tr>

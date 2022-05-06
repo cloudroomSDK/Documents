@@ -203,8 +203,6 @@
 
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|
-| meetSubject| NSString|  房间主题（字符长度最大值50）| 
-| createPswd| BOOL|  是否创建房间密码，密码由系统自动生成| 
 | cookie| NSString|  自定义数据(在响应消息中回传给调用者)，不需要时传空字符串| 
 
 <h3 id=destroyMeeting>-(void)destroyMeeting(int)meetID cookie:(NSString *)cookie)</h3>
@@ -972,6 +970,13 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 |:-------- |:-----------|:----------|
 | userId| StNSStringring|  用户ID| 
 
+<h3 id=getMyUserID>- (NSString *)getMyUserID</h3>
+
+  + **功能**:  获取自身的userID
+  
+  + **返回值**: 自身的userID
+    
+
 <h3 id=getNickName>- (NSString *)getNickName:(NSString *)userID</h3>
 
   + **功能**:  获取某个用户的昵称
@@ -1570,24 +1575,26 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 |:-------- |:-----------|:----------|
 | filename| NSString|    文件名，不含路径| 
 
-<h3 id=createCloudMixer>- (CRVIDEOSDK_ERR_DEF)createCloudMixer:(NSString *)cfg rsltMixerID:(NSString **)rsltMixerID;
+<h3 id=createCloudMixer>- (NSString *)createCloudMixer:(NSString *)cfg;
 </h3>
 
   + **功能**:  开始云端录制、云端直播
   
-  + **返回值**:  CRVIDEOSDK_ERR_DEF
+  + **返回值**:  NSString
 
 
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|
-| cfgs| NSMutableDictionary&lt;NSString*,MixerCfg* *&gt;* * |     服务器混图配置，详见定义[MixerCfg](TypeDefinitions.md#MixerCfg)  | 
-| contents| NSMutableDictionary&lt;NSString*,MixerContent* *&gt;* * |    服务器混图内容，详见定义[MixerContent](TypeDefinitions.md#YWMixerContent)  | 
-| outputs| NSMutableDictionary&lt;NSString*,MixerOutput* *&gt;* *|    服务器输出，详见定义[MixerOutput](TypeDefinitions.md#YWMixerOutput) | 
+| cfg| NSString |     服务器混图配置，详见定义[MixerCfg](TypeDefinitions.md#MixerCfg)  | 
 
 - <p style="color:red; font-size:20px">注意事项:</p>
   
-  + 启动云端功能有一定耗时，请关注混图器的状态变化事件cloudMixerStateChanged*
-  + 每个输出有私有的状态变化事件cloudMixerOutputInfo
+  + 可以开启多个云端混图器，具体个数和企业购买的授权相关；
+  + 开启云端混图器后，房间内所有人都将收到[cloudMixerStateChanged](#cloudMixerStateChanged)通知进入MIXER_STARTING（启动中状态）；
+  + 云端混图器部署有少量耗时，如果在部署过程遇到异常，将收到[createCloudMixerFailed](#createCloudMixerFailed)回调；
+  + 云端混图器启动完成并进入录制或推流状态时，将收到[cloudMixerStateChanged](#cloudMixerStateChanged)通知，进入MIXER_RUNNING（工作中状态）；
+  + 开启云端混图器在进入MIXER_STARTING状态后，可以通过[updateCloudMixerContent](#updateCloudMixerContent)更新内容；
+  + 混图器如果在工作中遇到异常而停止时，将收到[cloudMixerStateChanged](#cloudMixerStateChanged)通知，进入MIXER_NULL并携带错误原因；
 
 
 <h3 id=updateCloudMixerContent>- (CRVIDEOSDK_ERR_DEF)updateCloudMixerContent:(NSString *)mixerID cfg:(NSString *)cfg;</h3>
@@ -1595,11 +1602,16 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
   + **功能**:  更新云端录制、云端直播内容
   
   + **返回值**:  CRVIDEOSDK_ERR_DEF
-
+  
+- <p style="color:red; font-size:20px">注意事项:</p>
+ 
+  + 更新混图器内容时，只能更新内容和布局，不能更改混图器规格、输出目标；
+  + 更新混图器内容时，房间内所有人都将收到[cloudMixerInfoChanged](#cloudMixerInfoChanged)通知；
 
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|
-| contents|  NSMutableDictionary&lt;NSString*,MixerContent* *&gt;* * |    服务器混图内容，详见定义[MixerContent](TypeDefinitions.md#YWMixerContent)  | 
+| mixerID |  NSString |    混图器ID | 
+| cfg |  NSString |    混图器内容配置，josn格式 | 
 
 <h3 id=destroyCloudMixer>- (void)destroyCloudMixer:(NSString *)mixerID;</h3>
 
@@ -1609,15 +1621,28 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 
 - <p style="color:red; font-size:20px">注意事项:</p>
 
-  + 停止有一定耗时，请关注混图器的状态变化事件cloudMixerStateChanged*
-  + 每个输出有私有的状态变化事件cloudMixerOutputInfo*
+  + 消毁云端混图器时，调用者将收到notifyLocMixerStateChanged通知进入MIXER_STOPPING状态，在停止完成后，房间内所有人都将收到[cloudMixerInfoChanged](#cloudMixerInfoChanged)通知进入MIXER_NULL状态；
+
+| 参数 | 类型 | 含义 |
+|:-------- |:-----------|:----------|
+| mixerID |  NSString |    混图器ID | 
+
+<h3 id=getCloudMixerInfo>- (NSString *)getAllCloudMixerInfo;</h3>
+
+  + **功能**:  得到所有云端混图器信息
+  
+  + **返回值**:   NSString  json格式字符串
 
 
 <h3 id=getCloudMixerInfo>- (NSString *)getCloudMixerInfo:(NSString *)mixerID;</h3>
 
-  + **功能**:  获取云端录制、云端直播状态
+  + **功能**:  得到云端混图器信息
   
-  + **返回值**:   [MIXER_STATE](Constant.md#MIXER_STATE)
+  + **返回值**:   NSString  json格式字符串
+
+| 参数 | 类型 | 含义 |
+|:-------- |:-----------|:----------|
+| mixerID |  NSString |    混图器ID | 
 
 <h3 id=switchToPage>-(void)switchToPage:(MainPageType)main subPage:(SubPage*)sub</h3>
 
@@ -2305,7 +2330,19 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
 | nameOrUrl| NSString|    录像名称、或直播url|  
 | outputInfo| NSString|    详见定义[OutputInfo](TypeDefinitions.md#OutputInfo)|  
 
-<h3 id=svrMixerStateChanged>- (void)svrMixerStateChanged:(MIXER_STATE)state err:(CRVIDEOSDK_ERR_DEF)sdkErr opratorID:(NSString*)opratorID</h3>
+<h3 id=createCloudMixerFailed>- (void)createCloudMixerFailed:(NSString *)mixerID err:(CRVIDEOSDK_ERR_DEF)err</h3>
+
+  + **功能**:  本地混图器状态变化通知
+  
+  + **返回值**:  无
+    
+
+| 参数 | 类型 | 含义 |
+|:-------- |:-----------|:----------|
+| mixerID| NSString|    混图器唯一标识|  
+| err| CRVIDEOSDK_ERR_DEF|    状态，详见定义[CRVIDEOSDK_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)|  
+
+<h3 id=cloudMixerStateChanged>- (void)cloudMixerStateChanged:(NSString *)operatorID mixerID:(NSString *)mixerID state:(MIXER_STATE)state exParam:(NSString *)exParam</h3>
 
   + **功能**:  云端录制、云端直播状态变化通知
   
@@ -2314,27 +2351,34 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
 
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|
+| mixerID| NSString|    混图器唯一标识|
 | state| MIXER_STATE|    状态值，请参考MIXER_STATE|  
-| err| int|    错误值，请参考CRVIDEOSDK_ERR_DEF|  
+|exParam| string | json格式扩展参数，state状态及参数定义：</br>MIXER_NULL：包含err([CRVIDEOSDK_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)), errDesc字段；</br>MIXER_STARTING：包含jsonCfg字段 |
 | operatorID| NSString|    引起变化的用户id| 
 
-<h3 id=svrMixerCfgChanged>-(void)svrMixerCfgChanged</h3>
+<h3 id=cloudMixerInfoChanged>- (void)cloudMixerInfoChanged:(NSString *)mixerID</h3>
 
-  + **功能**:  云端录制、云端直播内容变化通知
+  + **功能**:  通知云端录制/推流信息变化
 
   + **返回值**:  无
 
+可调用：[getCloudMixerInfo](#getCloudMixerInfo)获取相关信息</br>
 
-<h3 id=svrMixerOutPutInfo>-(void)svrMixerOutPutInfo:(OutputInfo*)outputInfo</h3>
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+| mixerID | NSString| 混图器ID |
 
-  + **功能**:  云端录制文件、云端直播信息变化通知
+<h3 id=cloudMixerOutputInfoChanged>- (void)cloudMixerOutputInfoChanged:(NSString *)mixerID jsonStr:(NSString *)jsonStr</h3>
+
+  + **功能**:  通知云端录制/推流输出信息
   
   + **返回值**:  无
     
 
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|
-| outputInfo| OutputInfo|    通知内容，详见定义[OutputInfo](TypeDefinitions.md#OutputInfo)|  
+|mixerID|NSString| 混图器ID |
+| jsonStr | NSString |    通知内容，详见定义[OutputInfo](TypeDefinitions.md#OutputInfo)|  
 
 <h3 id=startScreenShareRslt>-(void)startScreenShareRslt:(CRVIDEOSDK_ERR_DEF)sdkErr</h3>
 

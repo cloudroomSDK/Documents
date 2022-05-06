@@ -75,6 +75,7 @@ module.exports = {
                      "route": "apis",
                      "islink": false,
                      "children": [
+						 "ApiIndex.md",
                          "API.md",
                          "Constant.md",
                          "TypeDefinitions.md"

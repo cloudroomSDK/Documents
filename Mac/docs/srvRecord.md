@@ -19,61 +19,48 @@
 - 调用接口：
 
 ```  oc
-//混图器参数配置
-MixerCfg* mixerCfg = [[MixerCfg alloc]init];
-mixerCfg.fps = 15;
-mixerCfg.dstResolution = CGSizeMake(848,480);
-
-// 图像内容集合 - 创建左右布局的摄像头录制内容，
-NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
-//自己的摄像头（左边布局）, 设置摄像头录制视频大小，由于左右布局， 宽度只有录制布局的一半
-CGRect leftRect = CGRectMake(0, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
-// 添加到内容列表
-RecVideoContentItem *leftVideoItem = [[RecVideoContentItem alloc] initWithRect:leftRect userID:myUserID camID:-1];
-[contents addObject:leftVideoItem];
+//配置混图器编码参数：640*360,  15帧
+    NSString *cloudMixerCfg =
+    @"{\
+        \"mode\": 0,\
+        \"videoFileCfg\": {\
+            \"svrPathName\": \"/2021-09-24/2021-09-24_13-47-41_Win32_73542046.mp4\",\
+            \"vWidth\": 640,\
+            \"vHeight\": 360,\
+            \"vFps\": 15,\
+            \"layoutConfig\": [\
+                {\
+                    \"type\": 0,\
+                    \"top\": 180,\
+                    \"left\": 0,\
+                    \"width\": 640,\
+                    \"height\": 360,\
+                    \"keepAspectRatio\": 1,\
+                    \"param\": {\"camid\": \"Usr1.-1\"}\
+                },\
+                {\
+                    \"type\": 0,\
+                    \"top\": 180,\
+                    \"left\": 640,\
+                    \"width\": 640,\
+                    \"height\": 360,\
+                    \"keepAspectRatio\": 1,\
+                    \"param\": {\"camid\": \"Usr2.-1\"}\
+                }\
+            ]\
+        }\
+    }";
     
-//其他人的摄像头（右边布局）
-CGRect rightRect = CGRectMake(mixerCfg.dstResolution.width/2, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
-RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:-1];
-    
-// 添加到内容列表
-[contents addObject:rightVideoItem];
+    NSString *mixerID = [cloudroomVideoMeeting createCloudMixer:cloudMixerCfg];
+    if (mixerID.length <= 0) {
 
-MixerContent *recContent = [[MixerContent alloc]init];
-recContent.contents = [contents copy];
-
-NSMutableArray<OutputCfg*> *outputCfgs = [NSMutableArray array];
-OutputCfg* outputCfg = [[OutputCfg alloc]init];
-
-NSTimeInterval timeStamp = [[NSDate date] timeIntervalSince1970];
-NSString *fileName = [NSString stringWithFormat:@"record_%.0f.mp4", timeStamp];
-[outputCfg setType:OUT_FILE];
-[outputCfg setServerPathFileName:fileName];
-[outputCfg setIsUploadOnRecording:YES];
-// 设置输出文件的路径
-[outputCfg setFileName:[NSString stringWithFormat:@"/%@/%@_iOS.mp4", [self _getCurDirString], [self _getCurFileString]]];
-[outputCfgs addObject:outputCfg];
-    
-//添加推流配置
-OutputCfg* outputStearmCfg = [[OutputCfg alloc]init];
-[outputStearmCfg setType:OUT_LIVE];
-[outputStearmCfg setLive:NO];
-
-[outputCfgs addObject:outputStearmCfg];
-    
-NSMutableDictionary<NSString*,MixerOutput*> *outputDic = [NSMutableDictionary dictionary];
-    
-MixerOutput* output = [[MixerOutput alloc]init];
-output.outputs = outputCfgs;
-[outputDic setObject:output forKey:_mixerID];
-
-//开启云端录制
-[[CloudroomVideoMeeting shareInstance] startSvrMixer:cfgDic contents:contentDic outputs:outputDic];
+        //开启 云端录制出错!
+    }
 ```
 
 相关API请参考:
-+ [startSvrMixer](Apis.md#startSvrMixer)
-+ [stopSvrMixer](Apis.md#stopSvrMixer)
++ [createCloudMixer](Apis.md#createCloudMixer)
++ [destroyCloudMixer](Apis.md#destroyCloudMixer)
 
 <h2 id=update>3. 更新云端录制内容</h2>
 
@@ -84,42 +71,50 @@ output.outputs = outputCfgs;
 - 接口调用：
 
 ```oc
-// 图像内容集合 - 创建画中画布局的摄像头录制内容，
-NSMutableArray<RecContentItem *> *contents = [NSMutableArray array];
-//自己的摄像头（充满布局）
-CGRect leftRect = CGRectMake(0, 0, mixerCfg.dstResolution.width, mixerCfg.dstResolution.height);
-// 添加到内容列表
-RecVideoContentItem *leftVideoItem = [[RecVideoContentItem alloc] initWithRect:leftRect userID:myUserID camID:-1];
-[contents addObject:leftVideoItem];
-    
-//其他人的摄像头（右边布局）
-CGRect rightRect = CGRectMake(0, 0, mixerCfg.dstResolution.width/5, mixerCfg.dstResolution.height/5);
-RecVideoContentItem* rightVideoItem = [[RecVideoContentItem alloc] initWithRect:rightRect userID:otherUserID camID:-1];
-    
-// 添加到内容列表
-[contents addObject:rightVideoItem];
-MixerContent *recContent = [[MixerContent alloc]init];
-recContent.contents = [contents copy];
+NSString *cloudMixerCfg =
+    @"{\
+        \"videoFileCfg\": {\
+            \"layoutConfig\": [\
+                {\
+                    \"type\": 0,\
+                    \"top\": 0,\
+                    \"left\": 0,\
+                    \"width\": 1280,\
+                    \"height\": 720,\
+                    \"keepAspectRatio\": 1,\
+                    \"param\": {\"camid\": \"Usr1.-1\"}\
+                },\
+                {\
+                    \"type\": 0,\
+                    \"top\": 265,\
+                    \"left\": 475,\
+                    \"width\": 160,\
+                    \"height\": 90,\
+                    \"keepAspectRatio\": 1,\
+                    \"param\": {\"camid\": \"Usr2.-1\"}\
+                }\
+            ]\
+        }\
+    }";
 
-//更新录制内容
-[[CloudroomVideoMeeting shareInstance] updateSvrMixerContent:contentsDic];
+    CRVIDEOSDK_ERR_DEF err = [[CloudroomVideoMeeting shareInstance] updateCloudMixerContent:mixerID cfg:cloudMixerCfg];
 ```
 
 相关API请参考:
-+  [updateSvrMixerContent](Apis.md#updateSvrMixerContent)
++  [updateCloudMixerContent](Apis.md#updateCloudMixerContent)
 
 <h2 id=record_stopSvrMixer>4. 停止云端录制</h2>
 
-停止云端录制后，会触发事件[svrMixerStateChanged](Apis.md#svrMixerStateChanged)
+停止云端录制后，会触发事件[cloudMixerStateChanged](Apis.md#cloudMixerStateChanged)
 
 - 接口调用：
 ```oc
-[[CloudroomVideoMeeting shareInstance] stopSvrMixer];
+[[CloudroomVideoMeeting shareInstance] destroyCloudMixer:mixerID];
 ```
 
 相关API请参考:
-+ [stopSvrMixer](Apis.md#stopSvrMixer)</br>
-+ [svrMixerStateChanged](Apis.md#svrMixerStateChanged)
++ [destroyCloudMixer](Apis.md#destroyCloudMixer)</br>
++ [cloudMixerStateChanged](Apis.md#cloudMixerStateChanged)
 
 
 <h2 id=record_callBack>5. 云端录制回调通知</h2>
@@ -130,7 +125,7 @@ recContent.contents = [contents copy];
 
 ```oc
 //云端录制状态变化通知
-- (void)svrMixerStateChanged:(MIXER_STATE)state err:(CRVIDEOSDK_ERR_DEF)sdkErr opratorID:(NSString*)opratorID{
+- (void)cloudMixerStateChanged:(NSString *)operatorID mixerID:(NSString *)mixerID state:(MIXER_STATE)state exParam:(NSString *)exParam {
   //状态处理
 }
 
@@ -138,19 +133,19 @@ recContent.contents = [contents copy];
 
 ```oc
 //云端录制输出内容变化通知
--(void)svrMixerOutPutInfo:(OutputInfo*)outputInfo{
+- (void)cloudMixerOutputInfoChanged:(NSString *)mixerID jsonStr:(NSString *)jsonStr {
   //获取录像文件时长、文件大小等
 }
 ```
 
 
 相关API请参考:
-+ [svrMixerStateChanged](Apis.md#svrMixerStateChanged)
-+ [svrMixerOutPutInfo](Apis.md#svrMixerOutPutInfo)
++ [cloudMixerStateChanged](Apis.md#cloudMixerStateChanged)
++ [cloudMixerOutputInfoChanged](Apis.md#cloudMixerOutputInfoChanged)
 
 <h2 id=record_getFile>6. 获取录像</h2>
 
-录像停止后，录像文件会开始上传到录像文件存储服务器中（可关注[svrMixerOutPutInfo](Apis.md#svrMixerOutPutInfo)通知，得到上传完成事件）。 
+录像停止后，录像文件会开始上传到录像文件存储服务器中（可关注[cloudMixerOutputInfoChanged](Apis.md#cloudMixerOutputInfoChanged)通知，得到上传完成事件）。 
 
 可以通过[WEB API](/sdk/document/netdisk/netdisk_query?platform=serverside)进行录像文件查询、下载和删除等处理。
 

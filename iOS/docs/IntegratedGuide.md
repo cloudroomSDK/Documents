@@ -93,8 +93,8 @@ SDK内部的组件多为单例组件，整个程序中只能有一个实例，�
 
 - 调用接口：
 ```oc
-// 发送"创建房间"命令(不设置密码)
-[[CloudroomVideoMgr shareInstance] createMeeting:title createPswd:NO cookie:cookie]; 
+// 发送"创建房间"命令
+[[CloudroomVideoMgr shareInstance] createMeeting:cookie]; 
 ```
 
 - 回调通知:

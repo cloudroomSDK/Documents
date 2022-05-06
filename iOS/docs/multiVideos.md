@@ -164,7 +164,7 @@ CLCameraView * peerView = [[CLCameraView alloc]initWithFrame:CGRectMake(viewW-pe
 ```
 
 相关API请参考：
-+ [setUsrVideoId](Apis.md#setUsrVideoId)
++ [setUsrVideoId](UIComponent.md#setUsrVideoId)
 + [CLCameraView](UIComponent.md#CLCameraView)
 
 相关结构定义请参考: 

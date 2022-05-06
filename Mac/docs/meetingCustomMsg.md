@@ -25,7 +25,7 @@
 * [sendMeetingCustomMsgRslt](Apis.md#sendMeetingCustomMsgRslt)
 
 相关结构定义请参考：
-* [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)
+* [CRVIDEOSDK_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 
 ## 处理房间广播消息

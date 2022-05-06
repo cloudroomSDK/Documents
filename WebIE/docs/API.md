@@ -874,12 +874,7 @@
     </thead>
     <tbody>
         <tr>
-            <td rowspan=5>主调</td>
-            <td><a href="#CRVideo_CreateMeeting">CRVideo_CreateMeeting</a></td>
-            <td>
-                创建房间
-            </td>
-        </tr><tr>
+            <td rowspan=4>主调</td>
             <td><a href="#CRVideo_CreateMeeting2">CRVideo_CreateMeeting2</a></td>
             <td>
                 创建房间
@@ -3256,9 +3251,9 @@
 
 - **返回值**:无
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
-| bEnable| number | 1表示开启日志，0表示不开启日志|
+| 参数    | 类型   | 含义                           |
+| :------ | :----- | :----------------------------- |
+| bEnable | number | 1表示开启日志，0表示不开启日志 |
 
 >SDK中日志功能默认是打开的,这个接口在CRVideo_Init2之前可调用
 
@@ -3268,9 +3263,9 @@
 
 - **返回值**:无
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
-| bEnable| number | 1表示开启日志上报，0表示不开启日志上报|
+| 参数    | 类型   | 含义                                   |
+| :------ | :----- | :------------------------------------- |
+| bEnable | number | 1表示开启日志上报，0表示不开启日志上报 |
 
 >SDK中日志上报默认是打开的,这个接口在CRVideo_Init2之前可调用
 
@@ -3286,12 +3281,12 @@
 //使用格式如下：
 {"NoQueue":	0}
 ```
-| 参数 | 取值 | 含义 |
-|:-------- |:-----------|:----------|
-| NoQueue| 0/1(缺省:0) | 设为1可加快登录速度（适合于不使用sdk的排队功能的业务，如：临柜双录业务、链接入 会业务）|
-|Timeout|缺 省:90000|网络通信超时时间，单位是毫秒 |
-|DatEncType|0/1	(缺省:1) |数据加密类型(0:敏感数据加密，1:全面加密)|
-|VerifyHttpsCert|0/1(缺省:1) |是否校验服务器SSL证书(0:不验证，1:验证；此参数仅在DatEncType为1时才会生效)。如果web服务使用自签名SSL证书，则此参数应配置为0。|
+| 参数            | 取值         | 含义                                                                                                                          |
+| :-------------- | :----------- | :---------------------------------------------------------------------------------------------------------------------------- |
+| NoQueue         | 0/1(缺省:0)  | 设为1可加快登录速度（适合于不使用sdk的排队功能的业务，如：临柜双录业务、链接入 会业务）                                       |
+| Timeout         | 缺 省:90000  | 网络通信超时时间，单位是毫秒                                                                                                  |
+| DatEncType      | 0/1	(缺省:1) | 数据加密类型(0:敏感数据加密，1:全面加密)                                                                                      |
+| VerifyHttpsCert | 0/1(缺省:1)  | 是否校验服务器SSL证书(0:不验证，1:验证；此参数仅在DatEncType为1时才会生效)。如果web服务使用自签名SSL证书，则此参数应配置为0。 |
 
 >这个接口在init之前调用有效
 
@@ -3301,9 +3296,9 @@
 
 - **返回值**:无 
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
-| maxbps| number | 每秒上传的最大字节数，小于等于0表示不开启流控|
+| 参数   | 类型   | 含义                                          |
+| :----- | :----- | :-------------------------------------------- |
+| maxbps | number | 每秒上传的最大字节数，小于等于0表示不开启流控 |
 
 <h3 id=CRVideo_SetFileDownloadRate>CRVideo_SetFileDownloadRate(maxBytePerSec)</h3>
 
@@ -3311,9 +3306,9 @@
 
 - **返回值**:无
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
-| maxBytePerSec| number | 每秒下载的最大字节数。-1代表不进行流控|
+| 参数          | 类型   | 含义                                   |
+| :------------ | :----- | :------------------------------------- |
+| maxBytePerSec | number | 每秒下载的最大字节数。-1代表不进行流控 |
 
 
 <h3 id=CRVideo_SetAliyunOssAccountInfo>CRVideo_SetAliyunOssAccountInfo(accessKey,accessSecret)</h3>
@@ -3322,10 +3317,10 @@
 
 - **返回值**:无 
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------| 
-| accessKey| string |用于标示用户|
-| accessSecret| string |用户用于加密签名字符串和OSS用来验证签名字符串的密钥|
+| 参数         | 类型   | 含义                                                |
+| :----------- | :----- | :-------------------------------------------------- |
+| accessKey    | string | 用于标示用户                                        |
+| accessSecret | string | 用户用于加密签名字符串和OSS用来验证签名字符串的密钥 |
 
 >参考阿里云的用户签名验证相关文档 ：https://help.aliyun.com/document_detail/31950.html?spm=a2c4g.11186623.6.707.44c0734ctzHsOa
 
@@ -3335,10 +3330,10 @@
 
 - **返回值**:无 
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------| 
-| level| number |详见[CRVideo_E_LOG_LEVEL_DEF](Constant.md#CRVideo_E_LOG_LEVEL_DEF)|
-| log| string |日志内容|
+| 参数  | 类型   | 含义                                                               |
+| :---- | :----- | :----------------------------------------------------------------- |
+| level | number | 详见[CRVideo_E_LOG_LEVEL_DEF](Constant.md#CRVideo_E_LOG_LEVEL_DEF) |
+| log   | string | 日志内容                                                           |
 
 <h3 id=CRVideo_Init2>CRVideo_Init2(sdkFilePath, isCallSer, isMediaSer, isHttp)</h3>
 
@@ -3346,12 +3341,12 @@
 
 - **返回值**:返回[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVideo_NOERR表示没有错误）(number)
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
-| sdkFilePath| string | SDK工作目录，用于存储配置文件、临时文件、录制文件、影音文件、日志等文件，如果传空值，则默认为sdk的安装目录|
-| isCallSer| number | 是否启用callSer模块。 0为不启用，1为启用。（可缺省，缺省为1）|
-| isMediaSer| number| 是否启用mediaSer模块。 0为不启用，1为启用，（可缺省，缺省为1）|
-| isHttp | number | 是否启用http模块。0为不启用，1为启用，（可缺省，缺省为0）|
+| 参数        | 类型   | 含义                                                                                                       |
+| :---------- | :----- | :--------------------------------------------------------------------------------------------------------- |
+| sdkFilePath | string | SDK工作目录，用于存储配置文件、临时文件、录制文件、影音文件、日志等文件，如果传空值，则默认为sdk的安装目录 |
+| isCallSer   | number | 是否启用callSer模块。 0为不启用，1为启用。（可缺省，缺省为1）                                              |
+| isMediaSer  | number | 是否启用mediaSer模块。 0为不启用，1为启用，（可缺省，缺省为1）                                             |
+| isHttp      | number | 是否启用http模块。0为不启用，1为启用，（可缺省，缺省为0）                                                  |
 
 >* 注意:程序开始时init，程序结束时uninit，整个程序的生命周期中只进行一次初始化和反初始化。
 
@@ -3373,9 +3368,9 @@
 
 - **返回值**:无
 
-|   参数    |    类型    |  含义  |
-|:-------- |:-----------|:----------|
-|serverList	|string	|服务器地址，多个服务器地址使用分号隔开（如：www.cloudroom.com:8080;183.60.47.52:8080;）|
+| 参数       | 类型   | 含义                                                                                    |
+| :--------- | :----- | :-------------------------------------------------------------------------------------- |
+| serverList | string | 服务器地址，多个服务器地址使用分号隔开（如：www.cloudroom.com:8080;183.60.47.52:8080;） |
 
 <h3 id=CRVideo_SetNetworkProxy>CRVideo_SetNetworkProxy(proxy)</h3>
 
@@ -3383,23 +3378,23 @@
 
 - **返回值**:无
 
-|   参数    |    类型    |  含义  |
-|:-------- |:-----------|:----------|
-|proxy	|json	|json格式，详见[CRVideo_NetworkProxyObj](TypeDefinitions.md#CRVideo_NetworkProxyObj)|
+| 参数  | 类型 | 含义                                                                                |
+| :---- | :--- | :---------------------------------------------------------------------------------- |
+| proxy | json | json格式，详见[CRVideo_NetworkProxyObj](TypeDefinitions.md#CRVideo_NetworkProxyObj) |
 
 <h3 id=CRVideo_Login>CRVideo_Login(appID, md5_appSecret, nickName, UID, userAuthCode, cookie)</h3>
 
 - **功能**: 登录
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|appID	|string	|云屋鉴权帐号。用于区分不同的项目，每个项目都有属于自己的唯一的appID，不同appID的项目完全独立，无法相互通信。appID请联系云屋销售获取，并开通相关套餐和功能权限。|
-|md5_appSecret	|string| 云屋鉴权密码，可登录云屋管理后台修改。|
-|nickName	|string|	昵称|
-|UID	|string|	用户ID。和云屋系统无关，业务方自由填写，保证唯一性即可。在登录和加入房间时传入（同一appID下，具有唯一性即可）|
-|userAuthCode|	string|	用户验证信息，可缺省。为空代表不需要sdk验证（一般由业务方先对userID认证完了，再来使用云屋sdk)。如果不为空，云屋SDK服务器将连接提前配好的业务方服务器进行实时验证。|
-|cookie	|string	|可缺省。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数          | 类型   | 含义                                                                                                                                                               |
+| :------------ | :----- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| appID         | string | 云屋鉴权帐号。用于区分不同的项目，每个项目都有属于自己的唯一的appID，不同appID的项目完全独立，无法相互通信。appID请联系云屋销售获取，并开通相关套餐和功能权限。    |
+| md5_appSecret | string | 云屋鉴权密码，可登录云屋管理后台修改。                                                                                                                             |
+| nickName      | string | 昵称                                                                                                                                                               |
+| UID           | string | 用户ID。和云屋系统无关，业务方自由填写，保证唯一性即可。在登录和加入房间时传入（同一appID下，具有唯一性即可）                                                      |
+| userAuthCode  | string | 用户验证信息，可缺省。为空代表不需要sdk验证（一般由业务方先对userID认证完了，再来使用云屋sdk)。如果不为空，云屋SDK服务器将连接提前配好的业务方服务器进行实时验证。 |
+| cookie        | string | 可缺省。详细介绍见[关键词](KeyWords.md#cookie)                                                                                                                     |
 
 >登陆成功则回调[CRVideo_LoginSuccess](#CRVideo_LoginSuccess),登陆失败则回调[CRVideo_LoginFail](#CRVideo_LoginFail)
 
@@ -3409,13 +3404,13 @@
 - **功能**: Token登录
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|token	|string	|Token鉴权码|
-|nickName	|string	|昵称|
-|userID|string	|用户ID。和云屋系统无关，业务方自由填写，保证唯一性即可（同一appID下，具有唯一性即可）|
-|userAuthCode	|string	|默认填空。只有开启第三方认证才需要填写。（开启第三方认证时，云屋SDK服务器将连接提前配好的业务方服务器进行实时验证。）|
-|cookie	|string	|可缺省。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数         | 类型   | 含义                                                                                                                  |
+| :----------- | :----- | :-------------------------------------------------------------------------------------------------------------------- |
+| token        | string | Token鉴权码                                                                                                           |
+| nickName     | string | 昵称                                                                                                                  |
+| userID       | string | 用户ID。和云屋系统无关，业务方自由填写，保证唯一性即可（同一appID下，具有唯一性即可）                                 |
+| userAuthCode | string | 默认填空。只有开启第三方认证才需要填写。（开启第三方认证时，云屋SDK服务器将连接提前配好的业务方服务器进行实时验证。） |
+| cookie       | string | 可缺省。详细介绍见[关键词](KeyWords.md#cookie)                                                                        |
 
 >    登陆成功则回调CRVideo_LoginSuccess,登陆失败则回调CRVideo_LoginFail
 
@@ -3424,9 +3419,9 @@
 - **功能**: Token登录
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|token	|string	|Token鉴权码|
+| 参数  | 类型   | 含义        |
+| :---- | :----- | :---------- |
+| token | string | Token鉴权码 |
 
 
 <h3 id=CRVideo_LoginSuccess>CRVideo_LoginSuccess.callback = function(UID,cookie){}</h3>
@@ -3472,9 +3467,9 @@ CRVideo_Logout()
 
 - **返回值**:返回用户UID的成员信息（[CRVideo_MemberInfo](TypeDefinitions.md#CRVideo_MemberInfo)）
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
-|UID |string |用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 <h3 id=CRVideo_GetMemberNickName>CRVideo_GetMemberNickName(UID)</h3>
@@ -3483,9 +3478,9 @@ CRVideo_Logout()
 
 - **返回值**:用户UID的昵称(string)
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
-|UID |string |用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 <h3 id=CRVideo_IsUserInMeeting>CRVideo_IsUserInMeeting(UID)</h3>
@@ -3494,9 +3489,9 @@ CRVideo_Logout()
 
 - **返回值**:如果用户存在则返回true，否则返回false(bool)
 
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
-|UID |string| 用户的id|
+| 参数 | 类型   | 含义     |
+| :--- | :----- | :------- |
+| UID  | string | 用户的id |
 
 
 
@@ -3506,10 +3501,10 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|userid| string	|	用户ID|
-|strNickName| string|	新的用户昵称|
+| 参数        | 类型   | 含义         |
+| :---------- | :----- | :----------- |
+| userid      | string | 用户ID       |
+| strNickName | string | 新的用户昵称 |
 
 > 回调函数 [CRVideo_SetNickNameRsp](API.md#CRVideo_SetNickNameRsp)
 > 调用此接口如果设置成功，其他会话用户会收到 [CRVideo_NotifyNickNameChanged](API.md#CRVideo_NotifyNickNameChanged)
@@ -3522,9 +3517,9 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#stream)|
+| 参数   | 类型   | 含义                                                 |
+| :----- | :----- | :--------------------------------------------------- |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#stream) |
 
 
 <h3 id=CRVideo_GetMeetingAttrs >CRVideo_GetMeetingAttrs( keys,   cookie)</h3>
@@ -3535,10 +3530,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|keys|    string  |string数组，该数组包含了需要查询的房间属性关键字|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#stream)|
+| 参数   | 类型   | 含义                                                 |
+| :----- | :----- | :--------------------------------------------------- |
+| keys   | string | string数组，该数组包含了需要查询的房间属性关键字     |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#stream) |
 
 >keys示例：[\"name\",\"time\"]
 
@@ -3550,11 +3545,11 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|attrs|    json结构体  |房间属性,json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs)|
-|options|    json格式  | 接口选项， 支持的选项:  <p>"notifyAll"：是否发送通知消息（有此选项且值为1时发出通知消息，参见：[CRVideo_NotifyMeetingAttrsChanged](API.md#CRVideo_NotifyMeetingAttrsChanged)）</p> |
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型       | 含义                                                                                                                                                                               |
+| :------ | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| attrs   | json结构体 | 房间属性,json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs)                                                                                     |
+| options | json格式   | 接口选项， 支持的选项:  <p>"notifyAll"：是否发送通知消息（有此选项且值为1时发出通知消息，参见：[CRVideo_NotifyMeetingAttrsChanged](API.md#CRVideo_NotifyMeetingAttrsChanged)）</p> |
+| cookie  | string     | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                                                                                                               |
 
 
 <h3 id=CRVideo_AddOrUpdateMeetingAttrs >CRVideo_AddOrUpdateMeetingAttrs(  attrs,  options,  cookie)</h3>
@@ -3565,11 +3560,11 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|attrs|    json结构体  |房间属性,json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs)|
-|options|    string  | 接口选项， 支持的选项:  <p>"notifyAll"：是否发送通知消息（有此选项且值为1时发出通知消息，参见：[CRVideo_NotifyMeetingAttrsChanged](API.md#CRVideo_NotifyMeetingAttrsChanged)）</p> |
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型       | 含义                                                                                                                                                                               |
+| :------ | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| attrs   | json结构体 | 房间属性,json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs)                                                                                     |
+| options | string     | 接口选项， 支持的选项:  <p>"notifyAll"：是否发送通知消息（有此选项且值为1时发出通知消息，参见：[CRVideo_NotifyMeetingAttrsChanged](API.md#CRVideo_NotifyMeetingAttrsChanged)）</p> |
+| cookie  | string     | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                                                                                                               |
 
 
 <h3 id=CRVideo_DelMeetingAttrs >CRVideo_DelMeetingAttrs(  keys,  options, cookie)</h3>
@@ -3580,11 +3575,11 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|keys|    string数组  |需要删除的房间属性key，json格式，如["key1","key2"]|
-|options|    json格式  |操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions)|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型       | 含义                                                                                             |
+| :------ | :--------- | :----------------------------------------------------------------------------------------------- |
+| keys    | string数组 | 需要删除的房间属性key，json格式，如["key1","key2"]                                               |
+| options | json格式   | 操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions) |
+| cookie  | string     | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                             |
 
 >keys示例：[\"name\",\"time\"]
 
@@ -3597,10 +3592,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|options|    string  |操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions)|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型   | 含义                                                                                             |
+| :------ | :----- | :----------------------------------------------------------------------------------------------- |
+| options | string | 操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions) |
+| cookie  | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                             |
 
 
 <h3 id=CRVideo_GetUserAttrs >CRVideo_GetUserAttrs( uids, keys, cookie)</h3>
@@ -3611,11 +3606,11 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|uids|    string  |包含了即将要获取的用户的id，最多包含50个|
-|keys|    string  |string数组，该数组包含了需要查询的用户房间属性关键字|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                                 |
+| :----- | :----- | :--------------------------------------------------- |
+| uids   | string | 包含了即将要获取的用户的id，最多包含50个             |
+| keys   | string | string数组，该数组包含了需要查询的用户房间属性关键字 |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie) |
 
 >例如想要查询lucy和Drake的是否允许聊天、用户身份等信息，uids:[\"lucy\",\"Drake\"...], keys:["","",...]
 
@@ -3628,12 +3623,12 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|uid|    string  |目标用户id|
-|attrs| json格式  |用户属性集, json格式，如：{"key1":"value1", "key2":"value2"}|
-|options| json格式  |操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions)|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型     | 含义                                                                                             |
+| :------ | :------- | :----------------------------------------------------------------------------------------------- |
+| uid     | string   | 目标用户id                                                                                       |
+| attrs   | json格式 | 用户属性集, json格式，如：{"key1":"value1", "key2":"value2"}                                     |
+| options | json格式 | 操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions) |
+| cookie  | string   | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                             |
 
 
 <h3 id=CRVideo_AddOrUpdateUserAttrs >CRVideo_AddOrUpdateUserAttrs( uid,  attrs,options, cookie)</h3>
@@ -3644,12 +3639,12 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|uid|    string  |目标用户id|
-|attrs| json格式  |用户属性集, json格式，如：{"key1":"value1", "key2":"value2"}|
-|options|json格式  |操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions)|
-|cookie| string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型     | 含义                                                                                             |
+| :------ | :------- | :----------------------------------------------------------------------------------------------- |
+| uid     | string   | 目标用户id                                                                                       |
+| attrs   | json格式 | 用户属性集, json格式，如：{"key1":"value1", "key2":"value2"}                                     |
+| options | json格式 | 操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions) |
+| cookie  | string   | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                             |
 
 
 <h3 id=CRVideo_DelUserAttrs >CRVideo_DelUserAttrs( uid,  keys,  options,cookie)</h3>
@@ -3660,12 +3655,12 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|uid|    string  |目标用户id|
-|keys|    string  |需要删除的用户属性key列表，json格式，如：["key1","key2"]|
-|options|   json格式  |操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions)|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型     | 含义                                                                                             |
+| :------ | :------- | :----------------------------------------------------------------------------------------------- |
+| uid     | string   | 目标用户id                                                                                       |
+| keys    | string   | 需要删除的用户属性key列表，json格式，如：["key1","key2"]                                         |
+| options | json格式 | 操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions) |
+| cookie  | string   | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                             |
 
 
 <h3 id=CRVideo_ClearAllUserAttrs >CRVideo_ClearAllUserAttrs(options, cookie)</h3>
@@ -3676,10 +3671,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|options|  json格式  |操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions)|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型     | 含义                                                                                             |
+| :------ | :------- | :----------------------------------------------------------------------------------------------- |
+| options | json格式 | 操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions) |
+| cookie  | string   | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                             |
 
 
 <h3 id=CRVideo_ClearUserAttrs >CRVideo_ClearUserAttrs( uid, options, cookie)</h3>
@@ -3690,11 +3685,11 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|uid|    string  |目标用户id|
-|options|    json格式  |操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions)|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数    | 类型     | 含义                                                                                             |
+| :------ | :------- | :----------------------------------------------------------------------------------------------- |
+| uid     | string   | 目标用户id                                                                                       |
+| options | json格式 | 操作选项,json格式参见[CRVideo_MeetingAttrOptions](TypeDefinitions.md#CRVideo_MeetingAttrOptions) |
+| cookie  | string   | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                             |
 
 
 <h3 id=CRVideo_GetQueueUsers>CRVideo_GetQueueUsers(queID)</h3>
@@ -3703,9 +3698,9 @@ CRVideo_Logout()
 
 - **返回值**:返回排队的客户列表(类型：json字符串，需要JSON.parse解析后使用)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|queID	 |string	|队列ID|
+| 参数  | 类型   | 含义   |
+| :---- | :----- | :----- |
+| queID | string | 队列ID |
 
 
 <h3 id=CRVideo_ReqAssignUser2>CRVideo_ReqAssignUser2(queID, userID, cookie)</h3>
@@ -3714,11 +3709,11 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|queID|	string	|队列ID|
-|userID|	string	|队列中的用户ID|
-|cookie	|string	|详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                   |
+| :----- | :----- | :------------------------------------- |
+| queID  | string | 队列ID                                 |
+| userID | string | 队列中的用户ID                         |
+| cookie | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >回调函数：[CRVideo_ReqAssignUserRslt](#CRVideo_ReqAssignUserRslt)
 >当关闭免打扰时，系统将自动分配客户，无需调用此函数； 当开启免打扰时，系统不再自动分配客户，座席如需服务指定的客户可使用此函数分配
@@ -3729,10 +3724,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| attrs | string  | json格式字符串，需要自行转换为json结构体。json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs)|
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                                                                            |
+| :----- | :----- | :------------------------------------------------------------------------------------------------------------------------------ |
+| attrs  | string | json格式字符串，需要自行转换为json结构体。json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                                                            |
 
 <h3 id=CRVideo_GetMeetingAttrsFail > CRVideo_GetMeetingAttrsFail.callback = function( err,  cookie){} </h3>
 
@@ -3740,10 +3735,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 <h3 id=CRVideo_GetMeetingAllAttrsSuccess > CRVideo_GetMeetingAllAttrsSuccess.callback = function( attrs,  cookie){} </h3>
@@ -3752,10 +3747,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| attrs | string  | json格式字符串，需要自行转换为json结构体。json结构参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs)|
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                                                                        |
+| :----- | :----- | :-------------------------------------------------------------------------------------------------------------------------- |
+| attrs  | string | json格式字符串，需要自行转换为json结构体。json结构参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                                                        |
 
 
 <h3 id=CRVideo_GetMeetingAllAttrsFail > CRVideo_GetMeetingAllAttrsFail.callback = function( err,  cookie){} </h3>
@@ -3764,10 +3759,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 <h3 id=CRVideo_SetMeetingAttrsRslt >CRVideo_SetMeetingAttrsRslt.callback = function( err,  cookie) {}</h3>
 
@@ -3775,10 +3770,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 
@@ -3788,10 +3783,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 <h3 id=CRVideo_DelMeetingAttrsRslt > CRVideo_DelMeetingAttrsRslt.callback = function( err,  cookie){} </h3>
@@ -3800,10 +3795,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误）|
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#stream)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#stream)                             |
 
 
 <h3 id=CRVideo_ClearMeetingAttrsRslt >CRVideo_ClearMeetingAttrsRslt.callback = function( err,  cookie) {}</h3>
@@ -3812,10 +3807,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 <h3 id=CRVideo_GetUserAttrsSuccess >CRVideo_GetUserAttrsSuccess.callback = function( attrsMap,  cookie){} </h3>
 
@@ -3823,10 +3818,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| attrsMap | string  | 房间属性，json格式的字符串，需要自行转化为json结构。json结构体请参见[CRVideo_UserMeetingAttrObjs](TypeDefinitions.md#CRVideo_UserMeetingAttrObjs)|
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数     | 类型   | 含义                                                                                                                                              |
+| :------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| attrsMap | string | 房间属性，json格式的字符串，需要自行转化为json结构。json结构体请参见[CRVideo_UserMeetingAttrObjs](TypeDefinitions.md#CRVideo_UserMeetingAttrObjs) |
+| cookie   | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                                                                                              |
 
 
 
@@ -3836,10 +3831,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 <h3 id=CRVideo_SetUserAttrsRslt > CRVideo_SetUserAttrsRslt.callback = function( err,  cookie) {}</h3>
@@ -3848,10 +3843,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误）|
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 
@@ -3861,10 +3856,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 <h3 id=CRVideo_DelUserAttrsRslt > CRVideo_DelUserAttrsRslt.callback = function( err,  cookie){} </h3>
@@ -3873,10 +3868,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 
@@ -3887,10 +3882,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 
@@ -3900,10 +3895,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误）|
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#cookie)                             |
 
 
 
@@ -3913,9 +3908,9 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| attrs | string  |房间属性，json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
+| 参数  | 类型   | 含义                                                                                            |
+| :---- | :----- | :---------------------------------------------------------------------------------------------- |
+| attrs | string | 房间属性，json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
 
 
 <h3 id=CRVideo_NotifyUserAttrsChanged >CRVideo_NotifyUserAttrsChanged.callback = function(uid, adds, updates, delKeys) </h3>
@@ -3924,12 +3919,12 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| uid | string  |变化的用户id |
-| adds | string  |增加的用户属性集，json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
-| updates | string  |变化的用户属性集，json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
-| delKeys | string  |被删除的用户属性列表，json格式，如:["key1", "key2"] |
+| 参数    | 类型   | 含义                                                                                                    |
+| :------ | :----- | :------------------------------------------------------------------------------------------------------ |
+| uid     | string | 变化的用户id                                                                                            |
+| adds    | string | 增加的用户属性集，json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
+| updates | string | 变化的用户属性集，json结构体请参见[CRVideo_MeetingAttrObjs](TypeDefinitions.md#CRVideo_MeetingAttrObjs) |
+| delKeys | string | 被删除的用户属性列表，json格式，如:["key1", "key2"]                                                     |
 
 <h3 id=CRVideo_GetScreenShareCfg>CRVideo_GetScreenShareCfg()</h3>
 
@@ -3944,9 +3939,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|jsonCfg	|[CRVideo_ScreenShareCfgObj](TypeDefinitions.md#CRVideo_ScreenShareCfgObj) |	屏幕共享配置|
+| 参数    | 类型                                                                      | 含义         |
+| :------ | :------------------------------------------------------------------------ | :----------- |
+| jsonCfg | [CRVideo_ScreenShareCfgObj](TypeDefinitions.md#CRVideo_ScreenShareCfgObj) | 屏幕共享配置 |
 
 
 <h3 id=CRVideo_StartScreenShare>CRVideo_StartScreenShare()</h3>
@@ -3976,12 +3971,12 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|format	|[CRVideo_VIDEO_FORMAT](Constant.md#CRVideo_VIDEO_FORMAT)	|视频格式|
-|width	|number|	图像的宽度|
-|heigh|	number	|图像的高度|
-|dat	|string	|承载argb数据，base64编码|
+| 参数   | 类型                                                     | 含义                     |
+| :----- | :------------------------------------------------------- | :----------------------- |
+| format | [CRVideo_VIDEO_FORMAT](Constant.md#CRVideo_VIDEO_FORMAT) | 视频格式                 |
+| width  | number                                                   | 图像的宽度               |
+| heigh  | number                                                   | 图像的高度               |
+| dat    | string                                                   | 承载argb数据，base64编码 |
 
 
 <h3 id=CRVideo_GiveCtrlRight>CRVideo_GiveCtrlRight(UID)</h3>
@@ -3990,9 +3985,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	|string|	用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 <h3 id=CRVideo_ReleaseCtrlRight>CRVideo_ReleaseCtrlRight(UID)</h3>
@@ -4001,9 +3996,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	|string	|用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 <h3 id=CRVideo_SendMouseCtrlMsg>CRVideo_SendMouseCtrlMsg(msgType, mouseMsgType, x, y)</h3>
@@ -4012,12 +4007,12 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|msgType| [CRVideo_MOUSE_MSG_TYPE](Constant.md#CRVideo_MOUSE_MSG_TYPE)	| 鼠标事件类型|
-| mouseMsgType| 	[CRVideo_MOUSE_KEY_TYPE](Constant.md#CRVideo_MOUSE_KEY_TYPE)| 	鼠标键类型|
-| x| 	number| 	鼠标在屏幕中的横坐标|
-| y	| number| 	鼠标在屏幕中的纵坐标|
+| 参数         | 类型                                                         | 含义                 |
+| :----------- | :----------------------------------------------------------- | :------------------- |
+| msgType      | [CRVideo_MOUSE_MSG_TYPE](Constant.md#CRVideo_MOUSE_MSG_TYPE) | 鼠标事件类型         |
+| mouseMsgType | [CRVideo_MOUSE_KEY_TYPE](Constant.md#CRVideo_MOUSE_KEY_TYPE) | 鼠标键类型           |
+| x            | number                                                       | 鼠标在屏幕中的横坐标 |
+| y            | number                                                       | 鼠标在屏幕中的纵坐标 |
 
 
 <h3 id=CRVideo_SendKeyCtrlMsg>CRVideo_SendKeyCtrlMsg(keyMsgType, vk, bExtendedKey)</h3>
@@ -4026,11 +4021,11 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|keyMsgType	|[CRVideo_KEY_MSG_TYPE](Constant.md#CRVideo_KEY_MSG_TYPE)|	键盘事件类型|
-|vk|	number|	键盘虚拟键值|
-|bExtendedKey|	number	|-|
+| 参数         | 类型                                                     | 含义         |
+| :----------- | :------------------------------------------------------- | :----------- |
+| keyMsgType   | [CRVideo_KEY_MSG_TYPE](Constant.md#CRVideo_KEY_MSG_TYPE) | 键盘事件类型 |
+| vk           | number                                                   | 键盘虚拟键值 |
+| bExtendedKey | number                                                   | -            |
 
 
 <h3 id=CRVideo_GetShareScreenDecodeImg>CRVideo_GetShareScreenDecodeImg()</h3>
@@ -4096,10 +4091,10 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|sharerId| number|	需要开启共享的用户ID|
-|param| string|	自定义参数，可传空 |
+| 参数     | 类型   | 含义                 |
+| :------- | :----- | :------------------- |
+| sharerId | number | 需要开启共享的用户ID |
+| param    | string | 自定义参数，可传空   |
 
 
 <h3 id=CRVideo_CancelShareRequestion>CRVideo_CancelShareRequestion(sharerId)</h3>
@@ -4108,9 +4103,9 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|sharerId| number|	需要取消的共享者ID,与CRVideo_RequestShare的参数对应|
+| 参数     | 类型   | 含义                                                |
+| :------- | :----- | :-------------------------------------------------- |
+| sharerId | number | 需要取消的共享者ID,与CRVideo_RequestShare的参数对应 |
 
 
 <h3 id=CRVideo_RejectShareRequestion>CRVideo_RejectShareRequestion(requesterId,param)</h3>
@@ -4119,10 +4114,10 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|requesterId| number|	请求者ID|
-|param| string|	自定义参数，可传空 |
+| 参数        | 类型   | 含义               |
+| :---------- | :----- | :----------------- |
+| requesterId | number | 请求者ID           |
+| param       | string | 自定义参数，可传空 |
 
 
 <h3 id=CRVideo_NotifyScreenShareStarted>CRVideo_NotifyScreenShareStarted.callback = function(userID){}</h3>
@@ -4183,11 +4178,11 @@ CRVideo_Logout()
 
 - **返回值**: [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mixerID| string|	混图器唯一标识|
-|mixerCfg| [CRVideo_MixerCfgObj](TypeDefinitions.md#CRVideo_MixerCfgObj)	 |混图器规格配置，json格式|
-|mixerContent| [CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj)	 |混图器内容配置，json格式|
+| 参数         | 类型                                                                  | 含义                     |
+| :----------- | :-------------------------------------------------------------------- | :----------------------- |
+| mixerID      | string                                                                | 混图器唯一标识           |
+| mixerCfg     | [CRVideo_MixerCfgObj](TypeDefinitions.md#CRVideo_MixerCfgObj)         | 混图器规格配置，json格式 |
+| mixerContent | [CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj) | 混图器内容配置，json格式 |
 
 
 <h3 id=CRVideo_UpdateLocMixerContent>CRVideo_UpdateLocMixerContent(mixerID,mixerContent)</h3>
@@ -4196,10 +4191,10 @@ CRVideo_Logout()
 
 - **返回值**: [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mixerID| string|	混图器唯一标识|
-|mixerContent| [CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj)	 |混图器内容配置，json格式|
+| 参数         | 类型                                                                  | 含义                     |
+| :----------- | :-------------------------------------------------------------------- | :----------------------- |
+| mixerID      | string                                                                | 混图器唯一标识           |
+| mixerContent | [CRVideo_MixerContentObj](TypeDefinitions.md#CRVideo_MixerContentObj) | 混图器内容配置，json格式 |
 
 
 <h3 id=CRVideo_DestroyLocMixer>CRVideo_DestroyLocMixer(mixerID)</h3>
@@ -4208,9 +4203,9 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mixerID| string|	混图器唯一标识|
+| 参数    | 类型   | 含义           |
+| :------ | :----- | :------------- |
+| mixerID | string | 混图器唯一标识 |
 
 
 <h3 id=CRVideo_GetLocMixerState>CRVideo_GetLocMixerState(mixerID)</h3>
@@ -4219,9 +4214,9 @@ CRVideo_Logout()
 
 - **返回值**: [CRVideo_MIXER_STATE](Constant.md#CRVideo_MIXER_STATE)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mixerID| string|	混图器唯一标识|
+| 参数    | 类型   | 含义           |
+| :------ | :----- | :------------- |
+| mixerID | string | 混图器唯一标识 |
 
 
 <h3 id=CRVideo_AddLocMixerOutput>CRVideo_AddLocMixerOutput(mixerID, mixerOutput)</h3>
@@ -4230,10 +4225,10 @@ CRVideo_Logout()
 
 - **返回值**: [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mixerID| string|	混图器唯一标识，请确保创建了有效的混图器[CRVideo_CreateLocMixer](API.md#CRVideo_CreateLocMixer)。|
-|mixerOutput| [CRVideo_MixerOutputObj](TypeDefinitions.md#CRVideo_MixerOutputObj)	 |混图器输出配置，json格式|
+| 参数        | 类型                                                                | 含义                                                                                              |
+| :---------- | :------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------ |
+| mixerID     | string                                                              | 混图器唯一标识，请确保创建了有效的混图器[CRVideo_CreateLocMixer](API.md#CRVideo_CreateLocMixer)。 |
+| mixerOutput | [CRVideo_MixerOutputObj](TypeDefinitions.md#CRVideo_MixerOutputObj) | 混图器输出配置，json格式                                                                          |
 
 - <p style="color:#FF0000;font-size:20px;">注意事项:</p>
 
@@ -4249,10 +4244,10 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mixerID| string|	混图器唯一标识|
-|nameOrUrl|string	 |要停止的录制文件名或直播url，支持多值，以";"分隔；|
+| 参数      | 类型   | 含义                                               |
+| :-------- | :----- | :------------------------------------------------- |
+| mixerID   | string | 混图器唯一标识                                     |
+| nameOrUrl | string | 要停止的录制文件名或直播url，支持多值，以";"分隔； |
 
 >注意事项：所有输出停止后并不会消毁混图器，如果混图器不再需要请手工消毁；
 
@@ -4272,9 +4267,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|filename	|string	|文件名|
+| 参数     | 类型   | 含义   |
+| :------- | :----- | :----- |
+| filename | string | 文件名 |
 
 
 <h3 id=CRVideo_UploadRecordFile>CRVideo_UploadRecordFile(filename)</h3>
@@ -4283,9 +4278,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|filename	|string	|文件名|
+| 参数     | 类型   | 含义   |
+| :------- | :----- | :----- |
+| filename | string | 文件名 |
 
 >上传文件在默认位置
 
@@ -4296,10 +4291,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|filename	|string	|文件名|
-|svrPathFileName	|string	|服务器路径文件名|
+| 参数            | 类型   | 含义             |
+| :-------------- | :----- | :--------------- |
+| filename        | string | 文件名           |
+| svrPathFileName | string | 服务器路径文件名 |
 
 >上传文件到服务器指定位置
 
@@ -4310,9 +4305,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|filename	|number	|文件名|
+| 参数     | 类型   | 含义   |
+| :------- | :----- | :----- |
+| filename | number | 文件名 |
 
 
 
@@ -4376,11 +4371,11 @@ CRVideo_Logout()
 
 - **返回值**: [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mutiMixerCfgs|  [CRVideo_MutiMixerCfgsObj](TypeDefinitions.md#CRVideo_MutiMixerCfgsObj)	 |服务器混图配置	|
-|mutiMixerContents|  [CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj)	 |服务器混图内容	|
-|mutiMixerOutputs|  [CRVideo_MutiMixerOutputsObj](TypeDefinitions.md#CRVideo_MutiMixerOutputsObj)	 |服务器输出	|
+| 参数              | 类型                                                                            | 含义           |
+| :---------------- | :------------------------------------------------------------------------------ | :------------- |
+| mutiMixerCfgs     | [CRVideo_MutiMixerCfgsObj](TypeDefinitions.md#CRVideo_MutiMixerCfgsObj)         | 服务器混图配置 |
+| mutiMixerContents | [CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj) | 服务器混图内容 |
+| mutiMixerOutputs  | [CRVideo_MutiMixerOutputsObj](TypeDefinitions.md#CRVideo_MutiMixerOutputsObj)   | 服务器输出     |
 
 >注意事项 :
 >启动云端功能有一定耗时，请关注混图器的状态变化事件CRVideo_SvrMixerStateChanged
@@ -4393,9 +4388,9 @@ CRVideo_Logout()
 
 - **返回值**: [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mutiMixerContents|  [CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj)	 |服务器混图内容	|
+| 参数              | 类型                                                                            | 含义           |
+| :---------------- | :------------------------------------------------------------------------------ | :------------- |
+| mutiMixerContents | [CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj) | 服务器混图内容 |
 
 
 <h3 id=CRVideo_StopSvrMixer>CRVideo_StopSvrMixer()</h3>
@@ -4452,12 +4447,12 @@ CRVideo_Logout()
 
 - **返回值**:白板  boardID
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|title|	string|	白板名称|
-|width	|number|	白板宽度|
-|height|	number|	白板高度|
-|pageCount	|number|	白板内有多个页（一般空白板1页，文档白板为实际页数|
+| 参数      | 类型   | 含义                                              |
+| :-------- | :----- | :------------------------------------------------ |
+| title     | string | 白板名称                                          |
+| width     | number | 白板宽度                                          |
+| height    | number | 白板高度                                          |
+| pageCount | number | 白板内有多个页（一般空白板1页，文档白板为实际页数 |
 
 >其他参会者会收到：[CRVideo_NotifyCreateBoard](#CRVideo_NotifyCreateBoard)事件;同时后台会记录下白板数据，新入会者会收到：[CRVideo_NotifyInitBoards](#CRVideo_NotifyInitBoards)事件.注意：创建完白板后，一定要及尽快调用[CRVideo_InitBoardPageDat](#CRVideo_InitBoardPageDat)初始化各页数据
 
@@ -4468,9 +4463,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|boardID	|string	|白板标识|
+| 参数    | 类型   | 含义     |
+| :------ | :----- | :------- |
+| boardID | string | 白板标识 |
 
 >其他参会者将收到[CRVideo_NotifyCloseBoard](#CRVideo_NotifyCloseBoard)事件；同时后台会移除对应白板的所有信息
 
@@ -4481,12 +4476,12 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|boardID | 	string	 | 白板标识 |
-| boardPageNo | 	number | 	白板第几页（0:代表第一页） |
-| imgID	 | string | 	白板的背景图片标识(空代表无背影图) |
-| elemets | 	string	 | 白板的初始图元（空代表无图元，一般在导入历史文件才用到）|
+| 参数        | 类型   | 含义                                                     |
+| :---------- | :----- | :------------------------------------------------------- |
+| boardID     | string | 白板标识                                                 |
+| boardPageNo | number | 白板第几页（0:代表第一页）                               |
+| imgID       | string | 白板的背景图片标识(空代表无背影图)                       |
+| elemets     | string | 白板的初始图元（空代表无图元，一般在导入历史文件才用到） |
 
 > 1. imgID非空时, 代表背景的图片ID。 img来源请参见[CRVideo_GetNetDiskDocFilePageInfo](#CRVideo_GetNetDiskDocFilePageInfo)
 
@@ -4511,11 +4506,11 @@ CRVideo_Logout()
 
 - **返回值**:elementID ----- 图元标识
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|boardID	|string|	白板标识|
-|boardPageNo	|number|	白板的页序号(0为第一页)|
-|element|	string	|图元信息，参见json格式之[CRVideo_BoardElementObj](TypeDefinitions.md#CRVideo_BoardElementObj)|
+| 参数        | 类型   | 含义                                                                                          |
+| :---------- | :----- | :-------------------------------------------------------------------------------------------- |
+| boardID     | string | 白板标识                                                                                      |
+| boardPageNo | number | 白板的页序号(0为第一页)                                                                       |
+| element     | string | 图元信息，参见json格式之[CRVideo_BoardElementObj](TypeDefinitions.md#CRVideo_BoardElementObj) |
 
 >其他参会者会收到：[CRVideo_NotifyAddBoardElement](#CRVideo_NotifyAddBoardElement)事件;同时后台会保存图元，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中得到这些图元
 
@@ -4526,11 +4521,11 @@ CRVideo_Logout()
 
 - **返回值**:elementID图元标识(string)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|boardID| 	string	| 白板标识|
-| boardPageNo	| number| 	白板的页序号(0为第一页)|
-| element	 |string| 	图元信息，参见json格式之 [CRVideo_BoardElementObj](TypeDefinitions.md#CRVideo_BoardElementObj)|
+| 参数        | 类型   | 含义                                                                                           |
+| :---------- | :----- | :--------------------------------------------------------------------------------------------- |
+| boardID     | string | 白板标识                                                                                       |
+| boardPageNo | number | 白板的页序号(0为第一页)                                                                        |
+| element     | string | 图元信息，参见json格式之 [CRVideo_BoardElementObj](TypeDefinitions.md#CRVideo_BoardElementObj) |
 
 >说明：其他参会者会收到：[CRVideo_NotifyModifyBoardElement](#CRVideo_NotifyModifyBoardElement)事件;同时后台会覆盖对应图元的数据，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中得到这些图元
 
@@ -4541,11 +4536,11 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|boardID	|string|	白板标识|
-|boardPageNo	|number|	白板的页序号(0为第一页)|
-|elementIDs|	string|	图元id列表，多值时，以“；”分隔，如：“id1；id2”|
+| 参数        | 类型   | 含义                                           |
+| :---------- | :----- | :--------------------------------------------- |
+| boardID     | string | 白板标识                                       |
+| boardPageNo | number | 白板的页序号(0为第一页)                        |
+| elementIDs  | string | 图元id列表，多值时，以“；”分隔，如：“id1；id2” |
 
 >说明：其他参会者会收到：[CRVideo_NotifyDelBoardElement](#CRVideo_NotifyDelBoardElement)事件；同时后台会移除这些图元，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中将不包含这些图元
 
@@ -4556,12 +4551,12 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|boardID | 	string | 	白板标识 |
-| boardPageNo | 	number | 	白板的页序号(0为第一页)
-| x	 | number | 	屏幕横坐标 |
-| y | 	number | 	屏幕纵坐标|
+| 参数        | 类型   | 含义                    |
+| :---------- | :----- | :---------------------- |
+| boardID     | string | 白板标识                |
+| boardPageNo | number | 白板的页序号(0为第一页) |
+| x           | number | 屏幕横坐标              |
+| y           | number | 屏幕纵坐标              |
 
 
 
@@ -4572,12 +4567,12 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|boardID	|string	|白板标识|
-|boardPageNo|number |白板的页序号(0为第一页)|
-|pagePos1	|number	|私有扩展参数1（如可用于页内x方向滚动位置）|
-|pagePos2	|number |私有扩展参数2（如可用于页内y方向滚动位置）|
+| 参数        | 类型   | 含义                                       |
+| :---------- | :----- | :----------------------------------------- |
+| boardID     | string | 白板标识                                   |
+| boardPageNo | number | 白板的页序号(0为第一页)                    |
+| pagePos1    | number | 私有扩展参数1（如可用于页内x方向滚动位置） |
+| pagePos2    | number | 私有扩展参数2（如可用于页内y方向滚动位置） |
 
 
 <h3 id=CRVideo_ListNetDiskDocFile>CRVideo_ListNetDiskDocFile(dir)</h3>
@@ -4586,9 +4581,9 @@ CRVideo_Logout()
 
 - **返回值**:无  .查询结果请参见[CRVideo_ListNetDiskDocFileRslt](#CRVideo_ListNetDiskDocFileRslt)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|dir	|string	|要查询的目录，空或"/"时，代表查询根目录下的内容；|
+| 参数 | 类型   | 含义                                              |
+| :--- | :----- | :------------------------------------------------ |
+| dir  | string | 要查询的目录，空或"/"时，代表查询根目录下的内容； |
 
 >查询服务器指定目录下的内容（子目录名、上传的文档源文件及文档转换状态）
 
@@ -4599,10 +4594,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|svrPathFileName	|string	|服务器的路径文件名，包含目录时，服务器自动创建对应目录|
-|locPathFileName	|string	|要上传文件的本地的路径文件名|
+| 参数            | 类型   | 含义                                                   |
+| :-------------- | :----- | :----------------------------------------------------- |
+| svrPathFileName | string | 服务器的路径文件名，包含目录时，服务器自动创建对应目录 |
+| locPathFileName | string | 要上传文件的本地的路径文件名                           |
 
 >上传进度请参见[CRVideo_NotifyNetDiskDocFileTrsfProgress](#CRVideo_NotifyNetDiskDocFileTrsfProgress), 转换结果请调用[CRVideo_ListNetDiskDocFile](#CRVideo_ListNetDiskDocFile)或者[CRVideo_GetNetDiskDocFilePageInfo](#CRVideo_GetNetDiskDocFilePageInfo)
 
@@ -4615,10 +4610,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|svrPathFileName	|string	|服务器的路径文件名|
-|locPathFileName	|string	|文件下载后存放的本地的路径文件名，目录不存在时自动创建|
+| 参数            | 类型   | 含义                                                   |
+| :-------------- | :----- | :----------------------------------------------------- |
+| svrPathFileName | string | 服务器的路径文件名                                     |
+| locPathFileName | string | 文件下载后存放的本地的路径文件名，目录不存在时自动创建 |
 
 >下载进度请参见[CRVideo_NotifyNetDiskDocFileTrsfProgress](#CRVideo_NotifyNetDiskDocFileTrsfProgress)
 
@@ -4630,9 +4625,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|svrPathFileName	|string	|服务器的路径文件名|
+| 参数            | 类型   | 含义               |
+| :-------------- | :----- | :----------------- |
+| svrPathFileName | string | 服务器的路径文件名 |
 
 
 
@@ -4642,9 +4637,9 @@ CRVideo_Logout()
 
 - **返回值**:无,  删除结果请参见[CRVideo_DeleteNetDiskDocFileRslt](#CRVideo_DeleteNetDiskDocFileRslt)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|svrPathFileName	|string	|服务器的路径文件名|
+| 参数            | 类型   | 含义               |
+| :-------------- | :----- | :----------------- |
+| svrPathFileName | string | 服务器的路径文件名 |
 
 
 
@@ -4654,9 +4649,9 @@ CRVideo_Logout()
 
 - **返回值**:无， 结果请参见[CRVideo_GetNetDiskDocFilePageInfoRslt](#CRVideo_GetNetDiskDocFilePageInfoRslt)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|svrPathFileName	|string	|服务器的路径文件名|
+| 参数            | 类型   | 含义               |
+| :-------------- | :----- | :----------------- |
+| svrPathFileName | string | 服务器的路径文件名 |
 
 >说明:获取到的文档转换后的信息后， 就可以创建白板[CRVideo_Createboard](#CRVideo_Createboard), 然后为白板初始化文档内容[CRVideo_InitBoardPageDat](#CRVideo_InitBoardPageDat)
 
@@ -4668,10 +4663,10 @@ CRVideo_Logout()
 
 - **返回值**:无， 下载进度请参见[CRVideo_NotifyNetDiskDocFileTrsfProgress](#CRVideo_NotifyNetDiskDocFileTrsfProgress)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|pagePathFileName	|string	|页文件在服务器的路径文件名|
-|locPathFileName	|string	|文件下载后存放的本地的路径文件名，目录不存在时自动创建|
+| 参数             | 类型   | 含义                                                   |
+| :--------------- | :----- | :----------------------------------------------------- |
+| pagePathFileName | string | 页文件在服务器的路径文件名                             |
+| locPathFileName  | string | 文件下载后存放的本地的路径文件名，目录不存在时自动创建 |
 
 >说明:页文件格式： 6字节保留，4字节图像格式（2:jpg, 4:png），4字节图像内容长度，图像内容 
 
@@ -4682,10 +4677,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|resourceid	| string| 	资源唯一标识；（可以是guid，也可以序号方式）|
-|picJsonVal	| object| 资源内容，json格式，详见[CRVideo_PicResourceObj](TypeDefinitions.md#CRVideo_PicResourceObj)说明|
+| 参数       | 类型   | 含义                                                                                            |
+| :--------- | :----- | :---------------------------------------------------------------------------------------------- |
+| resourceid | string | 资源唯一标识；（可以是guid，也可以序号方式）                                                    |
+| picJsonVal | object | 资源内容，json格式，详见[CRVideo_PicResourceObj](TypeDefinitions.md#CRVideo_PicResourceObj)说明 |
 
 
 
@@ -4873,11 +4868,11 @@ CRVideo_Logout()
 
 - **返回值**: 结果，空串表示用户取消， 否则返回用户选择的文件路径文件名
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|title   |string|    打开文件框的标题|
-|directory|    string| 打开对话框初始路径,不设初始值时请传空|
-|filter|    string| 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)"|
+| 参数      | 类型   | 含义                                                                             |
+| :-------- | :----- | :------------------------------------------------------------------------------- |
+| title     | string | 打开文件框的标题                                                                 |
+| directory | string | 打开对话框初始路径,不设初始值时请传空                                            |
+| filter    | string | 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)" |
 
 <h3 id=CRVideo_GetSaveFileName>CRVideo_GetSaveFileName(title,directory,filter)</h3>
 
@@ -4885,11 +4880,11 @@ CRVideo_Logout()
 
 - **返回值**: 结果，空串表示用户取消， 否则返回用户保存的文件路径文件名
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|title   |string|    打开文件框的标题|
-|directory|    string| 打开对话框初始路径,不设初始值时请传空|
-|filter|    string| 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)"|
+| 参数      | 类型   | 含义                                                                             |
+| :-------- | :----- | :------------------------------------------------------------------------------- |
+| title     | string | 打开文件框的标题                                                                 |
+| directory | string | 打开对话框初始路径,不设初始值时请传空                                            |
+| filter    | string | 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)" |
 
 <h3 id=CRVideo_SendCmd>CRVideo_SendCmd(targetUserId, data)</h3>
 
@@ -4897,10 +4892,10 @@ CRVideo_Logout()
 
 - **返回值**:分配的任务ID(string)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|targetUserId	|string	|目标用户ID|
-|data|	string|	发送的数据，，数据最大长度不应超过64KB|
+| 参数         | 类型   | 含义                                   |
+| :----------- | :----- | :------------------------------------- |
+| targetUserId | string | 目标用户ID                             |
+| data         | string | 发送的数据，，数据最大长度不应超过64KB |
 
 >一次性发送不会有进度通知，发送结果事件[CRVideo_SendCmdRlst](#CRVideo_SendCmdRlst)，CRVideo_SendCmd不能被[CRVideo_CancelSend](#CRVideo_CancelSend)
 
@@ -4910,10 +4905,10 @@ CRVideo_Logout()
 
 - **返回值**:分配的任务ID(string)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|targetUserId	|string	|目标用户ID|
-|data|	string|	发送的数据，数据最大长度不应超过100MB|
+| 参数         | 类型   | 含义                                  |
+| :----------- | :----- | :------------------------------------ |
+| targetUserId | string | 目标用户ID                            |
+| data         | string | 发送的数据，数据最大长度不应超过100MB |
 
 >进度通知事件[CRVideo_SendProgress](#CRVideo_SendProgress)，发送结果事件[CRVideo_SendBufferRlst](#CRVideo_SendBufferRlst)，取消发送[CRVideo_CancelSend](#CRVideo_CancelSend)
 
@@ -4923,10 +4918,10 @@ CRVideo_Logout()
 
 - **返回值**:分配的任务ID(string)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|targetUserId	|string	|目标用户ID|
-|fileName|	string|	需要发送的文件名名，文件大小不应超过100MB|
+| 参数         | 类型   | 含义                                      |
+| :----------- | :----- | :---------------------------------------- |
+| targetUserId | string | 目标用户ID                                |
+| fileName     | string | 需要发送的文件名名，文件大小不应超过100MB |
 
 >进度通知事件[CRVideo_SendProgress](#CRVideo_SendProgress)，发送结果事件[CRVideo_SendFileRlst](#CRVideo_SendFileRlst)，取消发送[CRVideo_CancelSend](#CRVideo_CancelSend))
 
@@ -4937,9 +4932,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|taskID	|string	|任务ID|
+| 参数   | 类型   | 含义   |
+| :----- | :----- | :----- |
+| taskID | string | 任务ID |
 
 >取消数据发送 操作完成则回调[CRVideo_CancelSendRlst](#CRVideo_CancelSendRlst)
 
@@ -4950,11 +4945,11 @@ CRVideo_Logout()
 
 - **返回值**: 返回inviteID(每个邀请对应的唯一ID) (string)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|invitedUserID|string|  受邀者用户ID|
-|usrExtDat|string|  用户扩展数据|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数          | 类型   | 含义                                   |
+| :------------ | :----- | :------------------------------------- |
+| invitedUserID | string | 受邀者用户ID                           |
+| usrExtDat     | string | 用户扩展数据                           |
+| cookie        | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >邀请成功则触发回调[CRVideo_InviteSuccess](#CRVideo_InviteSuccess)，失败则触发回调[CRVideo_InviteFail](#CRVideo_InviteFail)。
 
@@ -4964,11 +4959,11 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|usrExtDat|string|  用户扩展数据|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数      | 类型   | 含义                                   |
+| :-------- | :----- | :------------------------------------- |
+| inviteID  | string | 邀请ID                                 |
+| usrExtDat | string | 用户扩展数据                           |
+| cookie    | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作成功则回调[CRVideo_AcceptInviteSuccess](#CRVideo_AcceptInviteSuccess),失败则回调[CRVideo_AcceptInviteFail](#CRVideo_AcceptInviteFail)。另外，对方（主动邀请者）会收到回调[CRVideo_NotifyInviteAccepted](#CRVideo_NotifyInviteAccepted)。
 
@@ -4979,11 +4974,11 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|usrExtDat|string|  用户扩展数据|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数      | 类型   | 含义                                   |
+| :-------- | :----- | :------------------------------------- |
+| inviteID  | string | 邀请ID                                 |
+| usrExtDat | string | 用户扩展数据                           |
+| cookie    | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作成功则触发回调[CRVideo_RejectInviteSuccess](#CRVideo_RejectInviteSuccess),失败则触发回调[CRVideo_RejectInviteFail](#CRVideo_RejectInviteFail)。另外，对方（主动邀请者）会收到回调[CRVideo_NotifyInviteRejected](#CRVideo_NotifyInviteRejected)。
 
@@ -4993,11 +4988,11 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|usrExtDat|string|  用户扩展数据|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数      | 类型   | 含义                                   |
+| :-------- | :----- | :------------------------------------- |
+| inviteID  | string | 邀请ID                                 |
+| usrExtDat | string | 用户扩展数据                           |
+| cookie    | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作成功则触发回调[CRVideo_CancelInviteSuccess](#CRVideo_CancelInviteSuccess),失败则触发回调[CRVideo_CancelInviteFail](#CRVideo_CancelInviteFail)。另外，对方（被邀请者） 收到回调[CRVideo_NotifyInviteCanceled](#CRVideo_NotifyInviteCanceled)。
 
@@ -5005,117 +5000,117 @@ CRVideo_Logout()
 
 - **功能**: 发送邀请成功
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                   |
+| :------- | :----- | :------------------------------------- |
+| inviteID | string | 邀请ID                                 |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 <h3 id=CRVideo_InviteFail>CRVideo_InviteFail.callback = function(inviteID,sdkErr,cookie){}</h3>
 
 - **功能**: 发送邀请失败
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|sdkErr|number|  操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                                       |
+| :------- | :----- | :--------------------------------------------------------- |
+| inviteID | string | 邀请ID                                                     |
+| sdkErr   | number | 操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF) |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie)                     |
 
 <h3 id=CRVideo_CancelInviteSuccess>CRVideo_CancelInviteSuccess.callback = function(inviteID,cookie){}</h3>
 
 - **功能**: 取消自己发送的邀请成功
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                   |
+| :------- | :----- | :------------------------------------- |
+| inviteID | string | 邀请ID                                 |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 <h3 id=CRVideo_CancelInviteFail>CRVideo_CancelInviteFail.callback = function(inviteID,sdkErr,cookie){}</h3>
 
 - **功能**: 取消自己发送的邀请失败
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|sdkErr|number|  操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                                       |
+| :------- | :----- | :--------------------------------------------------------- |
+| inviteID | string | 邀请ID                                                     |
+| sdkErr   | number | 操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF) |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie)                     |
 
 <h3 id=CRVideo_AcceptInviteSuccess>CRVideo_AcceptInviteSuccess.callback = function(inviteID,cookie){}</h3>
 
 - **功能**: 接受对方的邀请成功
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                   |
+| :------- | :----- | :------------------------------------- |
+| inviteID | string | 邀请ID                                 |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 <h3 id=CRVideo_AcceptInviteFail>CRVideo_AcceptInviteFail.callback = function(inviteID,sdkErr,cookie){}</h3>
 
 - **功能**: 接受对方的邀请失败
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|sdkErr|number|  操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                                       |
+| :------- | :----- | :--------------------------------------------------------- |
+| inviteID | string | 邀请ID                                                     |
+| sdkErr   | number | 操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF) |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie)                     |
 
 
 <h3 id=CRVideo_RejectInviteSuccess>CRVideo_RejectInviteSuccess.callback = function(inviteID,cookie){}</h3>
 
 - **功能**: 拒绝对方的邀请成功
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                   |
+| :------- | :----- | :------------------------------------- |
+| inviteID | string | 邀请ID                                 |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 <h3 id=CRVideo_RejectInviteFail>CRVideo_RejectInviteFail.callback = function(inviteID,sdkErr,cookie){}</h3>
 
 - **功能**: 拒绝对方的邀请失败
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|sdkErr|number|  操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                                       |
+| :------- | :----- | :--------------------------------------------------------- |
+| inviteID | string | 邀请ID                                                     |
+| sdkErr   | number | 操作失败代码，详见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF) |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie)                     |
 
 <h3 id=CRVideo_NotifyInviteIn>CRVideo_NotifyInviteIn.callback = function(inviteID,inviterUsrID,usrExtDat){}</h3>
 
 - **功能**: 通知有人邀请
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|inviterUsrID|string|  邀请者用户ID|
-|usrExtDat	|string|	用户扩展数据|
+| 参数         | 类型   | 含义         |
+| :----------- | :----- | :----------- |
+| inviteID     | string | 邀请ID       |
+| inviterUsrID | string | 邀请者用户ID |
+| usrExtDat    | string | 用户扩展数据 |
 
 <h3 id=CRVideo_NotifyInviteAccepted>CRVideo_NotifyInviteAccepted.callback = function(inviteID,usrExtDat){}</h3>
 
 - **功能**: 通知邀请被接受
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|usrExtDat	|string|	用户扩展数据|
+| 参数      | 类型   | 含义         |
+| :-------- | :----- | :----------- |
+| inviteID  | string | 邀请ID       |
+| usrExtDat | string | 用户扩展数据 |
 
 <h3 id=CRVideo_NotifyInviteRejected>CRVideo_NotifyInviteRejected.callback = function(inviteID,reason,usrExtDat){}</h3>
 
 - **功能**: 通知邀请被拒绝
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|reason|number|邀请被拒绝原因，定义见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
-|usrExtDat	|string|	用户扩展数据|
+| 参数      | 类型   | 含义                                                           |
+| :-------- | :----- | :------------------------------------------------------------- |
+| inviteID  | string | 邀请ID                                                         |
+| reason    | number | 邀请被拒绝原因，定义见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF) |
+| usrExtDat | string | 用户扩展数据                                                   |
 
 <h3 id=CRVideo_NotifyInviteCanceled>CRVideo_NotifyInviteCanceled.callback = function(inviteID,reason,usrExtDat){}</h3>
 
 - **功能**: 通知邀请被取消
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|inviteID|string|  邀请ID|
-|reason|number|邀请被取消原因，定义见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)|
-|usrExtDat	|string|	用户扩展数据|
+| 参数      | 类型   | 含义                                                           |
+| :-------- | :----- | :------------------------------------------------------------- |
+| inviteID  | string | 邀请ID                                                         |
+| reason    | number | 邀请被取消原因，定义见[错误码](Constant.md#CRVIDEOSDK_ERR_DEF) |
+| usrExtDat | string | 用户扩展数据                                                   |
 
 
 <h3 id=CRVideo_InitQueueDat>CRVideo_InitQueueDat(cookie)</h3>
@@ -5124,9 +5119,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                   |
+| :----- | :----- | :------------------------------------- |
+| cookie | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作完成回调[CRVideo_InitQueueDatRslt](#CRVideo_InitQueueDatRslt)，队列初始化成功后才可获取队列队列相关信息
 
@@ -5153,9 +5148,9 @@ CRVideo_Logout()
 
 - **返回值**:返回队列状态（[CRVideo_QueueStatusObj](TypeDefinitions.md#CRVideo_QueueStatusObj)）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|queID	 |string	|队列ID|
+| 参数  | 类型   | 含义   |
+| :---- | :----- | :----- |
+| queID | string | 队列ID |
 
 
 <h3 id=CRVideo_GetQueuingInfo>CRVideo_GetQueuingInfo()</h3>
@@ -5187,11 +5182,11 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|queID   |string |  队列ID |
-|usrExtDat  |string |用户排队携带的扩展数据, 座席在服务时可获得。 |
-|cookie  |string |详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数      | 类型   | 含义                                         |
+| :-------- | :----- | :------------------------------------------- |
+| queID     | string | 队列ID                                       |
+| usrExtDat | string | 用户排队携带的扩展数据, 座席在服务时可获得。 |
+| cookie    | string | 详细介绍见[关键词](KeyWords.md#cookie)       |
 
 >带自定义扩展参数。
 >操作完成回调[CRVideo_StartQueuingRslt](#CRVideo_StartQueuingRslt)
@@ -5204,9 +5199,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                   |
+| :----- | :----- | :------------------------------------- |
+| cookie | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作完成回调[CRVideo_StopQueuingRslt](#CRVideo_StopQueuingRslt)
 
@@ -5217,11 +5212,11 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|queID   |number |  队列ID |
-|priority   |number |  坐席优先级 (缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级 ))|
-|cookie |   string |    详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数     | 类型   | 含义                                                                       |
+| :------- | :----- | :------------------------------------------------------------------------- |
+| queID    | number | 队列ID                                                                     |
+| priority | number | 坐席优先级 (缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级 )) |
+| cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie)                                     |
 
 >可以多次调用，开启对多个队列的服务。操作回调[CRVideo_StartServiceRslt](#CRVideo_StartServiceRslt) 开启成功后： a. 如果没有开启免打挽，那么系统会自动分配客户：[CRVideo_AutoAssignUser](#CRVideo_AutoAssignUser)； b. 如果开启免打挽，系统就不会分配客户，如需服务客户可调用：[CRVideo_ReqAssignUser](#CRVideo_ReqAssignUser)
 > 座席优先级描述：
@@ -5237,10 +5232,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|queID	|string|	queID 队列ID|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                   |
+| :----- | :----- | :------------------------------------- |
+| queID  | string | queID 队列ID                           |
+| cookie | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作完成回调[CRVideo_StopServiceRslt](#CRVideo_StopServiceRslt)
 
@@ -5252,9 +5247,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cookie	|string	|详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                   |
+| :----- | :----- | :------------------------------------- |
+| cookie | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >回调函数：[CRVideo_ReqAssignUserRslt](#CRVideo_ReqAssignUserRslt)
 
@@ -5266,11 +5261,11 @@ CRVideo_Logout()
 - **功能**: 接受分配的客户
 
 
-| 参数     | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|queID|	string	|队列ID|
-|UID|	string	|队列中的用户ID|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                   |
+| :----- | :----- | :------------------------------------- |
+| queID  | string | 队列ID                                 |
+| UID    | string | 队列中的用户ID                         |
+| cookie | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 
 <h3 id=CRVideo_RejectAssignUser>CRVideo_RejectAssignUser(queID, UID, cookie)</h3>
@@ -5280,11 +5275,11 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|queID	 | string | 	队列ID |
-|UID | 	string | 	队列中的用户ID |
-|cookie	 | string | 	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                   |
+| :----- | :----- | :------------------------------------- |
+| queID  | string | 队列ID                                 |
+| UID    | string | 队列中的用户ID                         |
+| cookie | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 
 
@@ -5403,10 +5398,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| queID  | number  |  服务的队列 |
-| jsonUsr	 | json格式 |队列用户信息	|
+| 参数    | 类型     | 含义         |
+| :------ | :------- | :----------- |
+| queID   | number   | 服务的队列   |
+| jsonUsr | json格式 | 队列用户信息 |
 
 
 <h3 id=CRVideo_UserLeave>CRVideo_UserLeave(queID, usrID, inService)</h3>
@@ -5415,11 +5410,11 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| queID  | number  |  服务的队列 |
-| userid	 | string |用户id	|
-| inService  | number  |  服务状态（0-未服务 1-开始服务） |
+| 参数      | 类型   | 含义                            |
+| :-------- | :----- | :------------------------------ |
+| queID     | number | 服务的队列                      |
+| userid    | string | 用户id                          |
+| inService | number | 服务状态（0-未服务 1-开始服务） |
 
 
 > 系统通过接口[CRVideo_AutoAssignUser](#CRVideo_AutoAssignUser)给队列服务者自动推送客户（或队列服务者通过[CRVideo_ReqAssignUser](#CRVideo_ReqAssignUser)请求分配客户），收到系统分配的客户后，如果队列服务者30秒之内不接受[CRVideo_AcceptAssignUser](#CRVideo_AcceptAssignUser)也不拒绝[CRVideo_RejectAssignUser](#CRVideo_RejectAssignUser)推送的客户，系统将通过本接口取消分配，然后将客户分配给其他空闲的服务者。
@@ -5431,12 +5426,12 @@ CRVideo_Logout()
 
 - **返回值**:返回本次呼叫标识码（呼叫ID）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|calledUserID	|string	|被叫用户的账户ID|
-|meetObj	|[CRVideo_MeetInfoObj](TypeDefinitions.md#CRVideo_MeetInfoObj)	|房间信息|
-|usrExtDat	|string	|自定义扩展参数|
-|cookie	|string	|详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数         | 类型                                                          | 含义                                   |
+| :----------- | :------------------------------------------------------------ | :------------------------------------- |
+| calledUserID | string                                                        | 被叫用户的账户ID                       |
+| meetObj      | [CRVideo_MeetInfoObj](TypeDefinitions.md#CRVideo_MeetInfoObj) | 房间信息                               |
+| usrExtDat    | string                                                        | 自定义扩展参数                         |
+| cookie       | string                                                        | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作成功则触发回调[CRVideo_CallSuccess](#CRVideo_CallSuccess),失败则触发回调[CRVideo_CallFail](#CRVideo_CallFail)。 呼叫时，对方迟迟不响应，30秒后系统自动结束呼叫
 
@@ -5445,12 +5440,12 @@ CRVideo_Logout()
 
 - **功能**: 接受对方发起的呼叫
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|callID	|string	|呼叫ID|
-|meetObj|	[CRVideo_MeetInfoObj](TypeDefinitions.md#CRVideo_MeetInfoObj)	|房间信息|
-|usrExtDat|	string|	自定义扩展参数|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数      | 类型                                                          | 含义                                   |
+| :-------- | :------------------------------------------------------------ | :------------------------------------- |
+| callID    | string                                                        | 呼叫ID                                 |
+| meetObj   | [CRVideo_MeetInfoObj](TypeDefinitions.md#CRVideo_MeetInfoObj) | 房间信息                               |
+| usrExtDat | string                                                        | 自定义扩展参数                         |
+| cookie    | string                                                        | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >开始进入视频房间。操作成功则回调[CRVideo_AcceptCallSuccess](#CRVideo_AcceptCallSuccess)，失败则回调[CRVideo_AcceptCallFail](#CRVideo_AcceptCallFail)
 
@@ -5461,11 +5456,11 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|callID	|string	|呼叫ID|
-|usrExtDat|	string	|自定义扩展参数|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数      | 类型   | 含义                                   |
+| :-------- | :----- | :------------------------------------- |
+| callID    | string | 呼叫ID                                 |
+| usrExtDat | string | 自定义扩展参数                         |
+| cookie    | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作成功则回调[CRVideo_RejectCallSuccess](#CRVideo_RejectCallSuccess)，失败则回调[CRVideo_RejectCallFail](#CRVideo_RejectCallFail)
 
@@ -5476,11 +5471,11 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|callID	 | string | 	呼叫ID |
- | usrExtDat	 | string	 | 自定义扩展参数 |
- | cookie | 	string | 	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数      | 类型   | 含义                                   |
+| :-------- | :----- | :------------------------------------- |
+| callID    | string | 呼叫ID                                 |
+| usrExtDat | string | 自定义扩展参数                         |
+| cookie    | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >操作成功则回调[CRVideo_HangupCallSuccess](#CRVideo_HangupCallSuccess)，失败则回调[CRVideo_HangupCallFail](#CRVideo_HangupCallFail)
 
@@ -5727,9 +5722,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoWallMode|	[CRVideo_VIDEOLAYOUTMODE](Constant.md#CRVideo_VIDEOLAYOUTMODE)	|分屏模式|
+| 参数          | 类型                                                           | 含义     |
+| :------------ | :------------------------------------------------------------- | :------- |
+| videoWallMode | [CRVideo_VIDEOLAYOUTMODE](Constant.md#CRVideo_VIDEOLAYOUTMODE) | 分屏模式 |
 
 
 
@@ -5749,9 +5744,9 @@ CRVideo_Logout()
 
 - **返回值**: 设置成功与否，true/false
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cfg|	[CRVideo_VideoCfg](TypeDefinitions.md#CRVideo_VideoCfg)|	设置参数|
+| 参数 | 类型                                                    | 含义     |
+| :--- | :------------------------------------------------------ | :------- |
+| cfg  | [CRVideo_VideoCfg](TypeDefinitions.md#CRVideo_VideoCfg) | 设置参数 |
 
 
 
@@ -5762,9 +5757,9 @@ CRVideo_Logout()
 
 - **返回值**:麦克风摄像头状态（[CRVideo_VSTATUS](Constant.md#CRVideo_VSTATUS)）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	|string|	用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 <h3 id=CRVideo_GetDefaultVideo>CRVideo_GetDefaultVideo(UID)</h3>
@@ -5773,9 +5768,9 @@ CRVideo_Logout()
 
 - **返回值**:返回摄像头ID （number）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	 |string	|用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 <h3 id=CRVideo_SetDefaultVideo>CRVideo_SetDefaultVideo(UID, videoID)</h3>
@@ -5784,10 +5779,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	| string| 	用户ID|
-| videoID	| number| 	摄像头ID|
+| 参数    | 类型   | 含义     |
+| :------ | :----- | :------- |
+| UID     | string | 用户ID   |
+| videoID | number | 摄像头ID |
 
 >注意：  
 >1、如果用户只有一个摄像头，可以不设置默认摄像头；  
@@ -5802,9 +5797,9 @@ CRVideo_Logout()
 
 - **返回值**:用户的所有摄像头信息列表，数据类型为：[CRVideo_VideoInfosObj](TypeDefinitions.md#CRVideo_VideoInfosObj)。
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|userID|	string|	用户ID|
+| 参数   | 类型   | 含义   |
+| :----- | :----- | :----- |
+| userID | string | 用户ID |
 
 
 <h3 id=CRVideo_SetVideoDenoise>CRVideo_SetVideoDenoise(bDenoise)</h3>
@@ -5813,9 +5808,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|bDenoise|	bool|	取值true时，开启降噪处理|
+| 参数     | 类型 | 含义                     |
+| :------- | :--- | :----------------------- |
+| bDenoise | bool | 取值true时，开启降噪处理 |
  
 
 <h3 id=CRVideo_GetVideoDenoise>CRVideo_GetVideoDenoise()</h3>
@@ -5833,10 +5828,10 @@ CRVideo_Logout()
 
 - **返回值**:<0,  失败,  >=0, 为videoID(摄像头ID) (number)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|camName|	string|	摄像头名称|
-|monitor|	number|	显示器序号，与系统显示编号一致，-1代表主屏。(创建时对应monitorID不存在时将失败， 运行中monitorID对应的屏关闭时显示全黑，开启后恢复正常工作）|
+| 参数    | 类型   | 含义                                                                                                                                         |
+| :------ | :----- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| camName | string | 摄像头名称                                                                                                                                   |
+| monitor | number | 显示器序号，与系统显示编号一致，-1代表主屏。(创建时对应monitorID不存在时将失败， 运行中monitorID对应的屏关闭时显示全黑，开启后恢复正常工作） |
 
 >添加成功后与本地摄像头处理一致；getAllVideoInfo接口可以识别摄像头类型。
 
@@ -5847,10 +5842,10 @@ CRVideo_Logout()
 
 - **返回值**:false失败, true成功 (bool)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoID|	number|	摄像头id|
-|monitor|	number|	显示器序号，与系统显示编号一致，-1代表主屏。(monitorID不存在时将失败）|
+| 参数    | 类型   | 含义                                                                   |
+| :------ | :----- | :--------------------------------------------------------------------- |
+| videoID | number | 摄像头id                                                               |
+| monitor | number | 显示器序号，与系统显示编号一致，-1代表主屏。(monitorID不存在时将失败） |
 
 
 <h3 id=CRVideo_DestroyScreenCamDev>CRVideo_DestroyScreenCamDev(videoID)</h3>
@@ -5859,9 +5854,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoID|	number|	摄像头id|
+| 参数    | 类型   | 含义     |
+| :------ | :----- | :------- |
+| videoID | number | 摄像头id |
 
 
 <h3 id=CRVideo_CreateCustomVideoDev>CRVideo_CreateCustomVideoDev(camName,pixFmt,width,height,extParams)</h3>
@@ -5870,13 +5865,13 @@ CRVideo_Logout()
 
 - **返回值**: <0 ,失败; >=0, 为videoID(摄像头ID) (number)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|camName|	string|	摄像头名称|
-|pixFmt|	number|	参见 [CRVideo_VIDEO_FORMAT](Constant.md#CRVideo_VIDEO_FORMAT)定义|
-|width|	number|	图像宽度|
-|height|	number|	图像高度|
-|extParams|	string|	扩展参数，没有为空|
+| 参数      | 类型   | 含义                                                              |
+| :-------- | :----- | :---------------------------------------------------------------- |
+| camName   | string | 摄像头名称                                                        |
+| pixFmt    | number | 参见 [CRVideo_VIDEO_FORMAT](Constant.md#CRVideo_VIDEO_FORMAT)定义 |
+| width     | number | 图像宽度                                                          |
+| height    | number | 图像高度                                                          |
+| extParams | string | 扩展参数，没有为空                                                |
 
 >添加成功后与本地摄像头处理一致；getAllVideoInfo接口可以识别摄像头类型。
 
@@ -5887,9 +5882,9 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoID| number|	摄像头id (CRVideo_CreateCustomVideoDev返回值)|
+| 参数    | 类型   | 含义                                          |
+| :------ | :----- | :-------------------------------------------- |
+| videoID | number | 摄像头id (CRVideo_CreateCustomVideoDev返回值) |
 
 
 <h3 id=CRVideo_InputCustomVideoDat>CRVideo_InputCustomVideoDat(videoID,base64Dat,timeStamp)</h3>
@@ -5898,11 +5893,11 @@ CRVideo_Logout()
 
 - **返回值**: 无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoID| number|	摄像头id|
-|base64Dat| string|	图像数据，base64编码。（请保证格式、和尺寸与摄像头匹配） |
-|timeStamp| number|	保留字段，请填0 |
+| 参数      | 类型   | 含义                                                     |
+| :-------- | :----- | :------------------------------------------------------- |
+| videoID   | number | 摄像头id                                                 |
+| base64Dat | string | 图像数据，base64编码。（请保证格式、和尺寸与摄像头匹配） |
+| timeStamp | number | 保留字段，请填0                                          |
 
 
 
@@ -5922,9 +5917,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	|string	|用户的ID|
+| 参数 | 类型   | 含义     |
+| :--- | :----- | :------- |
+| UID  | string | 用户的ID |
 
 >打开用户的摄像头，以便本地、远端显示视频图像
 
@@ -5935,9 +5930,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID |	string	|用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 
@@ -5947,9 +5942,9 @@ CRVideo_Logout()
 
 - **返回值**:用户是否多摄像头（bool）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	 |string	|用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 <h3 id=CRVideo_GetVideoImg>CRVideo_GetVideoImg()</h3>
@@ -5958,10 +5953,10 @@ CRVideo_Logout()
 
 - **返回值**:返回frame视频数据（[CRVideo_VideoImgObj](TypeDefinitions.md#CRVideo_VideoImgObj)）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	|string|	用户ID|
-|videoID|	number	|设备id|
+| 参数    | 类型   | 含义   |
+| :------ | :----- | :----- |
+| UID     | string | 用户ID |
+| videoID | number | 设备id |
 
 
 
@@ -5971,10 +5966,10 @@ CRVideo_Logout()
 
 - **返回值**:true/false
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoID	|number|	摄像头id|
-|hParenWnd	|number|	高级配置界面的父窗口, 没有特别需求传0即可|
+| 参数      | 类型   | 含义                                      |
+| :-------- | :----- | :---------------------------------------- |
+| videoID   | number | 摄像头id                                  |
+| hParenWnd | number | 高级配置界面的父窗口, 没有特别需求传0即可 |
 
 
 
@@ -5984,10 +5979,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoID	|string	|本地摄像头id|
-|jsonAttributes|json格式 |支持的参数有：{"disabled": 取值0/1}，1:代表不启用此摄像头；详见[VideoAttributesObj](TypeDefinitions.md#VideoAttributesObj)|
+| 参数           | 类型     | 含义                                                                                                                       |
+| :------------- | :------- | :------------------------------------------------------------------------------------------------------------------------- |
+| videoID        | string   | 本地摄像头id                                                                                                               |
+| jsonAttributes | json格式 | 支持的参数有：{"disabled": 取值0/1}，1:代表不启用此摄像头；详见[VideoAttributesObj](TypeDefinitions.md#VideoAttributesObj) |
 
 >注：未设置的参数，使用全局参数
 
@@ -5999,9 +5994,9 @@ CRVideo_Logout()
 
 - **返回值**:私有参数, json格式，详见（[VideoAttributesObj](TypeDefinitions.md#VideoAttributesObj)）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoID	|string	|本地摄像头id|
+| 参数    | 类型   | 含义         |
+| :------ | :----- | :----------- |
+| videoID | string | 本地摄像头id |
 
 
 
@@ -6010,10 +6005,10 @@ CRVideo_Logout()
 
 - **功能**: 设置用户是否启用多摄像头
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	| string| 	用户ID  (当前只能配置自已）|
-| enable	| bool| 1表示开启（将启用本地所有摄像头），0表示关闭（只启用默认摄像头，[CRVideo_SetDefaultVideo](API.md#CRVideo_SetDefaultVideo)）|
+| 参数   | 类型   | 含义                                                                                                                        |
+| :----- | :----- | :-------------------------------------------------------------------------------------------------------------------------- |
+| UID    | string | 用户ID  (当前只能配置自已）                                                                                                 |
+| enable | bool   | 1表示开启（将启用本地所有摄像头），0表示关闭（只启用默认摄像头，[CRVideo_SetDefaultVideo](API.md#CRVideo_SetDefaultVideo)） |
 
 > 如果只想开启某几个摄像头（不是所有）， 那么需要：CRVideo_SetEnableMutiVideo(myUserID, true), 然后调用[CRVideo_SetLocVideoAttributes](API.md#CRVideo_SetLocVideoAttributes)将不需要的摄像头disable掉。
 
@@ -6025,9 +6020,9 @@ CRVideo_Logout()
 
 - **返回值**:sdkErr 操作结果码, 0代成功, 非0代表入会失败，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|url|	string|	网络摄像头url，支持协议:rtmp,rtsp|
+| 参数 | 类型   | 含义                              |
+| :--- | :----- | :-------------------------------- |
+| url  | string | 网络摄像头url，支持协议:rtmp,rtsp |
 >添加成功后与本地摄像头处理一致；[CRVideo_GetAllVideoInfo](API.md#CRVideo_GetAllVideoInfo)接口可以识别哪些是网络摄像头。
 
 
@@ -6037,9 +6032,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|url|	string|	网络摄像头url，支持协议:rtmp,rtsp|
+| 参数 | 类型   | 含义                              |
+| :--- | :----- | :-------------------------------- |
+| url  | string | 网络摄像头url，支持协议:rtmp,rtsp |
 
 
 <h3 id=CRVideo_BSupportVirtualBackground>CRVideo_BSupportVirtualBackground(type)</h3>
@@ -6048,9 +6043,9 @@ CRVideo_Logout()
 
 - **返回值**: true:支持，false:不支持
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|type|	number|检查是否支持type类型虚拟背景，取值参见：[CRVideo_VIRTUALBK_TYPE](Constant.md#CRVideo_VIRTUALBK_TYPE)|
+| 参数 | 类型   | 含义                                                                                                 |
+| :--- | :----- | :--------------------------------------------------------------------------------------------------- |
+| type | number | 检查是否支持type类型虚拟背景，取值参见：[CRVideo_VIRTUALBK_TYPE](Constant.md#CRVideo_VIRTUALBK_TYPE) |
 
 
 <h3 id=CRVideo_SetVirtualBackground>CRVideo_SetVirtualBackground(cfg)</h3>
@@ -6059,9 +6054,9 @@ CRVideo_Logout()
 
 - **返回值**: true:成功，false:失败
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cfg| json格式 |配置虚拟背景参数，json格式，参见：[CRVideo_VirtualBkCfg](TypeDefinitions.md#CRVideo_VirtualBkCfg)|
+| 参数 | 类型     | 含义                                                                                              |
+| :--- | :------- | :------------------------------------------------------------------------------------------------ |
+| cfg  | json格式 | 配置虚拟背景参数，json格式，参见：[CRVideo_VirtualBkCfg](TypeDefinitions.md#CRVideo_VirtualBkCfg) |
 
 
 <h3 id=CRVideo_GetVirtualBackground>CRVideo_GetVirtualBackground()</h3>
@@ -6104,10 +6099,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|mainPage |	number |	功能类型 |
-|pageID |	string |	子页面标识（如创建白板时返回的boardID）|
+| 参数     | 类型   | 含义                                    |
+| :------- | :----- | :-------------------------------------- |
+| mainPage | number | 功能类型                                |
+| pageID   | string | 子页面标识（如创建白板时返回的boardID） |
 
 
 <h3 id=CRVideo_Getcurrentmainpage>CRVideo_Getcurrentmainpage()</h3>
@@ -6137,9 +6132,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	|string|	用户ID|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户ID |
 
 
 
@@ -6150,10 +6145,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|DNDStatus	 |number |	0代表关闭免打扰， 其它值代表开启免打扰，含义自由定义 |
-|cookie |	string |	自定义数据 （在回调时，回传给调用者）|
+| 参数      | 类型   | 含义                                                 |
+| :-------- | :----- | :--------------------------------------------------- |
+| DNDStatus | number | 0代表关闭免打扰， 其它值代表开启免打扰，含义自由定义 |
+| cookie    | string | 自定义数据 （在回调时，回传给调用者）                |
 
 >操作成功则回调[CRVideo_SetDNDStatusSuccess](#CRVideo_SetDNDStatusSuccess)，失败则回调[CRVideo_SetDNDStatusFail](#CRVideo_SetDNDStatusFail)   
 
@@ -6166,9 +6161,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cookie	 |string	|自定义数据（在回调时，回传给调用者，不需要时传空字符串）|
+| 参数   | 类型   | 含义                                                     |
+| :----- | :----- | :------------------------------------------------------- |
+| cookie | string | 自定义数据（在回调时，回传给调用者，不需要时传空字符串） |
 
 >操作成功则回调[CRVideo_GetUserStatusSuccess](#CRVideo_GetUserStatusSuccess)，失败则回调[CRVideo_GetUserStatusFail](#CRVideo_GetUserStatusFail)
 
@@ -6179,10 +6174,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|usrID	 |string	|用户ID|
-|cookie	 |string	|自定义数据（在回调时，回传给调用者，不需要时传空字符串）|
+| 参数   | 类型   | 含义                                                     |
+| :----- | :----- | :------------------------------------------------------- |
+| usrID  | string | 用户ID                                                   |
+| cookie | string | 自定义数据（在回调时，回传给调用者，不需要时传空字符串） |
 
 >操作成功则回调[CRVideo_GetUserStatusSuccess](#CRVideo_GetUserStatusSuccess)，失败则回调[CRVideo_GetUserStatusFail](#CRVideo_GetUserStatusFail)
 
@@ -6193,9 +6188,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cookie |	number |自定义数据（在回调时，回传给调用者，不需要时传空字符串）|
+| 参数   | 类型   | 含义                                                     |
+| :----- | :----- | :------------------------------------------------------- |
+| cookie | number | 自定义数据（在回调时，回传给调用者，不需要时传空字符串） |
 
 >回调函数： [CRVideo_StartUserStatusNotifyRslt](#CRVideo_StartUserStatusNotifyRslt)
 
@@ -6210,28 +6205,25 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cookie	|string|	自定义数据（在回调时，回传给调用者，不需要时传空字符串） |
+| 参数   | 类型   | 含义                                                     |
+| :----- | :----- | :------------------------------------------------------- |
+| cookie | string | 自定义数据（在回调时，回传给调用者，不需要时传空字符串） |
 
 >回调函数： [CRVideo_StopUserStatusNotifyRslt](#CRVideo_StopUserStatusNotifyRslt)
 
 >  
 
 
-<h3 id=CRVideo_CreateMeeting>CRVideo_CreateMeeting(meetSubject, needPswd, cookie)</h3>
-<h3 id=CRVideo_CreateMeeting2>CRVideo_CreateMeeting2(json, cookie)</h3>
+<h3 id=CRVideo_CreateMeeting2>CRVideo_CreateMeeting2(params, cookie)</h3>
 
 - **功能**: 创建房间
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|meetSubject|	string	|房间主题（字符长度最大值50）|
-|needPswd|	number	|是否创建房间密码（=0时：房间无密码，>0时：密码由系统自动生成）|
-|cookie	|string	|自定义数据 （在回调时，回传给调用者）|
-|json	|[CRVideo_CreatInfoObj](TypeDefinitions.md#CRVideo_CreatInfoObj)	|创建房间信息，json结构体定义请参见CRVideo_CreatInfoObj|
+| 参数        | 类型                                                            | 含义                                                           |
+| :---------- | :-------------------------------------------------------------- | :------------------------------------------------------------- |
+| params      |string                                                           | 保留参数        |
+| cookie      | string                                                          | 自定义数据 （在回调时，回传给调用者）                          |
 
 >操作成功则回调[CRVideo_CreateMeetingSuccess](#CRVideo_CreateMeetingSuccess)，失败则回调[CRVideo_CreateMeetingFail](#CRVideo_CreateMeetingFail)
 
@@ -6242,10 +6234,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|meetID	|number	|房间id|
-|cookie	|string|	详细介绍见[关键词](KeyWords.md#cookie)|
+| 参数   | 类型   | 含义                                   |
+| :----- | :----- | :------------------------------------- |
+| meetID | number | 房间id                                 |
+| cookie | string | 详细介绍见[关键词](KeyWords.md#cookie) |
 
 >回调函数[CRVideo_DestroyMeetingRslt](API.md#CRVideo_DestroyMeetingRslt)
 
@@ -6260,10 +6252,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cookie	 |string	|详细介绍见[关键词](KeyWords.md#cookie)|
-|json	 |[CRVideo_GetMeetingsParam](TypeDefinitions.md#CRVideo_GetMeetingsParam)|获取视频房间列表的参数,json结构体|
+| 参数   | 类型                                                                    | 含义                                   |
+| :----- | :---------------------------------------------------------------------- | :------------------------------------- |
+| cookie | string                                                                  | 详细介绍见[关键词](KeyWords.md#cookie) |
+| json   | [CRVideo_GetMeetingsParam](TypeDefinitions.md#CRVideo_GetMeetingsParam) | 获取视频房间列表的参数,json结构体      |
 
 >响应事件[CRVideo_GetMeetingsSuccess](#CRVideo_GetMeetingsSuccess)，房间被他人结束的回调事件[CRVideo_GetMeetingsFail](#CRVideo_GetMeetingsFail)
 
@@ -6339,9 +6331,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|meetID|	number|	房间ID|
+| 参数   | 类型   | 含义   |
+| :----- | :----- | :----- |
+| meetID | number | 房间ID |
 
 >双方开始进入房间 操作完成则回调[CRVideo_EnterMeetingRslt](#CRVideo_EnterMeetingRslt)
 
@@ -6379,10 +6371,10 @@ CRVideo_Logout()
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|  sdkErr | number  | 操作失败代码，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)  |
-|  userID | string  | 被踢人UserID |
+| 参数   | 类型   | 含义                                                                  |
+| :----- | :----- | :-------------------------------------------------------------------- |
+| sdkErr | number | 操作失败代码，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF) |
+| userID | string | 被踢人UserID                                                          |
 
 
 <h3 id=CRVideo_UserEnterMeeting>CRVideo_UserEnterMeeting.callback = function(usrID){}</h3>
@@ -6427,10 +6419,10 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|meetID|	number|	房间id|
-|reserve	|string	|保留字段， 填空|
+| 参数    | 类型   | 含义            |
+| :------ | :----- | :-------------- |
+| meetID  | number | 房间id          |
+| reserve | string | 保留字段， 填空 |
 
 >回调函数[CRVideo_StopMeetingRslt](#CRVideo_StopMeetingRslt)，调用此接口结束房间时，其他会话用户会收到[CRVideo_MeetingStopped](#CRVideo_MeetingStopped)
 
@@ -6573,9 +6565,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|jsonCfg	|json格式|	详见[CRVideo_VideoCfg](TypeDefinitions.md#CRVideo_VideoCfg)说明|
+| 参数    | 类型     | 含义                                                            |
+| :------ | :------- | :-------------------------------------------------------------- |
+| jsonCfg | json格式 | 详见[CRVideo_VideoCfg](TypeDefinitions.md#CRVideo_VideoCfg)说明 |
 
 
 <h3 id=CRVideo_GetMediacfg>CRVideo_GetMediacfg()</h3>
@@ -6610,11 +6602,11 @@ CRVideo_Logout()
 
 - **返回值**:返回值 整形数值，1：正常，0：失败(number)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|aSide|	number|	声道类型 0:麦克风，1:扬声器|
-|getType	|number|	获取方式 0:回调方式，1:保存为文件|
-|jsonParam	|string	|当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "e:\\test.pcm" }|
+| 参数      | 类型   | 含义                                                                                                                                                                             |
+| :-------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| aSide     | number | 声道类型 0:麦克风，1:扬声器                                                                                                                                                      |
+| getType   | number | 获取方式 0:回调方式，1:保存为文件                                                                                                                                                |
+| jsonParam | string | 当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "e:\\test.pcm" } |
 
 
 <h3 id=CRVideo_StopGetAudioPCM>CRVideo_StopGetAudioPCM(aSide)</h3>
@@ -6623,9 +6615,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|aSide	| number| 	声道类型 0:麦克风，1:扬声器|
+| 参数  | 类型   | 含义                        |
+| :---- | :----- | :-------------------------- |
+| aSide | number | 声道类型 0:麦克风，1:扬声器 |
 
 
 <h3 id=CRVideo_SetAudioCfg>CRVideo_SetAudioCfg(cfg)</h3>
@@ -6634,9 +6626,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|cfg | 	[CRVideo_AudioCfg](TypeDefinitions.md#CRVideo_AudioCfg)|	设置参数|
+| 参数 | 类型                                                    | 含义     |
+| :--- | :------------------------------------------------------ | :------- |
+| cfg  | [CRVideo_AudioCfg](TypeDefinitions.md#CRVideo_AudioCfg) | 设置参数 |
 
 
 <h3 id=CRVideo_GetAudioCfg>CRVideo_GetAudioCfg()</h3>
@@ -6652,9 +6644,9 @@ CRVideo_Logout()
 
 - **返回值**:返回音量（0~10）(number)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	 |string	|用户的ID|
+| 参数 | 类型   | 含义     |
+| :--- | :----- | :------- |
+| UID  | string | 用户的ID |
 
 
 <h3 id=CRVideo_OpenMic>CRVideo_OpenMic(UID)</h3>
@@ -6663,9 +6655,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	|string	|用户的ID|
+| 参数 | 类型   | 含义     |
+| :--- | :----- | :------- |
+| UID  | string | 用户的ID |
 
 >打开自已的麦克风时，先会进入到AOPENING状态，等服务器处理后才会进入AOPEN状态，此时说话才能被采集到
 
@@ -6676,9 +6668,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID |	string	|用户的ID|
+| 参数 | 类型   | 含义     |
+| :--- | :----- | :------- |
+| UID  | string | 用户的ID |
 
 >关麦操作是立即生效的，本地会立即停止采集
 
@@ -6689,9 +6681,9 @@ CRVideo_Logout()
 
 - **返回值**:返回麦克风状态([CRVideo_ASTATUS](Constant.md#CRVideo_ASTATUS))
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	 |string	|用户的ID|
+| 参数 | 类型   | 含义     |
+| :--- | :----- | :------- |
+| UID  | string | 用户的ID |
 
 >双方开始进入本次视频会话。操作完成则回调[CRVideo_EnterMeetingRslt](#CRVideo_EnterMeetingRslt)
 
@@ -6711,9 +6703,9 @@ CRVideo_Logout()
 
 - **返回值**:设置成功则返回true,否则返回false（bool）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|level	|number	|音量等级（ 取值范围：0~255）|
+| 参数  | 类型   | 含义                         |
+| :---- | :----- | :--------------------------- |
+| level | number | 音量等级（ 取值范围：0~255） |
 
 
 <h3 id=CRVideo_SetSpeakerVolume>CRVideo_SetSpeakerVolume(level)</h3>
@@ -6721,9 +6713,9 @@ CRVideo_Logout()
 - **功能**: 设置扬声器音量
 - **返回值**:设置成功则返回true,否则返回false（bool）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|level	|number|音量等级（ 取值范围：0~255）|
+| 参数  | 类型   | 含义                         |
+| :---- | :----- | :--------------------------- |
+| level | number | 音量等级（ 取值范围：0~255） |
 
 
 <h3 id=CRVideo_GetSpeakerVolume>CRVideo_GetSpeakerVolume()</h3>
@@ -6742,9 +6734,9 @@ CRVideo_Logout()
 
 - **返回值**:设置成功则返回true,否则返回false（bool）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|value	|number|1,静音，0，不静音|
+| 参数  | 类型   | 含义              |
+| :---- | :----- | :---------------- |
+| value | number | 1,静音，0，不静音 |
 
 
 
@@ -6769,10 +6761,10 @@ CRVideo_Logout()
 
 - **返回值**:返回操作结果
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|enable	|bool|是否开启自定义音频采集, 开启后将不再从系统麦克风采集数据|
-|param	|object|可选扩展参数，json格式，当前支持参数："fromIPCam":摄像头ID, 配置后sdk自动从IPCam中获取音频|
+| 参数   | 类型   | 含义                                                                                       |
+| :----- | :----- | :----------------------------------------------------------------------------------------- |
+| enable | bool   | 是否开启自定义音频采集, 开启后将不再从系统麦克风采集数据                                   |
+| param  | object | 可选扩展参数，json格式，当前支持参数："fromIPCam":摄像头ID, 配置后sdk自动从IPCam中获取音频 |
 
 
 <h3 id=CRVideo_SetCustomAudioPlayback>CRVideo_SetCustomAudioPlayback(enable, params)</h3>
@@ -6781,10 +6773,10 @@ CRVideo_Logout()
 
 - **返回值**:返回操作结果
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|enable	|bool|是否开启自定义音频播放, 开启后本地将不再播放声音|
-|param	|object|可选扩展参数，保留参数|
+| 参数   | 类型   | 含义                                             |
+| :----- | :----- | :----------------------------------------------- |
+| enable | bool   | 是否开启自定义音频播放, 开启后本地将不再播放声音 |
+| param  | object | 可选扩展参数，保留参数                           |
 
 
 
@@ -6826,11 +6818,11 @@ CRVideo_Logout()
 
 - **返回值**:返回值 整形数值，1：正常，0：失败(number)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|filename	| string| 	媒体文件名（本地全路径文件名，或网络流媒体，支持的协议有：http, rtmp, rtsp)|
-| locPlay	| number| 	是否仅仅本地播放（1:本地播放，0：房间内播放）|
-| bPauseWhenFinished| 	number	| 是否播放完毕自动暂停在最后一帧|
+| 参数               | 类型   | 含义                                                                        |
+| :----------------- | :----- | :-------------------------------------------------------------------------- |
+| filename           | string | 媒体文件名（本地全路径文件名，或网络流媒体，支持的协议有：http, rtmp, rtsp) |
+| locPlay            | number | 是否仅仅本地播放（1:本地播放，0：房间内播放）                               |
+| bPauseWhenFinished | number | 是否播放完毕自动暂停在最后一帧                                              |
 
 >如果播放成功，其他人收到[CRVideo_NotifyMediaStart](#CRVideo_NotifyMediaStart)，如果播放失败，请关注通知事件[CRVideo_NotifyMediaStop](#CRVideo_NotifyMediaStop)
 
@@ -6841,9 +6833,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|bPause	|bool	|ture为暂停，false为恢复|
+| 参数   | 类型 | 含义                    |
+| :----- | :--- | :---------------------- |
+| bPause | bool | ture为暂停，false为恢复 |
 
 
 <h3 id=CRVideo_StopPlayMedia>CRVideo_StopPlayMedia()</h3>
@@ -6862,9 +6854,9 @@ CRVideo_Logout()
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|pos	|number	|设置播放位置，单位：毫秒|
+| 参数 | 类型   | 含义                     |
+| :--- | :----- | :----------------------- |
+| pos  | number | 设置播放位置，单位：毫秒 |
 
 
 <h3 id=CRVideo_GetAllFilesInMediaPath>CRVideo_GetAllFilesInMediaPath()</h3>
@@ -6882,9 +6874,9 @@ CRVideo_Logout()
 
 - **返回值**:影音文件信息（[CRVideo_MediaInfoObj](TypeDefinitions.md#CRVideo_MediaInfoObj)）
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	 |string	|用户id，详见[UID](KeyWords.md#UID)|
+| 参数 | 类型   | 含义                               |
+| :--- | :----- | :--------------------------------- |
+| UID  | string | 用户id，详见[UID](KeyWords.md#UID) |
 
 
 <h3 id=CRVideo_Getmediaimg>CRVideo_Getmediaimg(UID)</h3>
@@ -6894,9 +6886,9 @@ CRVideo_Logout()
 
 - **返回值**:帧信息([CRVideo_VideoImgObj](TypeDefinitions.md#CRVideo_VideoImgObj))
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|UID	 |string	|用户id|
+| 参数 | 类型   | 含义   |
+| :--- | :----- | :----- |
+| UID  | string | 用户id |
 
 
 
@@ -6997,9 +6989,9 @@ CRVideo_Logout()
 
 - disableToolBar(bDisable) ------ <font color="red">工具条是否可用</font>
 
-参数   |类型  |说明
--------|----------|---------
- bDisable|	number|	0:可用; 非0:不可用;
+| 参数     | 类型   | 说明                |
+| -------- | ------ | ------------------- |
+| bDisable | number | 0:可用; 非0:不可用; |
 
 - shows() ------ <font color="red">UI组件的显示</font>
   + **继承**:[CRVideo.Container](#Container).shows()
@@ -7018,52 +7010,52 @@ CRVideo_Logout()
 
 - keepAspectRatio(value) ------ <font color="red">绘制模式，是否拉伸绘制</font>
 
-参数   |类型  |说明
--------|----------|---------
- value|	bool|	true: 保持比例不拉伸， false:不保持比例进行拉伸
+| 参数  | 类型 | 说明                                            |
+| ----- | ---- | ----------------------------------------------- |
+| value | bool | true: 保持比例不拉伸， false:不保持比例进行拉伸 |
 
 - dblClickFullScreen(value) ------ <font color="red">设置是否支持双击全屏,默认不支持双击全屏</font>
 
-参数   |类型  |说明
--------|----------|---------
- value|	bool|	true: 支持双击全屏， false:不支持双击全屏
+| 参数  | 类型 | 说明                                      |
+| ----- | ---- | ----------------------------------------- |
+| value | bool | true: 支持双击全屏， false:不支持双击全屏 |
 
 - savePicToBase64(format) ------ <font color="red">保存播放影音画面到图片文件</font>
    + **返回值**:Base64字符串 (string)
 
-参数   |类型  |说明
--------|----------|---------
- format|	string|	支持格式:bmp, png, gif, jpg, jpeg
+| 参数   | 类型   | 说明                              |
+| ------ | ------ | --------------------------------- |
+| format | string | 支持格式:bmp, png, gif, jpg, jpeg |
 
 - savePicToFile(pathFileName) ------ <font color="red">保存播放影音画面到图片文件</font>
    + **返回值**:0成功，非0失败 (number)
 
-参数   |类型  |说明
--------|----------|---------
- pathFileName|	string|	本地绝对路径文件名(支持格式：bmp, png, gif, jpg, jpeg)
+| 参数         | 类型   | 说明                                                   |
+| ------------ | ------ | ------------------------------------------------------ |
+| pathFileName | string | 本地绝对路径文件名(支持格式：bmp, png, gif, jpg, jpeg) |
 
 - setToolBarUIElementVisible(UIElement, isVisible) ------ <font color="red">显示隐藏播放工具条上的界面元素</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-UIElement|	[CRVideo_ToolBarUI](Constant.md#CRVideo_ToolBarUI)	|界面元素
-isVisible	|bool	|是否可见
+| 参数      | 类型                                               | 说明     |
+| --------- | -------------------------------------------------- | -------- |
+| UIElement | [CRVideo_ToolBarUI](Constant.md#CRVideo_ToolBarUI) | 界面元素 |
+| isVisible | bool                                               | 是否可见 |
 
 - setToolBarSize(size) ------ <font color="red">设置工具条的高度</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-size|	number	|工具条高度,范围(24-48)
+| 参数 | 类型   | 说明                   |
+| ---- | ------ | ---------------------- |
+| size | number | 工具条高度,范围(24-48) |
 
 
 - disableChangePlayPos(bDisable) ------ <font color="red">禁止调整播放位置</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-bDisable|	number	|禁止调整播放位置。1：禁止，0：不禁止
+| 参数     | 类型   | 说明                                 |
+| -------- | ------ | ------------------------------------ |
+| bDisable | number | 禁止调整播放位置。1：禁止，0：不禁止 |
 
 - style() ------ <font color="red">UI组件的样式</font>
    + **继承**:[CRVideo.Container](#Container).style()
@@ -7074,9 +7066,9 @@ bDisable|	number	|禁止调整播放位置。1：禁止，0：不禁止
 - setFullScreen(bFullScreen) ------ <font color="red">设置全屏</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-bFullScreen|	bool	|true ：全屏
+| 参数        | 类型 | 说明        |
+| ----------- | ---- | ----------- |
+| bFullScreen | bool | true ：全屏 |
 
 - getFullScreen() ------ <font color="red">获取全屏</font>
    + **参数**:无
@@ -7104,16 +7096,16 @@ bFullScreen|	bool	|true ：全屏
 - ctrlOpen(value) ------ <font color="red">开启控制模式</font>
   + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
- value|	bool|	true: 开启， false:不开启
+| 参数  | 类型 | 说明                      |
+| ----- | ---- | ------------------------- |
+| value | bool | true: 开启， false:不开启 |
 
 - disableFloatToolbar(bDisabled) ------ <font color="red">禁止出现浮动工具条</font>
   + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
- bDisabled| bool|  true:禁止出现， false：允许出现（缺省值）
+| 参数      | 类型 | 说明                                      |
+| --------- | ---- | ----------------------------------------- |
+| bDisabled | bool | true:禁止出现， false：允许出现（缺省值） |
 
 - isCursorInUI() ------ <font color="red">鼠标是否在屏幕共享显示控件上</font>
 
@@ -7142,9 +7134,9 @@ bFullScreen|	bool	|true ：全屏
 - enableMarked(value) ------ <font color="red">开启标注模式</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
- value|	bool|	0: 不开启, 1:开启
+| 参数  | 类型 | 说明              |
+| ----- | ---- | ----------------- |
+| value | bool | 0: 不开启, 1:开启 |
 
 - isPicEmpty() ------ <font color="red">检查图像是否为空</font>
    + **返回值**:无
@@ -7154,31 +7146,31 @@ bFullScreen|	bool	|true ：全屏
 - keepAspectRatio(num) ------ <font color="red">绘制模式，是否拉伸绘制</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
- value|	bool|	true: 保持比例不拉伸， false:不保持比例进行拉伸
+| 参数  | 类型 | 说明                                            |
+| ----- | ---- | ----------------------------------------------- |
+| value | bool | true: 保持比例不拉伸， false:不保持比例进行拉伸 |
 
 - savePic(pathFileName) ------ <font color="red">拍照</font>
    + **返回值**:0:成功； 非0：保存遇到的错误码(bool)
 
-参数   |类型  |说明
--------|----------|---------
- pathFileName|	string|	本地绝对路径文件名(支持格式：bmp, png, gif, jpg, jpeg)
+| 参数         | 类型   | 说明                                                   |
+| ------------ | ------ | ------------------------------------------------------ |
+| pathFileName | string | 本地绝对路径文件名(支持格式：bmp, png, gif, jpg, jpeg) |
 
 - setPenStyle(intRgba, penType) ------ <font color="red">设置标注画笔样式</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-intRgba	|number|	颜色，排列方式bgr(8:8:8)
-penType|	number	|画笔类型（1:铅笔, 2:水笔）
+| 参数    | 类型   | 说明                       |
+| ------- | ------ | -------------------------- |
+| intRgba | number | 颜色，排列方式bgr(8:8:8)   |
+| penType | number | 画笔类型（1:铅笔, 2:水笔） |
 
 - setFullScreen(bFullScreen) ------ <font color="red">设置全屏</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-bFullScreen|	bool	|true ：全屏
+| 参数        | 类型 | 说明        |
+| ----------- | ---- | ----------- |
+| bFullScreen | bool | true ：全屏 |
 
 - getFullScreen() ------ <font color="red">获取全屏</font>
    + **参数**:无
@@ -7188,9 +7180,9 @@ bFullScreen|	bool	|true ：全屏
 - setDblClickFullScreen(bVal) ------ <font color="red">配置是否允许双击全屏</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-bVal|	bool	|true:允许(缺省值)， false：不允许
+| 参数 | 类型 | 说明                              |
+| ---- | ---- | --------------------------------- |
+| bVal | bool | true:允许(缺省值)， false：不允许 |
 
 - getDblClickFullScreen() ------ <font color="red">获取是否允许双击全屏</font>
    + **参数**:无
@@ -7202,9 +7194,9 @@ bVal|	bool	|true:允许(缺省值)， false：不允许
   - setScaleType(type) ------ <font color="red">设置图像显示模式</font>
    + **参数**:
 
-    参数   |类型  |说明
-    -------|----------|---------
-    type|	number|	 <p>0: 等比例缩放留空居中显示</p>  <p>1: 等比例缩放裁剪铺满显示； </p> <p>2: 不等比例缩放铺满显示（可能导致图像拉伸） </p>|
+    | 参数 | 类型   | 说明                                                                                                                      |
+    | ---- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+    | type | number | <p>0: 等比例缩放留空居中显示</p>  <p>1: 等比例缩放裁剪铺满显示； </p> <p>2: 不等比例缩放铺满显示（可能导致图像拉伸） </p> |
 
    
 
@@ -7239,10 +7231,10 @@ bVal|	bool	|true:允许(缺省值)， false：不允许
 - setMaskPic(base64PNG,bScaleToFitVideoUI) ------ <font color="red">在视频窗口上显示一个遮罩图片</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-base64PNG|	string|	 base64格式的png图像数据
-bScaleToFitVideoUI|	bool| true:铺满视频窗口，false:居中显示
+| 参数               | 类型   | 说明                              |
+| ------------------ | ------ | --------------------------------- |
+| base64PNG          | string | base64格式的png图像数据           |
+| bScaleToFitVideoUI | bool   | true:铺满视频窗口，false:居中显示 |
 
 - handler() ------ <font color="red">object对象</font>
    + **继承**:[CRVideo.Container](#Container).handler()
@@ -7261,58 +7253,58 @@ bScaleToFitVideoUI|	bool| true:铺满视频窗口，false:居中显示
 
 - keepAspectRatio(value) ------ <font color="red">设置显示的视频画面是否保持比例</font>
 
-参数   |类型  |说明
--------|----------|---------
-value|	bool|	true: 保持比例不拉伸， false:不保持比例进行拉伸
+| 参数  | 类型 | 说明                                            |
+| ----- | ---- | ----------------------------------------------- |
+| value | bool | true: 保持比例不拉伸， false:不保持比例进行拉伸 |
 
 - dblClickFullScreen(value) ------ <font color="red">设置是否支持双击全屏,默认不支持双击全屏</font>
 
-参数   |类型  |说明
--------|----------|---------
- value|	bool|	true: 支持双击全屏， false:不支持双击全屏
+| 参数  | 类型 | 说明                                      |
+| ----- | ---- | ----------------------------------------- |
+| value | bool | true: 支持双击全屏， false:不支持双击全屏 |
 
 - savePic(pathFileName) ------ <font color="red">拍照</font>
 
    + **返回值**:0:成功； 非0：保存遇到的错误码 (bool)
 
-参数   |类型  |说明
--------|----------|---------
-pathFileName|	string|	本地绝对路径文件名(支持格式：bmp, png, gif, jpg, jpeg)
+| 参数         | 类型   | 说明                                                   |
+| ------------ | ------ | ------------------------------------------------------ |
+| pathFileName | string | 本地绝对路径文件名(支持格式：bmp, png, gif, jpg, jpeg) |
 
 - savePicToBase64(format) ------ <font color="red">拍照</font>
 
    + **返回值**:Base64为图片数据字符串，不成功则为空 (string)
 
-参数   |类型  |说明
--------|----------|---------
-format|	string|	图片格式，支持bmp, png, gif, jpg, jpeg
+| 参数   | 类型   | 说明                                   |
+| ------ | ------ | -------------------------------------- |
+| format | string | 图片格式，支持bmp, png, gif, jpg, jpeg |
 
 - setMaskPic(base64PNG, scaleToFitVideoUI) ------ <font color="red">在视频窗口上显示一个遮罩图片</font>
 
     + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-base64PNG | string| base64格式的png图像数据
-scaleToFitVideoUI| bool| true:铺满视频窗口，false:居中显示
+| 参数              | 类型   | 说明                              |
+| ----------------- | ------ | --------------------------------- |
+| base64PNG         | string | base64格式的png图像数据           |
+| scaleToFitVideoUI | bool   | true:铺满视频窗口，false:居中显示 |
 
 - setToolbarHeight(height) ------ <font color="red">配置工具条高度</font>
 
     + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-height | number| 工具条高度
+| 参数   | 类型   | 说明       |
+| ------ | ------ | ---------- |
+| height | number | 工具条高度 |
 
 - setToolButton(id,  iconFileName, toolTip) ------ <font color="red">配置工具条内容</font>
 
     + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-id | number| 按钮id
-iconFileName | string| 按钮图标路径文件名
-toolTip | string| 按钮的tooltip
+| 参数         | 类型   | 说明               |
+| ------------ | ------ | ------------------ |
+| id           | number | 按钮id             |
+| iconFileName | string | 按钮图标路径文件名 |
+| toolTip      | string | 按钮的tooltip      |
 
 > 同一id多次配置时，将以最后一次配置为准；当iconFileName为空时，则代表移除对应按钮；
 
@@ -7320,12 +7312,12 @@ toolTip | string| 按钮的tooltip
 
   + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-x | number| 相对于VideoUI控件的左上角位置（水平方向）
-y | number| 相对于VideoUI控件的左上角位置（垂直方向）
-w | number| 拍照的图像大小(宽)
-h | number| 拍照的图像大小（高）
+| 参数 | 类型   | 说明                                      |
+| ---- | ------ | ----------------------------------------- |
+| x    | number | 相对于VideoUI控件的左上角位置（水平方向） |
+| y    | number | 相对于VideoUI控件的左上角位置（垂直方向） |
+| w    | number | 拍照的图像大小(宽)                        |
+| h    | number | 拍照的图像大小（高）                      |
 
 ><font color=#ff0000>注意：此设配置对以下所有保存接口有效， 当x,y,w,h均为0时，代表保存完整图像。</font>
 
@@ -7341,9 +7333,9 @@ h | number| 拍照的图像大小（高）
 - setFullScreen(bFullScreen) ------ <font color="red">设置全屏</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-bFullScreen|	bool	|true ：全屏
+| 参数        | 类型 | 说明        |
+| ----------- | ---- | ----------- |
+| bFullScreen | bool | true ：全屏 |
 
 - getFullScreen() ------ <font color="red">获取全屏</font>
    + **参数**:无
@@ -7354,20 +7346,20 @@ bFullScreen|	bool	|true ：全屏
 
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-UID	|string	|目标用户ID
-videoID	|number|	用户的指定视频设备（-1，代表用户的默认视频设备）
+| 参数    | 类型   | 说明                                             |
+| ------- | ------ | ------------------------------------------------ |
+| UID     | string | 目标用户ID                                       |
+| videoID | number | 用户的指定视频设备（-1，代表用户的默认视频设备） |
 
 - setVideo2(UID, videoID, qualityLv) ------ <font color="red">设置显示目标用户的第2档视频</font>
 
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-UID	|string	|目标用户ID
-videoID	|number|	用户的指定视频设备（-1，代表用户的默认视频设备）
-qualityLv	|number	|视频档位(1:默认档位，2:对应quality2，如果2未开启时将显示1档的视频流）
+| 参数      | 类型   | 说明                                                                  |
+| --------- | ------ | --------------------------------------------------------------------- |
+| UID       | string | 目标用户ID                                                            |
+| videoID   | number | 用户的指定视频设备（-1，代表用户的默认视频设备）                      |
+| qualityLv | number | 视频档位(1:默认档位，2:对应quality2，如果2未开启时将显示1档的视频流） |
 
 >从[房间内可观看摄像头列表](API.md#CRVideo_GetWatchableVideos)中获取UID和videoID
 
@@ -7382,9 +7374,9 @@ qualityLv	|number	|视频档位(1:默认档位，2:对应quality2，如果2未�
 - setVisibleNickName(value) ------ <font color="red">设置是否显示昵称</font>
    + **返回值**:无
 
-参数   |类型  |说明
--------|----------|---------
-value	|bool	|是否显示昵称
+| 参数  | 类型 | 说明         |
+| ----- | ---- | ------------ |
+| value | bool | 是否显示昵称 |
 
 
 - style() ------ <font color="red">成员视频UI显示组件的样式</font>
@@ -7446,10 +7438,10 @@ CloudroomBoardUI 白板显示组件，是由[视频房间组件](API.md#CRVideo_
 - setCurBoard(boardID, pageNo) ------ <font color="red"> 设置当前白板</font>
     + **返回值**: 无
 
-参数   |类型  |说明
--------|----------|---------
-boardID|  string| 白板的ID
-pageNo|  number| 白板的页序号，0为第一页。
+| 参数    | 类型   | 说明                      |
+| ------- | ------ | ------------------------- |
+| boardID | string | 白板的ID                  |
+| pageNo  | number | 白板的页序号，0为第一页。 |
 
 - undo() ------ <font color="red">  撤消我的最后一个标注</font>
     + **返回值**: 无
@@ -7466,16 +7458,16 @@ pageNo|  number| 白板的页序号，0为第一页。
 - setScaledContents(bScaled) ------ <font color="red"> 设置白板的缩放模式</font>
     + **返回值**: 无
 
-参数   |类型  |说明
--------|----------|---------
-bScaled |  bool| 是否启用缩放模式
+| 参数    | 类型 | 说明             |
+| ------- | ---- | ---------------- |
+| bScaled | bool | 是否启用缩放模式 |
 
 - setColor(penColorObj) ------ <font color="red"> 设置画笔颜色</font>
     + **返回值**: 无
 
-参数   |类型  |说明
--------|----------|---------
-penColorObj |  json格式| 画笔颜色值对象，详见[CRVideo_PenColorObj](TypeDefinitions.md#CRVideo_PenColorObj)
+| 参数        | 类型     | 说明                                                                              |
+| ----------- | -------- | --------------------------------------------------------------------------------- |
+| penColorObj | json格式 | 画笔颜色值对象，详见[CRVideo_PenColorObj](TypeDefinitions.md#CRVideo_PenColorObj) |
 
 - getColor() ------ <font color="red"> 获取当前画笔颜色</font>
     + **返回值**: CRVideo_PenColorObj, json格式,详见[CRVideo_PenColorObj](TypeDefinitions.md#CRVideo_PenColorObj)
@@ -7483,9 +7475,9 @@ penColorObj |  json格式| 画笔颜色值对象，详见[CRVideo_PenColorObj](T
 - setLineWidth(width) ------ <font color="red"> 设置画笔粗细</font>
     + **返回值**: 无
 
-参数   |类型  |说明
--------|----------|---------
-width |  number|  线条的宽度
+| 参数  | 类型   | 说明       |
+| ----- | ------ | ---------- |
+| width | number | 线条的宽度 |
 
 - getLineWidth() ------ <font color="red"> 获取当前画笔颜色</font>
     + **返回值**: 线条的宽度 (number)
@@ -7493,9 +7485,9 @@ width |  number|  线条的宽度
 - setReadOnly(bReadOnly) ------ <font color="red"> 设置白板本地只读（本地禁止标注，其他端不受影响）</font>
     + **返回值**: 无
 
-参数   |类型  |说明
--------|----------|---------
-bReadOnly |  bool|  是否只读
+| 参数      | 类型 | 说明     |
+| --------- | ---- | -------- |
+| bReadOnly | bool | 是否只读 |
 
 - isReadOnly() ------ <font color="red">  获取白板本地只读配置</font>
 + **返回值**: 是否只读 (bool), true - 白板本地只读
@@ -7536,9 +7528,9 @@ bReadOnly |  bool|  是否只读
 - **返回值**:详见 [CRVideo_HttpFileInfoObj](TypeDefinitions.md#CRVideo_HttpFileInfoObj)
 
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|filePathName	|string|	本地路径文件名|
+| 参数         | 类型   | 含义           |
+| :----------- | :----- | :------------- |
+| filePathName | string | 本地路径文件名 |
 
 <h3 id=CRVideo_StartTransferFile>CRVideo_StartTransferFile(fileinfo)</h3>
 
@@ -7547,9 +7539,9 @@ bReadOnly |  bool|  是否只读
 - **返回值**:无
 
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|fileinfo	|json格式| 详见[CRVideo_HttpReqInfoObj](TypeDefinitions.md#CRVideo_HttpReqInfoObj)|
+| 参数     | 类型     | 含义                                                                    |
+| :------- | :------- | :---------------------------------------------------------------------- |
+| fileinfo | json格式 | 详见[CRVideo_HttpReqInfoObj](TypeDefinitions.md#CRVideo_HttpReqInfoObj) |
 
 
 <h3 id=CRVideo_CancelFileTransfer>CRVideo_CancelFileTransfer(fileName)</h3>
@@ -7558,9 +7550,9 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|fileName	|string| 本地路径文件名|
+| 参数     | 类型   | 含义           |
+| :------- | :----- | :------------- |
+| fileName | string | 本地路径文件名 |
 
 >注意：取消时，只是停止了传输任务，不清理记录及断点文件。
 
@@ -7570,10 +7562,10 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|fileName	|string| 文件名|
-|bRemoveLocFile	|number| 是否移除本地文件,为1时，那么上传的源始文件、下载的临时文件或结果文件都将被移除。|
+| 参数           | 类型   | 含义                                                                             |
+| :------------- | :----- | :------------------------------------------------------------------------------- |
+| fileName       | string | 文件名                                                                           |
+| bRemoveLocFile | number | 是否移除本地文件,为1时，那么上传的源始文件、下载的临时文件或结果文件都将被移除。 |
 
 >注意： 此接口将文件从管理器中移除（CRVideo_GetAllTransferInfos将不再返回相关信息），如果bRemoveLocFile为1时， 那么上传的源始文件、下载的临时文件或结果文件都将被移除。
 
@@ -7627,9 +7619,9 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:尝试结果，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|diskPathFileName   |string|    本地路径文件名|
+| 参数             | 类型   | 含义           |
+| :--------------- | :----- | :------------- |
+| diskPathFileName | string | 本地路径文件名 |
 
 <h3 id=CRVideo_ReadFileAsBase64>CRVideo_ReadFileAsBase64(diskPathFileName)</h3>
 
@@ -7637,9 +7629,9 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**: 以base64编码返回文件内容
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|diskPathFileName   |string|    本地路径文件名|
+| 参数             | 类型   | 含义           |
+| :--------------- | :----- | :------------- |
+| diskPathFileName | string | 本地路径文件名 |
 
 <h3 id=CRVideo_WriteBase64ToFile>CRVideo_WriteBase64ToFile(diskPathFileName, base64Dat)</h3>
 
@@ -7648,10 +7640,10 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**: 结果，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|diskPathFileName   |string|    本地路径文件名|
-|base64Dat   |string|    base64编码格式的文件数据|
+| 参数             | 类型   | 含义                     |
+| :--------------- | :----- | :----------------------- |
+| diskPathFileName | string | 本地路径文件名           |
+| base64Dat        | string | base64编码格式的文件数据 |
 
 
 
@@ -7662,10 +7654,10 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**: 结果，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|srcDiskFileName   |string|    本地源文件|
-|dstDiskFileName   |string|    本地目标文件|
+| 参数            | 类型   | 含义         |
+| :-------------- | :----- | :----------- |
+| srcDiskFileName | string | 本地源文件   |
+| dstDiskFileName | string | 本地目标文件 |
 
 >注意：目标文件如果已存在，将按失败处理，不会覆盖;
 
@@ -7677,11 +7669,11 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**: 结果，空串表示用户取消， 否则返回用户选择的文件路径文件名
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|title   |string|    打开文件框的标题|
-|directory|    string| 打开对话框初始路径,不设初始值时请传空|
-|filter|    string| 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)"|
+| 参数      | 类型   | 含义                                                                             |
+| :-------- | :----- | :------------------------------------------------------------------------------- |
+| title     | string | 打开文件框的标题                                                                 |
+| directory | string | 打开对话框初始路径,不设初始值时请传空                                            |
+| filter    | string | 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)" |
 
 
 <h3 id=CRVideo_GetSaveFileName>CRVideo_GetSaveFileName(title,directory,filter)</h3>
@@ -7690,11 +7682,11 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**: 结果，空串表示用户取消， 否则返回用户保存的文件路径文件名
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|title   |string|    打开文件框的标题|
-|directory|    string| 打开对话框初始路径,不设初始值时请传空|
-|filter|    string| 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)"|
+| 参数      | 类型   | 含义                                                                             |
+| :-------- | :----- | :------------------------------------------------------------------------------- |
+| title     | string | 打开文件框的标题                                                                 |
+| directory | string | 打开对话框初始路径,不设初始值时请传空                                            |
+| filter    | string | 文件类型过滤器（可为空），示例："Images (*.png *.xpm *.jpg);;Text files (*.txt)" |
 
 <h3 id=CRVideo_RemoveFromRecordMgr>CRVideo_RemoveFromRecordMgr(filename)</h3>
 
@@ -7702,9 +7694,9 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|filename	|string	|文件名|
+| 参数     | 类型   | 含义   |
+| :------- | :----- | :----- |
+| filename | string | 文件名 |
 
 >上传中的文件会被取消上传,已上传完成的服务器文件不受影响
 
@@ -7715,10 +7707,10 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:  -1：本地文件不存在，0：成功，1：文件已经被添加过
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|filename	|string	|文件名，不含路径|
-|filePath	|string	|文件路径，不含文件名|
+| 参数     | 类型   | 含义                 |
+| :------- | :----- | :------------------- |
+| filename | string | 文件名，不含路径     |
+| filePath | string | 文件路径，不含文件名 |
 
 >第三方录制文件调用此接口后可进行本地回放和上传到视频服务器上，和自己录制的文件一样可以正常在线播放和下载
 
@@ -7742,11 +7734,11 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoFilePathName   |string|    视频文件路径名|
-|msecond|    number| 视频播放的位置(毫秒)|
-|markText|    string| 打点信息|
+| 参数              | 类型   | 含义                 |
+| :---------------- | :----- | :------------------- |
+| videoFilePathName | string | 视频文件路径名       |
+| msecond           | number | 视频播放的位置(毫秒) |
+| markText          | string | 打点信息             |
 
 >调用此接口会生成一个和视频文件同名且有.json后缀的打点文本文件
 
@@ -7758,10 +7750,10 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoFilePathName   |string|    视频文件路径名|
-|msecond|    number| 视频播放的位置(毫秒)|
+| 参数              | 类型   | 含义                 |
+| :---------------- | :----- | :------------------- |
+| videoFilePathName | string | 视频文件路径名       |
+| msecond           | number | 视频播放的位置(毫秒) |
 
 <h3 id=CRVideo_GetVideoMarkFile>CRVideo_GetVideoMarkFile(videoFilePathName)</h3>
 
@@ -7769,9 +7761,9 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:打点文件的路径文件名
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoFilePathName   |string|    视频文件路径名|
+| 参数              | 类型   | 含义           |
+| :---------------- | :----- | :------------- |
+| videoFilePathName | string | 视频文件路径名 |
 
 <h3 id=CRVideo_GetAllMarks>CRVideo_GetAllMarks(videoFilePathName)</h3>
 
@@ -7779,9 +7771,9 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:打点信息集合字符串，json格式
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoFilePathName   |string|    视频文件路径名|
+| 参数              | 类型   | 含义           |
+| :---------------- | :----- | :------------- |
+| videoFilePathName | string | 视频文件路径名 |
 
 <h3 id=CRVideo_GetRecordFileInfo>CRVideo_GetRecordFileInfo(fileName)</h3>
 
@@ -7789,9 +7781,9 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:文件信息， json格式,详见[CRVideo_RecordFileInfo](TypeDefinitions.md#CRVideo_RecordFileInfo)
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|fileName|    string  |文件名， 不含路径|
+| 参数     | 类型   | 含义              |
+| :------- | :----- | :---------------- |
+| fileName | string | 文件名， 不含路径 |
 
 <h3 id=CRVideo_Kickout>CRVideo_Kickout(userId)</h3>
 
@@ -7799,9 +7791,9 @@ bReadOnly |  bool|  是否只读
 
 - **返回值**:无
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|userId|    string  |用户id|
+| 参数   | 类型   | 含义   |
+| :----- | :----- | :----- |
+| userId | string | 用户id |
 
 <h3 id=CRVideo_GetUserAuthErrCode>CRVideo_GetUserAuthErrCode()</h3>
 
@@ -7824,11 +7816,11 @@ bReadOnly |  bool|  是否只读
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoFilePathName   |string|    视频文件路径名|
-|msecond|    number| 视频播放的位置(毫秒)|
-|markText|    string| 打点信息|
+| 参数              | 类型   | 含义                 |
+| :---------------- | :----- | :------------------- |
+| videoFilePathName | string | 视频文件路径名       |
+| msecond           | number | 视频播放的位置(毫秒) |
+| markText          | string | 打点信息             |
 
 >调用此接口会生成一个和视频文件同名且有.json后缀的打点文本文件
 
@@ -7842,10 +7834,10 @@ bReadOnly |  bool|  是否只读
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoFilePathName   |string|    视频文件路径名|
-|msecond|    number| 视频播放的位置(毫秒)|
+| 参数              | 类型   | 含义                 |
+| :---------------- | :----- | :------------------- |
+| videoFilePathName | string | 视频文件路径名       |
+| msecond           | number | 视频播放的位置(毫秒) |
 
 <h3 id=CRVideo_GetVideoMarkFile>CRVideo_GetVideoMarkFile( videoFilePathName)</h3>
 
@@ -7855,9 +7847,9 @@ bReadOnly |  bool|  是否只读
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoFilePathName   |string|    视频文件路径名|
+| 参数              | 类型   | 含义           |
+| :---------------- | :----- | :------------- |
+| videoFilePathName | string | 视频文件路径名 |
 
 <h3 id=CRVideo_GetAllMarks>CRVideo_GetAllMarks(videoFilePathName)</h3>
 
@@ -7867,9 +7859,9 @@ bReadOnly |  bool|  是否只读
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|videoFilePathName   |string|    视频文件路径名|
+| 参数              | 类型   | 含义           |
+| :---------------- | :----- | :------------- |
+| videoFilePathName | string | 视频文件路径名 |
 
 
 
@@ -7881,10 +7873,10 @@ bReadOnly |  bool|  是否只读
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-|msg|    string  |用户自定义消息|
-|cookie|    string  |可为空字符串。详细介绍见[关键词](KeyWords.md#stream)|
+| 参数   | 类型   | 含义                                                 |
+| :----- | :----- | :--------------------------------------------------- |
+| msg    | string | 用户自定义消息                                       |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#stream) |
 
 <h3 id=CRVideo_SendMeetingCustomMsgRslt >CRVideo_SendMeetingCustomMsgRslt.callback = function(  err,  cookie){} </h3>
 
@@ -7892,10 +7884,10 @@ bReadOnly |  bool|  是否只读
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误）|
-| cookie   | string  | 可为空字符串。详细介绍见[关键词](KeyWords.md#stream)  |
+| 参数   | 类型   | 含义                                                                             |
+| :----- | :----- | :------------------------------------------------------------------------------- |
+| err    | number | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
+| cookie | string | 可为空字符串。详细介绍见[关键词](KeyWords.md#stream)                             |
 
 
 
@@ -7905,10 +7897,10 @@ bReadOnly |  bool|  是否只读
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| uid | string  | 房间内广播消息的发送者的用户id |
-| jsonDat   | string  | 广播内容  |
+| 参数    | 类型   | 含义                           |
+| :------ | :----- | :----------------------------- |
+| uid     | string | 房间内广播消息的发送者的用户id |
+| jsonDat | string | 广播内容                       |
 
 
 
@@ -7918,7 +7910,7 @@ bReadOnly |  bool|  是否只读
 
 + **参数**：
 
-| 参数    | 类型        | 含义      |
-|:-------- |:-----------|:----------|
-| err | number  | 返回[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVideo_NOERR表示没有错误）(number) |
+| 参数 | 类型   | 含义                                                                                      |
+| :--- | :----- | :---------------------------------------------------------------------------------------- |
+| err  | number | 返回[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVideo_NOERR表示没有错误）(number) |
 

@@ -77,7 +77,7 @@ NSString* callID = [[CloudroomVideoMgr shareInstance] call:userID meetInfo:meeti
 ```
 
 相关API请参考： 
-+ [call](Apis.md#call)
++ [call](Apis.md#callIn)
 + [callSuccess](Apis.md#callSuccess)
 + [callFail](Apis.md#callFail)
 
@@ -128,7 +128,7 @@ NSString* callID = [[CloudroomVideoMgr shareInstance] call:userID meetInfo:meeti
 ```
 
 相关API请参考:
-- [hungupCall](Apis.md#hungupCall)
+- [hungupCall](Apis.md#hangupCall)
 - [hungupCallSuccess](Apis.md#hangupCallSuccess)
 - [hungupCallFail](Apis.md#hangupCallFail)
 - [notifyCallhangup](Apis.md#notifyCallhangup)

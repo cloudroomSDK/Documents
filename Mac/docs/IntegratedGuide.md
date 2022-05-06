@@ -82,7 +82,7 @@ SDK内部的组件多为单例组件，整个程序中只能有一个实例，�
  
 相关API请参考:
 - [setServerAddr](Apis.md#setServerAddr)
-- [login](Apis.md#login)
+- [login](Apis.md#Userlogin)
 - [loginFail](Apis.md#loginFail)
 - [loginSuccess](Apis.md#loginSuccess)
 - [lineOff](Apis.md#lineOff)
@@ -93,8 +93,8 @@ SDK内部的组件多为单例组件，整个程序中只能有一个实例，�
 
 - 调用接口：
 ```oc
-// 发送"创建房间"命令(不设置密码)
-[[CloudroomVideoMgr shareInstance] createMeeting:title createPswd:NO cookie:cookie]; 
+// 发送"创建房间"命令
+[[CloudroomVideoMgr shareInstance] createMeeting:cookie]; 
 ```
 
 - 回调通知:
@@ -231,8 +231,8 @@ CLCameraView * cameraView = [[CLCameraView alloc]initWithFrame:CGRectMake(0, 0, 
 相关API请参考:
 - [getWatchableVideos](Apis.md#getWatchableVideos)
 - [getMyUserID](Apis.md#getMyUserID)
-- [setUsrVideoId](Apis.md#setUsrVideoId)
-- [VideoUIView](UIComponent.md#VideoUIView)
+- [setUsrVideoId](UIComponent.md#setUsrVideoId)
+- [VideoUIView](UIComponent.md#CLCameraView)
 
 相关结构定义请参考:
 - [UsrVideoId](TypeDefinitions.md#UsrVideoId)

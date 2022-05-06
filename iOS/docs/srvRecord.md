@@ -51,10 +51,9 @@
         }\
     }";
     
-    NSString *mixerID = nil;
-    CRVIDEOSDK_ERR_DEF err = [[CloudroomVideoMeeting shareInstance] createCloudMixer:cloudMixerCfg rsltMixerID:&mixerID];
+    NSString *mixerID = [cloudroomVideoMeeting createCloudMixer:cloudMixerCfg];
     if (mixerID.length <= 0) {
-        NSLog(@"createCloudMixer:%@", err);
+        //开启 云端录制出错!
     }
 ```
 

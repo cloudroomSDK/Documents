@@ -69,7 +69,7 @@
 + [sendProgress](Apis.md#sendProgress)
 
 相关结构定义请参考：
-+ [CRVIDEOSDK_ERR_DEF
++ [CRVIDEOSDK_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 <h2 id=send_file>3. 发送文件</h2>
 
@@ -110,8 +110,6 @@ NSString* mFileTaskID = [[CloudroomVideoMgr shareInstance] sendFile:userID fileN
 
 相关结构定义请参考：
 + [CRVIDEOSDK_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
-
-+ ](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 <h2 id=sendProgress> 4.发送进度通知</h2>
 

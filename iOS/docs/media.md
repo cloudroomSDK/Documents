@@ -20,7 +20,7 @@
 ```
 
 相关API请参考:
-+ [MediaUIView](UIComponent.md#MediaUIView)
++ [MediaUIView](UIComponent.md#CLMediaView)
 
 <h3 id=videoCfg>2. 播放配置</h3>
 
@@ -88,7 +88,7 @@ int pos = 60 * 1000;
 ```
 
 相关API请参考:
-+ [MediaUIView](UIComponent.md#MediaUIView)
++ [MediaUIView](UIComponent.md#CLMediaUIView)
 
 <h3 id=watchMedia>2. 观看共享通知</h3>
 </br>
