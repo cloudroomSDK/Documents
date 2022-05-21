@@ -1,5 +1,13 @@
 # 版本变更记录
 
+## 2022-05-21　V1.4.2
+
+1. 新的云端录制接口，支持为一个房间启动多个录制
+1. 修复重复初始化会导致一些接口多次接收的问题
+1. 新增系统关闭微信摄像头、麦克风的权限也能触发打开设备失败的通知,参见:
+- [OpenMicFailRslt](API.md#CRVideo_OpenMicFailRslt)
+- [OpenVideoFailRslt](API.md#CRVideo_OpenVideoFailRslt)
+
 ## 2021-09-15　V1.3.17.2
 
 1. 新增白板demo，SDK新增白板相关接口

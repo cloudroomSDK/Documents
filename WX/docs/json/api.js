@@ -983,6 +983,7 @@ module.exports = [{
       interface: "OpenMicFailRslt",
       description: "通知麦克风打开失败",
       gist: '权限不足触发，用户可以跳转到权限设置手动打开',
+      params: [commonPassiveKey.sdkErr]
     }]
   }
 }, {
@@ -1043,6 +1044,7 @@ module.exports = [{
       interface: "OpenVideoFailRslt",
       description: "通知摄像头打开失败",
       gist: '权限不足触发，用户可以跳转到权限设置手动打开',
+      params: [commonPassiveKey.sdkErr]
     }, {
       interface: "VideoDevChanged",
       description: "通知用户的视频设备有变化",
@@ -1134,66 +1136,70 @@ module.exports = [{
   isMeetApi: true,
   data: {
     initiative: [{
-      interface: 'GetSvrMixerState',
-      description: '获取云端录制、云端直播状态',
-      returnValue: '[CRVideo_MIXER_STATE](Constant.md#CRVideo_MIXER_STATE)'
+      interface: 'CreateCloudMixer',
+      description: '创建云端混图器',
+      returnValue: '云端混图器ID',
+      gist: `可以开启多个云端混图器，具体个数和企业购买的授权相关；
+      开启云端混图器后，房间内所有人都将收到[CloudMixerStateChanged](#CRVideo_CloudMixerStateChanged)通知状态值为1；
+      云端混图器部署有少量耗时，如果在部署过程遇到异常，将收到[CreateCloudMixerFailed](#CRVideo_CreateCloudMixerFailed)回调；
+      云端混图器启动完成并进入录制或推流状态时，将收到[CloudMixerStateChanged](#CRVideo_CloudMixerStateChanged)通知状态值为2；
+      开启云端混图器在进入工作中的状态后，可以通过[UpdateCloudMixerContent](#CRVideo_UpdateCloudMixerContent)更新内容；
+      混图器如果在工作中遇到异常而停止时，将收到[CloudMixerStateChanged](#CRVideo_CloudMixerStateChanged)通知，状态值为0，并携带错误原因；`,
+      params: [commonInitiativeKey.mixerCFG]
     }, {
-      interface: 'StartSvrMixer',
-      description: '开启云端录制/开启云端直播',
+      interface: 'UpdateCloudMixerContent',
+      description: '更新云端混图器',
       returnValue: '[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)',
-      gist: '录制开启有状态变化[SvrRecordStateChanged](#CRVideo_SvrRecordStateChanged)',
-      params: [{
-        param: 'mutiMixerCfgs',
-        type: '[CRVideo_MutiMixerCfgsObj](TypeDefinitions.md#CRVideo_MutiMixerCfgsObj)',
-        explain: '服务器混图配置'
-      }, {
-        param: 'mutiMixerContents',
-        type: '[CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj)',
-        explain: '服务器混图内容'
-      }, {
-        param: 'mutiMixerOutputs',
-        type: '[CRVideo_MutiMixerOutputsObj](TypeDefinitions.md#CRVideo_MutiMixerOutputsObj)',
-        explain: '服务器输出'
-      }]
+      gist: `更新混图器内容时，只能更新内容和布局，不能更改混图器规格、输出目标；
+      更新混图器内容时，房间内所有人都将收到[CloudMixerInfoChanged](#CRVideo_CloudMixerInfoChanged)通知；`,
+      params: [commonInitiativeKey.mixerID, commonInitiativeKey.mixerCFG]
     }, {
-      interface: 'UpdateSvrMixerContent',
-      description: '更新云端录制、云端直播内容',
-      returnValue: '[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)',
-      params: [{
-        param: 'mutiMixerContents',
-        type: '[CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj)',
-        explain: '服务器混图内容'
-      }]
+      interface: 'DestroyCloudMixer',
+      description: '消毁云端混图器',
+      params: [commonInitiativeKey.mixerID]
     }, {
-      interface: 'StopSvrMixer',
-      description: '停止云端录制、云端直播',
-      gist: '停止后可以监听[云端录制文件状态](#CRVideo_SvrRecFileStateChanged)'
+      interface: 'GetAllCloudMixerInfo',
+      description: '得到所有云端混图器信息',
+      returnValue: '[CloudMixerInfo](TypeDefinitions.md#CloudMixerInfo)[]',
+    }, {
+      interface: 'GetCloudMixerInfo',
+      description: '得到云端混图器信息',
+      returnValue: '[CloudMixerInfo](TypeDefinitions.md#CloudMixerInfo)',
+      params: [commonInitiativeKey.mixerID]
     }],
     passive: [{
-      interface: "SvrRecordStateChanged",
-      description: "通知云端录制、云端直播状态变化",
-      params: [{
-        param: 'SvrRecordState',
-        type: '[CRVideo_MIXER_STATE](Constant.md#CRVideo_MIXER_STATE)',
-        explain: '通知云端录制、云端直播状态码变化'
+      interface: "CreateCloudMixerFailed",
+      description: "启动云端录制、云端直播失败通知",
+      params: [commonInitiativeKey.mixerID, commonPassiveKey.sdkErr]
+    }, {
+      interface: "CloudMixerStateChanged",
+      description: "云端录制、云端直播状态变化通知",
+      params: [commonInitiativeKey.mixerID, {
+        param: 'state',
+        type: 'number',
+        explain: '录制状态。 0:未启动或已结束, 1:正在开启, 2:正在录制'
+      }, {
+        param: 'exParam',
+        type: 'object',
+        explain: `state为0时，包含err字段(取值为[ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)), errDesc字段；state为2时，内容参见[CloudMixerCfgObj](TypeDefinitions#CloudMixerCfgObj)`
+      }, {
+        param: 'operUserID',
+        type: 'string',
+        explain: '操作者用户ID'
       }]
     }, {
-      interface: "SvrRecVideosChanged",
-      description: "通知云端录制、云端直播内容变化",
-      params: [{
-        param: 'mutiMixerContents',
-        type: '[CRVideo_MutiMixerContentsObj](TypeDefinitions.md#CRVideo_MutiMixerContentsObj)',
-        explain: '服务器混图内容'
-      }]
-    }, {
-      interface: "SvrRecFileStateChanged",
-      description: "通知云端录制文件、云端直播信息变化",
-      params: [{
+      interface: "CloudMixerOutputInfoChanged",
+      description: "云端录制文件、云端直播输出变化通知",
+      params: [commonInitiativeKey.mixerID, {
         param: 'outputInfo',
-        type: '[CRVideo_MixerOutputInfoObj](TypeDefinitions.md#CRVideo_MixerOutputInfoObj)',
-        explain: '通知内容'
+        type: 'object',
+        explain: '请参见[CloudMixerOutputInfo](TypeDefinitions#CloudMixerOutputInfo)'
       }]
-
+    }, {
+      interface: "CloudMixerInfoChanged",
+      description: "云端录制、云端直播配置变化通知",
+      params: [commonInitiativeKey.mixerID],
+      gist: '可调用：[GetCloudMixerInfo](#CRVideo_GetCloudMixerInfo)获取相关信息'
     }]
   }
 }, {

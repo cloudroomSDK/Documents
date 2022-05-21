@@ -403,319 +403,404 @@ module.exports.TYPEDEF = [{
         }]
     }
 }, {
-    interface: 'CRVideo_MutiMixerCfg',
-    description: '服务器混图配置对象',
+    interface: 'CRVideo_CloudMixerInfo',
+    description: '云端混图器信息',
     detail: {
         type: 'Object',
         data: [{
-            param: 'id',
-            type: 'Number',
-            explain: '混图器ID，每个混图器的配置、内容、和输出要根据ID对应'
+            param: 'ID',
+            type: 'String',
+            explain: '混图器ID'
         }, {
-            param: 'streamTypes',
-            type: 'Number',
-            explain: '录像类型，1：单音频录制（对应aCfg参数）&ensp;&ensp;2：单视频录制（暂不支持）&ensp;&ensp;3：音视频录制（对应cfg参数）'
+            param: 'owner',
+            type: 'String',
+            explain: '创建者用户ID'
         }, {
             param: 'cfg',
             type: 'Object',
-            explain: '音视频混图器配置对象，每个混图器只有一个配置对象（cfg或aCfg），详见：[CRVideo_MixerCfgObj](#CRVideo_MixerCfgObj)'
-        }, {
-            param: 'acfg',
-            type: 'Object',
-            explain: '单音频混图器配置对象，每个混图器只有一个配置对象（cfg或aCfg），详见：[CRVideo_MixeraCfgObj](#CRVideo_MixeraCfgObj)'
-        }],
-        example: `
-    [{
-        "id": 1,
-        "streamTypes": 3,
-        "cfg": {
-            "width": 1280,
-            "height": 720,
-            "frameRate": 15,
-            "bitRate": 2000000,
-            "defaultQP": 15
-        }
-    }, {
-        "id": 2,
-        "streamTypes": 1,
-        "aCfg": {
-            "channelType": 1,
-            "audioFormat": 1
-        }
-    }]
-        `,
-    },
-}, {
-    interface: 'CRVideo_MutiMixerContent',
-    description: '服务器混图内容对象',
-    detail: {
-        type: 'Object',
-        data: [{
-            param: 'id',
-            type: 'Number',
-            explain: '混图器ID，每个混图器的配置、内容、和输出要根据ID对应'
-        }, {
-            param: 'content',
-            type: 'Object',
-            explain: '混图器内容配置对象，详见：[CRVideo_MixerContentObj](#CRVideo_MixerContentObj)'
-        }],
-        example: `
-    [{
-        "id": 1,
-        "content": [{
-            "type": 0,
-            "left": 0,
-            "top": 0,
-            "width": 1280,
-            "height": 720,
-            "param": {
-                "camid": "张三.1"
-            },
-            "keepAspectRatio": 1
-        }, {
-            "type": 4,
-            "left": 35,
-            "top": 3,
-            "width": 175,
-            "height": 32,
-            "keepAspectRatio": 1
-        }, {
-            "type": 7,
-            "left": 40,
-            "top": 30,
-            "param": {
-                "text": "<span style='font-size:14px;color:#e21918'>张三</span>"
-            }
-        }]
-    }, {
-        "id": 2,
-        "content": [{
-            "type": 9,
-            "param": "张三"
-        }]
-    }]
-        `,
-    },
-}, {
-    interface: 'CRVideo_MutiMixerOutput',
-    description: '服务器混图输出对象',
-    detail: {
-        type: 'Object',
-        data: [{
-            param: 'id',
-            type: 'Number',
-            explain: '混图器ID，每个混图器的配置、内容、和输出要根据ID对应'
-        }, {
-            param: 'output',
-            type: 'Object',
-            explain: '混图器输出配置对象，详见：[CRVideo_MixerOutputObj](#CRVideo_MixerOutputObj)'
-        }],
-        example: `
-    [{
-        "id": 1,
-        "output": [{
-            "type": 0,
-            "filename": "/2020-07-21/张三的录像.mp4"
-        }, {
-            "type": 1,
-            "liveUrl": "rtmp://pub.cloudroom.com/live/xxxx?xxx=xxx"
-        }]
-    }, {
-        "id": 2,
-        "output": [{
-            "type": 0,
-            "filename": "/2020-07-21/张三的录音.mp3"
-        }]
-    }]
-        `,
-    },
-}, {
-    interface: 'CRVideo_MixerCfgObj',
-    description: '音视频混图器规格配置对象',
-    detail: {
-        type: 'Object',
-        data: [{
-            param: 'width',
-            type: 'Number',
-            explain: '图像宽度（要求8的倍数）'
-        }, {
-            param: 'height',
-            type: 'Number',
-            explain: '图像高度（要求8的倍数）'
-        }, {
-            param: 'frameRate',
-            type: 'Number',
-            explain: '图像帧率，取值范围:1-30(值越大，画面越流畅，cpu消耗更高。录像推荐15帧，直播推存25帧)'
-        }, {
-            param: 'bitRate',
-            type: 'Number',
-            explain: '录制视频文件的最高码率(如1M:1000000)，当图像变化小时，实际码率会低于此值'
-        }, {
-            param: 'defaultQP',
-            type: 'Number',
-            explain: '录制视频文件的目标质量，缺省值：26。取值范围：0~51，0表示完全无损,51表示质量非常差，推荐高质量取值18，中质量26，低质量34'
-        }],
-        example: `
-    // 音视频
-    {"width":1280,"height":720,"frameRate":15,"bitRate":2000000,"defaultQP":15}
-        `
-    },
-}, {
-    interface: 'CRVideo_MixeraCfgObj',
-    description: '单音频混图器规格配置对象',
-    detail: {
-        type: 'Object',
-        data: [{
-            param: 'channelType',
-            type: 'Number',
-            explain: '音频文件通道类型，0：单声道&ensp;&ensp;1：双声道'
-        }, {
-            param: 'audioFormat',
-            type: 'Number',
-            explain: '音频文件格式，0：AAC&ensp;&ensp;1：MP3&ensp;&ensp;2：PCM'
-        }],
-        example: `
-    // 单音频
-    {"channelType":1,"audioFormat":1}
-        `
-    },
-}, {
-    interface: 'CRVideo_MixerContentObj',
-    description: '混图器内容配置对象',
-    detail: {
-        type: 'Object',
-        data: [{
-            param: 'type',
-            type: 'Number',
-            explain: '类容类型，详见混图器内容类型定义 [CRVideo_MIXER_VCONTENT_TYPE](Constant.html#CRVideo_MIXER_VCONTENT_TYPE)'
-        }, {
-            param: 'left',
-            type: 'Number',
-            explain: '该内容在混图画面中水平方向相对于最左边的位置'
-        }, {
-            param: 'top',
-            type: 'Number',
-            explain: '该内容在混图画面中垂直方向相对于最顶部的位置'
-        }, {
-            param: 'width',
-            type: 'Number',
-            explain: '该内容在混图画面中的宽度'
-        }, {
-            param: 'height',
-            type: 'Number',
-            explain: '该内容在混图画面中的高度'
-        }, {
-            param: 'keepAspectRatio',
-            type: 'Number',
-            explain: '内容是否保持原始比例，0：不保持&ensp;&ensp;1：保持'
-        }, {
-            param: 'param',
-            type: 'Object',
-            explain: '参数配置，json格式，如：{"camid":"user_xxx.1"}，详见下方介绍'
-        }],
-        example: `
-    // 摄像头画面
-    {"type":0,"left":0,"top":0,"width":1280,"height":720,"param":{"camid":"user_xxx.1"},"keepAspectRatio":1}
-    // 影音
-    {"type":3,"left":0,"top":0,"width":1280,"height":720} 
-    // 时间戳
-    {"type":4,"left":35,"top":3,"width":175,"height":32,"keepAspectRatio":1}
-    // 共享中的屏幕
-    {"type":5,"left":0,"top":0,"width":1280,"height":720}
-    // 文本
-    {"type":7,"left":40,"top":30,"param":{"text":"<span style='font-size:14px;color:#e21918'>H5_5598</span>"}}  
-    // 纯音频
-    {"type":9,"param":"user_H5_5598"}
-        `,
-        attent: `
-> type描述：
-> &ensp;&ensp;&ensp;当 type=0 时，表示混图的是摄像头，param必须包含camid； 
-> &ensp;&ensp;&ensp;当 type=1 时，表示混图的是指定的图片，param必须包含resourceid（仅用于本地混图，暂不支持）； 
-> &ensp;&ensp;&ensp;当 type=2 时，表示混图的是本地屏幕，param可以增加附加参数screenid/pid/area（暂不支持）； 
-> &ensp;&ensp;&ensp;当 type=3 时，表示混图的是影音共享，不用附加任何参数； 
-> &ensp;&ensp;&ensp;当 type=4 时，表示混图的是时戳，不用附加任何参数； 
-> &ensp;&ensp;&ensp;当 type=5 时，表示混图的是共享中的屏幕，不用附加任何参数； 
-> &ensp;&ensp;&ensp;当 type=6 时，表示混图的是白板，不用附加任何参数。（仅用于云端混图，本地混图应该用MIXVTP_PIC，暂不支持)； 
-> &ensp;&ensp;&ensp;当 type=7 时，表示混图的是文本(支持简单html)，param必须包含text； 
-> &ensp;&ensp;&ensp;注：当 type=7 时，width和height可为0，此时元素大小由文本信息自动确定； 
-> param支持的参数如下： 
-> &ensp;&ensp;&ensp;1.camid：用户id.摄像头id, 如："testuser.1"； 
-> &ensp;&ensp;&ensp;2.text： 录制文本内容，支持一些简单的html标签，如： 
-> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="font-weight:600; color:#00f;"&gt;客户姓名：&lt;/span&gt; 
-> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="color:#00f;"&gt;张三&lt;/span&gt;&lt;br/&gt;  
-> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="font-weight:600; color:#00f;"&gt;录制日期：&lt;/span&gt; 
-> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&lt;span style="color:#00f;"&gt;2018-03-01&lt;/span&gt;  
-> &ensp;&ensp;&ensp;3.录制纯音频文件时，param为某个用户的UID，表示录制该用户的声音； `
-    },
-}, {
-    interface: 'CRVideo_MixerOutputObj',
-    description: '混图器输出配置对象',
-    detail: {
-        type: 'Object',
-        data: [{
-            param: 'type',
-            type: 'Number',
-            explain: '输出类型，0：输出文件，如MP4、MP3文件&ensp;&ensp;1：直播推流'
-        }, {
-            param: 'filename',
-            type: 'String',
-            explain: '录像路径文件名（服务器录像名格式如：/2018-11-21/xxx.mp4），支持的文件格式为mp4/ts/flv/avi，其中flv和ts两种格式在程序异常结束时产生的录制文件仍可用。'
-        }, {
-            param: 'liveUrl',
-            type: 'String',
-            explain: '直播推流地址，支持rtmp/rtsp协议'
-        }],
-        example: `
-    // 文件
-    {"type":0,"filename":"/2020-07-21/2020-07-21_14-21-53_Webrtc_53315471.mp4"}
-    {"type":0,"filename":"/2020-07-21/2020-07-21_14-21-53_Webrtc_53315471.mp3"}
-    // 推流
-    {"type":1,"liveUrl":"rtmp://pub.cloudroom.com/live/xxxx?xxx=xxx"}
-        `,
-        attent: `
-> 当 type为 0 时，需要传参 filename
-> 当 type为 1 时，需要传参 liveUrl`
-    },
-}, {
-    interface: 'CRVideo_MixerOutputInfoObj',
-    description: '云端录制文件、云端直播推流信息',
-    detail: {
-        type: 'Object',
-        data: [{
-            param: 'id',
-            type: 'Number',
-            explain: '混图器ID'
+            explain: '录制配置，参见[CRVideo_CloudMixerCfgObj](#CRVideo_CloudMixerCfgObj)'
         }, {
             param: 'state',
             type: 'Number',
-            explain: '当前云端录制、云端直播推流状态，详见：[CRVideo_MIXER_STATE](Constant.html#CRVideo_MIXER_STATE)'
+            explain: '录制状态，参见[CRVideo_MIXER_STATE](Constant.md#CRVideo_MIXER_STATE)'
+        }]
+    }
+}, {
+    interface: 'CRVideo_CloudMixerCfgObj',
+    description: '云端混图器配置',
+    detail: {
+        type: 'Object',
+        data: [{
+            param: 'mode',
+            type: 'Number',
+            explain: `录制模式，取值范围：
+            0-合流模式：将声音录制到一个声音文件、或将声音图像录制成一个视频文件；
+            1-单流模式：将涉及到的声音流、图像流存到各自独立的文件中；`
+        }, {
+            param: 'audioFileCfg',
+            type: '[CRVideo_CloudMixerAudioFileCfg](#CRVideo_CloudMixerAudioFileCfg)',
+            explain: `生成音频文件配置，生成规则：进入房间并开启麦克风开始生成文件，离开房间结束生成文件`
+        }, {
+            param: 'videoFileCfg',
+            type: '[CRVideo_CloudMixerVideoFileCfg](#CRVideo_CloudMixerVideoFileCfg)',
+            explain: `生成视频文件配置，生成规则：进入房间并开启摄像头开始生成文件，离开房间结束生成文件`
+        }, {
+            param: 'storageConfig',
+            type: '[CRVideo_CloudStorageConfig](#CRVideo_CloudStorageConfig)',
+            explain: `云存储配置，不配置时将存储在云屋服务器上`
+        }],
+        example: `
+        //为房间中所有人录制独立的声音文件，独立的默认摄像头视频文件
+        {
+            "mode": 1,
+            "audioFileCfg": {
+                "svrFileNameSuffix": ".mp3",
+                "svrPath": "/xxx",
+                "subscribeAudios": ["_cr_all_"]
+            },
+            "videoFileCfg": {
+                "aStreamType": 1,
+                "svrFileNameSuffix": ".mp4",
+                "svrPath": "/xxx",
+                "subscribeVideos": ["_cr_allDefCam_"]
+            }
+        }
+        
+        //录制一个2分屏左右布局图像+房间声音的mp4文件
+        {
+            "mode": 0,
+            "videoFileCfg": {
+                "svrPathName": "/2021-09-24/2021-09-24_13-47-41_Win32_73542046.mp4",
+                "vWidth": 1280,
+                "vHeight": 720,
+                "vFps": 15,
+                "layoutConfig": [
+                    {
+                        "type": 0,
+                        "top": 180,
+                        "left": 0,
+                        "width": 640,
+                        "height": 360,
+                        "keepAspectRatio": 1,
+                        "param": {"camid": "1.-1"}
+                    },
+                    {
+                        "type": 0,
+                        "top": 180,
+                        "left": 640,
+                        "width": 640,
+                        "height": 360,
+                        "keepAspectRatio": 1,
+                        "param": {"camid": "2.-1"}
+                    }
+                ]
+            }
+        }
+        `,
+    },
+}, {
+    interface: 'CRVideo_CloudMixerAudioFileCfg',
+    description: '云端录制语音文件配置',
+    detail: {
+        type: 'Object',
+        multiple: true,
+        data: [{
+                title: '单流模式参数：',
+                includeMust: true,
+                data: [{
+                    param: 'svrPath',
+                    type: 'String',
+                    explain: '服务器存储路径，默认为空',
+                    isNeed: false
+                }, {
+                    param: 'svrFileNameSuffix',
+                    type: 'String',
+                    explain: `文件名后缀，支持：“.mp3”、“.wav”
+                    文件命名规则：昵称_房间号_开始时间.后缀`,
+                    isNeed: true
+                }, {
+                    param: 'subscribeAudios',
+                    type: 'Array',
+                    explain: `指定生成哪些人的音频文件；
+                    取值：["&#95;cr_all_"]或["userId1","userId2"]；
+                    _cr_all_代表生成所有人；`,
+                    isNeed: true
+                }]
+            }, {
+                title: '合流模式参数：',
+                includeMust: true,
+                data: [{
+                    param: 'svrPathName',
+                    type: 'String',
+                    explain: '带服务器存储路径的文件名，文件格式支持“mp3”、“wav”，示例：/xxx/xxx/xxx.mp3',
+                    isNeed: true
+                }, {
+                    param: 'aChannelType',
+                    type: 'Number',
+                    explain: `音频通道类型，取值范围：0-单声道，1-左右双声道，默认为0`,
+                    isNeed: false
+                }, {
+                    param: 'aChannelContent',
+                    type: 'Array',
+                    explain: `音频通道内容。
+                    左右声道模式时：必须传入两个用户ID，如：["UserID1", "UserID2"]，第一个人的为左声道，第二个人为右声道）                
+                    单声道模式时：可选参数（默认为空），空代表所有人声音，要指定人员声音时传入：["UserID1","UserID2", "UserID3"]`,
+                    isNeed: false
+                }]
+            }
+        ],
+    },
+}, {
+    interface: 'CRVideo_CloudMixerVideoFileCfg',
+    description: '云端录制语音文件配置',
+    detail: {
+        type: 'Object',
+        multiple: true,
+        data: [{
+                title: '单流模式参数：',
+                includeMust: true,
+                data: [{
+                    param: 'svrPath',
+                    type: 'String',
+                    explain: '服务器存储路径，默认为空',
+                    isNeed: false
+                }, {
+                    param: 'svrFileNameSuffix',
+                    type: 'String',
+                    explain: `文件名后缀，当前只支持：”.mp4”
+                    文件命名规则：昵称_cam摄像头编号_房间号_开始时间.后缀`,
+                    isNeed: true
+                }, {
+                    param: 'subscribeAudios',
+                    type: 'Array',
+                    explain: `指定生成哪些人的摄像头对应的视频文件；
+                    取值：["&#95;cr_all_"]或["&#95;cr_allDefCam_"]或["userId1.camId", "userId2.camId", ...]；
+                    _cr_all_代表所有人所有摄像头，_cr_allDefCam_代表生成所有人的默认摄像头`,
+                    isNeed: true
+                }, {
+                    param: 'aStreamType',
+                    type: 'Number',
+                    explain: `视频文件内音频内容，取值：0-自己声音，1-所有人声音，默认0`,
+                    isNeed: false
+                }]
+            }, {
+                title: '合流模式参数：',
+                includeMust: true,
+                data: [{
+                    param: 'svrPathName',
+                    type: 'String',
+                    explain: `带路径的文件名，文件格式支持：mp4、flv、ts、avi、rtmp://、rtsp://，可选一个或多个，以“;”分隔；
+                    示例：”/xxx/xxx.mp4;rtmp://xxx1;rtmp://xxx2;”`,
+                    isNeed: true
+                }, {
+                    param: 'aChannelType',
+                    type: 'Number',
+                    explain: `音频通道类型，取值：0-单声道，1-左右双声道，默认为0`,
+                    isNeed: false
+                }, {
+                    param: 'aChannelContent',
+                    type: 'Array',
+                    explain: `音频通道内容。
+                    左右声道模式时：必须传入两个用户ID，如：["UserID1", "UserID2"]，第一个人的为左声道，第二个人为右声道）
+                    单声道模式时：可选参数（默认为空），空代表所有人声音，要指定人员声音时传入：["UserID1","UserID2", "UserID3"]`,
+                    isNeed: false
+                }, {
+                    param: 'vWidth',
+                    type: 'Number',
+                    explain: `视频宽度`,
+                    isNeed: true
+                }, {
+                    param: 'vHeight',
+                    type: 'Number',
+                    explain: `视频高度`,
+                    isNeed: true
+                }, {
+                    param: 'vFps',
+                    type: 'Number',
+                    explain: `视频帧率，取值0-30, 默认值12`,
+                    isNeed: false
+                }, {
+                    param: 'vBps',
+                    type: 'Number',
+                    explain: `视频码率，取值参见视频流默认码率定义 默认会根据视频尺寸生成码率`,
+                    isNeed: false
+                }, {
+                    param: 'vQP',
+                    type: 'Number',
+                    explain: `视频质量，取值0~51(0表示完全无损, 51表示质量非常差)，推荐高质量取值18，中质量25，低质量34， 默认值19`,
+                    isNeed: false
+                }, {
+                    param: 'layoutConfig',
+                    type: 'Array',
+                    explain: `布局内容列表，[[CRVideo_MixerContentObj](#CRVideo_MixerContentObj),[CRVideo_MixerContentObj](#CRVideo_MixerContentObj),...]`,
+                    isNeed: true
+                }]
+            }
+        ],
+    },
+}, {
+    interface: 'CRVideo_CloudStorageConfig',
+    description: '云端录制存储配置',
+    detail: {
+        type: 'Object',
+        includeMust: true,
+        data: [{
+            param: 'vendor',
+            type: 'Number',
+            explain: '第三方云存储平台： 1-阿里云',
+            isNeed: true
+        }, {
+            param: 'region',
+            type: 'String',
+            explain: `第三方云存储指定的地区信息`,
+            isNeed: true
+        }, {
+            param: 'bucket',
+            type: 'String',
+            explain: '第三方云存储的 bucket',
+            isNeed: true
+        }, {
+            param: 'accessKey',
+            type: 'String',
+            explain: '第三方云存储的 access key',
+            isNeed: true
+        }, {
+            param: 'secretKey',
+            type: 'String',
+            explain: `第三方云存储的 secret key`,
+            isNeed: true
+        }]
+    },
+}, {
+    interface: 'CRVideo_MixerContentObj',
+    description: '混图器内容配置',
+    detail: {
+        type: 'Object',
+        data: [{
+            param: 'left',
+            type: 'Number',
+            explain: '在混图画面中的区域（水平位置）'
+        }, {
+            param: 'top',
+            type: 'Number',
+            explain: '在混图画面中的区域（垂直位置）'
+        }, {
+            param: 'width',
+            type: 'Number',
+            explain: '在混图画面中的区域宽'
+        }, {
+            param: 'height',
+            type: 'Number',
+            explain: '在混图画面中的区域高'
+        }, {
+            param: 'type',
+            type: 'Number',
+            explain: 'MIXER_VCONTENT_TYPE,请见后面type描述;'
+        }, {
+            param: 'keepAspectRatio',
+            type: 'Number',
+            explain: '内容保持原始比例，0不保持，1保持'
+        }, {
+            param: 'param',
+            type: 'Object',
+            explain: '如：{"camid":"usr2.1"}。请见后面param支持的参数;'
+        }],
+        attent: `
+> type描述：
+
+>当type=0时，表示混图的是摄像头，param必须包含camid；
+当type=3时，表示混图的是影音共享，不用附加任何参数；
+当type=5时，表示混图的是共享的屏幕，不用附加任何参数；
+当type=6时，表示混图的是白板，不用附加任何参数；
+当type=10时，表示混图的是文本，width和height将被忽略，元素大小由文本信息自动确定。 param必须包含text，可选color，background，font-size，text-margin；
+
+>param 支持的参数如下：
+
+>camid：用户id.摄像头id, 如："testuser.1"
+text：文本内容，支持时间戳参数"%timestamp%"，格式为：YYYY-MM-DD HH:MM:SS
+color：文本颜色，格式：#RRGGBB[AA]， 默认#FFFFFF
+background：背景色，格式：#RRGGBB[AA]， 默认#0000007D
+font-size：字体大小，默认18
+text-margin：边距，默认5
+        `,
+        example: `
+    //录制“usr1”的1号摄像头
+    {
+        type: 0,
+        keepAspectRatio: 1,
+        left: 5,
+        top: 10,
+        width: 633,
+        height: 356,
+        param: {
+            camid: "usr1.1"
+        }
+    }
+
+    //录制“usr2”的1号摄像头
+    {
+        type: 0,
+        keepAspectRatio: 1,
+        left: 642,
+        top: 10,
+        width: 633,
+        height: 356,
+        param: {
+            camid: "usr2.1"
+        }
+    }
+
+    //录制时间戳
+    {
+        type: 10,
+        left: 980,
+        top: 660,
+        param: {
+            text: '%timestamp%',
+            color: "#ffffff",
+            "font-size:": 30
+        },
+    }
+`
+    },
+}, {
+    interface: 'CRVideo_CloudMixerOutputInfo',
+    description: '云端混图器输出信息',
+    detail: {
+        type: 'Object',
+        data: [{
+            param: 'id',
+            type: 'String',
+            explain: '混图器ID',
+        }, {
+            param: 'state',
+            type: 'Number',
+            explain: '具体参考[CRVideo_OUTPUT_STATE](Constant.md#CRVideo_OUTPUT_STATE)',
+        }, {
+            param: 'svrFilePathName',
+            type: 'String',
+            explain: '录像路径文件名',
+        }, {
+            param: 'startTime',
+            type: 'Number',
+            explain: '创建时间(从1970年1月1日00:00:00起的毫秒数)，当state为2才有该参数',
         }, {
             param: 'duration',
             type: 'Number',
-            explain: '录像文件时长，单位：毫秒'
+            explain: '录像时长(ms)，当state为2才有该参数',
         }, {
             param: 'fileSize',
             type: 'Number',
-            explain: '录像文件大小'
-        }, {
-            param: 'fileName',
-            type: 'String',
-            explain: '录像文件名'
+            explain: '文件大小(Byte)，当state为2才有该参数',
         }, {
             param: 'errCode',
             type: 'Number',
-            explain: '错误码，详见：[错误码定义](Constant.html#CRVideo_ERR_DEF)'
-        }],
-        example: `
-    // 文件
-    {"type":0,"filename":"/2020-07-21/2020-07-21_14-21-53_Webrtc_53315471.mp4"}
-    {"type":0,"filename":"/2020-07-21/2020-07-21_14-21-53_Webrtc_53315471.mp3"}
-    // 推流
-    {"type":1,"liveUrl":"rtmp://pub.cloudroom.com/live/xxxx?xxx=xxx"}
-        `,
-        attent: `
-> 当 type为 0 时，需要传参 filename
-> 当 type为 1 时，需要传参 liveUrl`
+            explain: '错误码, 当state为3才有该参数',
+        }, {
+            param: 'errDesc',
+            type: 'String',
+            explain: '错误描述, 当state为3才有该参数',
+        }]
     },
 }, {
     interface: 'CRVideo_MeetingAttrObjs',

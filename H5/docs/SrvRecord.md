@@ -20,129 +20,46 @@
 - 调用接口：
 
 ```js
-// 云端录制推荐分辨率
-var record_size_arr = [ 
-	[640, 360, 400],
-	[964, 480, 600],
-	[1280, 720, 1200]
-];
-
-var mixerID = "1";  //生成一个混图器id
-var size = 0;   //使用第1个分辨率
-
-var rw = record_size_arr[size][0];  //640
-var rh = record_size_arr[size][1];  //360
-var bitRate = record_size_arr[size][2] * 1000;  //400 * 1000
-
-var mw = rw / 2;    //每个视频的录制宽度
-var mh = mw * 9 / 16; //每个视频的录制高度
-var mtop = (rh - mh) / 2;   //放在录制画布的相对高度，这里是计算出视频垂直居中的位置
-
-
-//配置混图器编码参数
-var mutiMixerCfgs = [
-    {
-        "id": mixerID,
-        "streamTypes": 3,   //录制音视频
-        "cfg": {
-            "width": rw,
-            "height": rh,
-            "frameRate": 8,
-            "bitRate": bitRate,
-            "defaultQP": 26
-        };
-    }
-];
-
-
-//左视频图像的内容配置
-var leftCon = {
-    "type": 0; //0： 录制类型为视频
-    "left": 0 ;
-    "top": mtop;   //视频图像垂直居中
-    "width": mw;
-    "height":  mh;
-    //camid参数为: user1.-1 ,表示该内容需要录制userID是user1的默认摄像头
-    "param": {"camid": "user1.-1"};  
-    "keepAspectRatio": 1;
-};
-//右视频图像的内容配置
-var rightCon = {
-    "type": 0; //0： 录制类型为视频
-    "left": mw;
-    "top": mtop;   //视频图像垂直居中
-    "width": mw;
-    "height":  mh;
-    "param": {"camid": "user2.-1"};
-    "keepAspectRatio": 1;
-};  
-
-//配置混图器内容
-var mutiMixerContents = [
-    {
-        "id": mixerID,
-        "content": [ leftCon ,rightCon ]
-    }
-];
-
-//配置混图器输出
-var mutiMixerOutputs = [ 
-    {
-        "id": mixerID,
-        "output": [
-            {
-                "type":0,
-                "filename":"/2019-03-19/" + "2019-03-19-10-30-30_Web.mp4" //配置录制的文件名
+//配置混图器编码参数：1280*720,  15帧
+const cloudMixerCfg = {
+    mode: 0,
+    videoFileCfg: {
+        svrPathName: "/2021-09-24/2021-09-24_13-47-41_Win32_73542046.mp4",
+        vWidth: 1280,
+        vHeight: 720,
+        vFps: 15,
+        layoutConfig: [{
+            type: 0,
+            top: 180,
+            left: 0,
+            width: 640,
+            height: 360,
+            keepAspectRatio: 1,
+            param: {
+                camid: "Usr1.-1"
             }
-        ]
+        }, {
+            type: 0,
+            top: 180,
+            left: 640,
+            width: 640,
+            height: 360,
+            keepAspectRatio: 1,
+            param: {
+                camid: "Usr2.-1"
+            }
+        }]
     }
-];
-
-//开始录制，云端录制开启后会回调CRVideo_SvrMixerStateChanged接口
-CRVideo_StartSvrMixer(mutiMixerCfgs, mutiMixerContents, mutiMixerOutputs);
-```
-
-- 回调通知：
-
-```js
-//云端录制状态变化通知 
-CRVideo_SvrMixerStateChanged.callback = function(state, err, operatorID){
-	console.log("CRVideo_SvrMixerStateChanged, state:" + state + ",err:" + err + ",operatorID:" + operatorID);
 }
 
+var mixerID = CRVideo_CreateCloudMixer(cloudMixerCfg);
 ```
 
 相关API请参考:
-- [CRVideo_StartSvrMixer](API.md#CRVideo_StartSvrMixer)
-- [CRVideo_SvrMixerStateChanged](API.md#CRVideo_SvrMixerStateChanged)
-
-相关结构定义请参考：
-- [CRVideo_MutiMixerCfg](TypeDefinitions.md#CRVideo_MutiMixerCfg)
-- [CRVideo_MutiMixerContent](TypeDefinitions.md#CRVideo_MutiMixerContent)
-- [CRVideo_MutiMixerOutput](TypeDefinitions.md#CRVideo_MutiMixerOutput)
-
- 
-<h2 id=svrMixerOutputInfo> 3.云端录制文件信息变化通知</h2>
-
-录制过程中都会触发此事件。在此可以实时获得录制状态、录制文件当前的时长、大小，以及录制异常等信息。
-
-- 回调通知：
-
-```js
-//云端录制文件信息变化通知
-CRVideo_SvrMixerOutputInfo.callback = function(outputInfo){
-	console.info("CRVideo_SvrMixerOutputInfo",outputInfo);
-}	
-```
-
-相关API请参考:
-- [CRVideo_SvrMixerOutputInfo](API.md#CRVideo_SvrMixerOutputInfo)
-
-相关结构定义请参考：
-- [CRVideo_MixerOutputInfoObj](TypeDefinitions.md#CRVideo_MixerOutputInfoObj)
+- [CRVideo_CreateCloudMixer](API.md#CRVideo_CreateCloudMixer)
 
 
-<h2 id=record_updateSvrMixerContent> 4.更新云端录制内容</h2>
+<h2 id=record_updateSvrMixerContent> 3.更新云端录制内容</h2>
 
 - 更新成画中画布局示例图:
 
@@ -151,91 +68,85 @@ CRVideo_SvrMixerOutputInfo.callback = function(outputInfo){
 - 接口调用：
 
 ```js
-// 云端录制推荐分辨率
-var record_size_arr = [ 
-	[640, 360, 400],
-	[964, 480, 600],
-	[1280, 720, 1200]
-];
-
-var mixerID = "1";  //取之前的混图器id
-var size = 0;   //使用第1个分辨率
-
-//更新录制布局为：画中画
-//混图器内容：画中画布局(示例图如下， 底层640*360， 上层213*120)，底层为user1， 上层为user2
-
-var bigW = record_size_arr[size][0];  //640，底层视频的宽度
-var bigH = record_size_arr[size][1];  //360，底层视频的高度
-
-var smallH = bigH / 3;  //缩放3倍作为顶层视频的高度
-var smallW = smallH * 16 / 9;   //视频宽高比为16：9，计算出顶层视频宽度
-
-//底层视频图像的内容配置
-var underCon = {
-    "type": 0; //0： 录制类型为视频
-    "left": 0 ;
-    "top": 0;
-    "width": bigW;
-    "height":  bigH;
-    //camid参数为: user1.-1 ,表示该内容需要录制userID是user1的默认摄像头
-    "param": {"camid": "user1.-1"};  
-    "keepAspectRatio": 1;
-};
-//顶层视频图像的内容配置
-var topCon = {
-    "type": 0; //0： 录制类型为视频
-    "left": bigW - smallW;
-    "top": bigH - smallH;
-    "width": smallW;
-    "height":  smallH;
-    "param": {"camid": "user2.-1"};
-    "keepAspectRatio": 1;
-};  
-
-//配置混图器内容
-var mutiMixerContents = [
-    {
-        "id": mixerID,
-        "content": [ underCon ,topCon ] //数组后面的画面将会覆盖前面的画面
+var cloudMixerCfg = {
+    videoFileCfg: {
+        layoutConfig: [{
+            type: 0,
+            top: 0,
+            left: 0,
+            width: 1280,
+            height: 720,
+            keepAspectRatio: 1,
+            param: {
+                camid: "Usr1.-1"
+            }
+        }, {
+            type: 0,
+            top: 495,
+            left: 880,
+            width: 400,
+            height: 225,
+            keepAspectRatio: 1,
+            param: {
+                camid: "Usr2.-1"
+            }
+        }]
     }
-];
+}
 
-//更新录制内容，录制更新后会通知CRVideo_SvrMixerCfgChanged接口
-CRVideo_UpdateSvrMixerContent(mutiMixerContents);
-
+CRVideo_UpdateCloudMixerContent(mixerID, cloudMixerCfg);
 ```
 
 相关API请参考:
-- [CRVideo_UpdateSvrMixerContent](API.md#CRVideo_UpdateSvrMixerContent)
+- [CRVideo_UpdateCloudMixerContent](API.md#CRVideo_UpdateCloudMixerContent)
 
 
-<h2 id=record_getSvrMixerState> 5.获取云端录制状态</h2>
+<h2 id=record_stopSvrMixer> 4.停止云端录制</h2>
 
-
-- 接口调用：
-
-```js
-//获取云端录制状态
-var state = CRVideo_GetSvrMixerState()
-```
-
-相关API请参考:
-- [CRVideo_GetSvrMixerState](API.md#CRVideo_GetSvrMixerState)
-
-相关结构定义请参考：
-- [CRVideo_MIXER_STATE](Constant.md#CRVideo_MIXER_STATE)
-
-
-<h2 id=record_stopSvrMixer> 6.停止云端录制</h2>
-
-停止云端录制后，也会触发事件[CRVideo_SvrMixerStateChanged](API.md#CRVideo_SvrMixerStateChanged)
+停止云端录制后，也会触发事件[CRVideo_CloudMixerStateChanged](API.md#CRVideo_CloudMixerStateChanged)
 
 - 接口调用：
 ```js
-CRVideo_StopSvrMixer();
+CRVideo_DestroyCloudMixer(mixerID);
 ```
 
 相关API请参考:
-* [CRVideo_StopSvrMixer](API.md#CRVideo_StopSvrMixer)
+* [CRVideo_DestroyCloudMixer](API.md#CRVideo_DestroyCloudMixer)
+* [CRVideo_CloudMixerStateChanged](API.md#CRVideo_CloudMixerStateChanged)
+
+<h2 id=record_updateSvrMixerContent> 5.云端录制回调通知</h2>
+
+录制过程中都会录制状态变化事件、录制文件信息变化通知。在此可以实时获得录制状态、录制文件当前的时长、大小，以及录制异常等信息。
+
+- 回调通知：
+
+```js
+//云端录制状态变化通知
+CRVideo_CloudMixerStateChanged.callback = function(mixerID, state, exParam, operUserID){
+	console.log(`CRVideo_CloudMixerStateChanged, mixerID: ${mixerID},state: ${state},operUserID: ${operUserID}`);
+}
+
+```
+
+```js
+//云端录制输出内容变化通知
+CRVideo_CloudMixerOutputInfoChanged.callback = function(mixerID, outputInfo){
+    //获取录像文件时长、文件大小等
+	console.log(`CRVideo_CloudMixerOutputInfoChanged, mixerID: ${mixerID},outputInfo: ${JSON.stringify(outputInfo)}`);
+}
+
+```
+
+相关API请参考:
+- [CRVideo_CloudMixerStateChanged](API.md#CRVideo_CloudMixerStateChanged)
+- [CRVideo_CloudMixerOutputInfoChanged](API.md#CRVideo_CloudMixerOutputInfoChanged)
 
 
+<h2 id=record_getFile> 6.获取录像</h2>
+
+录像停止后，录像文件会开始上传到录像文件存储服务器中（可关注[CRVideo_CloudMixerOutputInfoChanged](API.md#CRVideo_CloudMixerOutputInfoChanged)通知，得到上传完成事件）。 
+
+可以通过[WEB API](/sdk/document/netdisk/netdisk_query?platform=serverside)进行录像文件查询、下载和删除等处理。
+
+也可以登录[管理后台](https://sdk.cloudroom.com/mgr_sdk/)，在管理页面上回放和下载录像：
+![recordMgr](./images/recordMgr.jpg)

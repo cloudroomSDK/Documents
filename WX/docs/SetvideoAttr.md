@@ -13,13 +13,13 @@
 
 ```html
 <!-- 音视频推流组件-->
-<CRVideoPusher userInfo='{{userInfo}}' config='{{CRVideoPusher}}' wx:if='{{userInfo}}'></CRVideoPusher>
+<RTCVideoPusher userInfo='{{userInfo}}' config='{{RTCVideoPusher}}' wx:if='{{userInfo}}'></RTCVideoPusher>
 ```
 
 
 ```js
 //音视频推流组件
-const CRVideoPusher = {
+const RTCVideoPusher = {
   orientation: "vertical", //string类型，画面方向，可选值: "vertical"(默认)、"horizontal"
   aspect: "3:4", //string类型，宽高比，可选值有"3:4"(默认),"9:16"
   beauty: 5, //number类型，美颜，取值范围 0-9 ，0 表示关闭 ，默认值5
@@ -35,8 +35,8 @@ const CRVideoPusher = {
   muted: false, //boolean类型，是否静音，如需开关麦克风请调用API,默认值false
 }
 this.setData({ 
-  userInfo: CR.GetMemberInfo(myUID),
-  CRVideoPusher,
+  userInfo: RTCSDK.GetMemberInfo(myUID),
+  RTCVideoPusher,
 });  //配置音频对象
 
 /*
@@ -45,25 +45,25 @@ orientation, aspect, beauty, whiteness, minBitrate, maxBitrate, audioVolumeType,
 其他属性请调用api接口变更
 */
 this.setData({ 
-  'CRVideoPusher.orientation': 'horizontal', //设置画面水平输出
-  'CRVideoPusher.aspect': '9:16', //设置宽高比为9:16
+  'RTCVideoPusher.orientation': 'horizontal', //设置画面水平输出
+  'RTCVideoPusher.aspect': '9:16', //设置宽高比为9:16
 });
 
-CR.CloseVideo(myUID); //关闭摄像头
-CR.OpenVideo(myUID); //打开摄像头
-CR.SetDefaultVideo(myUID); //前后置摄像头切换
+RTCSDK.CloseVideo(myUID); //关闭摄像头
+RTCSDK.OpenVideo(myUID); //打开摄像头
+RTCSDK.SetDefaultVideo(myUID); //前后置摄像头切换
 
-CR.CloseMic(myUID); //关闭麦克风
-CR.OpenMic(myUID); //打开麦克风
+RTCSDK.CloseMic(myUID); //关闭麦克风
+RTCSDK.OpenMic(myUID); //打开麦克风
 
 ```
 
 相关API请参考:
-* [CR.CloseVideo](API.md#CRVideo_CloseVideo)
-* [CR.OpenVideo](API.md#CRVideo_OpenVideo)
-* [CR.SetDefaultVideo](API.md#CRVideo_SetDefaultVideo)
-* [CR.CloseMic](API.md#CRVideo_CloseMic)
-* [CR.OpenMic](API.md#CRVideo_OpenMic)
+* [CloseVideo](API.md#CRVideo_CloseVideo)
+* [OpenVideo](API.md#CRVideo_OpenVideo)
+* [SetDefaultVideo](API.md#CRVideo_SetDefaultVideo)
+* [CloseMic](API.md#CRVideo_CloseMic)
+* [OpenMic](API.md#CRVideo_OpenMic)
 
 相关组件请参考：
-* [CRVideoPusher](API.md#CRVideoPusher)
+* [RTCVideoPusher](API.md#RTCVideoPusher)

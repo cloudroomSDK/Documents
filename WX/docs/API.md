@@ -16,8 +16,6 @@
 ### 组件说明
 > 组件由多个模块组成， 主要模块包括：音频拉流组件，音视频推流组件， 媒体拉流组件，用户自定义组件。 通过集成SDK的相关控件， 让使用者进行更加快速， 高效的开发工作。开发者使用组件存在原生组件限制，请参考[小程序原生组件说明](https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html)
 
-* 组件在SDK包目录component目录下，可参考[SDK目录结构](download.md#sdk包目录结构说明)
-
 使用流程：
 1. 假如您的项目是如下结构
 ```
@@ -30,55 +28,55 @@
    │   └─ setting                  // 设置页面
    │
    └─ utils
-      └─ CRSDK                     // 导入SDK目录到项目中
+      └─ RTCSDK                     // 导入SDK目录到项目中
           ├─ component
-          │     ├─  CRAudioPlayer       // 音频拉流组件(房间内所有声音由该组件输出)
-          │     ├─  CRVideoPlayer       // 媒体拉流组件(播放远端视频，屏幕共享，影音共享)
-          │     ├─  CRVideoPusher       // 视频推流组件(用于将本端的音视频推向服务端)
-          │     ├─  CRScreenMarkV4      // 屏幕共享标注组件(观看屏幕共享标注功能)
-          │     ├─  CRWhiteBoard        // 白板标注组件
-          │     └─  video-custom        // 用户自定义组件(SDK升级无需更新，完全由用户定制开发)
+          │     ├─  RTCAudioPlayer       // 音频拉流组件(房间内所有声音由该组件输出)
+          │     ├─  RTCVideoPlayer       // 媒体拉流组件(播放远端视频，屏幕共享，影音共享)
+          │     ├─  RTCVideoPusher       // 视频推流组件(用于将本端的音视频推向服务端)
+          │     ├─  RTCScreenMarkV4      // 屏幕共享标注组件(观看屏幕共享标注功能)
+          │     ├─  RTCWhiteBoard        // 白板标注组件
+          │     └─  video-custom         // 用户自定义组件(SDK升级无需更新，完全由用户定制开发)
           │
-          └─ CR_Miniapp_SDK.min.js  // SDK文件
+          └─ RTC_Miniapp_SDK.min.js  // SDK文件
 ```
 2. 在(/pages/meeting/meeting.json)中引入相关组件
 ```json
 // 可根据业务需求选择需要的组件
 {
   "usingComponents": {
-    "CRVideoPlayer": "../../utils/CRSDK/components/CRVideoPlayer/CRVideoPlayer",
-    "CRVideoPusher": "../../utils/CRSDK/components/CRVideoPusher/CRVideoPusher",
-    "CRAudioPlayer": "../../utils/CRSDK/components/CRAudioPlayer/CRAudioPlayer",
-    "CRScreenMarkV4": "../../utils/CRSDK/components/CRScreenMarkV4/CRScreenMarkV4",
-    "CRWhiteBoard": "../../utils/CRSDK/components/CRWhiteBoard/CRWhiteBoard"
+    "RTCVideoPlayer": "/utils/RTCSDK/components/RTCVideoPlayer/RTCVideoPlayer",
+    "RTCVideoPusher": "/utils/RTCSDK/components/RTCVideoPusher/RTCVideoPusher",
+    "RTCAudioPlayer": "/utils/RTCSDK/components/RTCAudioPlayer/RTCAudioPlayer",		
+    "RTCScreenMarkV4": "/utils/RTCSDK/components/RTCScreenMarkV4/RTCScreenMarkV4",
+    "RTCWhiteBoard": "/utils/RTCSDK/components/RTCWhiteBoard/RTCWhiteBoard",
   }
 }
 ```
 3. 在wxml需要的地方添加以下代码
 ```html
 <!-- 音频播放组件 -->
-<CRAudioPlayer wx:if='{{CRAudioPlayerConfig}}' config='{{CRAudioPlayer}}' debug='{{false}}'></CRAudioPlayer>
+<RTCAudioPlayer wx:if='{{RTCAudioPlayerConfig}}' config='{{RTCAudioPlayer}}' debug='{{false}}'></RTCAudioPlayer>
 
 <!-- 音视频推流组件 -->
-<CRVideoPusher wx:if='{{myUserInfo}}' userInfo='{{myUserInfo}}' config='{{CRVideoPusherConfig}}' debug='{{false}}' extend='{{CRVideoPusherExtend}}' ></CRVideoPusher>
+<RTCVideoPusher wx:if='{{myUserInfo}}' userInfo='{{myUserInfo}}' config='{{RTCVideoPusherConfig}}' debug='{{false}}' extend='{{RTCVideoPusherExtend}}' ></RTCVideoPusher>
 
 <!-- 视频播放组件 -->
-<CRVideoPlayer wx:if='{{remoteUserInfo}}' userInfo='{{remoteUserInfo}}' config='{{CRVideoPlayerConfig}}' debug='{{false}}' extend='{{CRVideoPlayerExtend}}'></CRVideoPlayer>
+<RTCVideoPlayer wx:if='{{remoteUserInfo}}' userInfo='{{remoteUserInfo}}' config='{{RTCVideoPlayerConfig}}' debug='{{false}}' extend='{{RTCVideoPlayerExtend}}'></RTCVideoPlayer>
 ```
 4. 在JS中控制属性值
 ```javascript
 //以下操作需要进入房间成功后操作
 
 //---------------------音频操作---------------------
-const CRAudioPlayerConfig = {
+const RTCAudioPlayerConfig = {
     soundMode: 'speaker', // 声音输出方式，有效值为 speaker（扬声器）、ear（听筒）
     autoPauseIfNavigate: false, // 当跳转到其它小程序页面时，是否自动暂停本页面的实时音视频播放
     autoPauseIfOpenNative: false, // 当跳转到其它微信原生页面时，是否自动暂停本页面的实时音视频播放
 }
-this.setData({CRAudioPlayerConfig});
+this.setData({RTCAudioPlayerConfig});
 
 //---------------------音视频推流---------------------
-const CRVideoPusherConfig = {
+const RTCVideoPusherConfig = {
     orientation: 'vertical', // vertical，horizontal,
     aspect: '3:4', // 宽高比，可选值有 3:4, 9:16
     beauty: 5, // 美颜，取值范围 0-9 ，0 表示关闭
@@ -92,30 +90,30 @@ const CRVideoPusherConfig = {
     maxBitrate: 800, // 最大码率
     waitingImage: 'http://www.cloudroom.com/pages/imgs/cr_meeting/be_closed.jpg', // 进入后台时推流的等待画面
 }
-const CRVideoPusherExtend = {}; //用户扩展对象，将会传入video-custom组件中
+const RTCVideoPusherExtend = {}; //用户扩展对象，将会传入video-custom组件中
 const myUID = 'wx_myuid';   //假设自己的UID
-const myUserInfo = CR.GetMemberInfo(myUID); //查询到自己的用户成员信息
-this.setData({myUserInfo, CRVideoPusherConfig ,CRVideoPusherExtend}); //渲染字段
+const myUserInfo = RTCSDK.GetMemberInfo(myUID); //查询到自己的用户成员信息
+this.setData({myUserInfo, RTCVideoPusherConfig ,RTCVideoPusherExtend}); //渲染字段
 
 //---------------------媒体拉流组件---------------------
-const CRVideoPlayerConfig = {
+const RTCVideoPlayerConfig = {
     type: 'video', // 媒体类型,可取值 video,screen,media
     orientation: 'vertical', // 画面方向，可选值有 vertical，horizontal	
     objectFit: 'fillCrop', // 填充模式，可选值有 contain，fillCrop	
     autoPauseIfNavigate: true, // 当跳转到其它小程序页面时，是否自动暂停本页面的实时音视频播放
     autoPauseIfOpenNative: true, // 当跳转到其它微信原生页面时，是否自动暂停本页面的实时音视频播放
 }
-const CRVideoPlayerExtend = {} //用户扩展对象，将会传入video-custom组件中
+const RTCVideoPlayerExtend = {} //用户扩展对象，将会传入video-custom组件中
 
 const remoteUID = 'remote_uid';   //假设已知对端的UID
-const remoteUIDUserInfo = CR.GetMemberInfo(remoteUID); //查询到自己的用户成员信息
+const remoteUIDUserInfo = RTCSDK.GetMemberInfo(remoteUID); //查询到自己的用户成员信息
 
-this.setData({remoteUIDUserInfo, CRVideoPlayerConfig ,CRVideoPlayerExtend}); //渲染字段
+this.setData({remoteUIDUserInfo, RTCVideoPlayerConfig ,RTCVideoPlayerExtend}); //渲染字段
 ```
 5. 以上已经配置了一个简单并且可正常渲染出本端视频，房间音频以及远端视频的配置，更详细可参考下方文档说明。
 
-### 音频拉流组件 ${#CRAudioPlayer}
-#### `<CRAudioPlayer>`
+### 音频拉流组件 ${#RTCAudioPlayer}
+#### `<RTCAudioPlayer>`
 > 音频拉流组件集成了房间内的声音，他人视频，屏幕共享，媒体共享的声音都需要引入该组件输出
 
 wxml属性: 
@@ -137,10 +135,10 @@ wxml属性:
 
 实现动态改变推荐使用：
 ```javascript
-this.setData('CRAudioPlayerConfig.soundMode': 'ear'); //更改声音为听筒输出
+this.setData('RTCAudioPlayerConfig.soundMode': 'ear'); //更改声音为听筒输出
 ```
-### 音视频推流组件 ${#CRVideoPusher}
-#### `<CRVideoPusher>`
+### 音视频推流组件 ${#RTCVideoPusher}
+#### `<RTCVideoPusher>`
 > 音视频推流组件是将自己的视频画面、麦克风声音上送给服务器的组件。开发者需要注意的是如果客户端关闭了麦克风、摄像头权限会通过API形式回调给业务，由业务处理
 
 wxml属性: 
@@ -175,8 +173,8 @@ wxml属性:
 
 实现动态改变推荐使用：
 ```javascript
-this.setData('CRVideoPusherConfig.beauty': 0); //只改变对象某一属性，关闭美颜效果
-this.setData('CRVideoPusherConfig.whiteness': 0); //只改变对象某一属性，关闭美白效果
+this.setData('RTCVideoPusherConfig.beauty': 0); //只改变对象某一属性，关闭美颜效果
+this.setData('RTCVideoPusherConfig.whiteness': 0); //只改变对象某一属性，关闭美白效果
 ```
 
 组件方法：
@@ -189,8 +187,8 @@ this.setData('CRVideoPusherConfig.whiteness': 0); //只改变对象某一属性�
 - **返回值**:  Promise对象
 
 
-### 媒体拉流组件 ${#CRVideoPlayer}
-#### `<CRVideoPlayer>`
+### 媒体拉流组件 ${#RTCVideoPlayer}
+#### `<RTCVideoPlayer>`
 > 媒体拉流组件是将他人视频、屏幕共享、影音共享UI显示组件，开发者需要注意原生组件限制。
 
 wxml属性: 
@@ -226,7 +224,7 @@ wxml属性:
 - **返回值**:  Promise对象
 
 ### 屏幕共享标注组件
-#### `<CRScreenMarkV4>`
+#### `<RTCScreenMarkV4>`
 > 屏幕共享标注组件需要房间内已开启了屏幕共享并且源端开启了屏幕共享标注才会正常工作的组件，用于观看其他端的画笔标注
 > 开发者需要注意以下事项：
 > 1. 当前组件仅支持观看其他端绘制画笔。
@@ -236,10 +234,10 @@ wxml属性:
 wxml属性: 
 |属性 | 必填 | 类型 | 说明 |
 |----- | ----- | ----- |  ----- |
-|config| 是 | object | 与CRVideoPlayer组件的config属性保持一致 |
+|config| 是 | object | 与RTCVideoPlayer组件的config属性保持一致 |
 
 ### 白板标注组件
-#### `<CRWhiteBoard>`
+#### `<RTCWhiteBoard>`
 > 白板
 > 开发者需要注意以下事项：
 > 1. 白板底层采用小程序canvas2D技术开发
@@ -304,7 +302,7 @@ wxml属性:
 > 开发者需要注意以下事项：
 > 1. 该组件由开发者开发维护，不随SDK版本升级。
 > 1. 由于覆盖在原生组件之上，请您务必阅读[小程序原生组件说明](https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html)
-> 1. 仅有CRVideoPlayer、CRVideoPusher包含该组件
+> 1. 仅有RTCVideoPlayer、RTCVideoPusher包含该组件
 
 * 组件含有派生属性，请用observers监听下列值
 
@@ -324,8 +322,8 @@ wxml属性:
 ```javascript
 //video-custom.js
 
-this.triggerEvent('fullScreen', 90);    //触发CRVideoPlayer、CRVideoPusher全屏并且旋转90度事件
+this.triggerEvent('fullScreen', 90);    //触发RTCVideoPlayer、RTCVideoPusher全屏并且旋转90度事件
 
-this.triggerEvent('exitFullScreen');    //触发CRVideoPlayer、CRVideoPusher退出全屏事件
+this.triggerEvent('exitFullScreen');    //触发RTCVideoPlayer、RTCVideoPusher退出全屏事件
 ```
 

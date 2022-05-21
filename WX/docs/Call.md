@@ -13,26 +13,26 @@
 
 ```js
 //创建房间
-CR.CreateMeeting()
+RTCSDK.CreateMeeting()
 ```
 
 - 回调通知：
 
 ```js
 //创建房间成功
-CR.CreateMeetingSuccess.callback = function(meetObj, cookie){
+RTCSDK.CreateMeetingSuccess.callback = function(meetObj, cookie){
     //创建成功，获取房间信息meetObj，用于呼叫他人
 }
 //创建房间失败
-CR.CreateMeetingFail.callback = function(sdkErr, cookie){
+RTCSDK.CreateMeetingFail.callback = function(sdkErr, cookie){
     //创建失败，可以弹出错误提示，不能再执行 进入房间
 }
 ```
 
  相关API请参考:
-* [CR.CreateMeeting](API.md#CRVideo_CreateMeeting)
-* [CR.CreateMeetingSuccess](API.md#CRVideo_CreateMeetingSuccess)
-* [CR.CreateMeetingFail](API.md#CRVideo_CreateMeetingFail)
+* [CreateMeeting](API.md#CRVideo_CreateMeeting)
+* [CreateMeetingSuccess](API.md#CRVideo_CreateMeetingSuccess)
+* [CreateMeetingFail](API.md#CRVideo_CreateMeetingFail)
 
 
 <h3 id=startCall>2.发起呼叫</h3>
@@ -43,28 +43,28 @@ CR.CreateMeetingFail.callback = function(sdkErr, cookie){
 
 ```js
 //A发起呼叫，邀请用户B进入房间。
-const callID = CR.Call(UID, meetObj, usrExtDat, cookie)
+const callID = RTCSDK.Call(UID, meetObj, usrExtDat, cookie)
 ```
 
 - 回调通知：
 
 ```js
 //呼叫操作成功响应
-CR.CallSuccess.callback = function(callID, cookie){
+RTCSDK.CallSuccess.callback = function(callID, cookie){
 
 }
 
 // 呼叫操作失败响应
-CR.CallFail.callback = function(callID, sdkErr, cookie){
+RTCSDK.CallFail.callback = function(callID, sdkErr, cookie){
     console.log("呼叫他人失败"+ sdkErr);
 }
 ```
 
 
 呼叫他人相关API请参考:
-* [CR.Call](API.md#CRVideo_Call)
-* [CR.CallSuccess](API.md#CRVideo_CallSuccess)
-* [CR.CallFail](API.md#CRVideo_CallFail)
+* [Call](API.md#CRVideo_Call)
+* [CallSuccess](API.md#CRVideo_CallSuccess)
+* [CallFail](API.md#CRVideo_CallFail)
 
 
 
@@ -75,41 +75,41 @@ CR.CallFail.callback = function(callID, sdkErr, cookie){
 
 ```js
 // SDK通知用户 B 被他人 （即callerID） 呼叫
-CR.NotifyCallIn.callback = function(callID, meetObj, callerID, usrExtDat){
+RTCSDK.NotifyCallIn.callback = function(callID, meetObj, callerID, usrExtDat){
     if(/* B 接受呼叫， 进入房间*/){
-        CR.AcceptCall(callID, meetObj);
-        CR.EnterMeeting2(meetObj.ID, UID, nickName, cookie)
+        RTCSDK.AcceptCall(callID, meetObj);
+        RTCSDK.EnterMeeting2(meetObj.ID, UID, nickName, cookie)
     } else {
         // B 拒绝呼叫
-        CR.RejectCall(callID);
+        RTCSDK.RejectCall(callID);
     }
 }
 ```
 
 ```js
 //当 B 接受呼叫时，A会收到如下通知：
-CR.NotifyCallAccepted.call = function(callID, meetObj, usrExtDat){
+RTCSDK.NotifyCallAccepted.call = function(callID, meetObj, usrExtDat){
     //A此时可以进入房间
-    CR.EnterMeeting2(meetObj.ID, UID, nickName, cookie)
+    RTCSDK.EnterMeeting2(meetObj.ID, UID, nickName, cookie)
 }
 //当 B 拒绝呼叫时，A会收到如下通知：
-CR.NotifyCallRejected.call = function(callID,meetObj,usrExtDat){
+RTCSDK.NotifyCallRejected.call = function(callID,meetObj,usrExtDat){
     console.log("客户拒绝呼叫了");
 }
 ```
 
 被呼叫者相关API请参考:
-* [CR.NotifyCallIn](API.md#CRVideo_NotifyCallIn)
-* [CR.AcceptCall](API.md#CRVideo_AcceptCall)
-* [CR.AcceptCallSuccess](API.md#CRVideo_AcceptCallSuccess)
-* [CR.AcceptCallFail](API.md#CRVideo_AcceptCallFail)
-* [CR.RejectCall](API.md#CRVideo_RejectCall)
-* [CR.RejectCallSuccess](API.md#CRVideo_RejectCallSuccess)
-* [CR.RejectCallFail](API.md#CRVideo_RejectCallFail)
+* [NotifyCallIn](API.md#CRVideo_NotifyCallIn)
+* [AcceptCall](API.md#CRVideo_AcceptCall)
+* [AcceptCallSuccess](API.md#CRVideo_AcceptCallSuccess)
+* [AcceptCallFail](API.md#CRVideo_AcceptCallFail)
+* [RejectCall](API.md#CRVideo_RejectCall)
+* [RejectCallSuccess](API.md#CRVideo_RejectCallSuccess)
+* [RejectCallFail](API.md#CRVideo_RejectCallFail)
 
 呼叫者相关API请参考:
-* [CR.NotifyCallAccepted](API.md#CRVideo_NotifyCallAccepted)
-* [CR.NotifyCallRejected](API.md#CRVideo_NotifyCallRejected)
+* [NotifyCallAccepted](API.md#CRVideo_NotifyCallAccepted)
+* [NotifyCallRejected](API.md#CRVideo_NotifyCallRejected)
 
 
 <h3 id=hangup>4.挂断</h3>
@@ -118,36 +118,36 @@ CR.NotifyCallRejected.call = function(callID,meetObj,usrExtDat){
 
 ```js
 //挂断呼叫
-CR.HungupCall(callID)
+RTCSDK.HungupCall(callID)
 ```
 
 - 回调通知：
 
 ```js
 //挂断呼叫成功
-CR.HungupCallSuccess.callback = function(callID, cookie){
+RTCSDK.HungupCallSuccess.callback = function(callID, cookie){
     console.log("挂断呼叫成功")
-    CR.ExitMeeting();  //退出房间
+    RTCSDK.ExitMeeting();  //退出房间
 }
 
 //挂断呼叫失败
-CR.HungupCallFail.callback = function(callID, sdkErr, cookie){
+RTCSDK.HungupCallFail.callback = function(callID, sdkErr, cookie){
    console.log("挂断呼叫失败！错误码："+ sdkErr);
 }
 
 //通知被他人挂断
-CR.NotifyCallHungup.callback = function(callID, usrExtDat){
-    CR.ExitMeeting();  //退出房间
+RTCSDK.NotifyCallHungup.callback = function(callID, usrExtDat){
+    RTCSDK.ExitMeeting();  //退出房间
 }
 
 ```
 
 相关API请参考:
-   - [CR.HungupCall](API.md#CRVideo_HungupCall)   
-   - [CR.HungupCallSuccess](API.md#CRVideo_HungupCallSuccess)
-   - [CR.HungupCallFail](API.md#CRVideo_HungupCallFail)
-   - [CR.NotifyCallHungup](API.md#CRVideo_NotifyCallHungup)
-   - [CR.ExitMeeting](API.md#CRVideo_ExitMeeting)
+   - [HungupCall](API.md#CRVideo_HungupCall)   
+   - [HungupCallSuccess](API.md#CRVideo_HungupCallSuccess)
+   - [HungupCallFail](API.md#CRVideo_HungupCallFail)
+   - [NotifyCallHungup](API.md#CRVideo_NotifyCallHungup)
+   - [ExitMeeting](API.md#CRVideo_ExitMeeting)
 
 
 ## 被叫
@@ -158,14 +158,14 @@ CR.NotifyCallHungup.callback = function(callID, usrExtDat){
 
 ```js
 //通知有呼入
-CR.NotifyCallIn.callback = function(callID, MeetInfoObj, callerID, usrExtDat)
+RTCSDK.NotifyCallIn.callback = function(callID, MeetInfoObj, callerID, usrExtDat)
 {
     console.log("有呼叫到来!");
 }
 ```
 
 相关API请参考:
-* [CR.NotifyCallIn](API.md#NotifyCallIn)
+* [NotifyCallIn](API.md#NotifyCallIn)
 
 
 <h3 id=accept_rehect_Call>2.接受/拒绝呼叫</h3>
@@ -174,44 +174,44 @@ CR.NotifyCallIn.callback = function(callID, MeetInfoObj, callerID, usrExtDat)
 
 ```js
 //接受呼叫
-CR.AcceptCall(callID, meetObj, "", "");
+RTCSDK.AcceptCall(callID, meetObj, "", "");
 
 //拒绝呼叫
-CR.RejectCall(callID, "", "");
+RTCSDK.RejectCall(callID, "", "");
 ```
 
 - 回调通知：
 
 ```js
 //接受呼叫成功
-CR.AcceptCallSuccess.callback = function(callID, cookie)
+RTCSDK.AcceptCallSuccess.callback = function(callID, cookie)
 {
 }
 
 //接受呼叫失败
-CR.AcceptCallFail.callback = function(callID,sdkEr,cookie)
+RTCSDK.AcceptCallFail.callback = function(callID,sdkEr,cookie)
 {
 }
 
 //拒接呼叫成功
-CR.RejectCallSuccess.callback = function(callID,cookie)
+RTCSDK.RejectCallSuccess.callback = function(callID,cookie)
 {
 }
 
 //拒接呼叫失败
-CR.RejectCallFail.callback = function(callID,sdkEr,cookie)
+RTCSDK.RejectCallFail.callback = function(callID,sdkEr,cookie)
 {
 }
 
 ```
 
 相关API请参考:
-* [CR.AcceptCall](API.md#CRVideo_AcceptCall)
-* [CR.RejectCall](API.md#CRVideo_RejectCall)
-* [CR.AcceptCallSuccess](API.md#CRVideo_AcceptCallSuccess)
-* [CR.AcceptCallFail](API.md#CRVideo_AcceptCallFail)
-* [CR.RejectCallSuccess](API.md#CRVideo_RejectCallSuccess)
-* [CR.RejectCallFail](API.md#CRVideo_RejectCallFail)
+* [AcceptCall](API.md#CRVideo_AcceptCall)
+* [RejectCall](API.md#CRVideo_RejectCall)
+* [AcceptCallSuccess](API.md#CRVideo_AcceptCallSuccess)
+* [AcceptCallFail](API.md#CRVideo_AcceptCallFail)
+* [RejectCallSuccess](API.md#CRVideo_RejectCallSuccess)
+* [RejectCallFail](API.md#CRVideo_RejectCallFail)
 
 
 <h3 id=DND>3.免打扰</h3>
@@ -222,26 +222,26 @@ CR.RejectCallFail.callback = function(callID,sdkEr,cookie)
 - 调用接口：
 
 ```js
-CR.SetDNDStatus(1); //开启免打扰
+RTCSDK.SetDNDStatus(1); //开启免打扰
 
-CR.SetDNDStatus(0); //关闭免打扰
+RTCSDK.SetDNDStatus(0); //关闭免打扰
 ```
 
 - 回调通知：
 
 ```js
 //设置免打扰状态操作成功响应
-CR.SetDNDStatusSuccess.callback = function(cookie){
+RTCSDK.SetDNDStatusSuccess.callback = function(cookie){
      
 }
 
 //设置免打扰状态操作失败响应
-CR.SetDNDStatusFail.callback = function(sdkErr, cookie){
+RTCSDK.SetDNDStatusFail.callback = function(sdkErr, cookie){
     console.log("设置免打扰状态操作失败，错误码：" + sdkErr);
 }
 ```
 
 相关API请参考:
-   - [CR.SetDNDStatus](API.md#CRVideo_SetDNDStatus)
-   - [CR.SetDNDStatusSuccess](API.md#CRVideo_SetDNDStatusSuccess) 
-   - [CR.SetDNDStatusFail](API.md#CRVideo_SetDNDStatusFail) 
+   - [SetDNDStatus](API.md#CRVideo_SetDNDStatus)
+   - [SetDNDStatusSuccess](API.md#CRVideo_SetDNDStatusSuccess) 
+   - [SetDNDStatusFail](API.md#CRVideo_SetDNDStatusFail) 

@@ -22,9 +22,9 @@
 //在json中声明SDK组件，需定位到对应目录
 {
     "usingComponents": {
-        "CRVideoPusher": "../../utils/CRSDK/components/CRVideoPusher/CRVideoPusher",
-        "CRAudioPlayer": "../../utils/CRSDK/components/CRAudioPlayer/CRAudioPlayer",
-        "CRVideoPlayer": "../../utils/CRSDK/components/CRVideoPlayer/CRVideoPlayer" 
+        "RTCVideoPlayer": "/utils/RTCSDK/components/RTCVideoPlayer/RTCVideoPlayer",
+        "RTCVideoPusher": "/utils/RTCSDK/components/RTCVideoPusher/RTCVideoPusher",
+        "RTCAudioPlayer": "/utils/RTCSDK/components/RTCAudioPlayer/RTCAudioPlayer",
     }
 }
 ```
@@ -34,12 +34,12 @@
 <view class="father">
     <!-- 组件宽高会根据父元素宽高继承 -->
     <!-- 音视频推流组件 userInfo传入成员信息，config传入配置信息，debug是否开启调式，详细请参考组件文档 -->
-    <CRVideoPusher class="video-pusher" userInfo='{{myUserInfo}}' config='{{CRVideoPusher}}' wx:if='{{myUserInfo}}'></CRVideoPusher>
-    <CRVideoPlayer class="video-player" userInfo='{{otherUserInfo}}' config='{{CRVideoPlayer}}' wx:if='{{otherUserInfo}}'></CRVideoPlayer>
+    <RTCVideoPusher class="video-pusher" userInfo='{{myUserInfo}}' config='{{RTCVideoPusher}}' wx:if='{{myUserInfo}}'></RTCVideoPusher>
+    <RTCVideoPlayer class="video-player" userInfo='{{otherUserInfo}}' config='{{RTCVideoPlayer}}' wx:if='{{otherUserInfo}}'></RTCVideoPlayer>
 </view>
 
 <!-- 音频拉流组件 -->
-<CRAudioPlayer config='{{CRAudioPlayer}}' wx:if='{{CRAudioPlayer}}'></CRAudioPlayer>
+<RTCAudioPlayer config='{{RTCAudioPlayer}}' wx:if='{{RTCAudioPlayer}}'></RTCAudioPlayer>
 ```
 
 ```css
@@ -65,38 +65,38 @@
 ```js
 //js部分：
 //音视频推流组件配置
-const CRVideoPusher = {
+const RTCVideoPusher = {
     aspect: '9:16', // 宽高比，可选值有 3:4, 9:16
     muted: false, //默认静音,此属性不支持动态修改，如需开关麦克风请调用api
     enableCamera: true, //默认打开摄像头,此属性不支持动态修改，如需开关摄像头请调用api
 }
 
 //视频拉流组件配置
-const CRVideoPlayer = {
+const RTCVideoPlayer = {
     objectFit: 'fillCrop', // 填充模式，可选值有 contain，fillCrop	
 }
 
 //音频拉流组件
-const CRAudioPlayer = {
+const RTCAudioPlayer = {
     soundMode: 'speaker', // 声音输出方式，有效值为 speaker（扬声器）、ear（听筒）
     autoPauseIfNavigate: false, // 当跳转到其它小程序页面时，是否自动暂停本页面的实时音视频播放
     autoPauseIfOpenNative: false, // 当跳转到其它微信原生页面时，是否自动暂停本页面的实时音视频播放
 }
 
 this.setData({
-    myUserInfo: CR.GetMemberInfo(myUID),
-    CRVideoPusher,
-    otherUserInfo: CR.GetMemberInfo(otherUID),
-    CRVideoPlayer,
-    CRAudioPlayer
+    myUserInfo: RTCSDK.GetMemberInfo(myUID),
+    RTCVideoPusher,
+    otherUserInfo: RTCSDK.GetMemberInfo(otherUID),
+    RTCVideoPlayer,
+    RTCAudioPlayer
 });
 
 ```
 
 相关组件请参考：
-* [CRVideoPusher](API.md#CRVideoPusher)
-* [CRVideoPlayer](API.md#CRVideoPlayer)
-* [CRAudioPlayer](API.md#CRAudioPlayer)
+* [RTCVideoPusher](API.md#RTCVideoPusher)
+* [RTCVideoPlayer](API.md#RTCVideoPlayer)
+* [RTCAudioPlayer](API.md#RTCAudioPlayer)
 
 
 <h2 id=more> 2.多方视频</h2>
@@ -114,9 +114,9 @@ this.setData({
 //在json中声明SDK组件，需定位到对应目录
 {
     "usingComponents": {
-        "CRVideoPusher": "../../utils/CRSDK/components/CRVideoPusher/CRVideoPusher",
-        "CRAudioPlayer": "../../utils/CRSDK/components/CRAudioPlayer/CRAudioPlayer",
-        "CRVideoPlayer": "../../utils/CRSDK/components/CRVideoPlayer/CRVideoPlayer" 
+        "RTCVideoPlayer": "/utils/RTCSDK/components/RTCVideoPlayer/RTCVideoPlayer",
+        "RTCVideoPusher": "/utils/RTCSDK/components/RTCVideoPusher/RTCVideoPusher",
+        "RTCAudioPlayer": "/utils/RTCSDK/components/RTCAudioPlayer/RTCAudioPlayer",
     }
 }
 ```
@@ -127,12 +127,12 @@ this.setData({
     <view wx:for='{{list}}' wx:key='userID' class='video {{item.mainVideo ? "mainVideo":""}}'>
         <!-- 组件宽高会根据父元素宽高继承 -->
         <!-- 音视频推流组件 userInfo传入成员信息，config传入配置信息，debug是否开启调式，详细请参考组件文档 -->
-        <CRVideoPusher wx:if='{{myUID === item.userID}}' userInfo='{{item}}' config='{{CRVideoPusher}}'></CRVideoPusher>
-        <CRVideoPlayer wx:else userInfo='{{item}}' config='{{CRVideoPlayer}}'></CRVideoPlayer>
+        <RTCVideoPusher wx:if='{{myUID === item.userID}}' userInfo='{{item}}' config='{{RTCVideoPusher}}'></RTCVideoPusher>
+        <RTCVideoPlayer wx:else userInfo='{{item}}' config='{{RTCVideoPlayer}}'></RTCVideoPlayer>
     </view>
     
     <!-- 音频拉流组件 -->
-    <CRAudioPlayer config='{{CRAudioPlayer}}' wx:if='{{CRAudioPlayer}}'></CRAudioPlayer>
+    <RTCAudioPlayer config='{{RTCAudioPlayer}}' wx:if='{{RTCAudioPlayer}}'></RTCAudioPlayer>
 </view>
 ```
 
@@ -159,7 +159,7 @@ this.setData({
 ```js
 //js代码部分：
 let list = [];
-CR.GetAllMembers().forEach(member => {
+RTCSDK.GetAllMembers().forEach(member => {
     //假设老师的userID为teacher,需要放入指定的盒子
     if (member.userID === 'teacher') {
         member.mainVideo = true;
@@ -167,38 +167,38 @@ CR.GetAllMembers().forEach(member => {
     list.push(member);
 });
 
-const CRVideoPusher = {
+const RTCVideoPusher = {
     aspect: '9:16', // 宽高比，可选值有 3:4, 9:16
     muted: false, //默认静音,此属性不支持动态修改，如需开关麦克风请调用api
     enableCamera: true, //默认打开摄像头,此属性不支持动态修改，如需开关摄像头请调用api
 }
 
 //视频拉流组件配置
-const CRVideoPlayer = {
+const RTCVideoPlayer = {
     objectFit: 'fillCrop', // 填充模式，可选值有 contain，fillCrop	
 }
 
 //音频拉流组件
-const CRAudioPlayer = {
+const RTCAudioPlayer = {
     soundMode: 'speaker', // 声音输出方式，有效值为 speaker（扬声器）、ear（听筒）
 }
 
 this.setData({
     myUID: 'xxxxx', //假设自己的UID
-    CRVideoPusher,
-    CRVideoPlayer,
-    CRAudioPlayer,
+    RTCVideoPusher,
+    RTCVideoPlayer,
+    RTCAudioPlayer,
     list,
 });
 ``` 
 
 相关API请参考：
-* [CR.GetAllMembers](API.md#CRVideo_GetAllMembers)
+* [GetAllMembers](API.md#CRVideo_GetAllMembers)
 
 相关结构定义请参考：
 * [CRVideo_MemberInfo](TypeDefinitions.md#CRVideo_MemberInfo)
 
 相关组件请参考：
-* [CRVideoPusher](API.md#CRVideoPusher)
-* [CRVideoPlayer](API.md#CRVideoPlayer)
-* [CRAudioPlayer](API.md#CRAudioPlayer)
+* [RTCVideoPusher](API.md#RTCVideoPusher)
+* [RTCVideoPlayer](API.md#RTCVideoPlayer)
+* [RTCAudioPlayer](API.md#RTCAudioPlayer)

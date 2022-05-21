@@ -12,13 +12,13 @@
 
 ```js
 //发送小块数据,taskId为分配的任务ID
-var taskId = CR.SendCmd(UID, data);
+var taskId = RTCSDK.SendCmd(UID, data);
 ```
 - 回调通知：
 
 ```js
 //发送数据的结果通知
-CR.SendCmdRslt.callback = function(taskID, sdkErr, cookie){
+RTCSDK.SendCmdRslt.callback = function(taskID, sdkErr, cookie){
 	if(sdkErr != 0){
         console.log("发送失败，错误码："+ sdkErr);
     }
@@ -26,21 +26,21 @@ CR.SendCmdRslt.callback = function(taskID, sdkErr, cookie){
 ```
 
 相关API请参考:
-- [CR.SendCmd](API.md#CRVideo_SendCmd)
-- [CR.SendCmdRlst](API.md#CRVideo_SendCmdRlst)
+- [SendCmd](API.md#CRVideo_SendCmd)
+- [SendCmdRlst](API.md#CRVideo_SendCmdRlst)
 
 相关结构定义请参考：
 - [错误码](Constant.html#CRVideo_ERR_DEF)
 
 <h2 id=sendBuffer>2.发送内存数据</h2>
 
-分块发送，进度通知事件[CR.SendProgress](API.md#CRVideo_SendProgress)。
+分块发送，进度通知事件[SendProgress](API.md#CRVideo_SendProgress)。
 
 - 调用接口：
 
 ```js
 //发送内存数据,taskId为分配的任务ID
-var taskId = CR.SendBuffer(UID, data);
+var taskId = RTCSDK.SendBuffer(UID, data);
 
 ```
 
@@ -48,7 +48,7 @@ var taskId = CR.SendBuffer(UID, data);
 
 ```js
 //发送数据的结果通知
-CR.SendBufferRslt.callback = function(taskID, sdkErr, cookie){
+RTCSDK.SendBufferRslt.callback = function(taskID, sdkErr, cookie){
 	if(sdkErr != 0){
         console.log("发送失败，错误码："+ sdkErr);
     }
@@ -57,8 +57,8 @@ CR.SendBufferRslt.callback = function(taskID, sdkErr, cookie){
 ```
 
 相关API请参考:
-- [CR.SendBuffer](API.md#CRVideo_SendBuffer)
-- [CR.SendBufferRslt](API.md#CRVideo_SendBufferRslt)
+- [SendBuffer](API.md#CRVideo_SendBuffer)
+- [SendBufferRslt](API.md#CRVideo_SendBufferRslt)
 
 <h2 id=tc_progress> 3.发送进度通知</h2>
 
@@ -66,13 +66,13 @@ CR.SendBufferRslt.callback = function(taskID, sdkErr, cookie){
 
 ```js
 //发送的进度通知事件
-CR.SendProgress.callback = function(taskID, sendedLen, totalLen, cookie){
+RTCSDK.SendProgress.callback = function(taskID, sendedLen, totalLen, cookie){
 
 }
 
 ```
 
 相关API请参考:
-- [CR.SendProgress](API.md#CRVideo_SendProgress)
+- [SendProgress](API.md#CRVideo_SendProgress)
 
 

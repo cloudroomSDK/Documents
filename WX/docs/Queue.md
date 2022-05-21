@@ -29,14 +29,14 @@
 - 调用接口：
 
 ```js
-CR.InitQueueDat(); // 初始化队列数据，操作完成回调CR.InitQueueDatRslt
+RTCSDK.InitQueueDat(); // 初始化队列数据，操作完成回调RTCSDK.InitQueueDatRslt
 ```
 
 - 回调通知：
 
 ```js
 //队列初始化操作结果
-CR.InitQueueDatRslt.callback = function(sdkErr, cookie){
+RTCSDK.InitQueueDatRslt.callback = function(sdkErr, cookie){
     if(sdkErr == 0){
         //初始化队列成功后，才可以获取队列相关信息并展示。
     }else{
@@ -47,8 +47,8 @@ CR.InitQueueDatRslt.callback = function(sdkErr, cookie){
 ```
 
 相关API请参考： 
-* [CR.InitQueueDat](API.md#CRVideo_InitQueueDat)
-* [CR.InitQueueDatRslt](API.md#CRVideo_InitQueueDatRslt)
+* [InitQueueDat](API.md#CRVideo_InitQueueDat)
+* [InitQueueDatRslt](API.md#CRVideo_InitQueueDatRslt)
 
 
 <h2 id=getQueue> 3.获取队列信息</h2>
@@ -60,11 +60,11 @@ CR.InitQueueDatRslt.callback = function(sdkErr, cookie){
 
 ```js
 //获取队列信息
-const queueList = CR.GetAllQueueInfo(); 
+const queueList = RTCSDK.GetAllQueueInfo(); 
 ```
 
 相关API请参考： 
-* [CR.GetAllQueueInfo](API.md#CRVideo_GetAllQueueInfo)
+* [GetAllQueueInfo](API.md#CRVideo_GetAllQueueInfo)
 
 相关结构定义请参考：
 * [CRVideo_QueueInfo](TypeDefinitions.md#CRVideo_QueueInfo)
@@ -77,16 +77,16 @@ const queueList = CR.GetAllQueueInfo();
 - 调用接口：
 
 ```js
-CR.StartService(queID); //开始服务某个队列(可以多次调用，开启对多个队列的服务) .
+RTCSDK.StartService(queID); //开始服务某个队列(可以多次调用，开启对多个队列的服务) .
 
-CR.StopService(queID); //停止服务某个队列 
+RTCSDK.StopService(queID); //停止服务某个队列 
 ```
 
 - 回调通知：
 
 ```js
 // 开始服务队列操作结果
-CR.StartServiceRslt.callback = function(queID, sdkErr, cookie){
+RTCSDK.StartServiceRslt.callback = function(queID, sdkErr, cookie){
     if(sdkErr == 0){
         //开始服务队列成功
     }else{
@@ -95,7 +95,7 @@ CR.StartServiceRslt.callback = function(queID, sdkErr, cookie){
 }
 
 //停止服务队列操作结果
-CR.StopServiceRslt.callback = function(queID, sdkErr, cookie){
+RTCSDK.StopServiceRslt.callback = function(queID, sdkErr, cookie){
     if(sdkErr == 0){
         //停止服务队列成功
     }else{
@@ -104,20 +104,20 @@ CR.StopServiceRslt.callback = function(queID, sdkErr, cookie){
 }
 
 // 开始/停止服务队列，会触发队列状态变化通知
-CR.QueueStatusChanged.callback = function(queStatus){
+RTCSDK.QueueStatusChanged.callback = function(queStatus){
 
 }
 ```
 
 相关API请参考：   
-* [CR.StartService](API.md#CRVideo_StartService)
-* [CR.StopService](API.md#CRVideo_StopService)
-* [CR.StartServiceRslt](API.md#CRVideo_StartServiceRslt)
-* [CR.StopServiceRslt](API.md#CRVideo_StopServiceRslt)
-* [CR.QueueStatusChanged](API.md#CRVideo_QueueStatusChanged)
+* [StartService](API.md#CRVideo_StartService)
+* [StopService](API.md#CRVideo_StopService)
+* [StartServiceRslt](API.md#CRVideo_StartServiceRslt)
+* [StopServiceRslt](API.md#CRVideo_StopServiceRslt)
+* [QueueStatusChanged](API.md#CRVideo_QueueStatusChanged)
 
 相关结构定义请参考：
-* [CR.QueStatus](TypeDefinitions.md#CRVideo_QueStatus)
+* [QueStatus](TypeDefinitions.md#CRVideo_QueStatus)
 
 
 <h2 id=clientQueue>4.2客户：排队</h2>
@@ -128,16 +128,16 @@ CR.QueueStatusChanged.callback = function(queStatus){
 - 调用接口：
 
 ```js
-CR.StartQueuing(queID); // 客户开始排队， 操作完成回调CR.StartQueuingRslt
+RTCSDK.StartQueuing(queID); // 客户开始排队， 操作完成回调RTCSDK.StartQueuingRslt
 
-CR.StopQueuing(queID); //客户停止排队，操作完成回调CR.StopQueuingRslt
+RTCSDK.StopQueuing(queID); //客户停止排队，操作完成回调RTCSDK.StopQueuingRslt
 ```
 
 - 回调通知：
 
 ```js
 // 开始排队操作结果
-CR.StartQueuingRslt.callback = function(sdkErr, cookie){
+RTCSDK.StartQueuingRslt.callback = function(sdkErr, cookie){
     if(sdkErr == 0){
         //开始排队操作成功
     } else {
@@ -146,7 +146,7 @@ CR.StartQueuingRslt.callback = function(sdkErr, cookie){
 }
 
 // 停止排队操作结果
-CR.StopQueuingRslt.callback = function(sdkErr, cookie){
+RTCSDK.StopQueuingRslt.callback = function(sdkErr, cookie){
     if(sdkErr == 0){
         //停止排队操作成功
     } else {
@@ -157,25 +157,25 @@ CR.StopQueuingRslt.callback = function(sdkErr, cookie){
 
 ```js
 //开始/停止排队，会触发队列状态变化通知
-CR.QueueStatusChanged.callback = function(queStatus){
+RTCSDK.QueueStatusChanged.callback = function(queStatus){
 
 }
 
 //排队信息变化通知
-CR.QueuingInfoChanged.callback = function(queuingInfo){
+RTCSDK.QueuingInfoChanged.callback = function(queuingInfo){
 
 }
 ```
 
 相关API请参考：
-* [CR.StartQueuing](API.md#CRVideo_StartQueuing)
-* [CR.StopQueuing](API.md#CRVideo_StopQueuing)
-* [CR.StartQueuingRslt](API.md#CRVideo_StartQueuingRslt)
-* [CR.StopQueuingRslt](API.md#CRVideo_StopQueuingRslt)
-* [CR.QueuingInfoChanged](API.md#CRVideo_QueuingInfoChanged)
+* [StartQueuing](API.md#CRVideo_StartQueuing)
+* [StopQueuing](API.md#CRVideo_StopQueuing)
+* [StartQueuingRslt](API.md#CRVideo_StartQueuingRslt)
+* [StopQueuingRslt](API.md#CRVideo_StopQueuingRslt)
+* [QueuingInfoChanged](API.md#CRVideo_QueuingInfoChanged)
 
 相关结构定义请参考：
-* [CR.QueuingInfo](TypeDefinitions.md#CRVideo_QueuingInfo)
+* [QueuingInfo](TypeDefinitions.md#CRVideo_QueuingInfo)
 
 <h2 id=autoAssignUser>5.系统给坐席分配客户</h2>
 
@@ -191,21 +191,21 @@ CR.QueuingInfoChanged.callback = function(queuingInfo){
 
 ```js
 // 系统自动安排客户
-CR.AutoAssignUser.callback = function(QueUser){
+RTCSDK.AutoAssignUser.callback = function(QueUser){
     if(/*接受系统分配的客户*/){
-        CR.AcceptAssignUser(QueUser.queID, QueUser.userID);
+        RTCSDK.AcceptAssignUser(QueUser.queID, QueUser.userID);
 
         //接下来做其他任务……  例如：创建房间
 
     } else {
         //拒绝系统分配的客户
-        CR.RejectAssignUser(user.queID, user.usrID);
+        RTCSDK.RejectAssignUser(user.queID, user.usrID);
     }
 
 }
 
 //接受或拒绝分配的客户的操作结果
-CR.ResponseAssignUserRslt.callback = function(sdkErr, cookie){
+RTCSDK.ResponseAssignUserRslt.callback = function(sdkErr, cookie){
     if(sdkErr == 0){
         console.log("接受或拒绝系统分配的客户成功");
     }else{
@@ -214,17 +214,17 @@ CR.ResponseAssignUserRslt.callback = function(sdkErr, cookie){
 }
 
 //系统取消已经安排的客户
-CR.CancelAssignUser.callback = function(queID, userid){
+RTCSDK.CancelAssignUser.callback = function(queID, userid){
     console.log("系统取消已经安排的客户,坐席不应该再进入房间……");
 }
 ```
 
 相关API请参考： 
-* [CR.AutoAssignUser](API.md#CRVideo_AutoAssignUser)
-* [CR.AcceptAssignUser](API.md#CRVideo_AcceptAssignUser)
-* [CR.RejectAssignUser](API.md#CRVideo_RejectAssignUser)
-* [CR.ResponseAssignUserRslt](API.md#CRVideo_ResponseAssignUserRslt)
-* [CR.CancelAssignUser](API.md#CRVideo_CancelAssignUser)
+* [AutoAssignUser](API.md#CRVideo_AutoAssignUser)
+* [AcceptAssignUser](API.md#CRVideo_AcceptAssignUser)
+* [RejectAssignUser](API.md#CRVideo_RejectAssignUser)
+* [ResponseAssignUserRslt](API.md#CRVideo_ResponseAssignUserRslt)
+* [CancelAssignUser](API.md#CRVideo_CancelAssignUser)
 
 
 手动分配模式:
@@ -234,27 +234,27 @@ CR.CancelAssignUser.callback = function(queID, userid){
 ```js
 //坐席请求客户分为 2步：
 //1.开启免打扰状态
-CR.SetDNDStatus(1,cookie)：
+RTCSDK.SetDNDStatus(1,cookie)：
 
 // 2. 请求分配一个客户
-CR.ReqAssignUser(cookie);
+RTCSDK.ReqAssignUser(cookie);
 ```
 
 - 回调通知：
 
 ```js
 //设置免打扰成功通知
-CR.SetDNDStatusSuccess.callback = function(cookie){
+RTCSDK.SetDNDStatusSuccess.callback = function(cookie){
 
 }
 
 //设置免打扰失败通知
-CR.SetDNDStatusFail.callback = function(sdkErr, cookie){
+RTCSDK.SetDNDStatusFail.callback = function(sdkErr, cookie){
     console.log("设置免打扰失败，错误码：" + sdkErr);    
 }
 
 //请求分配客户操作结果
-CR.ReqAssignUserRslt.callback = function(sdkErr, user, cookie){
+RTCSDK.ReqAssignUserRslt.callback = function(sdkErr, user, cookie){
     if(sdkErr == 0){
         //请求分配客户成功，接下来做其他任务……  例如：创建房间
     } else {
@@ -265,11 +265,11 @@ CR.ReqAssignUserRslt.callback = function(sdkErr, user, cookie){
 ```
 
 相关API请参考:
-* [CR.SetDNDStatus](API.md#CRVideo_SetDNDStatus) 
-* [CR.SetDNDStatusSuccess](API.md#CRVideo_SetDNDStatusSuccess)
-* [CR.SetDNDStatusFail](API.md#CRVideo_SetDNDStatusFail)
-* [CR.ReqAssignUser](API.md#CRVideo_ReqAssignUser)
-* [CR.ReqAssignUserRslt](API.md#CRVideo_ReqAssignUserRslt)
+* [SetDNDStatus](API.md#CRVideo_SetDNDStatus) 
+* [SetDNDStatusSuccess](API.md#CRVideo_SetDNDStatusSuccess)
+* [SetDNDStatusFail](API.md#CRVideo_SetDNDStatusFail)
+* [ReqAssignUser](API.md#CRVideo_ReqAssignUser)
+* [ReqAssignUserRslt](API.md#CRVideo_ReqAssignUserRslt)
 
 
 

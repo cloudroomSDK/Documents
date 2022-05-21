@@ -8,23 +8,23 @@
 
 <h2 id=role_watch>观看影音播放</h2> 
 
-<h3 id=declare>1.在页面配置中申明CRVideoPlayer组件</h3> 
+<h3 id=declare>1.在页面配置中申明RTCVideoPlayer组件</h3> 
 
 ```json
 {
     "usingComponents": {
-        "CRVideoPlayer": "../../utils/CRSDK/components/CRVideoPlayer/CRVideoPlayer" //声明视频拉流组件，需定位到对应目录
+        "RTCVideoPlayer": "/utils/RTCSDK/components/RTCVideoPlayer/RTCVideoPlayer",//声明视频拉流组件，需定位到对应目录
     }
 }
 ```
 
-<h3 id=wxml>2.在页面中添加CRVideoPlayer组件</h3> 
+<h3 id=wxml>2.在页面中添加RTCVideoPlayer组件</h3> 
 
 ```html
 <view style='width: 300rpx;height: 100rpx'>
     <!-- 组件宽高会根据父元素宽高继承 -->
     <!-- 视频拉流组件 userInfo传入成员信息，config传入配置信息，详细请参考组件文档 -->
-    <CRVideoPlayer userInfo='{{mediaMemberInfo}}' config='{{CRMediaPlayer}}' wx:if='{{mediaLayout}}'></CRVideoPlayer>
+    <RTCVideoPlayer userInfo='{{mediaMemberInfo}}' config='{{CRMediaPlayer}}' wx:if='{{mediaLayout}}'></RTCVideoPlayer>
 </view>
 ```
 
@@ -32,14 +32,14 @@
 
 ```js
 //观看端会收到开始播放影音的通知。此时渲染媒体拉流组件，即可观看影音
-CR.NotifyMediaStart.callback = function(UID){
+RTCSDK.NotifyMediaStart.callback = function(UID){
     const config = {
         type: 'media',
         objectFit: 'contain', // 填充模式，可选值有 contain，fillCrop
     }
     this.setData({
         mediaLayout: true,
-        mediaMemberInfo: CR.GetMemberInfo(UID),
+        mediaMemberInfo: RTCSDK.GetMemberInfo(UID),
         CRMediaPlayer: config
     });
 }
@@ -49,21 +49,21 @@ CR.NotifyMediaStart.callback = function(UID){
 
 ```js
 //影音停止播放通知，观看端会收到此通知。
-CR.NotifyMediaStop.callback = function(UID){
+RTCSDK.NotifyMediaStop.callback = function(UID){
     this.setData({ mediaLayout: false });   //销毁组件
 }
 
 ```
 
 相关API请参考：
-* [CR.GetMediaInfo](API.md#CRVideo_GetMediaInfo)
-* [CR.GetMediaInfoRslt](API.md#CRVideo_GetMediaInfoRslt)
-* [CR.NotifyMediaStart](API.md#CRVideo_NotifyMediaStart)
-* [CR.NotifyMediaPause](API.md#CRVideo_NotifyMediaPause)
-* [CR.NotifyMediaStop](API.md#CRVideo_NotifyMediaStop)
+* [GetMediaInfo](API.md#CRVideo_GetMediaInfo)
+* [GetMediaInfoRslt](API.md#CRVideo_GetMediaInfoRslt)
+* [NotifyMediaStart](API.md#CRVideo_NotifyMediaStart)
+* [NotifyMediaPause](API.md#CRVideo_NotifyMediaPause)
+* [NotifyMediaStop](API.md#CRVideo_NotifyMediaStop)
 
 相关组件请参考：
-* [CRVideoPlayer](API.md#CRVideoPlayer)
+* [RTCVideoPlayer](API.md#RTCVideoPlayer)
 
 相关结构定义请参考:
 * [CRVideo_MediaInfoObj](TypeDefinitions.md#CRVideo_MediaInfoObj)

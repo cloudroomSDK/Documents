@@ -94,5 +94,15 @@ module.exports = {
         param: 'pageCount',
         type: 'number',
         explain: '白板页数'
-    }
+    },
+    mixerID: {
+        param: 'mixerID',
+        type: 'string',
+        explain: '混图器ID, 参见[CreateCloudMixer](#CRVideo_CreateCloudMixer)'
+    },
+    mixerCFG: {
+        param: 'cfg',
+        type: 'object',
+        explain: '云端混图器配置，参见[CloudMixerCfgObj](TypeDefinitions#CloudMixerCfgObj)',
+    },
 }

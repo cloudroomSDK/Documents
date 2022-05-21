@@ -1621,7 +1621,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 
 - <p style="color:red; font-size:20px">注意事项:</p>
 
-  + 消毁云端混图器时，调用者将收到notifyLocMixerStateChanged通知进入MIXER_STOPPING状态，在停止完成后，房间内所有人都将收到[cloudMixerInfoChanged](#cloudMixerInfoChanged)通知进入MIXER_NULL状态；
+  + 消毁云端混图器时，调用者将收到notifyCloudMixerStateChanged通知进入MIXER_STOPPING状态，在停止完成后，房间内所有人都将收到[notifyCloudMixerStateChanged](#notifyCloudMixerStateChanged)通知进入MIXER_NULL状态；
 
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|

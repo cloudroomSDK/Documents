@@ -2986,7 +2986,7 @@ sdk内部产生默认摄像头时，优先将将打开的多摄像头上选择�
 云端混图器部署有少量耗时，如果在部署过程遇到异常，将收到[createCloudMixerFailed](#createCloudMixerFailed)回调；</br>
 云端混图器启动完成并进入录制或推流状态时，将收到[notifyCloudMixerStateChanged](#notifyCloudMixerStateChanged)通知，进入CRVSDK_MIXER_RUNNING（工作中状态）；</br>
 开启云端混图器在进入CRVSDK_MIXER_STARTING状态后，可以通过[updateCloudMixerContent](#updateCloudMixerContent)更新内容；</br>
-混图器如果在工作中遇到异常而停止时，将收到[notifyLocMixerStateChanged](#notifyLocMixerStateChanged)通知，进入CRVSDK_MIXER_NULL并携带错误原因；</br>
+混图器如果在工作中遇到异常而停止时，将收到[notifyCloudMixerStateChanged](#notifyCloudMixerStateChanged)通知，进入CRVSDK_MIXER_NULL并携带错误原因；</br>
 
 - **返回值**： 云端混图器ID
 
@@ -3021,7 +3021,7 @@ sdk内部产生默认摄像头时，优先将将打开的多摄像头上选择�
 
 - **功能**：消毁云端混图器
 
-消毁云端混图器时，调用者将收到[notifyLocMixerStateChanged](#notifyLocMixerStateChanged)通知进入CRVSDK_MIXER_STOPPING状态，在停止完成后，房间内所有人都将收到[notifyLocMixerStateChanged](#notifyLocMixerStateChanged)通知进入CRVSDK_MIXER_NULL状态；</br>
+消毁云端混图器时，调用者将收到[notifyCloudMixerStateChanged](#notifyCloudMixerStateChanged)通知进入CRVSDK_MIXER_STOPPING状态，在停止完成后，房间内所有人都将收到[notifyCloudMixerStateChanged](#notifyCloudMixerStateChanged)通知进入CRVSDK_MIXER_NULL状态；</br>
 
 - **返回值**： 无
 

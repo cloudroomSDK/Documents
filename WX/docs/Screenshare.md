@@ -12,25 +12,26 @@
 
 <h2 id=role_watch>观看屏幕共享</h2> 
 
-<h3 id=declare>1.在页面配置中申明CRVideoPlayer组件</h3> 
+<h3 id=declare>1.在页面配置中申明RTCVideoPlayer组件</h3> 
 
 ```json
 {
     "usingComponents": {
-        "CRVideoPlayer": "../../utils/CRSDK/components/CRVideoPlayer/CRVideoPlayer" //声明视频拉流组件，需定位到对应目录
+        "RTCVideoPlayer": "/utils/RTCSDK/components/RTCVideoPlayer/RTCVideoPlayer",//声明视频拉流组件，需定位到对应目录
+        "RTCScreenMarkV4": "/utils/RTCSDK/components/RTCScreenMarkV4/RTCScreenMarkV4",//声明屏幕共享标注组件，需定位到对应目录
     }
 }
 ```
 
-<h3 id=wxml>2.在页面中添加CRVideoPlayer组件</h3> 
+<h3 id=wxml>2.在页面中添加RTCVideoPlayer组件</h3> 
 
 ```html
 <view calss="father">
     <!-- 组件宽高会根据父元素宽高继承 -->
     <!-- 视频拉流组件 userInfo传入成员信息，config传入配置信息，详细请参考组件文档 -->
-    <CRVideoPlayer userInfo='{{screenMemberInfo}}' config='{{CRScreenPlayer}}' wx:if='{{mediaLayout}}'></CRVideoPlayer>
+    <RTCVideoPlayer userInfo='{{screenMemberInfo}}' config='{{RTCScreenPlayer}}' wx:if='{{mediaLayout}}'></RTCVideoPlayer>
     <!-- 标注组件，有观看标注的需求可以引入该组件，标注组件需要自己调整定位属性,可参考下面的CSS代码 -->
-    <CRScreenMarkV4 class="cr-mark" wx:if='{{CRMediaPlayer.type=="screen"}}' config='{{CRMediaPlayer}}'></CRScreenMarkV4>
+    <RTCScreenMarkV4 class="cr-mark" wx:if='{{RTCScreenPlayer.type=="screen"}}' config='{{RTCScreenPlayer}}'></RTCScreenMarkV4>
 </view>
 ```
 
@@ -41,7 +42,7 @@
     position: relative;
 }
 .cr-mark {
-    /* 以下样式使其覆盖在CRVideoPlayer组件上面 */
+    /* 以下样式使其覆盖在RTCVideoPlayer组件上面 */
     position: absolute;
     z-index: 2;
     top: 0;
@@ -55,34 +56,34 @@
 
 ```js
 //观看端收到开始播放屏幕共享的通知。此时渲染媒体拉流组件，即可观看影音
-CR.NotifyScreenShareStarted.callback = function(UID){
+RTCSDK.NotifyScreenShareStarted.callback = function(UID){
     const config = {
         type: 'screen',
         objectFit: 'contain', // 填充模式，可选值有 contain，fillCrop
     }
     this.setData({
         mediaLayout: true,
-        screenMemberInfo: CR.GetMemberInfo(UID),
-        CRScreenPlayer: config
+        screenMemberInfo: RTCSDK.GetMemberInfo(UID),
+        RTCScreenPlayer: config
     });
 }
 ```
 
-<h3 id=destory>4.组件销毁</h3> 
+<h3 id=destory>4.销毁组件</h3> 
 
 ```js
 //屏幕共享停止通知，观看端会收到此通知。
-CR.NotifyScreenShareStopped.callback = function(UID){
+RTCSDK.NotifyScreenShareStopped.callback = function(UID){
     this.setData({ mediaLayout: false });   //销毁组件
 }
 
 ```
 
 相关API请参考：
-* [CR.GetScreenInfo](API.md#CRVideo_GetScreenInfo)
-* [CR.NotifyScreenShareStarted](API.md#CRVideo_NotifyScreenShareStarted)
-* [CR.NotifyScreenShareStopped](API.md#CRVideo_NotifyScreenShareStopped)
+* [GetScreenInfo](API.md#CRVideo_GetScreenInfo)
+* [NotifyScreenShareStarted](API.md#CRVideo_NotifyScreenShareStarted)
+* [NotifyScreenShareStopped](API.md#CRVideo_NotifyScreenShareStopped)
 
 相关组件请参考：
-* [CRVideoPlayer](API.md#CRVideoPlayer)
-* [CRScreenMarkV4](API.md#CRScreenMarkV4)
+* [RTCVideoPlayer](API.md#RTCVideoPlayer)
+* [RTCScreenMarkV4](API.md#RTCScreenMarkV4)

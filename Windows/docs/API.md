@@ -797,7 +797,7 @@ Qt使用方法：
 
 - **功能**：消毁云端混图器
 
-消毁云端混图器时，调用者将收到[notifyLocMixerStateChanged](#notifyLocMixerStateChanged)通知进入MIXER_STOPPING状态，在停止完成后，房间内所有人都将收到[notifyLocMixerStateChanged](#notifyLocMixerStateChanged)通知进入MIXER_NULL状态；</br>
+消毁云端混图器时，调用者将收到[cloudMixerStateChanged](#cloudMixerStateChanged)通知进入MIXER_STOPPING状态，在停止完成后，房间内所有人都将收到[cloudMixerStateChanged](#cloudMixerStateChanged)通知进入MIXER_NULL状态；</br>
 
 - **返回值**： 无
 

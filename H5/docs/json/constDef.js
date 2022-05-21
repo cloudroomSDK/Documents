@@ -154,51 +154,58 @@ module.exports.CONSTDEF = [{
     }, {
         code: 805,
         description: '余额不足',
-        // }, {
-        //     code: 806,
-        //     description: '业务权限未开启',
-        // }, {
-        //     code: 807,
-        //     description: '不能再次登录',
-        // }, {
-        //     code: 808,
-        //     description: '没有mic权限',
-        // }, {
-        //     code: 809,
-        //     description: 'mic已被使用',
-        // }, {
-        //     code: 810,
-        //     description: 'mic相关未知错误',
-        // }, {
-        //     code: 811,
-        //     description: '没有扬声器权限',
-        // }, {
-        //     code: 812,
-        //     description: '扬声器已被使用',
-        // }, {
-        //     code: 813,
-        //     description: '扬声器相关未知错误',
-        // }, {
-        //     code: 900,
-        //     description: '抓屏失败',
-        // }, {
-        //     code: 901,
-        //     description: '单次录制达到最大时长(8h)',
-        // }, {
-        //     code: 902,
-        //     description: '磁盘空间不够',
-        // }, {
-        //     code: 903,
-        //     description: '录像的分辨率超出限制',
-        // }, {
-        //     code: 904,
-        //     description: '配置超出限制',
-        // }, {
-        //     code: 905,
-        //     description: '录像文件操作出错',
-        // }, {
-        //     code: 906,
-        //     description: '录像已开启',
+    // }, {
+    //     code: 806,
+    //     description: '业务权限未开启',
+    // }, {
+    //     code: 807,
+    //     description: '不能再次登录',
+    // }, {
+    //     code: 808,
+    //     description: '没有mic权限',
+    // }, {
+    //     code: 809,
+    //     description: 'mic已被使用',
+    // }, {
+    //     code: 810,
+    //     description: 'mic相关未知错误',
+    // }, {
+    //     code: 811,
+    //     description: '没有扬声器权限',
+    // }, {
+    //     code: 812,
+    //     description: '扬声器已被使用',
+    // }, {
+    //     code: 813,
+    //     description: '扬声器相关未知错误',
+
+    }, {
+        code: 900,
+        description: '抓屏失败'
+    }, {
+        code: 901,
+        description: '单次录制达到最大时长(8h)'
+    }, {
+        code: 902,
+        description: '磁盘空间不够'
+    }, {
+        code: 903,
+        description: '录像的分辨率超出限制'
+    }, {
+        code: 904,
+        description: '录制参数超出限制'
+    }, {
+        code: 905,
+        description: '录制文件操作出错'
+    }, {
+        code: 906,
+        description: '录制已开启'
+    }, {
+        code: 907,
+        description: '录制服务器任务已满'
+    }, {
+        code: 908,
+        description: '购买的云端录像空间已满'
     }, {
         code: 1000,
         description: '发送失败',
@@ -404,5 +411,21 @@ module.exports.CONSTDEF = [{
     }, {
         code: 7,
         description: '全部完成',
+    }]
+}, {
+    type: '混图器输出对象状态',
+    content: 'CRVideo_OUTPUT_STATE',
+    detail: [{
+        code: 0,
+        description: '输出对象已创建',
+    }, {
+        code: 1,
+        description: '输出目标信息更新; 可以从结构中取得：duration, fileSize参数',
+    }, {
+        code: 2,
+        description: '输出对象已关闭; 可以从结构中取得：duration, fileSize参数；',
+    }, {
+        code: 3,
+        description: '输出对象异常；可以从结构中取得：err参数；',
     }]
 }]
