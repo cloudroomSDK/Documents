@@ -343,6 +343,7 @@ API主要模块包括：[基础函数](#basic_function)、[初始化/反初始�
 | [setSpeakerMute](API.md#setSpeakerMute) | 扬声器静音状态 | CloudroomVideoSDK |
 | [setAllAudioClose](API.md#setAllAudioClose) | 关闭所有人麦克风 | CloudroomVideoSDK |
 | [startGetAudioPCM](API.md#startGetAudioPCM) | 开始获取语音pcm数据 | CloudroomVideoSDK |
+| [stopGetAudioPCM](API.md#stopGetAudioPCM) | 停止获取语音pcm数据 | CloudroomVideoSDK |
 | [setCustomAudioCapture](API.md#setCustomAudioCapture) | 自定义音频采集 | CloudroomVideoSDK |
 | [pushCustomAudioDat](API.md#pushCustomAudioDat) | 向sdk送入采集到的pcm数据 | CloudroomVideoSDK |
 | [setCustomAudioPlayback](API.md#setCustomAudioPlayback) | 自定义音频播放 | CloudroomVideoSDK |

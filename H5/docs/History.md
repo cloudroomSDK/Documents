@@ -1,5 +1,38 @@
 # 版本变更记录
 
+## V2.7.0.1 &ensp; 2022-05-30
+  1. SDK：新增支持获取语音pcm数据；
+  2. SDK：解决未登陆的情况下调用日志上报报错的问题；
+  3. SDK：新增打开摄像头超时通知接口；
+  4. 本地更新涉及接口变动，详见开发文档：
+     * [CRVideo_StartGetAudioPCM](API.html#CRVideo_StartGetAudioPCM) -- 新增接口
+     * [CRVideo_StopGetAudioPCM](API.html#CRVideo_StopGetAudioPCM) -- 新增接口
+     * [CRVideo_NotifyAudioPCMDat.callback](API.html#CRVideo_NotifyAudioPCMDat) -- 新增接口
+     * [CRVideo_OpenVideoTimeout.callback](API.html#CRVideo_OpenVideoTimeout) -- 新增接口
+
+## V2.6.0.1 &ensp; 2022-05-17
+  1. SDK：全新的云端录制接口，支持单流和多流录制；
+  2. SDK：修复暂停后再停止的情况下，影音共享无法重新开始的问题；
+  3. SDK：修复某些情况下摄像头获取的画面和摄像头ID不一致的问题；
+  4. Demo：修复移动端会议Demo不能用鼠标点击的问题；
+  5. Demo：各Demo云端录制功能替换成新接口；
+  6. 本次更新涉及接口变动，详见开发文档：
+     * [CRVideo_CreateCloudMixer](API.html#CRVideo_CreateCloudMixer) -- 新增接口
+     * [CRVideo_UpdateCloudMixerContent](API.html#CRVideo_UpdateCloudMixerContent) -- 新增接口
+     * [CRVideo_DestroyCloudMixer](API.html#CRVideo_DestroyCloudMixer) -- 新增接口
+     * [CRVideo_GetCloudMixerInfo](API.html#CRVideo_GetCloudMixerInfo) -- 新增接口
+     * [CRVideo_GetAllCloudMixerInfo](API.html#CRVideo_GetAllCloudMixerInfo) -- 新增接口
+     * [CRVideo_CreateCloudMixerFailed.callback](API.html#CRVideo_CreateCloudMixerFailed) -- 新增接口
+     * [CRVideo_CloudMixerStateChanged.callback](API.html#CRVideo_CloudMixerStateChanged) -- 新增接口
+     * [CRVideo_CloudMixerInfoChanged.callback](API.html#CRVideo_CloudMixerInfoChanged) -- 新增接口
+     * [CRVideo_CloudMixerOutputInfoChanged.callback](API.html#CRVideo_CloudMixerOutputInfoChanged) -- 新增接口
+     * 旧的云端录制接口不会立即废弃，但已从文档移除，我们推荐开发者使用全新的云端录制接口
+
+
+## V2.5.11.2 &ensp; 2022-04-27
+  1. SDK：解决某些情况下未定义callback接口报错的问题；
+  2. 重构浏览器兼容性检测页面rtcTest.html；
+
 ## V2.5.11.0 &ensp; 2022-04-19
   1. SDK：新增媒体流连接错误通知接口；
   2. SDK：新增打开麦克风失败通知接口；

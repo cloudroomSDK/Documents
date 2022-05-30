@@ -114,7 +114,7 @@ CRVideo_DestroyCloudMixer(mixerID);
 * [CRVideo_DestroyCloudMixer](API.md#CRVideo_DestroyCloudMixer)
 * [CRVideo_CloudMixerStateChanged](API.md#CRVideo_CloudMixerStateChanged)
 
-<h2 id=record_updateSvrMixerContent> 5.云端录制回调通知</h2>
+<h2 id=record_notifyUpdateSvrMixerContent> 5.云端录制回调通知</h2>
 
 录制过程中都会录制状态变化事件、录制文件信息变化通知。在此可以实时获得录制状态、录制文件当前的时长、大小，以及录制异常等信息。
 

@@ -328,4 +328,15 @@ module.exports = [{
 > 打开摄像头是异步的，所以SDK将以通知的方式通知业务层失败的情形。
 > 打开摄像头失败可能的原因有：设备被占用、用户未授权访问、硬件设备发生错误等`
   },
+}, {
+  interface: "CRVideo_OpenVideoTimeout",
+  description: "通知，获取本地摄像头视频流超时",
+  detail: {
+    content: 'CRVideo_OpenVideoTimeout.callback = function(){}',
+    type: 'callback',
+    attent: `
+> 谷歌浏览器偶发获取摄像头视频流超时（等待时间大于10秒）
+> 获取本地摄像头视频流超时，将导致无法正确建立本地视频上送连接
+> 收到此通知，业务层应提示用户尝试重新开关摄像头以重新获取视频流`
+  },
 }]

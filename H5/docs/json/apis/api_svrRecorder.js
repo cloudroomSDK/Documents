@@ -106,7 +106,7 @@ module.exports = [{
 }, {
   method: "回调",
   interface: "CRVideo_CreateCloudMixerFailed",
-  description: "启动云端录制、云端直播失败通知",
+  description: "通知，启动云端录制、云端直播失败",
   detail: {
     content: 'CRVideo_CreateCloudMixerFailed.callback = function(mixerID, sdkErr){}',
     type: 'callback',
@@ -118,7 +118,7 @@ module.exports = [{
   }
 },{
   interface: "CRVideo_CloudMixerStateChanged",
-  description: "云端录制、云端直播状态变化通知",
+  description: "通知，云端录制、云端直播状态变化",
   detail: {
     content: 'CRVideo_CloudMixerStateChanged.callback = function(mixerID, state, exParam, operUserID){}',
     type: 'callback',
@@ -143,7 +143,7 @@ module.exports = [{
   }
 }, {
   interface: "CRVideo_CloudMixerOutputInfoChanged",
-  description: "云端录制文件、云端直播输出变化通知",
+  description: "通知，云端录制文件、云端直播输出变化",
   detail: {
     content: 'CRVideo_CloudMixerOutputInfoChanged.callback = function(mixerID, outputInfo){}',
     type: 'callback',
@@ -159,7 +159,7 @@ module.exports = [{
   }
 }, {
   interface: "CRVideo_CloudMixerInfoChanged",
-  description: "云端录制、云端直播配置变化通知",
+  description: "通知，云端录制、云端直播配置变化",
   detail: {
     content: 'CRVideo_CloudMixerInfoChanged.callback = function(mixerID){}',
     type: 'callback',

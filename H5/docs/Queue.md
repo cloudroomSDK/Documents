@@ -281,5 +281,5 @@ CRVideo_ReqAssignUserRslt.callback = function(sdkErr, user, cookie){
 
 <h2 id=callClient>6.坐席呼叫客户</h2>
 
-接受系统分配的客户后， 就可以向客户发起呼叫处理， 相关流程参见：[呼叫功能](call.md)
+接受系统分配的客户后， 就可以向客户发起呼叫处理， 相关流程参见：[呼叫功能](Call.md)
 
