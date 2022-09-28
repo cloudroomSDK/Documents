@@ -1,4 +1,4 @@
-#  对象结构定义
+# 类型定义
 
 <h2 id=SdkInitDat>Sdk初始化数据实体类</h2>
 
@@ -289,6 +289,174 @@
 	+ 输出目标信息更新; 可以从结构中取得duration, fileSize参数；
 	+ 输出对象已关闭; 可以从结构中取得duration, fileSize参数；
 	+ 输出对象异常；可以从结构中取得err参数；
+
+
+
+<h2 id=CloudMixerCfgObj>CloudMixerCfgObj</h2>
+
+>云端混图器配置
+
+```json
+//为房间中所有人录制独立的声音文件，独立的默认摄像头视频文件
+{
+    "mode": 1,
+    "audioFileCfg": {
+        "svrFileNameSuffix": ".mp3",
+        "svrPath": "/xxx",
+        "subscribeAudios": ["_cr_all_"]
+    },
+    "videoFileCfg": {
+        "aStreamType": 1,
+        "svrFileNameSuffix": ".mp4",
+        "svrPath": "/xxx",
+        "subscribeVideos": ["_cr_allDefCam_"]
+    }
+}
+
+//录制一个2分屏左右布局图像+房间声音的mp4文件
+{
+    "mode": 0,
+    "videoFileCfg": {
+        "svrPathName": "/2021-09-24/2021-09-24_13-47-41_Win32_73542046.mp4",
+        "vWidth": 1280,
+        "vHeight": 720,
+        "vFps": 15,
+        "layoutConfig": [
+            {
+                "type": 0,
+                "top": 180,
+                "left": 0,
+                "width": 640,
+                "height": 360,
+                "keepAspectRatio": 1,
+                "param": {"camid": "1.-1"}
+            },
+            {
+                "type": 0,
+                "top": 180,
+                "left": 640,
+                "width": 640,
+                "height": 360,
+                "keepAspectRatio": 1,
+                "param": {"camid": "2.-1"}
+            }
+        ]
+    }
+}
+
+```
+
+| 参数 | 类型 | 说明 | 是否必传 |
+| :- | :- | :- | :- |
+| mode |int　| 录制模式，取值范围：</br>0-合流模式：将声音录制到一个声音文件、或将声音图像录制成一个视频文件；</br>1-单流模式：将涉及到的声音流、图像流存到各自独立的文件中； | 是 |
+| audioFileCfg | [CloudMixerAudioFileCfg](#CloudMixerAudioFileCfg) | 生成音频文件配置，生成规则：进入房间并开启麦克风开始生成文件，离开房间结束生成文件 | 否 |
+| videoFileCfg | [CRCloudMixerVideoFileCfg](#CRCloudMixerVideoFileCfg) | 生成视频文件配置，生成规则：进入房间并开启摄像头开始生成文件，离开房间结束生成文件 | 否 |
+| storageConfig | [CloudStorageConfig](#CloudStorageConfig) | 云存储配置，不配置时将存储在云屋服务器上 | 否 |
+
+
+
+
+<h2 id=CloudMixerAudioFileCfg>CloudMixerAudioFileCfg</h2>
+
+>云端录制语音文件配置
+
+单流模式参数：
+
+| 参数 | 类型 | 说明 | 是否必传 |
+| :- | :- | :- | :- |
+| svrPath |string | 服务器存储路径，默认为空 | 否 |
+| svrFileNameSuffix | string | 文件名后缀，支持：“.mp3”、“.wav”</br>文件命名规则：昵称_房间号_开始时间.后缀 | 是 |
+| subscribeAudios | array | 指定生成哪些人的音频文件；</br>取值：["\_cr_all\_"]或["userId1","userId2"]；</br>_cr_all_代表生成所有人；| 是 |
+
+合流模式参数：
+
+| 参数 | 类型 | 说明 | 是否必传 |
+| :- | :- | :- | :- |
+| svrPathName | string | 带服务器存储路径的文件名，文件格式支持“mp3”、“wav”，示例：/xxx/xxx/xxx.mp3 | 是 |
+| aChannelType |int | 音频通道类型，取值范围：0-单声道，1-左右双声道，默认为0 | 否 |
+| aChannelContent | array | 音频通道内容。</br></br>左右声道模式时：必须传入两个用户ID，如：["UserID1", "UserID2"]，第一个人的为左声道，第二个人为右声道）</br></br>单声道模式时：可选参数（默认为空），空代表所有人声音，要指定人员声音时传入：["UserID1","UserID2", "UserID3"] | 否 |
+
+
+
+<h2 id=CRCloudMixerVideoFileCfg>CRCloudMixerVideoFileCfg</h2>
+
+>云端录制视频文件配置
+
+单流模式参数：
+
+| 参数 | 类型 | 说明 | 是否必传 |
+| :- | :- | :- | :- |
+| svrPath | string | 服务器存储路径，默认为空 | 否 |
+| svrFileNameSuffix | string | 文件名后缀，当前只支持：”.mp4”</br>文件命名规则：昵称_cam摄像头编号_房间号_开始时间.后缀 | 是 |
+| subscribeVideos | array | 指定生成哪些人的摄像头对应的视频文件；</br>取值：["\_cr_all\_"]或["\_cr_allDefCam\_"]或["userId1.camId", "userId2.camId", ...]；</br>_cr_all_代表所有人所有摄像头，_cr_allDefCam_代表生成所有人的默认摄像头 | 是 |
+| aStreamType | int | 视频文件内音频内容，取值：0-自己声音，1-所有人声音，默认0 | 否 |
+
+
+合流模式参数：
+
+| 参数 | 类型 | 说明 | 是否必传 |
+| :- | :- | :- | :- |
+| svrPathName | string | 带路径的文件名，文件格式支持：mp4、flv、ts、avi、rtmp://、rtsp://，可选一个或多个，以“;”分隔；</br>示例：”/xxx/xxx.mp4;rtmp://xxx1;rtmp://xxx2;” | 是 |
+| aChannelType | int | 音频通道类型，取值：0-单声道，1-左右双声道，默认为0 | 否 |
+| aChannelContent | array | 音频通道内容。</br></br>左右声道模式时：必须传入两个用户ID，如：["UserID1", "UserID2"]，第一个人的为左声道，第二个人为右声道）</br></br>单声道模式时：可选参数（默认为空），空代表所有人声音，要指定人员声音时传入：["UserID1","UserID2", "UserID3"] | 否 |
+| vWidth | int | 视频宽度 | 是 |
+| vHeight | int | 视频高度 | 是 |
+| vFps | int | 视频帧率，取值0-30, 默认值12 | 否 |
+| vBps | int | 视频码率，取值参见[视频流默认码率定义](Constant.md#CRVIDEOSDK_VIDEO_SHOW_SIZE) 默认会根据视频尺寸生成码率 | 否 |
+| vQP | int | 视频质量，取值0~51(0表示完全无损, 51表示质量非常差)，推荐高质量取值18，中质量25，低质量34， 默认值19 | 否 |
+| layoutConfig | array | 布局内容列表，[[MixerContentObj](#CRVideo_MixerContentObj),[MixerContentObj](#CRVideo_MixerContentObj)，...] | 是 |
+
+
+
+<h2 id=CloudStorageConfig>CloudStorageConfig</h2>
+
+>云端录制存储配置
+
+| 参数 | 类型 | 说明 | 是否必传 |
+| :- | :- | :- | :- |
+| vendor | int | 第三方云存储平台： 1-阿里云 | 是 |
+| region | string | 第三方云存储指定的地区信息 | 是 |
+| bucket | string | 第三方云存储的 bucket | 是 |
+| accessKey | string | 第三方云存储的 access key | 是 |
+| secretKey | string | 第三方云存储的 secret key | 是 | 
+
+
+
+<h2 id=CloudMixerInfoList>CloudMixerInfoList</h2>
+
+>云端混图器信息列表
+
+CloudMixerInfo列表，参见[CloudMixerInfo](#CloudMixerInfo)
+
+
+
+<h2 id=CloudMixerInfo>CloudMixerInfo</h2>
+
+>云端混图器信息
+
+| 参数 | 类型 | 说明 |
+| :- | :- | :- |
+| ID | string | 混图器ID |
+| owner | string | 创建者用户ID |
+| cfg | string | 录制配置，json格式串，参见[CloudMixerCfgObj](#CloudMixerCfgObj) |
+| state | int | 录制状态，参见[MIXER_STATE](Constant.md#MIXER_STATE) |
+
+
+<h2 id=CloudMixerOutputInfo>CloudMixerOutputInfo</h2>
+
+>云端混图器输出信息
+
+| 参数 | 类型 | 说明 |
+| :- | :- | :- |
+| id | string | 混图器ID |
+| state | int | 具体参考[CLOUDMIXER_OUTPUT_STATE](Constant.md#CLOUDMIXER_OUTPUT_STATE)
+| svrFilePathName | string | 录像路径文件名 |
+| startTime | int64 | 创建时间(从1970年1月1日00:00:00起的毫秒数)，当state为CLOUDMO_STOPPED才有该参数 |
+| duration | int | 录像时长(ms)，当state为CLOUDMO_STOPPED才有该参数 |
+| fileSize | int64 | 文件大小(Byte)，当state为CLOUDMO_STOPPED才有该参数 |
+| errCode | int | [错误码](Constant.md#CRVIDEOSDK_ERR_DEF), 当state为CLOUDMO_FAIL才有该参数 |
+| errDesc | string | 错误描述, 当state为CLOUDMO_FAIL才有该参数 |
+
 
 
 <h2 id=RecordFileInfo>录制文件</h2>

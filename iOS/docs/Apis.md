@@ -1323,7 +1323,16 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 |:-------- |:-----------|:----------|
 | usrVideoID| UsrVideoId|    详见定义[UsrVideoId](TypeDefinitions.md#UsrVideoId) | 
 
-<h3 id=getLocalVideoParams>String getLocalVideoParams(short videoID)</h3>
+<h3 id=getVideoImg2>- (VideoFrame*)getVideoImg2:(UsrVideoId*)userID fmt:(VIDEO_FORMAT)fmt width:(int)width height:(int)height</h3>
+  + **功能**:  获取指定用户摄像头的最新图像
+  + **返回值**:  指定用户摄像头的最新图像,详见[VideoFrame](TypeDefinitions.md#RawFrame)
+| 参数 | 类型 | 含义 |
+|:-------- |:-----------|:----------|
+| usrVideoID| UsrVideoId|    详见定义[UsrVideoId](TypeDefinitions.md#UsrVideoId) |
+| fmt | VIDEO_FORMAT |    图像格式 -1时原用帧原始值 详见定义[VIDEO_FORMAT](Constant.md#VIDEO_FORMAT)|
+| width | int |    图像宽度 -1时原用帧原始值 |
+| height | int |    图像高度 -1时原用帧原始值 |
+<h3 id=getLocalVideoParams>- (NSString *)getLocalVideoParams:(short)videoID</h3>
 
   + **功能**:  获取指定本地摄像头参数
   
@@ -1334,7 +1343,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 |:-------- |:-----------|:----------|
 | videoID| short|    摄像头ID| 
 
-<h3 id=setLocalVideoParam>void setLocalVideoParam(short videoID, String param, String value)</h3>
+<h3 id=setLocalVideoParam>- (void)setLocalVideoParam:(short videoID, String param, String value)</h3>
 
   + **功能**:  设置指定本地摄像头参数
   
@@ -1421,7 +1430,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 -  **参数**:
 
 
-<h3 id=createLocMixer>CRVIDEOSDK_ERR_DEF createLocMixer(String mixerID, MixerCfg mixerCfg, ArrayList&lt; MixerContent&gt; MixerContent)</h3>
+<h3 id=createLocMixer>- (CRVIDEOSDK_ERR_DEF)createLocMixer:(NSString*)mixerID cfg:(MixerCfg*)cfg content:(MixerContent*)content</h3>
 
   + **功能**:  创建本地混图器（用于本地录制、本地推流），当需要多个不同内容的录制、或直播时，就要创建多个混图器 。混图器开消比较大，多个同样图像的输出应该有一个混图器加上多个输出实现
   
@@ -1431,7 +1440,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|
 | mixerID| NSString|    混图器唯一标识| 
-| mixerCfg| MixerCfg|    混图器规格配置，详见定义[MixerCfg](TypeDefinitions.md#MixerCfg) | 
+| cfg| MixerCfg|    混图器规格配置，详见定义[MixerCfg](TypeDefinitions.md#MixerCfg) | 
 | content| MixerContent |    混图器内容配置，详见定义[MixerContent](TypeDefinitions.md#YWMixerContent) | 
 
  <h3 id=updateLocMixerCotent>-(CRVIDEOSDK_ERR_DEF)updateLocMixerContent:(NSString*)mixerID content:(MixerContent*)content</h3>
@@ -2063,7 +2072,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|
 | resID| NSString |    资源唯一标识 | 
-| bitmap| Bitmap |    图片对象，为空代表移除资源| 
+| frame | MediaDataFrame |    图片对象，为空代表移除资源| 
 
 <h4>- (void)setPicResource:(NSString *)resID picFile:(NSString*)picFile</h3>
 
@@ -2332,7 +2341,7 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
 
 <h3 id=createCloudMixerFailed>- (void)createCloudMixerFailed:(NSString *)mixerID err:(CRVIDEOSDK_ERR_DEF)err</h3>
 
-  + **功能**:  本地混图器状态变化通知
+  + **功能**:  启动云端录制、云端直播失败通知
   
   + **返回值**:  无
     
@@ -2735,7 +2744,7 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
   + 收到此通知消息后，可通过getMediaImg获取图像显示；但如果之前显示的帧时戳更大，说明此通知消息已过时，直接忽略即可 如果使用了影音共享UI显示方式，不再需要自已关注此事件和进行显示处理
 
 
-<h3 id=notifyAudioPCMDat>void notifyAudioPCMDat(int aSide, byte[] audioDat)</h3>
+<h3 id=notifyAudioPCMDat>- (void)notifyAudioPCMDat(int aSide, byte[] audioDat)</h3>
 
   + **功能**:  通知语音PCM数据
   
@@ -3484,7 +3493,7 @@ CloudroomHttpFileMgrCallback是Http上传下载通知回调接口
 | err | int  |[错误码](Constant.md#CRVIDEOSDK_ERR_DEF)（错误码为CRVIDEOSDK_NOERR表示没有错误） |
 
 
-<h3 id=getMeetingAttrsSuccess > void getMeetingAttrsSuccess(string attrs, string cookie) </h3>
+<h3 id=getMeetingAttrsSuccess >- (void)getMeetingAttrsSuccess:(NSString *)attrs cookie:(NSString *)cookie </h3>
 
 + **功能**:成功获取到房间指定属性
 
@@ -3496,7 +3505,7 @@ CloudroomHttpFileMgrCallback是Http上传下载通知回调接口
 
 
 
-<h3 id=getMeetingAttrsFail > void getMeetingAttrsFail(int err, string cookie) </h3>
+<h3 id=getMeetingAttrsFail >- (void)getMeetingAttrsFail:(int)err cookie:(NSString *)cookie </h3>
 
 + **功能**:获取房间指定属性失败
 

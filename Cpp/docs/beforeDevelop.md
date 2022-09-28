@@ -147,6 +147,7 @@ IDE：Qt Creator 4.11.0
         <p> src/TestCustomVideoCaptureRender : 自定义视频采集/渲染功能</p>
         <p> src/TestEchoTest : 声音环回测试功能</p>
         <p> src/TestLocRecord : 本地录制功能</p>
+        <p> src/TestScreenShare : 屏幕共享功能</p>
         <p> src/TestMediaPlay : 影音共享功能</p>
         <p> src/TestRoomMsg : 房间消息功能</p>
         <p> src/TestRoomUsrAttrs : 房间/成员属性功能</p>

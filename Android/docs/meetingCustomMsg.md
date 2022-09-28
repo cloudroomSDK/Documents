@@ -19,8 +19,7 @@ sendMeetingCustomMsg("data", "");
 @Override
 void sendMeetingCustomMsgRslt(CRVIDEOSDK_ERR_DEF sdkErr, String cookie)
 {
-	if(sdkErr != CRVIDEOSDK_NOERR){
-        Console.WriteLine("发送失败，错误码："+sdkErr);
+	if(sdkErr != CRVIDEOSDK_ERR_DEF.CRVIDEOSDK_NOERR){
     }
 }
 ```

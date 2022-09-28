@@ -13,6 +13,7 @@ module.exports = {
                         "Mainfunctions.md",
                         "KeyWords.md",
                         "securityIssue.md",
+                        "History.md"
                     ]
                 },
                 {
@@ -55,7 +56,8 @@ module.exports = {
                         "live.md",
                         "srvLive.md",
                         "transpChannel.md",
-                        "meetingCustomMsg.md"
+                        "meetingCustomMsg.md",
+                        "roomatts.md",
                     ]
                 }
             ]
@@ -65,13 +67,13 @@ module.exports = {
             "title": "API",
             "route": "api",
             "slidebar": [
-                {
+                 {
                      "title": "API参考",
                      "route": "apis",
                      "islink": false,
                      "children": [
+						 "ApiIndex.md",
                          "API.md",
-                         "UIComponent.md",
                          "Constant.md",
                          "TypeDefinitions.md"
                      ]

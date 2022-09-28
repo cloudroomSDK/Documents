@@ -1059,8 +1059,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
     </thead>
 	<tbody>
 		<tr>
-            <td rowspan=20>CloudroomVideoMeeting</td>
-            <td rowspan=20 style='text-align:center'>主调</td>
+            <td rowspan=21>CloudroomVideoMeeting</td>
+            <td rowspan=21 style='text-align:center'>主调</td>
             <td><a href="Apis.md#getAllVideoInfo">getAllVideoInfo</a></td>
             <td>获取用户所有的摄像头信息</td>
         </tr>
@@ -1115,6 +1115,10 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
 		<tr>
             <td><a href="Apis.md#getVideoImg">getVideoImg</a></td>
             <td>获取指定用户摄像头的最新图像</td>
+        </tr>
+        <tr>
+            <td><a href="Apis.md#getVideoImg2">getVideoImg2</a></td>
+            <td>获取指定用户摄像头、格式、宽高的最新图像</td>
         </tr>
 		<tr>
             <td><a href="Apis.md#getLocalVideoParams">getLocalVideoParams</a></td>
@@ -1536,18 +1540,22 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
 				<td>获取云端录制、云端直播状态</td>
 			</tr>
 			<tr>
-				<td rowspan=3>CloudroomVideoCallback</td>
-				<td rowspan=3 style='text-align:center'>回调</td>
-				<td><a href="Apis.md#svrMixerStateChanged">svrMixerStateChanged</a></td>
+				<td rowspan=4>CloudroomVideoCallback</td>
+				<td rowspan=4 style='text-align:center'>回调</td>
+				<td><a href="Apis.md#createCloudMixerFailed">createCloudMixerFailed</a></td>
+				<td>启动云端录制、云端直播失败通知</td>
+			</tr>
+			<tr>
+			   <td><a href="Apis.md#cloudMixerStateChanged">cloudMixerStateChanged</a></td>
 				<td>云端录制、云端直播状态变化通知</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#svrMixerCfgChanged">svrMixerCfgChanged</a></td>
-				<td>云端录制、云端直播内容变化通知</td>
+				<td><a href="Apis.md#cloudMixerInfoChanged">cloudMixerInfoChanged</a></td>
+				<td>云端录制、云端直播配置变化通知</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#svrMixerOutputInfo">svrMixerOutputInfo</a></td>
-				<td>云端录制文件、云端直播信息变化通知</td>
+				<td><a href="Apis.md#cloudMixerOutputInfoChanged">cloudMixerOutputInfoChanged</a></td>
+				<td>云端录制文件、云端直播输出变化通知</td>
 			</tr>
 		</tbody>
     </thead>

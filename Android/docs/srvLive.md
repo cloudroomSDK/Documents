@@ -6,94 +6,69 @@
 <p id=layout style="font-weight:normal;">互动直播架构图:  </p>
 <img src="./images/srvLive.jpg" style="width:54%;"></img>
 
-<h2 id=live_addr> 1.创建直播间并获得推流地址</h2>
+<h2 id=addr> 1.创建直播间并获得推流地址</h2>
 
 - 创建直播间请参见：[Web API 创建直播](https://sdk.cloudroom.com/sdkdoc/live/createLiveAPI.html)。
 - 获取直播推流地址请参见：[Web API 获取推流地址](https://sdk.cloudroom.com/sdkdoc/live/queryLiveAPI.html)。
 
 
-<h2 id=startSvrMixer> 2.开始互动直播</h2>
+<h2 id=record_startCloudMixer> 2.开始云端直播推流</h2>
 
-- 左右布局示例图：
+- 直播左右布局示例图：
 
 ![左右布局示例图](./images/layout_2.jpg)
 
 - 调用接口：
 
-```  java
-//配置混图器编码参数：尺寸为640*360，帧率为15，其他采用默认设置
-MixerCfg mixerCfg = new MixerCfg();
-mixerCfg.frameRate = 15;
-mixerCfg.dstResolution = new Size(640, 360);
+```csharp
 
-// 图像内容集合 - 创建左右布局的摄像头直播内容
-ArrayList<MixerCotent> contents = new ArrayList<MixerCotent>();
-//自己的摄像头（左边布局）, 设置摄像头直播视频大小，由于左右布局， 宽度只有直播布局的一半
-Rect leftRect = new Rect(0, 0, mixerCfg.dstResolution.width/2, mixerCfg.dstResolution.height);
-MixerCotent leftVideoItem = MixerCotent.createVideoContent(myUserID, (short)-1, leftRect);
-//添加到内容列表
-contents.add(leftVideoItem);
-//其他人的摄像头（右边布局）
-Rect rightRect = new Rect(mixerCfg.dstResolution.width/2, 0, mixerCfg.dstResolution.width, mixerCfg.dstResolution.height);
-MixerCotent rightVideoItem = MixerCotent.createVideoContent(otherUserID, (short)-1, rightRect);
-//添加到内容列表
-contents.add(rightVideoItem);
+//配置混图器编码参数：1280*720, 15帧, 推流到rtmp://xxx
+string cloudMixerCfg =
+"{\
+    \"mode\": 0,\
+    \"videoFileCfg\": {\
+        \"svrPathName\": \"rtmp://xxx\",\
+        \"vWidth\": 1280,\
+        \"vHeight\": 720,\
+        \"vFps\": 15,\
+        \"layoutConfig\": [\
+            {\
+                \"type\": 0,\
+                \"top\": 180,\
+                \"left\": 0,\
+                \"width\": 640,\
+                \"height\": 360,\
+                \"keepAspectRatio\": 1,\
+                \"param\": {\"camid\": \"Usr1.-1\"}\
+            },\
+            {\
+                \"type\": 0,\
+                \"top\": 180,\
+                \"left\": 640,\
+                \"width\": 640,\
+                \"height\": 360,\
+                \"keepAspectRatio\": 1,\
+                \"param\": {\"camid\": \"Usr2.-1\"}\
+            }\
+        ]\
+    }\
+}"
 
-//配置混图器输出
-ArrayList<MixerOutPutCfg> cfgs = new ArrayList<MixerOutPutCfg>();
-//添加推流配置：直播推流地址为rtmp://xxx
-MixerOutPutCfg outputCfg = new MixerOutPutCfg();
-//设置混图输出类型为直播
-outputCfg.type = MIXER_OUTPUT_TYPE.MIXOT_LIVE; 
-//推流地址
-outputCfg.liveUrl = "rtmp://xxx";
-cfgs.add(outputCfg);
-
-HashMap<String, MixerCfg> mixerCfgs = new HashMap<String, MixerCfg>();
-mixerCfgs.put("KEY_SVR_MIXERID", mixerCfg);
-
-HashMap<String, ArrayList<MixerOutPutCfg>> mixerOutputCfgs = new HashMap<String, ArrayList<MixerOutPutCfg>>();
-ArrayList<MixerOutPutCfg> outputCfgs = new ArrayList<MixerOutPutCfg>();
-outputCfgs.add(outputCfg);
-mixerOutputCfgs.put("KEY_SVR_MIXERID", outputCfgs);
-
-HashMap<String, ArrayList<MixerCotent>> mixerContents = new HashMap<String, ArrayList<MixerCotent>>();
-mixerContents.put("KEY_SVR_MIXERID", contents);
-
-//开启互动直播
-CRVIDEOSDK_ERR_DEF rst =  CloudroomVideoMeeting.getInstance().startSvrMixer(mixerCfgs, mixerContents, mixerOutputCfgs);
-if(rst != CRVIDEOSDK_ERR_DEF.CRVIDEOSDK_NOERR)
-{
-  //开启互动直播出错!
-  ...
-}
-```
-
-- 回调通知：
-
-```java
-//互动直播状态变化通知
-void svrMixerStateChanged(String operatorID, MIXER_STATE state, CRVIDEOSDK_ERR_DEF err)
-{
-  ...
+String mixerID = CloudroomVideoMeeting.getInstance().createCloudMixer(cloudMixerCfg);
+ if (mixerID.Length <= 0) {
+    //开启云端直播出错, 关注回调createCloudMixerFailed
+    ...
 }
 
 ```
 
-相关API请参考:
-+ [getDefaultVideo](API.md#getDefaultVideo)
-+ [createVideoContent](TypeDefinitions.md#createVideoContent)
-+ [startSvrMixer](API.md#startSvrMixer)
-+ [stopSvrMixer](API.md#stopSvrMixer)
-
-相关结构定义请参考：
-+ [MixerCfg](TypeDefinitions.md#MixerCfg)
-+ [MixerCotent](TypeDefinitions.md#MixerCotent)
-+ [MixerOutPutCfg](TypeDefinitions.md#MixerOutPutCfg)
-+ [CRVIDEOSDK_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
+相关API请参考:</br>
+[createCloudMixer](API.md#createCloudMixer)</br>
+[createCloudMixerFailed](API.md#createCloudMixerFailed)</br>
+[cloudMixerStateChanged](API.md#cloudMixerStateChanged)</br>
 
 
-<h2 id=updateSvrMixerContent> 3.更新互动直播内容</h2>
+<h2 id=record_updateCloudMixerContent> 3.更新互动直播内容</h2>
 
 - 更新成画中画布局示例图：
 
@@ -101,46 +76,65 @@ void svrMixerStateChanged(String operatorID, MIXER_STATE state, CRVIDEOSDK_ERR_D
 
 - 接口调用：
 
-```java
-//更新为画中画模式
-// 图像内容集合 - 创建画中画布局的摄像头直播内容， 
-ArrayList<MixerCotent> contents = new ArrayList<MixerCotent>();
+```csharp
 
-//自己的摄像头（充满布局）
-Rect bigRect = new Rect(0, 0, mixerCfg.dstResolution.width, mixerCfg.dstResolution.height);
-MixerCotent bigVideoItem = MixerCotent.createVideoContent(myUserID, (short)-1, bigRect);
-// 添加到内容列表
-contents.add(bigVideoItem);
+string cloudMixerCfg =
+"{\
+    \"videoFileCfg\": {\
+        \"layoutConfig\": [\
+            {\
+                \"type\": 0,\
+                \"top\": 0,\
+                \"left\": 0,\
+                \"width\": 1280,\
+                \"height\": 720,\
+                \"keepAspectRatio\": 1,\
+                \"param\": {\"camid\": \"Usr1.-1\"}\
+            },\
+            {\
+                \"type\": 0,\
+                \"top\": 265,\
+                \"left\": 475,\
+                \"width\": 160,\
+                \"height\": 90,\
+                \"keepAspectRatio\": 1,\
+                \"param\": {\"camid\": \"Usr2.-1\"}\
+            }\
+        ]\
+    }\
+}"
 
-//其他人的摄像头（部分布局）
-Rect smallRect = new Rect(0, 0, mixerCfg.dstResolution.width/5, mixerCfg.dstResolution.height/5);
-MixerCotent smallVideoItem = MixerCotent.createVideoContent(otherUserID, (short)-1, smallRect);
-// 添加到内容列表
-contents.add(smallVideoItem);
-//更新直播内容
-HashMap<String, ArrayList<MixerCotent>> mixerContents = new HashMap<String, ArrayList<MixerCotent>>();
-mixerContents.put("KEY_SVR_MIXERID", contents);
-CloudroomVideoMeeting.getInstance().updateSvrMixerContent(mixerContents);
+
+CRVIDEOSDK_ERR_DEF err  = CloudroomVideoMeeting.getInstance().updateCloudMixerContent(mixerID, cloudMixerCfg);
+
 ```
-相关API请参考:
-+ [updateSvrMixerContent](API.md#updateSvrMixerContent)
+
+相关API请参考:</br>
+[updateCloudMixerContent](API.md#updateCloudMixerContent)</br>
 
 
-<h2 id=stopSvrMixer>4.停止互动直播</h2>
+<h2 id=record_watch> 4.观众观看直播</h2>
 
-停止互动直播，会触发事件[svrMixerStateChanged](API.md#svrMixerStateChanged)
+通过 [播放器SDK](https://sdk.cloudroom.com/sdkdoc/live/SDK_summary.html)观看直播。
+
+
+<h2 id=record_stopCloudMixer> 5.停止互动直播</h2>
+
+停止云端直播推流后，会触发事件[cloudMixerStateChanged](API.md#cloudMixerStateChanged)
 
 - 接口调用：
-```java
-CloudroomVideoMeeting.getInstance().stopSvrMixer();
+
+```csharp
+
+CloudroomVideoMeeting.getInstance().destroyCloudMixer(mixerID);
 ```
 
-相关API请参考:
-+ [stopSvrMixer](API.md#stopSvrMixer)
-+ [svrMixerStateChanged](API.md#svrMixerStateChanged)
+相关API请参考:</br>
+[destroyCloudMixer](API.md#destroyCloudMixer)</br>
+[cloudMixerStateChanged](API.md#cloudMixerStateChanged)</br>
 
 
-<h2 id=live_vod>5.回放点播</h2>
+<h2 id=record_vod> 6.回放点播</h2>
 
 通过 [云屋点播API](https://sdk.cloudroom.com/sdkdoc/live/db_summary.html)回放点播。
 

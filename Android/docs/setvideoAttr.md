@@ -1,6 +1,6 @@
 # 设置视频属性
 
-## 功能介绍
+<h1>功能介绍</h1>
 
 在通话过程中可以根据实际业务场景，调整视频画面的清晰度和流畅度，提升用户体验。</br>
 视频属性包含设置默认摄像头、视频分辨率、帧率、码率、降噪等。</br>
@@ -10,12 +10,10 @@
 </br>
 
 ``` java
-VideoCfg cfg = CloudroomVideoMeeting.getInstance().getVideoCfg();
+VideoCfg cfg = new VideoCfg();
 
 // 视频分辨率 
 cfg.size = new Size(128, 80);;
-// 视频宽高比，等于2时. 视频宽高比例为1:1
-cfg.whRate = 2;
 		
 //设置摄像头的相关配置
 CloudroomVideoMeeting.getInstance().setVideoCfg(cfg);

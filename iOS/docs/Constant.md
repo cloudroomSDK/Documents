@@ -210,8 +210,12 @@
 
 | 代码     | 数值        |   含义   |
 |:-------- |:-----------|:----------|
+| VFMT_UNKNOW|-1	|未知格式	   |
 | VFMT_YUV420P|0	|yuv420p	   |
 | VFMT_ARGB32	|1 |32-bit ARGB format (0xAARRGGBB)	 |
+| VFMT_RGBA32	|2 |32-bit RGBA format (0xRRGGBBAA)	 |
+| VFMT_NV12	|3 |NV12	 |
+| VFMT_NV21	|4 |NV21	 |
 
 
 <h2  id=MIXER_VCONTENT_TYPE>混图内容类型</h2>

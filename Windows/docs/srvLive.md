@@ -55,17 +55,11 @@ string cloudMixerCfg =
 }"
 
 string mixerID = axVideoSDK.createCloudMixer(cloudMixerCfg);
- if (mixerID.Length <= 0) {
-    //开启云端直播出错, 
-	int err = axVideoSDK.getCreateCloudMixerLastErr();
-    ...
-}
 
 ```
 
 相关API请参考:</br>
 [createCloudMixer](API.md#createCloudMixer)</br>
-[getCreateCloudMixerLastErr](API.md#getCreateCloudMixerLastErr)</br>
 
 
 <h2 id=record_updateCloudMixerContent> 3.更新互动直播内容</h2>

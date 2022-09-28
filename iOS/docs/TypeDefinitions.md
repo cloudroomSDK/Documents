@@ -323,7 +323,7 @@
 | datLength  | int |    图像大小  |
 | w  | int |    图像宽度  |
 | h  | int |    图像高度  |
-| fmt  | int |    图像格式  |
+| fmt  | VIDEO_FORMAT |    图像格式  |
 | ms  | int64_t |   pts   |
 
 <h2  id=SubPage>SubPage</h2>

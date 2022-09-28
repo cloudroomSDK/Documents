@@ -992,7 +992,7 @@ c. 优先级高的座席变空闲时，不抢夺已分配的客户；
 | 参数 | 类型 | 含义 |
 |:-|:-|:-|
 |queID|int|队列ID|
-|priority|int|坐席优先级 (缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级))|
+|priority|int|坐席优先级 (缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级)|
 |cookie|char*|上下文参数，详细介绍参见[关键词](KeyWords.md#cookie)|
 
 
@@ -3278,6 +3278,153 @@ sdk内部产生默认摄像头时，优先将将打开的多摄像头上选择�
 
 
 
+<h3 id=setScreenShareCfg>void setScreenShareCfg(const CRScreenShareCfg &cfg)</h3>
+
+- **功能**：设置屏幕共享配置(此接口仅windows平台可用)
+
+- **返回值**： 无
+
+- **参数**：
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|cfg|[CRScreenShareCfg](Structs.md#CRScreenShareCfg)|屏幕共享配置|
+
+
+<h3 id=getScreenShareCfg>CRScreenShareCfg getScreenShareCfg()</h3>
+
+- **功能**：获取屏幕共享配置(此接口仅windows平台可用)
+
+- **返回值**： [CRScreenShareCfg](Structs.md#CRScreenShareCfg)
+
+
+<h3 id=getScreenShareInfo>CRScreenShareInfo getScreenShareInfo()</h3>
+
+- **功能**：获取共享信息(此接口仅windows平台可用)
+
+- **返回值**： [CRScreenShareInfo](Structs.md#CRScreenShareInfo)
+
+
+
+<h3 id=startScreenShare>void startScreenShare()</h3>
+
+- **功能**：开始屏幕共享(此接口仅windows平台可用)
+
+开始结果请参见：[startScreenShareRslt](#startScreenShareRslt)</br>
+开始成功后，sdk内部将自动完成抓屏共享处理</br>
+当前仅Windows平台支持发起屏幕共享</br>
+
+- **返回值**： 无
+
+
+
+<h3 id=stopScreenShare>void stopScreenShare()</h3>
+
+- **功能**：开始屏幕共享(此接口仅windows平台可用)
+
+结果请参见：[stopScreenShareRslt](#stopScreenShareRslt)</br>
+
+- **返回值**： 无
+
+
+
+
+<h3 id=pauseScreenShare>void pauseScreenShare(bool bPause)</h3>
+
+- **功能**：暂停共享(此接口仅windows平台可用)
+
+- **返回值**： 无
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|bPause|bool|true:共享暂停、false:正常共享|
+
+
+
+
+<h3 id=setCustomizeCatchScreen>void setCustomizeCatchScreen(bool bCustomize)</h3>
+
+- **功能**：开启/关闭自定义采屏(此接口仅windows平台可用)
+
+开启自定义采屏后，sdk内部将不再采屏，等待集成代码调用[setCustomizeScreenImg](#setCustomizeScreenImg)接口将需要共享的图像送入SDK</br>
+
+- **返回值**： 无
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|bCustomize|bool|true:开启、false:关闭|
+
+
+
+<h3 id=setCustomizeScreenImg>void setCustomizeScreenImg(const CRVideoFrame &frm)</h3>
+
+- **功能**：将自采集屏幕图像送入SDK(此接口仅windows平台可用)
+
+此接口仅在开启自定义采屏后调用才有效，送入的图像帧率最好与[setScreenShareCfg](#setScreenShareCfg)配置的帧率匹配。</br>
+
+- **返回值**： 无
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|frm|[CRVideoFrame](Structs.md#CRVideoFrame)|图像数据|
+
+
+<h3 id=giveCtrlRight>void giveCtrlRight(const char* userID)</h3>
+
+- **功能**：授予目标用户远程控制权限(此接口仅windows平台可用)
+
+- **返回值**： 无
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|userID|char*|目标用户id|
+
+
+
+<h3 id=releaseCtrlRight>void releaseCtrlRight(const char* userID)</h3>
+
+- **功能**：放弃或收回目标用户控制权限(此接口仅windows平台可用)
+
+- **返回值**： 无
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|userID|char*|目标用户id|
+
+
+
+
+<h3 id=sendMouseCtrlMsg>void sendMouseCtrlMsg(CRVSDK_MOUSEMSG_TYPE msgType, CRVSDK_MOUSEKEY_TYPE keyType, int ptX, int ptY)</h3>
+
+- **功能**：发送远控鼠标消息(此接口仅windows平台可用)
+
+- **返回值**： 无
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|msgType|[CRVSDK_MOUSEMSG_TYPE](Constant.md#CRVSDK_MOUSEMSG_TYPE)|鼠标消息类型|
+|keyType|[CRVSDK_MOUSEKEY_TYPE](Constant.md#CRVSDK_MOUSEKEY_TYPE)|鼠标键类型|
+|ptX|int|鼠标在共享内容中的横坐标|
+|ptY|int|鼠标在共享内容中的纵坐标|
+
+
+
+
+
+<h3 id=sendKeyCtrlMsg>void sendKeyCtrlMsg(CRVSDK_KEYMSG_TYPE msgType, int vk, bool bExtendedKey)</h3>
+
+- **功能**：发送远控键盘消息(此接口仅windows平台可用)
+
+- **返回值**： 无
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|msgType|[CRVSDK_KEYMSG_TYPE](Constant.md#CRVSDK_KEYMSG_TYPE)|键盘消息类型|
+|vk|int|键盘虚拟键值|
+|bExtendedKey|int|是否是扩展按键|
+
+
+
 <h2 id=CRVideoSDKMeetingCallBack>class CRVideoSDKMeetingCallBack</h2>
 
 
@@ -4044,6 +4191,100 @@ sdk内部产生默认摄像头时，优先将将打开的多摄像头上选择�
 |adds| char* | 增加房间属性集，json格式，请参见[CRMeetingAttrObjs](Structs.md#CRMeetingAttrObjs) |
 |updates| char* | 变化的用户属性集，json格式，请参见[CRMeetingAttrObjs](Structs.md#CRMeetingAttrObjs) |
 |delKeys| char* | 被删除的用户属性列表，json格式，如:["key1", "key2"] |
+
+
+
+
+
+<h3 id=startScreenShareRslt>virtual void startScreenShareRslt(CRVSDK_ERR_DEF sdkErr)</h3>
+
+- **功能**：开启屏幕共享结果
+
+- **返回值**：无
+
+- **参数**：
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|sdkErr| [CRVSDK_ERR_DEF](Constant.md#CRVSDK_ERR_DEF) | 失败的具体原因 |
+
+
+
+
+<h3 id=stopScreenShareRslt>virtual void stopScreenShareRslt(CRVSDK_ERR_DEF sdkErr)</h3>
+
+- **功能**：停止屏幕共享结果
+
+- **返回值**：无
+
+- **参数**：
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|sdkErr| [CRVSDK_ERR_DEF](Constant.md#CRVSDK_ERR_DEF) | 失败的具体原因 |
+
+
+
+
+<h3 id=notifyScreenShareStarted>virtual void notifyScreenShareStarted(const char* userID)</h3>
+
+- **功能**：通知屏幕共享开始
+
+- **返回值**：无
+
+- **参数**：
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|userID| char* | 共享开启人 |
+
+
+
+
+<h3 id=notifyScreenShareStopped>virtual void notifyScreenShareStopped(const char* oprUserID)</h3>
+
+- **功能**：通知屏幕共享开始
+
+- **返回值**：无
+
+- **参数**：
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|oprUserID| char* | 共享停止人 |
+
+
+
+<h3 id=notifyGiveCtrlRight>virtual void notifyGiveCtrlRight(const char* operUserId, const char* targetUserId)</h3>
+
+- **功能**：通知给予某人控制权限
+
+- **返回值**：无
+
+- **参数**：
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|operUserId| char* | 操作人 |
+|targetUserId| char* | 权限赋予人 |
+
+
+
+
+<h3 id=notifyReleaseCtrlRight>virtual void notifyReleaseCtrlRight(const char* operUserId, const char* targetUserId)</h3>
+
+- **功能**：通知释放了控制权限
+
+- **返回值**：无
+
+- **参数**：
+
+| 参数 | 类型 | 含义 |
+|:-|:-|:-|
+|operUserId| char* | 操作人 |
+|targetUserId| char* | 权限释放人 |
+
+
 
 
 <h2 id=CRArray>class CRArray</h2>

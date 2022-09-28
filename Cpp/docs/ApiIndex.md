@@ -1,7 +1,6 @@
 <h1 id=begin>API概述</h1>
 
-API主要模块包括：[基础函数](#basic)、[登录](#login)、[透明通道](#customCmd)、
-[队列管理](#queue)、[呼叫](#call)、[邀请](#invite)、[房间管理](#roomMgr)、[进出房间](#enterRoom)、[房间成员管理](#members)、[音频管理](#audio)、[音频自采集自渲染](#customAudio)、[视频管理](#video)、[视频自采集自渲染](#customVideo)、[虚拟视频设备](#virtualVideo)、[影音共享](#media)、[本地录制/本地直播](#record)、[云端录制/互动直播](#cloud)、[房间属性](#meetingAttrs)、[用户属性](#userAttrs)
+API主要模块包括：[基础函数](#basic)、[登录](#login)、[透明通道](#customCmd)、[房间属性](#meetingAttrs)、[用户属性](#userAttrs)、[队列管理](#queue)、[呼叫](#call)、[邀请](#invite)、[房间管理](#roomMgr)、[进出房间](#enterRoom)、[房间成员管理](#members)、[音频管理](#audio)、[音频自采集自渲染](#customAudio)、[视频管理](#video)、[视频自采集自渲染](#customVideo)、[虚拟视频设备](#virtualVideo)、[影音共享](#media)、[本地录制/本地直播](#record)、[云端录制/互动直播](#cloud)、[屏幕共享](#screen)
 
 <h2 id=basic>基础函数</h2>
 
@@ -76,6 +75,62 @@ API主要模块包括：[基础函数](#basic)、[登录](#login)、[透明通�
 | [notifyFileData](Apis.md#notifyFileData)| 通知收到点对点文件 | CRVideoSDKMain.h |
 | [sendMeetingCustomMsgRslt](Apis.md#sendMeetingCustomMsgRslt)| 发送房间内广播消息结果 | CRVideoSDKMeeting.h |
 | [notifyMeetingCustomMsg](Apis.md#notifyMeetingCustomMsg)| 通知收到房间内广播消息 | CRVideoSDKMeeting.h |
+
+
+<h2 id=meetingAttrs>房间属性（主调）</h2>
+
+| 方法 | 描述 | 所属文件 |
+|:-|:--|:-|
+| [getMeetingAllAttrs](Apis.md#getMeetingAllAttrs)| 获取所有房间属性 | CRVideoSDKMeeting.h |
+| [getMeetingAttrs](Apis.md#getMeetingAttrs)| 获取部份房间属性 | CRVideoSDKMeeting.h |
+| [setMeetingAttrs](Apis.md#setMeetingAttrs)| 重置所有房间属性 | CRVideoSDKMeeting.h |
+| [addOrUpdateMeetingAttrs](Apis.md#addOrUpdateMeetingAttrs)| 添加或更新房间属性 | CRVideoSDKMeeting.h |
+| [delMeetingAttrs](Apis.md#delMeetingAttrs)| 删除房间属性 | CRVideoSDKMeeting.h |
+| [clearMeetingAttrs](Apis.md#clearMeetingAttrs)| 清空所有房间属性 | CRVideoSDKMeeting.h |
+
+
+
+<h2 id=meetingAttrs_callback>房间属性（回调）</h2>
+
+| 方法 | 描述 | 所属文件 |
+|:-|:--|:-|
+| [getMeetingAllAttrsSuccess](Apis.md#getMeetingAllAttrsSuccess)| 获取所有房间属性成功 | CRVideoSDKMeeting.h |
+| [getMeetingAllAttrsFail](Apis.md#getMeetingAllAttrsFail)| 获取所有房间属性失败 | CRVideoSDKMeeting.h |
+| [getMeetingAttrsSuccess](Apis.md#getMeetingAttrsSuccess)| 获取部份房间属性成功 | CRVideoSDKMeeting.h |
+| [getMeetingAttrsFail](Apis.md#getMeetingAttrsFail)| 获取部份房间属性失败 | CRVideoSDKMeeting.h |
+| [setMeetingAttrsRslt](Apis.md#setMeetingAttrsRslt)| 重置所有房间属性结果 | CRVideoSDKMeeting.h |
+| [addOrUpdateMeetingAttrsRslt](Apis.md#addOrUpdateMeetingAttrsRslt)| 添加或更新房间属性结果 | CRVideoSDKMeeting.h |
+| [delMeetingAttrsRslt](Apis.md#delMeetingAttrsRslt)| 删除房间属性结果 | CRVideoSDKMeeting.h |
+| [clearMeetingAttrsRslt](Apis.md#clearMeetingAttrsRslt)| 清空所有房间属性结果 | CRVideoSDKMeeting.h |
+| [notifyMeetingAttrsChanged](Apis.md#notifyMeetingAttrsChanged)| 通知房间属性改变 | CRVideoSDKMeeting.h |
+
+
+
+<h2 id=userAttrs>用户属性（主调）</h2>
+
+| 方法 | 描述 | 所属文件 |
+|:-|:--|:-|
+| [getUserAttrs](Apis.md#getUserAttrs)| 获取指定用户的所有属性 | CRVideoSDKMeeting.h |
+| [setUserAttrs](Apis.md#setUserAttrs)| 重置指定用户的属性 | CRVideoSDKMeeting.h |
+| [addOrUpdateUserAttrs](Apis.md#addOrUpdateUserAttrs)| 添加或更新指定用户的属性 | CRVideoSDKMeeting.h |
+| [delUserAttrs](Apis.md#delUserAttrs)| 删除指定用户的属性 | CRVideoSDKMeeting.h |
+| [clearUserAttrs](Apis.md#clearUserAttrs)| 清空指定用户的属性 | CRVideoSDKMeeting.h |
+| [clearAllUserAttrs](Apis.md#clearAllUserAttrs)| 清空所有用户的属性 | CRVideoSDKMeeting.h |
+
+
+
+<h2 id=userAttrs_callback>用户属性（回调）</h2>
+
+| 方法 | 描述 | 所属文件 |
+|:-|:--|:-|
+| [getUserAttrsSuccess](Apis.md#getUserAttrsSuccess)| 获取指定用户的所有属性成功 | CRVideoSDKMeeting.h |
+| [getUserAttrsFail](Apis.md#getUserAttrsFail)| 获取指定用户的所有属性失败 | CRVideoSDKMeeting.h |
+| [setUserAttrsRslt](Apis.md#setUserAttrsRslt)| 重置指定用户的属性结果 | CRVideoSDKMeeting.h |
+| [addOrUpdateUserAttrsRslt](Apis.md#addOrUpdateUserAttrsRslt)| 添加或更新指定用户的属性结果 | CRVideoSDKMeeting.h |
+| [delUserAttrsRslt](Apis.md#delUserAttrsRslt)| 删除指定用户的属性结果 | CRVideoSDKMeeting.h |
+| [clearUserAttrsRslt](Apis.md#clearUserAttrsRslt)| 清空指定用户的属性结果 | CRVideoSDKMeeting.h |
+| [clearAllUserAttrsRslt](Apis.md#clearAllUserAttrsRslt)| 清空所有用户的属性结果 | CRVideoSDKMeeting.h |
+| [notifyUserAttrsChanged](Apis.md#notifyUserAttrsChanged)| 通知用户属性改变 | CRVideoSDKMeeting.h |
 
 
 <h2 id=queue>队列管理（主调）</h2>
@@ -396,58 +451,44 @@ API主要模块包括：[基础函数](#basic)、[登录](#login)、[透明通�
 | [notifyCloudMixerOutputInfoChanged](Apis.md#notifyCloudMixerOutputInfoChanged)| 通知云端录制/推流输出信息变化 | CRVideoSDKMeeting.h |
 
 
-<h2 id=meetingAttrs>房间属性（主调）</h2>
+<h2 id=screen>屏幕共享（主调）</h2>
 
 | 方法 | 描述 | 所属文件 |
 |:-|:--|:-|
-| [getMeetingAllAttrs](Apis.md#getMeetingAllAttrs)| 获取所有房间属性 | CRVideoSDKMeeting.h |
-| [getMeetingAttrs](Apis.md#getMeetingAttrs)| 获取部份房间属性 | CRVideoSDKMeeting.h |
-| [setMeetingAttrs](Apis.md#setMeetingAttrs)| 重置所有房间属性 | CRVideoSDKMeeting.h |
-| [addOrUpdateMeetingAttrs](Apis.md#addOrUpdateMeetingAttrs)| 添加或更新房间属性 | CRVideoSDKMeeting.h |
-| [delMeetingAttrs](Apis.md#delMeetingAttrs)| 删除房间属性 | CRVideoSDKMeeting.h |
-| [clearMeetingAttrs](Apis.md#clearMeetingAttrs)| 清空所有房间属性 | CRVideoSDKMeeting.h |
+| [setScreenShareCfg](Apis.md#setScreenShareCfg)| 设置屏幕共享配置 | CRVideoSDKMeeting.h |
+| [getScreenShareCfg](Apis.md#getScreenShareCfg)| 获取屏幕共享配置 | CRVideoSDKMeeting.h |
+| [getScreenShareInfo](Apis.md#getScreenShareInfo)| 获取共享信息 | CRVideoSDKMeeting.h |
+| [startScreenShare](Apis.md#startScreenShare)| 开始屏幕共享(仅windows有效)  | CRVideoSDKMeeting.h |
+| [stopScreenShare](Apis.md#stopScreenShare)| 停止屏幕共享 | CRVideoSDKMeeting.h |
+| [pauseScreenShare](Apis.md#pauseScreenShare)| 暂停共享 | CRVideoSDKMeeting.h |
+| [setCustomizeCatchScreen](Apis.md#setCustomizeCatchScreen)| 开启/关闭自定义采屏 | CRVideoSDKMeeting.h |
+| [setCustomizeScreenImg](Apis.md#setCustomizeScreenImg)| 将自采集屏幕图像送入SDK | CRVideoSDKMeeting.h |
+| [giveCtrlRight](Apis.md#giveCtrlRight)| 授予目标用户远程控制权限 | CRVideoSDKMeeting.h |
+| [releaseCtrlRight](Apis.md#releaseCtrlRight)| 放弃或收回目标用户控制权限 | CRVideoSDKMeeting.h |
+| [sendMouseCtrlMsg](Apis.md#sendMouseCtrlMsg)| 发送远控鼠标消息 | CRVideoSDKMeeting.h |
+| [sendKeyCtrlMsg](Apis.md#sendKeyCtrlMsg)| 发送远控键盘消息 | CRVideoSDKMeeting.h |
 
 
-
-<h2 id=meetingAttrs_callback>房间属性（回调）</h2>
-
-| 方法 | 描述 | 所属文件 |
-|:-|:--|:-|
-| [getMeetingAllAttrsSuccess](Apis.md#getMeetingAllAttrsSuccess)| 获取所有房间属性成功 | CRVideoSDKMeeting.h |
-| [getMeetingAllAttrsFail](Apis.md#getMeetingAllAttrsFail)| 获取所有房间属性失败 | CRVideoSDKMeeting.h |
-| [getMeetingAttrsSuccess](Apis.md#getMeetingAttrsSuccess)| 获取部份房间属性成功 | CRVideoSDKMeeting.h |
-| [getMeetingAttrsFail](Apis.md#getMeetingAttrsFail)| 获取部份房间属性失败 | CRVideoSDKMeeting.h |
-| [setMeetingAttrsRslt](Apis.md#setMeetingAttrsRslt)| 重置所有房间属性结果 | CRVideoSDKMeeting.h |
-| [addOrUpdateMeetingAttrsRslt](Apis.md#addOrUpdateMeetingAttrsRslt)| 添加或更新房间属性结果 | CRVideoSDKMeeting.h |
-| [delMeetingAttrsRslt](Apis.md#delMeetingAttrsRslt)| 删除房间属性结果 | CRVideoSDKMeeting.h |
-| [clearMeetingAttrsRslt](Apis.md#clearMeetingAttrsRslt)| 清空所有房间属性结果 | CRVideoSDKMeeting.h |
-| [notifyMeetingAttrsChanged](Apis.md#notifyMeetingAttrsChanged)| 通知房间属性改变 | CRVideoSDKMeeting.h |
-
-
-
-<h2 id=userAttrs>用户属性（主调）</h2>
+<h2 id=screen_callback>屏幕共享（回调）</h2>
 
 | 方法 | 描述 | 所属文件 |
 |:-|:--|:-|
-| [getUserAttrs](Apis.md#getUserAttrs)| 获取指定用户的所有属性 | CRVideoSDKMeeting.h |
-| [setUserAttrs](Apis.md#setUserAttrs)| 重置指定用户的属性 | CRVideoSDKMeeting.h |
-| [addOrUpdateUserAttrs](Apis.md#addOrUpdateUserAttrs)| 添加或更新指定用户的属性 | CRVideoSDKMeeting.h |
-| [delUserAttrs](Apis.md#delUserAttrs)| 删除指定用户的属性 | CRVideoSDKMeeting.h |
-| [clearUserAttrs](Apis.md#clearUserAttrs)| 清空指定用户的属性 | CRVideoSDKMeeting.h |
-| [clearAllUserAttrs](Apis.md#clearAllUserAttrs)| 清空所有用户的属性 | CRVideoSDKMeeting.h |
+| [startScreenShareRslt](Apis.md#startScreenShareRslt)| 开启屏幕共享结果| CRVideoSDKMeeting.h |
+| [stopScreenShareRslt](Apis.md#stopScreenShareRslt)| 停止屏幕共享结果 | CRVideoSDKMeeting.h |
+| [notifyScreenShareStarted](Apis.md#notifyScreenShareStarted)| 通知屏幕共享开始 | CRVideoSDKMeeting.h |
+| [notifyScreenShareStopped](Apis.md#notifyScreenShareStopped)| 通知屏幕共享停止 | CRVideoSDKMeeting.h |
+| [notifyGiveCtrlRight](Apis.md#notifyGiveCtrlRight)| 通知给予某人控制权限 | CRVideoSDKMeeting.h |
+| [notifyReleaseCtrlRight](Apis.md#notifyReleaseCtrlRight)| 通知释放了控制权限 | CRVideoSDKMeeting.h |
 
 
 
-<h2 id=userAttrs_callback>房间属性（回调）</h2>
 
-| 方法 | 描述 | 所属文件 |
-|:-|:--|:-|
-| [getUserAttrsSuccess](Apis.md#getUserAttrsSuccess)| 获取指定用户的所有属性成功 | CRVideoSDKMeeting.h |
-| [getUserAttrsFail](Apis.md#getUserAttrsFail)| 获取指定用户的所有属性失败 | CRVideoSDKMeeting.h |
-| [setUserAttrsRslt](Apis.md#setUserAttrsRslt)| 重置指定用户的属性结果 | CRVideoSDKMeeting.h |
-| [addOrUpdateUserAttrsRslt](Apis.md#addOrUpdateUserAttrsRslt)| 添加或更新指定用户的属性结果 | CRVideoSDKMeeting.h |
-| [delUserAttrsRslt](Apis.md#delUserAttrsRslt)| 删除指定用户的属性结果 | CRVideoSDKMeeting.h |
-| [clearUserAttrsRslt](Apis.md#clearUserAttrsRslt)| 清空指定用户的属性结果 | CRVideoSDKMeeting.h |
-| [clearAllUserAttrsRslt](Apis.md#clearAllUserAttrsRslt)| 清空所有用户的属性结果 | CRVideoSDKMeeting.h |
-| [notifyUserAttrsChanged](Apis.md#notifyUserAttrsChanged)| 通知用户属性改变 | CRVideoSDKMeeting.h |
+
+
+
+
+
+
+
+
 

@@ -190,9 +190,12 @@
 
 | 代码     | 数值        |   含义   |
 |:-------- |:-----------|:----------|
-| VFMT_YUV420P|0	|yuv420p	   |
-| VFMT_ARGB32	|1 |32-bit ARGB format (0xAARRGGBB)	 |
-
+| VFMT_YUV420P	|0	|yuv420p	   |
+| VFMT_ARGB32	|2 |32-bit ARGB format (0xAARRGGBB)	 |
+| VFMT_H264	|3	|h264	   |
+| VFMT_OESTEXTURE	|4 |oes纹理	 |
+| VFMT_NV21	|5	|NV21	   |
+| VFMT_NV12	|6 |NV12	 |
 
 <h2 id=MIXER_VCONTENT_TYPE>混图内容类型</h2>
 <!-- ## 混图内容类型  -->
@@ -207,10 +210,9 @@
 | MIXVTP_PIC|1	|图片	   |
 | MIXVTP_SCREEN|2	|屏幕  |
 | MIXVTP_MEDIA|3	|影音共享	   |
-| MIXVTP_TIMESTAMP|4	|时间戳	   |
 | MIXVTP_REMOTE_SCREEN|5	|远端共享的屏幕	   |
 | MIXVTP_WBOARD|6	|白板	   |
-| MIXVTP_TEXT|7	|文本(支持简单html)	   |
+| MIXVTP_TEXT|10	|文本	   |
 
 <h2 id=MIXER_OUTPUT_TYPE>混图输出类型</h2>
 <!-- ## 混图输出类型  -->
@@ -236,9 +238,8 @@
 | MIXER_NULL|0	|没有创建|
 | MIXER_STARTING|1	|正在开启	   |
 | MIXER_RUNNING|2	|正在运行	   |
-| MIXER_RUNNING|4	|正在结束      |
-
-
+| MIXER_PAUSED|3	|暂停中(仅本地录制、直播支持）	   |
+| MIXER_STOPPING|4	|正在结束      |
 
 <h2 id=MIXER_OUTPUT_STATE>混图器输出状态</h2>
 <!-- ## 混图器输出状态  -->
@@ -254,6 +255,27 @@
 | OUTPUT_WRITING|2	|输出目标信息更新	   |
 | OUTPUT_CLOSED|3	|输出对象已关闭	   |
 | OUTPUT_ERR|4	|输出对象异常	   |
+| OUTPUT_UPLOADING|5	|输出对象正在上传	   |
+| OUTPUT_UPLOADSUCCESS|6	|输出对象上传成功	   |
+| OUTPUT_UPLOADERR|7	|输出对象上传失败	   |
+
+<h2 id=CLOUDMIXER_OUTPUT_STATE>云端混图器输出状态</h2>
+<!-- ## 云端混图器输出状态  -->
+
+>com.cloudroom.cloudroomvideosdk.model.CLOUDMIXER_OUTPUT_STATE
+
+----
+
+| 代码     | 数值        |   含义   |
+|:-------- |:-----------|:----------|
+| CLOUDMO_NULL|0	|未录制/直播|
+| CLOUDMO_RUNNING|1	|录制/直播中	   |
+| CLOUDMO_STOPPED|2	|录制/直播结束	   |
+| CLOUDMO_FAIL|3	|录制/直播失败	   |
+| CLOUDMO_UPLOADING|4	|输出对象正在上传	   |
+| CLOUDMO_UPLOADED|5	|输出对象上传成功	   |
+| CLOUDMO_UPLOADFAIL|6	|输出对象上传失败	   |
+
 
 <h2 id=RECORD_FILE_STATE>录制文件上传状态</h2>
 <!-- ## 录制文件上传状态  -->

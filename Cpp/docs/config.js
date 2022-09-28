@@ -12,8 +12,14 @@ module.exports = {
                         "README.md",
                         "Mainfunctions.md",
                         "KeyWords.md",
-                        "loginIdentify.md"
+                        "securityIssue.md",
+                        "History.md"
                     ]
+                },
+                {
+                    "title": "下载",
+                    "route": "https://sdk.cloudroom.com/pages/download",
+                    "islink": true
                 },
                 {
                     "title": "快速开始",
@@ -43,6 +49,8 @@ module.exports = {
                     "route": "advancedFunction",
                     "islink": false,
                     "children": [
+                        "screenshare.md",
+                        "remoteControl.md",
                         "media.md",
                         "customAudioOper.md",
                         "customVideoOper.md",
