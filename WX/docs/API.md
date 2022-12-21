@@ -120,7 +120,7 @@ wxml属性:
 
 |属性 | 必填 | 类型 | 说明 |
 |----- | ----- | ----- |  ----- |
-|wx:if| 是 | boolean | 音频拉流组件必须等到入会成功后渲染 |
+|wx:if| 是 | boolean | 音频拉流组件必须等到进入房间成功后渲染 |
 |config| 是 | object | 音频配置对象，参考下方 |
 |debug| 否 | boolean | 开启调式需要父盒子有足够大小高宽用于渲染组件 |
 |bindstatechange| 否 | function | 监听live-player组件的statechange事件，在参数event.detail中包含播放状态 |

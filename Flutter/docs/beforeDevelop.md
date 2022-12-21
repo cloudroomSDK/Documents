@@ -62,7 +62,7 @@
     </tr>
     <tr>
         <td>TCP 1935</td>
-        <td style='text-align:center'>直播观看端口</td>
+        <td style='text-align:center'>服务器音视频流端口(rtmp)</td>
         <td></td>
         <td></td>
         <td style='text-align:center'>√</td>

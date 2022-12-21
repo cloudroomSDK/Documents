@@ -25,7 +25,7 @@
 | 参数 | 取值 | 含义 |
 |:-------- |:-----------|:----------|
 | NoQueue| 0/1(缺省:0) | 设为1可加快登录速度（适合于不使用sdk的排队功能的业务，如：临柜双录业务、链接入 会业务）|
-|Timeout|（缺 省:90000)|网络通信超时时间，单位是毫秒 |
+|Timeout|（缺 省:60000)|网络通信超时时间，单位是毫秒, 取值范围(10000~120000) |
 |DatEncType|0/1	(缺省:1) |数据加密类型, 0:不加密(http、udp)，1:加密(https、udp数据des3加密)|
 |VerifyHttpsCert|0/1(缺省:1)|是否验证服务器SSL证书（0:不验证，1:验证； 此参数仅在DatEncType为1时此参数才有效）。 如果web服务使用自签名SSL证书此参数应配置为0。|
 
@@ -913,8 +913,8 @@ Qt使用方法：
 
 - **补充说明**:
 
-1. 其他参会者会收到：[notifyCreateBoard](#notifyCreateBoard)事件;</br>
-1. 同时后台会记录下白板数据，新入会者会收到：[notifyInitBoards](#notifyInitBoards)事件;</br>
+1. 其他房间成员会收到：[notifyCreateBoard](#notifyCreateBoard)事件;</br>
+1. 同时后台会记录下白板数据，新进入房间人员会收到：[notifyInitBoards](#notifyInitBoards)事件;</br>
 1. 创建完白板后，一定要及尽快调用[initBoardPageDat](#initBoardPageDat)初始化各页数据;</br>
 
 
@@ -930,7 +930,7 @@ Qt使用方法：
 
 - **补充说明**:
 
-其他参会者将收到[notifyCloseBoard](#notifyCloseBoard)事件；同时后台会移除对应白板的所有信息
+其他房间成员将收到[notifyCloseBoard](#notifyCloseBoard)事件；同时后台会移除对应白板的所有信息
 
 
 <h2 id=getBoardFilesDir>string getBoardFilesDir(const string &boardID)</h2>
@@ -960,8 +960,8 @@ Qt使用方法：
 - **补充说明**:
 
 1. imgID非空时, 代表背景的图片ID。 img来源请参见[getNetDiskDocFilePageInfo](#getNetDiskDocFilePageInfo)</br>
-1. 其他参会者将收到[notifyInitBoardPageDat](#notifyInitBoardPageDat)事件；</br>
-1. 后台会记录下白板的页数据，在新用户入会时，也会收到[notifyInitBoardPageDat](#notifyInitBoardPageDat)事件;</br>
+1. 其他房间成员将收到[notifyInitBoardPageDat](#notifyInitBoardPageDat)事件；</br>
+1. 后台会记录下白板的页数据，在新用户进入房间时，也会收到[notifyInitBoardPageDat](#notifyInitBoardPageDat)事件;</br>
 
 
  <h2 id=createElementID>string createElementID()</h2>
@@ -989,8 +989,8 @@ Qt使用方法：
 
 - **补充说明**:
 
-1. 其他参会者会收到：[notifyAddBoardElement](#notifyAddBoardElement)事件;</br>
-1. 同时后台会保存图元，新入会者会在[notifyInitBoardPageDat](#notifyInitBoardPageDat)中得到这些图元;</br>
+1. 其他房间成员会收到：[notifyAddBoardElement](#notifyAddBoardElement)事件;</br>
+1. 同时后台会保存图元，新进入房间人员会在[notifyInitBoardPageDat](#notifyInitBoardPageDat)中得到这些图元;</br>
 
 
 <h2 id=modifyBoardElement>void modifyBoardElement(string boardID, int boardPageNo, string element)</h2>
@@ -1007,8 +1007,8 @@ Qt使用方法：
 
 - **补充说明**:
 
-1. 其他参会者会收到：[notifyModifyBoardElement](#notifyModifyBoardElement)事件;</br>
-1. 同时后台会覆盖对应图元的数据，新入会者会在[notifyInitBoardPageDat](#notifyInitBoardPageDat)中得到这些图元;</br>
+1. 其他房间成员会收到：[notifyModifyBoardElement](#notifyModifyBoardElement)事件;</br>
+1. 同时后台会覆盖对应图元的数据，新进入房间人员会在[notifyInitBoardPageDat](#notifyInitBoardPageDat)中得到这些图元;</br>
 
 
 <h2 id=delboardelement>void delboardelement(string boardID, int boardPageNo, string elementIDs)</h2>
@@ -1025,8 +1025,8 @@ Qt使用方法：
 
 - **补充说明**:
 
-1. 其他参会者会收到：[notifyDelBoardElement](#notifyDelBoardElement)事件；</br>
-1. 同时后台会移除这些图元，新入会者会在[notifyInitBoardPageDat](#notifyInitBoardPageDat)中将不包含这些图元;</br>
+1. 其他房间成员会收到：[notifyDelBoardElement](#notifyDelBoardElement)事件；</br>
+1. 同时后台会移除这些图元，新进入房间人员会在[notifyInitBoardPageDat](#notifyInitBoardPageDat)中将不包含这些图元;</br>
 
 
 <h2 id=setmousehotspot>void setmousehotspot(string boardID, int boardPageNo, int x, int y)</h2>
@@ -1173,7 +1173,7 @@ Qt使用方法：
 
 <h2 id=notifyInitBoards>void notifyInitBoards(const string &jsonBoards)</h2>
 
-- **功能**：SDK入会后通知房间中已经存在的白板列表
+- **功能**：SDK进入房间后通知房间中已经存在的白板列表
 
 + **参数**：
 
@@ -1194,7 +1194,7 @@ Qt使用方法：
 |  boardPageNo| int  | 白板页序号  |
 |  imgID |  string | 页背景文件ID（空代表无背景）  |
 | elementDatas  | string  | 此页的所有图元， json结构体请参见[BoardElementObjs](TypeDefinitions.md#CRVideo_BoardElementObjs)  |
-|  operatorID | string  | 初始化用户（为空时，代表入会时后台事件）  |
+|  operatorID | string  | 初始化用户（为空时，代表进入房间时后台事件）  |
 
 
 <h2 id=notifyCreateBoard>void notifyCreateBoard(const string &jsonBoard, const string &operatorID)</h2>
@@ -1584,7 +1584,7 @@ Qt使用方法：
 | 参数    | 类型        | 含义      |
 |:-------- |:-----------|:----------|
 |queID   |int |  队列ID |
-|priority   |int |  坐席优先级 (缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级 ))|
+|priority   |int |  坐席优先级 (缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级 )|
 |cookie |   string |    详细介绍见[关键词](KeyWords.md#cookie)|
 
 - **补充说明**:
@@ -3136,13 +3136,13 @@ c#使用方法：
 
 <h2 id=toolButtonClicked>void toolButtonClicked(int id)</h2>
 
-- **功能**：SDK通知鼠标点击到文件条目索引
+- **功能**：SDK通知鼠标点击了工具条按钮
 
 + **参数**：
 
 | 参数    | 类型        | 含义      |
 |:-------- |:-----------|:----------|
-|  id | int  | 文件条目索引 |
+|  id | int  | 按钮编号 |
 
 
 <h2 id=enterMeeting>void enterMeeting3(int meetID)</h2>
@@ -3175,7 +3175,7 @@ c#使用方法：
 
 <h2 id=kickout>void kickout(string userId)</h2>
 
-- **功能**:把某个参会者请出房间
+- **功能**:把某个房间成员请出房间
 
 - **返回值**:无
 
@@ -3660,7 +3660,7 @@ c#使用方法：
 |:-------- |:-----------|:----------|
 |aSide|	int|	声道类型 0:麦克风，1:扬声器|
 |getType	|int|	获取方式 0:回调方式，1:保存为文件|
-|jsonParam	|string	|当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "e:\\test.pcm" }|
+|jsonParam	|string	|当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};</br>当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "e:\\test.pcm" }|
 
 - **补充说明**:
 1. getType为0时，回调事件请参见[notifyAudioPCMDat](#notifyAudioPCMDat)</br>
@@ -4296,7 +4296,7 @@ c#使用方法：
 
 <h2 id=setToolButton> void setToolButton(int id, const string &iconFileName, const string &toolTip)</h2>
 
--  **功能**： 设置显示文件条目控件属性，若iconFileName所指向的文件不存在，则在界面上删除该条目
+-  **功能**： 设置工具条按钮属性
 
 - **返回值**:无
 
@@ -4304,10 +4304,13 @@ c#使用方法：
 
 | 参数    | 类型        | 含义      |
 |:-------- |:-----------|:----------|
-| id  | int  |  条目索引 |
-| iconFileName  | string  |  按钮显示的文件名 |
-| toolTip  | string  |  文件说明 |
+| id  | int  |  按钮的编号 |
+| iconFileName  | string  |  按钮的图标文件 |
+| toolTip  | string  |  按钮的toolTip |
 
+- **补充说明**:
+
+1. 按钮被点击时，将产生[toolButtonClicked](#toolButtonClicked)事件</br>
 
 <h2 id=lockNickNameText> void lockNickNameText(const string &lockNickNameText)</h2>
 

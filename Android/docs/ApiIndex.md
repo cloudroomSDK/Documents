@@ -227,9 +227,9 @@ API主要模块包括：[基础函数](#basic_function)、[初始化/反初始�
 
 | 方法 | 描述 | 所属组件 |
 |:-|:-|:-|
-| [enterMeeting3](API.md#enterMeeting) | 进入房间 | CloudroomVideoMeeting |
+| [enterMeeting](API.md#enterMeeting) | 进入房间 | CloudroomVideoMeeting |
 | [exitMeeting](API.md#exitMeeting) | 离开房间 | CloudroomVideoMeeting |
-| [kickout](API.md#kickout) | 把某个参会者踢出房间 | CloudroomVideoMeeting |
+| [kickout](API.md#kickout) | 把某个成员踢出房间 | CloudroomVideoMeeting |
 
 
 <h3 id=in_out_room>进出房间(回调)</h3>
@@ -378,8 +378,6 @@ API主要模块包括：[基础函数](#basic_function)、[初始化/反初始�
 | [getVideoImg](API.md#getVideoImg) | 摄像头图像数据 | CloudroomVideoMeeting |
 | [setLocVideoAttributes](API.md#setLocVideoAttributes) | 视频设备私有参数配置 | CloudroomVideoMeeting |
 | [getLocVideoAttributes](API.md#getLocVideoAttributes) | 获取某个摄像头私有参数 | CloudroomVideoMeeting |
-| [addIPCam](API.md#addIPCam) | 添加网络摄像头 | CloudroomVideoMeeting |
-| [delIPCam](API.md#delIPCam) | 移除网络摄像头 | CloudroomVideoMeeting |
 | [bSupportVirtualBackground](API.md#bSupportVirtualBackground) | 检查是否支持虚拟背景功能 | CloudroomVideoMeeting |
 | [setVirtualBackground](API.md#setVirtualBackground) | 配置虚拟背景参数 | CloudroomVideoMeeting |
 | [getVirtualBackground](API.md#getVirtualBackground) | 获取虚拟背景参数 | CloudroomVideoMeeting |

@@ -118,7 +118,7 @@ module.exports = [{
       param: 'priority',
       type: 'Number',
       necessary: '是',
-      explain: '坐席优先级',
+      explain: '坐席优先级(缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级)',
     }, commonCookie],
     attent: `
 > 可以多次调用，开启对多个队列的服务。

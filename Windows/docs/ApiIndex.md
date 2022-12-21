@@ -241,7 +241,7 @@ API主要模块包括：[基础函数](#basic_function)、[初始化/反初始�
 |:-|:-|:-|
 | [enterMeeting3](API.md#enterMeeting) | 进入房间 | CloudroomVideoSDK |
 | [exitMeeting](API.md#exitMeeting) | 离开房间 | CloudroomVideoSDK |
-| [kickout](API.md#kickout) | 把某个参会者踢出房间 | CloudroomVideoSDK |
+| [kickout](API.md#kickout) | 把某个房间成员踢出房间 | CloudroomVideoSDK |
 
 
 <h3 id=in_out_room>进出房间(回调)</h3>
@@ -415,7 +415,7 @@ API主要模块包括：[基础函数](#basic_function)、[初始化/反初始�
 | [getQualityLv](API.md#getQualityLv) | 获取视频等级 | CloudroomVideoUI |
 | [setFullScreen](API.md#setFullScreen) | 设置全屏状态 | CloudroomVideoUI |
 | [setToolbarHeight](API.md#setToolbarHeight) | 设置工具条高度 | CloudroomVideoUI |
-| [setToolButton](API.md#setToolButton) | 设置显示文件条目控件属性 | CloudroomVideoUI |
+| [setToolButton](API.md#setToolButton) | 设置工具条按钮属性 | CloudroomVideoUI |
 | [lockNickNameText](API.md#lockNickNameText) | 锁定昵称显示内容，设为空代表取消锁定 | CloudroomVideoUI |
 
 
@@ -430,7 +430,7 @@ API主要模块包括：[基础函数](#basic_function)、[初始化/反初始�
 | [mousePressed](API.md#mousePressed) | 通知鼠标按下 | CloudroomVideoUI |
 | [mouseReleased](API.md#mouseReleased) | 通知鼠标释放 | CloudroomVideoUI |
 | [mouseDoubleClicked](API.md#mouseDoubleClicked) | 通知鼠标双击 | CloudroomVideoUI |
-| [toolButtonClicked](API.md#toolButtonClicked) | 通知鼠标单击 | CloudroomVideoUI |
+| [toolButtonClicked](API.md#toolButtonClicked) | 通知工具条按钮鼠标单击 | CloudroomVideoUI |
 
 
 

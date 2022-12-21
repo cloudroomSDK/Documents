@@ -607,18 +607,14 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
     </thead>
     <tbody>
 		<tr>
-            <td rowspan=3>CloudroomVideoMgr</td>
-            <td rowspan=3 style='text-align:center'>主调</td>
+            <td rowspan=2>CloudroomVideoMgr</td>
+            <td rowspan=2 style='text-align:center'>主调</td>
             <td><a href="Apis.md#createMeeting">createMeeting</a></td>
             <td>创建视频房间</td>
         </tr>
 		<tr>  
             <td><a href="Apis.md#destroyMeeting">destroyMeeting</a></td>
             <td>销毁视频房间</td>
-        </tr>
-		<tr>  
-            <td><a href="Apis.md#getMeetings">getMeetings</a></td>
-            <td>获取房间列表</td>
         </tr>
 		<tr>
             <td rowspan=7>CloudroomVideoMeeting</td>
@@ -704,7 +700,7 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
 		</tr>
 		<tr>
 			<td><a href="Apis.md#meetingDropped">meetingDropped</a></td>
-			<td>通知从房间里掉线了，收到该通知后可以调用enterMeeting尝试重新入会</td>
+			<td>通知从房间里掉线了，收到该通知后可以调用enterMeeting尝试重新进入房间</td>
 		</tr>
 		<tr>
 			<td><a href="Apis.md#meetingStoped">meetingStoped</a></td>
@@ -1536,18 +1532,22 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
 				<td>获取云端录制、云端直播状态</td>
 			</tr>
 			<tr>
-				<td rowspan=3>CloudroomVideoCallback</td>
-				<td rowspan=3 style='text-align:center'>回调</td>
-				<td><a href="Apis.md#svrMixerStateChanged">svrMixerStateChanged</a></td>
+				<td rowspan=4>CloudroomVideoCallback</td>
+				<td rowspan=4 style='text-align:center'>回调</td>
+				<td><a href="Apis.md#createCloudMixerFailed">createCloudMixerFailed</a></td>
+				<td>启动云端录制、云端直播失败通知</td>
+			</tr>
+			<tr>
+			   <td><a href="Apis.md#cloudMixerStateChanged">cloudMixerStateChanged</a></td>
 				<td>云端录制、云端直播状态变化通知</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#svrMixerCfgChanged">svrMixerCfgChanged</a></td>
-				<td>云端录制、云端直播内容变化通知</td>
+				<td><a href="Apis.md#cloudMixerInfoChanged">cloudMixerInfoChanged</a></td>
+				<td>云端录制、云端直播配置变化通知</td>
 			</tr>
 			<tr>
-				<td><a href="Apis.md#svrMixerOutputInfo">svrMixerOutputInfo</a></td>
-				<td>云端录制文件、云端直播信息变化通知</td>
+				<td><a href="Apis.md#cloudMixerOutputInfoChanged">cloudMixerOutputInfoChanged</a></td>
+				<td>云端录制文件、云端直播输出变化通知</td>
 			</tr>
 		</tbody>
     </thead>

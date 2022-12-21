@@ -139,9 +139,9 @@ void enterMeetingRslt(object sender, ICloudroomVideoMeetingEvents_enterMeetingRs
 {
   if (e.p_sdkErr != (int)VCALLSDK_ERR_DEF.VCALLSDK_NOERR)
   {
-    Console.WriteLine("入会失败，请重试，代码：:" + CRError.Instance.getError(e.p_sdkErr));
+    Console.WriteLine("进入房间失败，请重试，代码：:" + CRError.Instance.getError(e.p_sdkErr));
   } else{
-    Console.WriteLine("入会成功!");
+    Console.WriteLine("进入房间成功!");
   }
 }
 //监控房间掉线

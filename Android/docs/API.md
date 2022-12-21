@@ -191,7 +191,7 @@
 
 <h2 id=setDNDStatus>void setDNDStatus(int DNDStatus, String cookie)</h2>
 
-- **功能**:  设置免打扰状态， 如果使用到了SDK的队列功能，则入会后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己
+- **功能**:  设置免打扰状态， 如果使用到了SDK的队列功能，则进入房间后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己
  
  + **返回值**:  无
 >设置免打扰状态成功则触发回调[setDNDStatusSuccess](#setDNDStatusSuccess) ， 设置免打扰状态失败则触发回调[setDNDStatusFail](#setDNDStatusFail) 
@@ -1067,6 +1067,16 @@
 - **返回值**:  无
 >回调函数[userLeftMeeting](#userLeftMeeting)  
 
+<h2 id=kickout>void kickout(String userID)</h2>
+
+- **功能**:  把某个房间成员踢出房间
+  
+- **返回值**:  无
+
+| 参数 | 类型 | 含义 |
+|:-------- |:-----------|:----------|
+| userId| String|  用户ID| 
+
 <h2 id=getAllMembers>ArrayList&lt;MemberInfo&gt;  getAllMembers()</h2>
 
 - **功能**:  获取所有用户的信息
@@ -1890,15 +1900,15 @@
 
 - <p style="color:red; font-size:20px">注意事项:</p>
 
-- 其他参会者会收到notifyCreateBoard事件
-- 后台会记录下白板数据，新入会者会收到notifyInitBoards事件
+- 其他房间成员会收到notifyCreateBoard事件
+- 后台会记录下白板数据，新进入房间成员会收到notifyInitBoards事件
 - 创建完白板后，一定要及尽快调用initBoardPageDat初始化各页数据
-- 如果需要所有参会者同步切到此白板，请调用switchToPage
+- 如果需要所有房间成员同步切到此白板，请调用switchToPage
 
 
 <h2 id=closeBoard>void closeBoard(SubPage boardID)</h2>
 
-- **功能**:  关闭电子白板 , 其他参会者将收到notifyCloseBoard事件；同时后台会移除对应白板的所有信息
+- **功能**:  关闭电子白板 , 其他房间成员将收到notifyCloseBoard事件；同时后台会移除对应白板的所有信息
 - **返回值**:   无
 >回调函数[notifyCloseBoard](#notifyCloseBoard)  
 
@@ -1922,8 +1932,8 @@
 - <p style="color:red; font-size:20px">注意事项:</p>
 
 - imgID非空时, 代表背景的图片ID。img来源请参见getNetDiskDocFilePageInfo
-- 其他参会者将收到notifyInitBoardPageDat事件
-- 后台会记录下白板的页数据，在新用户入会时，也会收到notifyInitBoardPageDat事件
+- 其他房间成员将收到notifyInitBoardPageDat事件
+- 后台会记录下白板的页数据，在新用户进入房间时，也会收到notifyInitBoardPageDat事件
 
 
 <h2 id=createElementID>String createElementID()</h2>
@@ -1934,7 +1944,7 @@
 
 <h2 id=addBoardElement>void addBoardElement(SubPage boardID, int boardPageNo, String element)</h2>
 
-- **功能**:  添加图元信息 , 其他参会者会收到：notifyAddBoardElement事件同时后台会保存图元，新入会者会在notifyInitBoardPageDat中得到这些图元  
+- **功能**:  添加图元信息 , 其他房间成员会收到：notifyAddBoardElement事件同时后台会保存图元，新进入房间成员会在notifyInitBoardPageDat中得到这些图元  
 - **返回值**:  无
      
  
@@ -1946,7 +1956,7 @@
 
 <h2 id=modifyBoardElement>void modifyBoardElement(SubPage boardID, int boardPageNo, String element)</h2>
 
-- **功能**:  修改图元信息 , 其他参会者会收到：notifyModifyBoardElement事件，同时后台会覆盖对应图元的数据，新入会者会在notifyInitBoardPageDat中得到这些图元  
+- **功能**:  修改图元信息 , 其他房间成员会收到：notifyModifyBoardElement事件，同时后台会覆盖对应图元的数据，新进入房间成员会在notifyInitBoardPageDat中得到这些图元  
 - **返回值**:  无
      
  
@@ -2508,7 +2518,7 @@
 
 <h2 id=meetingDropped>void meetingDropped(CRVIDEOSDK_MEETING_DROPPED_REASON reason)</h2>
 
-- **功能**:  通知从房间里掉线了，收到该通知后可以调用enterMeeting尝试重新入会
+- **功能**:  通知从房间里掉线了，收到该通知后可以调用enterMeeting尝试重新进入房间
   
 - **返回值**:  无
  
@@ -2518,7 +2528,7 @@
   
 - <p style="color:red; font-size:20px">注意事项:</p>
 
-- 如果用到了呼叫队列，掉线后不重新入会就必须调用hangupCall释放本次呼叫
+- 如果用到了呼叫队列，掉线后不重新进入房间就必须调用hangupCall释放本次呼叫
 
 
 <h2 id=meetingStoped>void meetingStoped()</h2>
@@ -2790,7 +2800,7 @@
 
 <h2 id=notifyInitBoards>void notifyInitBoards(ArrayList&lt;SubPageInfo&gt; boards)</h2>
 
-- **功能**:  SDK入会后通知房间中已经存在的白板列表
+- **功能**:  SDK进入房间后通知房间中已经存在的白板列表
   
 - **返回值**:  无
  
@@ -2811,7 +2821,7 @@
 | boardPageNo| int|    白板页序号|  
 | imgID| String|    页背景文件ID（空代表无背景）, 使用downloadNetDiskDocFile进行下载 |  
 | elementDatas| String|    此页的所有图元,白板图元数据Json数组，详见定义[BoardElement](TypeDefinitions.md#BoardElement) |  
-| operatorID| String|    初始化用户（为空时，代表入会时后台事件）|  
+| operatorID| String|    初始化用户（为空时，代表进入房间时后台事件）|  
  
 <h2 id=notifyCreateBoard>void notifyCreateBoard(SubPageInfo board, String operatorID)</h2>
 
@@ -2953,7 +2963,7 @@
 |:-------- |:-----------|:----------|
 |aSide|	int|	声道类型 0:麦克风，1:扬声器|
 |getType	|int|	获取方式 0:回调方式，1:保存为文件|
-|jsonParam	|String	|当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "/sdcard/test.pcm" }|
+|jsonParam	|String	|当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};</br>当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "/sdcard/test.pcm" }|
 
 
 <h2 id=stopGetAudioPCM>void stopGetAudioPCM(aSide)</h2>

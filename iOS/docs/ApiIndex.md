@@ -18,8 +18,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -67,54 +67,54 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
-            </th>		   
+            </th>
         </tr>
    </thead>
    <tbody>
-        <tr>   
+        <tr>
 			<td rowspan=2>CloudroomVideoMgr</td>
 			<td rowspan=2 style='text-align:center'>主调</td>
             <td><a href="Apis.md#setMgrCallback">setMgrCallback</a> </td>
 			<td>房间管理注册监听回调</td>
-        </tr>   
+        </tr>
         <tr>
 			<td><a href="Apis.md#removeMgrCallback">removeMgrCallback</a> </td>
 			<td>房间管理反注册监听回调</td>
-        </tr> 		
-		<tr>   
+        </tr>
+		<tr>
 			<td rowspan=2>CloudroomVideoMeeting</td>
 			<td rowspan=2 style='text-align:center'>主调</td>
             <td><a href="Apis.md#setMeetingCallBack">setMeetingCallBack</a> </td>
 			<td>注册视频房间核心管理监听回调</td>
-        </tr> 
+        </tr>
 		<tr>
 			<td><a href="Apis.md#removeMeetingCallBack">removeMeetingCallBack</a> </td>
 			<td>反注册房间管理监听回调</td>
-        </tr> 
-		<tr>   
+        </tr>
+		<tr>
 			<td rowspan=2>CloudroomQueue</td>
 			<td rowspan=2 style='text-align:center'>主调</td>
             <td><a href="Apis.md#setQueueCallback">setQueueCallback</a> </td>
 			<td>注册队列管理监听回调</td>
-        </tr> 
+        </tr>
 		<tr>
 			<td><a href="Apis.md#removeQueueCallback">removeQueueCallback</a> </td>
 			<td>反注册队列管理监听回调</td>
-        </tr> 
-		<tr>   
+        </tr>
+		<tr>
 			<td rowspan=2>CloudroomHttpFileMgr</td>
 			<td rowspan=2 style='text-align:center'>主调</td>
             <td><a href="Apis.md#setHttpFileMgrCallback">setHttpFileMgrCallback</a> </td>
 			<td>注册Http文件传输管理监听回调</td>
-        </tr> 
+        </tr>
 		<tr>
 			<td><a href="Apis.md#removeHttpFileMgrCallback">removeHttpFileMgrCallback</a> </td>
 			<td>反注册Http文件传输管理监听回调</td>
-        </tr> 
-   </tbody> 
+        </tr>
+   </tbody>
 </table>
 
 
@@ -132,8 +132,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -187,8 +187,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -232,8 +232,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -356,8 +356,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -583,7 +583,7 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             <td><a href="Apis.md#notifyIMmsg">notifyIMmsg</a></td>
             <td>通知收到IM消息</td>
         </tr>
-    </tbody> 
+    </tbody>
 </table>
 
 <h2 id=room>房间管理</h2>
@@ -599,54 +599,50 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
     </thead>
     <tbody>
 		<tr>
-            <td rowspan=3>CloudroomVideoMgr</td>
-            <td rowspan=3 style='text-align:center'>主调</td>
+            <td rowspan=2>CloudroomVideoMgr</td>
+            <td rowspan=2 style='text-align:center'>主调</td>
             <td><a href="Apis.md#createMeeting">createMeeting</a></td>
             <td>创建视频房间</td>
         </tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#destroyMeeting">destroyMeeting</a></td>
             <td>销毁视频房间</td>
         </tr>
-		<tr>  
-            <td><a href="Apis.md#getMeetings">getMeetings</a></td>
-            <td>获取房间列表</td>
-        </tr>
-		<tr>
+        <tr>
             <td rowspan=7>CloudroomVideoMeeting</td>
             <td rowspan=7 style='text-align:center'>主调</td>
             <td><a href="Apis.md#enterMeeting">enterMeeting</a></td>
             <td>使用房间ID进入指定的视频房间</td>
         </tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#exitMeeting">exitMeeting</a></td>
             <td>离开房间</td>
         </tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#exitMeeting">exitMeeting</a></td>
             <td>离开房间</td>
         </tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#destroyMeeting">destroyMeeting</a></td>
             <td>结束房间</td>
         </tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#switchToPage">switchToPage</a></td>
             <td>功能页切换</td>
         </tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#getCurrentMainPage">getCurrentMainPage</a></td>
             <td>获取当前主功能区</td>
         </tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#getCurrentSubPage">getCurrentSubPage</a></td>
             <td>获取当前子页面</td>
         </tr>
@@ -656,24 +652,24 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
 			<td><a href="Apis.md#createMeetingSuccess">createMeetingSuccess</a></td>
 			<td>创建房间成功响应</td>
 		</tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#destroyMeeting">createMeetingFail</a></td>
             <td>创建房间失败响应</td>
         </tr>
-        <tr>  
+        <tr>
             <td><a href="Apis.md#notifyTokenNearTimeout">notifyTokenNearTimeout</a></td>
             <td>Token失效通知</td>
         </tr>
-		<tr>  
+		<tr>
             <td><a href="Apis.md#destroyMeeting">destroyMeetingRslt</a></td>
             <td>结束房间响应</td>
         </tr>
-		<tr>  
-            <td><a href="Apis.md#destroyMeeting">getMeetingSuccess</a></td>
+		<tr>
+            <td><a href="Apis.md#destroyMeeting">getMeetingListSuccess</a></td>
             <td>获取当前房间列表响应</td>
         </tr>
-		<tr>  
-            <td><a href="Apis.md#getMeetingFailed">getMeetingFailed</a></td>
+		<tr>
+            <td><a href="Apis.md#getMeetingFailed">getMeetingListFail</a></td>
             <td>获取当前房间列表失败</td>
         </tr>
 		<tr>
@@ -704,7 +700,7 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
 		</tr>
 		<tr>
 			<td><a href="Apis.md#meetingDropped">meetingDropped</a></td>
-			<td>通知从房间里掉线了，收到该通知后可以调用enterMeeting尝试重新入会</td>
+			<td>通知从房间里掉线了，收到该通知后可以调用enterMeeting尝试重新进入房间</td>
 		</tr>
 		<tr>
 			<td><a href="Apis.md#meetingStoped">meetingStoped</a></td>
@@ -734,8 +730,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -1051,8 +1047,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -1190,8 +1186,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -1308,8 +1304,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -1407,8 +1403,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -1514,8 +1510,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -1575,8 +1571,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>
@@ -1652,7 +1648,7 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             <td rowspan=13>CloudroomVideoCallback</td>
             <td rowspan=13 style='text-align:center'>回调</td>
             <td><a href="Apis.md#notifyInitBoards">notifyInitBoards</a></td>
-            <td>SDK入会后通知房间中已经存在的白板列表</td>
+            <td>SDK进入房间后通知房间中已经存在的白板列表</td>
         </tr>
 		<tr>
             <td><a href="Apis.md#notifyInitBoardPageDat">notifyInitBoardPageDat</a></td>
@@ -1718,8 +1714,8 @@ API接口由多个模块组成 ，主要模块包括：[基础函数](#basic)、
             </th>
             <th style='width:140px'>
                 接口
-            </th> 
-            <th style='width:300px'> 
+            </th>
+            <th style='width:300px'>
                 描述
             </th>
         </tr>

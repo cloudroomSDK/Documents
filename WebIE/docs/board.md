@@ -5,7 +5,7 @@
 实现文件内容实时同步共享。
 
 g_board_id = CRVideo_Createboard("Web Board-1", 960, 540, 1);
-（CRVideo_NotifyInitBoards.callback  新入会者
+（CRVideo_NotifyInitBoards.callback  新进入房间人员
 当前在会议的：notifyCreateBoard
 
 ）

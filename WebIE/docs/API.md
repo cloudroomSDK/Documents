@@ -91,7 +91,7 @@
     </thead>
     <tbody>
         <tr>
-            <td rowspan=10>主调</td>
+            <td rowspan=8>主调</td>
             <td><a href="#CRVideo_GetSDKJsVersion">CRVideo_GetSDKJsVersion</a></td>
             <td>
                 获取Web	js版本号
@@ -107,18 +107,6 @@
             <td><a href="#CRVideo_SdkPath">CRVideo_SdkPath</a></td>
             <td>
                 获取sdk所在的目录
-            </td>
-        </tr>
-        <tr>
-            <td><a href="#CRVideo_EnableLog2File">CRVideo_EnableLog2File</a></td>
-            <td>
-                设置是否开启日志
-            </td>
-        </tr>
-        <tr>
-            <td><a href="#CRVideo_EnableLogReport">CRVideo_EnableLogReport</a></td>
-            <td>
-                设置是否开启日志上报
             </td>
         </tr>
         <tr>
@@ -3245,30 +3233,6 @@
 
 - **返回值**:返回sdk所在的目录(string)
 
-<h3 id=CRVideo_EnableLog2File>CRVideo_EnableLog2File(bEnable)</h3>
-
-- **功能**: 设置是否开启日志
-
-- **返回值**:无
-
-| 参数    | 类型   | 含义                           |
-| :------ | :----- | :----------------------------- |
-| bEnable | number | 1表示开启日志，0表示不开启日志 |
-
->SDK中日志功能默认是打开的,这个接口在CRVideo_Init2之前可调用
-
-<h3 id=CRVideo_EnableLogReport>CRVideo_EnableLogReport(bEnable)</h3>
-
-- **功能**: 设置是否开启日志上报
-
-- **返回值**:无
-
-| 参数    | 类型   | 含义                                   |
-| :------ | :----- | :------------------------------------- |
-| bEnable | number | 1表示开启日志上报，0表示不开启日志上报 |
-
->SDK中日志上报默认是打开的,这个接口在CRVideo_Init2之前可调用
-
 <h3 id=CRVideo_SetSDKParams>CRVideo_SetSDKParams(jsonVal)</h3>
 
 - **功能**: 设置SDK参数
@@ -3351,8 +3315,6 @@
 >* 注意:程序开始时init，程序结束时uninit，整个程序的生命周期中只进行一次初始化和反初始化。
 
 >* 注意目录的读写权限，如果目录只读，则无法在此目录下生成其他文件和文件夹
-
-<font color="#FF0000">CRVideo_Init2等价于CRVideo_Init，功能一致；CRVideo_Init2为新增的接口，比CRVideo_Init少了一个oemID参数。两个方法是完全兼容，新版本均使用CRVideo_Init2方法</font>
 
 <h3 id=CRVideo_Uninit>CRVideo_Uninit()</h3>
 
@@ -4454,7 +4416,7 @@ CRVideo_Logout()
 | height    | number | 白板高度                                          |
 | pageCount | number | 白板内有多个页（一般空白板1页，文档白板为实际页数 |
 
->其他参会者会收到：[CRVideo_NotifyCreateBoard](#CRVideo_NotifyCreateBoard)事件;同时后台会记录下白板数据，新入会者会收到：[CRVideo_NotifyInitBoards](#CRVideo_NotifyInitBoards)事件.注意：创建完白板后，一定要及尽快调用[CRVideo_InitBoardPageDat](#CRVideo_InitBoardPageDat)初始化各页数据
+>其他房间成员会收到：[CRVideo_NotifyCreateBoard](#CRVideo_NotifyCreateBoard)事件;同时后台会记录下白板数据，新进入房间人员会收到：[CRVideo_NotifyInitBoards](#CRVideo_NotifyInitBoards)事件.注意：创建完白板后，一定要及尽快调用[CRVideo_InitBoardPageDat](#CRVideo_InitBoardPageDat)初始化各页数据
 
 
 <h3 id=CRVideo_Closeboard>CRVideo_Closeboard(boardID)</h3>
@@ -4467,7 +4429,7 @@ CRVideo_Logout()
 | :------ | :----- | :------- |
 | boardID | string | 白板标识 |
 
->其他参会者将收到[CRVideo_NotifyCloseBoard](#CRVideo_NotifyCloseBoard)事件；同时后台会移除对应白板的所有信息
+>其他房间成员将收到[CRVideo_NotifyCloseBoard](#CRVideo_NotifyCloseBoard)事件；同时后台会移除对应白板的所有信息
 
 
 <h3 id=CRVideo_InitBoardPageDat>CRVideo_InitBoardPageDat(boardID, boardPageNo, imgID, elemets)</h3>
@@ -4485,9 +4447,9 @@ CRVideo_Logout()
 
 > 1. imgID非空时, 代表背景的图片ID。 img来源请参见[CRVideo_GetNetDiskDocFilePageInfo](#CRVideo_GetNetDiskDocFilePageInfo)
 
-> 2. 其他参会者将收到[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)事件；
+> 2. 其他房间成员将收到[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)事件；
 
-> 3. 后台会记录下白板的页数据，在新用户入会时，也会收到[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)事件
+> 3. 后台会记录下白板的页数据，在新用户进入房间时，也会收到[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)事件
 
 
  
@@ -4512,7 +4474,7 @@ CRVideo_Logout()
 | boardPageNo | number | 白板的页序号(0为第一页)                                                                       |
 | element     | string | 图元信息，参见json格式之[CRVideo_BoardElementObj](TypeDefinitions.md#CRVideo_BoardElementObj) |
 
->其他参会者会收到：[CRVideo_NotifyAddBoardElement](#CRVideo_NotifyAddBoardElement)事件;同时后台会保存图元，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中得到这些图元
+>其他房间成员会收到：[CRVideo_NotifyAddBoardElement](#CRVideo_NotifyAddBoardElement)事件;同时后台会保存图元，新进入房间人员会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中得到这些图元
 
 
 <h3 id=CRVideo_ModifyBoardElement>CRVideo_ModifyBoardElement(boardID, boardPageNo, element)</h3>
@@ -4527,7 +4489,7 @@ CRVideo_Logout()
 | boardPageNo | number | 白板的页序号(0为第一页)                                                                        |
 | element     | string | 图元信息，参见json格式之 [CRVideo_BoardElementObj](TypeDefinitions.md#CRVideo_BoardElementObj) |
 
->说明：其他参会者会收到：[CRVideo_NotifyModifyBoardElement](#CRVideo_NotifyModifyBoardElement)事件;同时后台会覆盖对应图元的数据，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中得到这些图元
+>说明：其他房间成员会收到：[CRVideo_NotifyModifyBoardElement](#CRVideo_NotifyModifyBoardElement)事件;同时后台会覆盖对应图元的数据，新进入房间人员会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中得到这些图元
 
 
 <h3 id=CRVideo_Delboardelement>CRVideo_Delboardelement(boardID, boardPageNo, elementIDs)</h3>
@@ -4542,7 +4504,7 @@ CRVideo_Logout()
 | boardPageNo | number | 白板的页序号(0为第一页)                        |
 | elementIDs  | string | 图元id列表，多值时，以“；”分隔，如：“id1；id2” |
 
->说明：其他参会者会收到：[CRVideo_NotifyDelBoardElement](#CRVideo_NotifyDelBoardElement)事件；同时后台会移除这些图元，新入会者会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中将不包含这些图元
+>说明：其他房间成员会收到：[CRVideo_NotifyDelBoardElement](#CRVideo_NotifyDelBoardElement)事件；同时后台会移除这些图元，新进入房间人员会在[CRVideo_NotifyInitBoardPageDat](#CRVideo_NotifyInitBoardPageDat)中将不包含这些图元
 
 
 <h3 id=CRVideo_Setmousehotspot>CRVideo_Setmousehotspot(boardID, boardPageNo, x, y)</h3>
@@ -4689,7 +4651,7 @@ CRVideo_Logout()
 </h3>
 
 
-- **功能**：SDK入会后通知房间中已经存在的白板列表
+- **功能**：SDK进入房间后通知房间中已经存在的白板列表
 
 + **参数**：
     - BoardObjs ----- 已经创建好的白板列表， json结构体请参见[CRVideo_BoardObjs](TypeDefinitions.md#CRVideo_BoardObjs)说明
@@ -4704,7 +4666,7 @@ CRVideo_Logout()
     - boardPageNo ----- 白板页序号
     - imgID ----- 页背景文件ID（空代表无背景）
     - elementDatas ----- 此页的所有图元， 详见json结构之[CRVideo_BoardElementObjs](TypeDefinitions.md#CRVideo_BoardElementObjs)
-    - operatorID ----- 初始化用户（为空时，代表入会时后台事件）
+    - operatorID ----- 初始化用户（为空时，代表进入房间时后台事件）
 
 
 <h3 id=CRVideo_NotifyCreateBoard>CRVideo_NotifyCreateBoard.callback = function(jsonBoard,operatorID){}</h3>
@@ -5215,7 +5177,7 @@ CRVideo_Logout()
 | 参数     | 类型   | 含义                                                                       |
 | :------- | :----- | :------------------------------------------------------------------------- |
 | queID    | number | 队列ID                                                                     |
-| priority | number | 坐席优先级 (缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级 )) |
+| priority | number | 坐席优先级 (缺省为0,取值为0~1000内整数。值越小优先级越高。0为最高优先级) |
 | cookie   | string | 详细介绍见[关键词](KeyWords.md#cookie)                                     |
 
 >可以多次调用，开启对多个队列的服务。操作回调[CRVideo_StartServiceRslt](#CRVideo_StartServiceRslt) 开启成功后： a. 如果没有开启免打挽，那么系统会自动分配客户：[CRVideo_AutoAssignUser](#CRVideo_AutoAssignUser)； b. 如果开启免打挽，系统就不会分配客户，如需服务客户可调用：[CRVideo_ReqAssignUser](#CRVideo_ReqAssignUser)
@@ -6018,7 +5980,7 @@ CRVideo_Logout()
 
 - **功能**: 添加网络摄像头（sdk最大支持5个）
 
-- **返回值**:sdkErr 操作结果码, 0代成功, 非0代表入会失败，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
+- **返回值**:sdkErr 操作结果码, 0代成功, 非0代表进入房间失败，定义见[CRVideo_ERR_DEF](Constant.md#CRVIDEOSDK_ERR_DEF)
 
 | 参数 | 类型   | 含义                              |
 | :--- | :----- | :-------------------------------- |
@@ -6152,7 +6114,7 @@ CRVideo_Logout()
 
 >操作成功则回调[CRVideo_SetDNDStatusSuccess](#CRVideo_SetDNDStatusSuccess)，失败则回调[CRVideo_SetDNDStatusFail](#CRVideo_SetDNDStatusFail)   
 
-> - 如果是使用到了SDK的队列功能，则入会后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己.
+> - 如果是使用到了SDK的队列功能，则进入房间后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己.
 
 
 <h3 id=CRVideo_GetUserStatus>CRVideo_GetUserStatus(cookie)</h3>
@@ -6606,7 +6568,7 @@ CRVideo_Logout()
 | :-------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | aSide     | number | 声道类型 0:麦克风，1:扬声器                                                                                                                                                      |
 | getType   | number | 获取方式 0:回调方式，1:保存为文件                                                                                                                                                |
-| jsonParam | string | 当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "e:\\test.pcm" } |
+| jsonParam | string | 当getType=0 表示回调方式，jsonParam可配置回调的数据大小(320-32000)，如: {"EachSize":320};</br>当getType=1 表示保存为文件，jsonParam可配置文件名，如: { "FileName" ： "e:\\test.pcm" } |
 
 
 <h3 id=CRVideo_StopGetAudioPCM>CRVideo_StopGetAudioPCM(aSide)</h3>

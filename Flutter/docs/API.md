@@ -45,7 +45,7 @@
 | :------------------------------------------ | :----------------------------------------------------------------- |
 | [userEnterMeeting](API.md#userEnterMeeting) | 某用户进入了房间                                                   |
 | [userLeftMeeting](API.md#userLeftMeeting)   | 某用户离开了房间                                                   |
-| [meetingDropped](API.md#meetingDropped)     | 通知从房间里掉线了，收到该通知后可以调用 enterMeeting 尝试重新入会 |
+| [meetingDropped](API.md#meetingDropped)     | 通知从房间里掉线了，收到该通知后可以调用 enterMeeting 尝试重新进入房间 |
 | [netStateChanged](API.md#netStateChanged)   | 网络变化通知                                                       |
 
 <h3 id=room_attributes>房间、用户属性：</h3>
@@ -339,7 +339,7 @@
 
 <h3 id=meetingDropped>通知从房间里掉线</h3>
 
-通知从房间里掉线了，收到该通知后可以调用 enterMeeting 尝试重新入会
+通知从房间里掉线了，收到该通知后可以调用 enterMeeting 尝试重新进入房间
 
 - **订阅方法**: meetingDropped(CR_MEETING_DROPPED_REASON reason)
 

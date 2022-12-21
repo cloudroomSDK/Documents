@@ -335,7 +335,7 @@ module.exports.CONSTDEF = [{
         description: '跟随演示者',
     }, {
         code: 3,
-        description: '跟随特定参会者',
+        description: '跟随特定房间成员',
     }]
 }, {
     type: '功能区类型',

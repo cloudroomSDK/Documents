@@ -293,7 +293,7 @@ module.exports = [{
     }, {
       interface: "SetDNDStatus",
       description: "设置免打扰状态",
-      gist: '操作成功则回调[SetDNDStatusSuccess](#CRVideo_SetDNDStatusSuccess)，失败则回调[SetDNDStatusFail](#CRVideo_SetDNDStatusFail)。如果是使用到了SDK的队列功能，则入会后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己',
+      gist: '操作成功则回调[SetDNDStatusSuccess](#CRVideo_SetDNDStatusSuccess)，失败则回调[SetDNDStatusFail](#CRVideo_SetDNDStatusFail)。如果是使用到了SDK的队列功能，则进入房间后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己',
       params: [{
         param: 'DNDStatus',
         type: 'number',
@@ -341,7 +341,7 @@ module.exports = [{
     }, {
       interface: "AcceptCallSuccess",
       description: "接受他人呼叫操作成功",
-      gist: '被呼叫者可以调用[EnterMeeting2](#CRVideo_EnterMeeting2)进入会议',
+      gist: '被呼叫者可以调用[EnterMeeting2](#CRVideo_EnterMeeting2)进进入房间议',
       params: [commonPassiveKey.callID, commonPassiveKey.cookie]
     }, {
       interface: "AcceptCallFail",
@@ -714,7 +714,7 @@ module.exports = [{
     }, {
       interface: 'SendMeetingCustomMsg',
       description: '房间内发送广播消息',
-      gist: '需要进入会议后才能调用',
+      gist: '需要进进入房间议后才能调用',
       params: [{
         param: 'msg',
         type: 'string',
@@ -1223,13 +1223,13 @@ module.exports = [{
         type: 'number',
         explain: '白板名称'
       }, commonInitiativeKey.pageCount],
-      gist: '其他参会者会收到：[NotifyCreateBoard](#CRVideo_NotifyCreateBoard)事件;创建完白板后，一定要及尽快调用[InitBoardPageDat](#CRVideo_InitBoardPageDat)初始化各页数据',
+      gist: '其他房间成员会收到：[NotifyCreateBoard](#CRVideo_NotifyCreateBoard)事件;创建完白板后，一定要及尽快调用[InitBoardPageDat](#CRVideo_InitBoardPageDat)初始化各页数据',
       returnValue: '白板boardID(string)'
     }, {
       interface: 'CloseBoard',
       description: '关闭白板',
       params: [commonInitiativeKey.boardId],
-      gist: '其他参会者将收到[NotifyCloseBoard](#CRVideo_NotifyCloseBoard)事件；同时后台会移除对应白板的所有信息',
+      gist: '其他房间成员将收到[NotifyCloseBoard](#CRVideo_NotifyCloseBoard)事件；同时后台会移除对应白板的所有信息',
       returnValue: '无'
     }, {
       interface: 'GetBoardInfo',

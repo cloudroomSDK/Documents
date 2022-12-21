@@ -70,7 +70,7 @@ module.exports = [{
       explain: '0代表关闭免打扰， 其它值代表开启免打扰，含义自由定义'
     }, commonCookie],
     attent: `
-> 如果是使用到了SDK的队列功能，则入会后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己`
+> 如果是使用到了SDK的队列功能，则进入房间后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己`
   }
 }, {
   interface: "CRVideo_GetUserStatus",

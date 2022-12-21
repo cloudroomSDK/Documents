@@ -138,7 +138,7 @@
 
 <h3 id=setDNDStatus>- (void)setDNDStatus:(int)DNDStatus cookie:(NSString *)cookie</h3>
 
-  + **功能**:  设置免打扰状态， 如果使用到了SDK的队列功能，则入会后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己
+  + **功能**:  设置免打扰状态， 如果使用到了SDK的队列功能，则进入房间后需调用此接口，设置自己的为免打扰状态，防止系统再次推送自己
 
  + **返回值**:  无
 >设置免打扰状态成功则触发回调[setDNDStatusSuccess](#setDNDStatusSuccess) ， 设置免打扰状态失败则触发回调[setDNDStatusFail](#setDNDStatusFail) 
@@ -215,17 +215,6 @@
 | 参数 | 类型 | 含义 |
 |:-------- |:-----------|:----------|
 | meetID| int|   房间号 | 
-| cookie| NSString|  自定义数据(在响应消息中回传给调用者)，不需要时传空字符串| 
-
-<h3 id=getMeetings>-(void)getMeetings:(NSString*)cookie</h3>
-
-  + **功能**:  获取房间列表
-  
-  + **返回值**:  无
->获取房间列表成功则触发回调[getMeetingSuccess](#getMeetingSuccess)，获取房间列表失败则触发[getMeetingFailed](#getMeetingFailed)         
-
-| 参数 | 类型 | 含义 |
-|:-------- |:-----------|:----------|
 | cookie| NSString|  自定义数据(在响应消息中回传给调用者)，不需要时传空字符串| 
 
 <h3 id=callIn>- (NSString *)call:(NSString *)calledUserID meetInfo:(MeetInfo *)meetInfo param:(NSString *)param cookie:(NSString *)cookie</h3>
@@ -1578,7 +1567,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 <h3 id=createCloudMixer>- (NSString *)createCloudMixer:(NSString *)cfg;
 </h3>
 
-  + **功能**:  开始云端录制、云端直播
+  + **功能**:  启动云端录制、云端直播失败通知
   
   + **返回值**:  NSString
 
@@ -1721,15 +1710,15 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 
 - <p style="color:red; font-size:20px">注意事项:</p>
 
-  + 其他参会者会收到notifyCreateBoard事件
-  + 后台会记录下白板数据，新入会者会收到notifyInitBoards事件
+  + 其他房间成员会收到notifyCreateBoard事件
+  + 后台会记录下白板数据，新进入房间人员会收到notifyInitBoards事件
   + 创建完白板后，一定要及尽快调用initBoardPageDat初始化各页数据
-  + 如果需要所有参会者同步切到此白板，请调用switchToPage
+  + 如果需要所有房间成员同步切到此白板，请调用switchToPage
 
 
 <h3 id=closeBoard>- (void)closeBoard:(SubPage *)boardID</h3>
 
-  + **功能**:  关闭电子白板 , 其他参会者将收到notifyCloseBoard事件；同时后台会移除对应白板的所有信息
+  + **功能**:  关闭电子白板 , 其他房间成员将收到notifyCloseBoard事件；同时后台会移除对应白板的所有信息
   + **返回值**:   无
 >回调函数[notifyCloseBoard](#notifyCloseBoard)  
 
@@ -1753,8 +1742,8 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 - <p style="color:red; font-size:20px">注意事项:</p>
 
   + imgID非空时, 代表背景的图片ID。img来源请参见getNetDiskDocFilePageInfo
-  + 其他参会者将收到notifyInitBoardPageDat事件
-  + 后台会记录下白板的页数据，在新用户入会时，也会收到notifyInitBoardPageDat事件
+  + 其他房间成员将收到notifyInitBoardPageDat事件
+  + 后台会记录下白板的页数据，在新用户进入房间时，也会收到notifyInitBoardPageDat事件
 
 
 <h3 id=createElementID>- (NSString *)createElementID</h3>
@@ -1765,7 +1754,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 
 <h3 id=addBoardElement>- (void)addBoardElement:(SubPage *)boardID boardPageNo:(int)boardPageNo elementData:(NSString *)element</h3>
 
-  + **功能**:  添加图元信息 , 其他参会者会收到：notifyAddBoardElement事件同时后台会保存图元，新入会者会在notifyInitBoardPageDat中得到这些图元  
+  + **功能**:  添加图元信息 , 其他房间成员会收到：notifyAddBoardElement事件同时后台会保存图元，新进入房间人员会在notifyInitBoardPageDat中得到这些图元  
   + **返回值**:  无
     
 
@@ -1777,7 +1766,7 @@ CloudroomVideoMgrCallback是登录、呼叫、房间创建销毁、透明传输�
 
 <h3 id=modifyBoardElement>- (void)modifyBoardElement:(SubPage *)boardID boardPageNo:(int)boardPageNo elementData:(NSString *)element</h3>
 
-  + **功能**:  修改图元信息 , 其他参会者会收到：notifyModifyBoardElement事件，同时后台会覆盖对应图元的数据，新入会者会在notifyInitBoardPageDat中得到这些图元  
+  + **功能**:  修改图元信息 , 其他房间成员会收到：notifyModifyBoardElement事件，同时后台会覆盖对应图元的数据，新进入房间人员会在notifyInitBoardPageDat中得到这些图元  
   + **返回值**:  无
     
 
@@ -2153,14 +2142,14 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
 
 <h3 id=meetingDropped>- (void)meetingDropped</h3>
 
-  + **功能**:  通知从房间里掉线了，收到该通知后可以调用enterMeeting尝试重新入会
+  + **功能**:  通知从房间里掉线了，收到该通知后可以调用enterMeeting尝试重新进入房间
   
   + **返回值**:  无
 
 
 - <p style="color:red; font-size:20px">注意事项:</p>
 
-  + 如果用到了呼叫队列，掉线后不重新入会就必须调用hangupCall释放本次呼叫
+  + 如果用到了呼叫队列，掉线后不重新进入房间就必须调用hangupCall释放本次呼叫
 
 
 <h3 id=meetingStoped>- (void)meetingStopped</h3>
@@ -2500,7 +2489,7 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
 
 <h3 id=notifyInitBoards>- (void)notifyInitBoards:(NSArray&lt;SubPageInfo *&gt; *)boards</h3>
 
-  + **功能**:  SDK入会后通知房间中已经存在的白板列表
+  + **功能**:  SDK进入房间后通知房间中已经存在的白板列表
   
   + **返回值**:  无
     
@@ -2522,7 +2511,7 @@ CloudroomVideoCallback是通话建立、音频采集播入、视频采集编解�
 | boardPageNo| int|    白板页序号|  
 | imgID| NSString|    页背景文件ID（空代表无背景）, 使用downloadNetDiskDocFile进行下载 |  
 | elementDatas| NSString|    此页的所有图元,白板图元数据Json数组，详见定义[BoardElement](TypeDefinitions.md#BoardElement) |  
-| operatorID| NSString|    初始化用户（为空时，代表入会时后台事件）|  
+| operatorID| NSString|    初始化用户（为空时，代表进入房间时后台事件）|  
 
 <h3 id=notifyCreateBoard>- (void)notifyCreateBoard:(SubPageInfo *)board operatorID:(NSString *)operatorID</h3>
 

@@ -93,7 +93,7 @@ void callFailed(object sender, ICloudroomVideoMgrEvents_callFailEvent e){
 //通知呼叫被接受
 void notifyCallAccepted(object sender, ICloudroomVideoMgrEvents_notifyCallAcceptedEvent e)
 {
-  //呼叫被接受，开始进入会议...
+  //呼叫被接受，开始进进入房间议...
 }
 
 // 通知呼叫被拒绝

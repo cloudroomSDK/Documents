@@ -74,7 +74,7 @@ void callFailed(object sender, ICloudroomVideoMgrEvents_callFailEvent e){
 :::danger
 
 注意：
-1. 仅当用户A已经进入会议，才可以邀请SIP/H.323设备。
+1. 仅当用户A已经进进入房间议，才可以邀请SIP/H.323设备。
 1. 当用户A邀请SIP/H.323设备时，对应设备需要在线，如果呼叫的是E.164号码，需要对应设备已注册，否则被呼叫端无法收到被呼叫的消息；设备收到呼叫消息后，根据其自身设置的应答机制，会自动进入房间或在按下接听后进入房间。
 1. 如果在 [功能开通](#svrConfig) 的"SIP配置"或者"H.323配置"界面配置了中继地址，邀请时不需要填写对端设备IP，直接填写"sip:号码"或者"h323:号码"即可
 
@@ -111,7 +111,7 @@ private void inviteFail(object sender, ICloudroomVideoSDKEvents_inviteFailEvent 
 //通知邀请被接受
 private void notifyInviteAccepted(object sender, ICloudroomVideoSDKEvents_notifyInviteAcceptedEvent e)
 {
-  //邀请被接受，等待被邀请方入会等处理
+  //邀请被接受，等待被邀请方进入房间等处理
 }
 
 //通知邀请被拒绝

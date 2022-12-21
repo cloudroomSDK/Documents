@@ -3,7 +3,7 @@
 
 ## 功能介绍
 
-在服务器上对房间内的音视频、影音共享、屏幕共享等通讯内容进行录制，支持自定义录制内容和布局，录制文件在服务器保存，可以通过[WEB API](/sdk/document/netdisk/netdisk_query?platform=serverside)下载和删除
+在服务器上对房间内的音视频、影音共享、屏幕共享等通讯内容进行录制，支持自定义录制内容和布局，录制文件在服务器保存，可以通过[WEB API](/sdk/document/netdisk/netdisk_query?platform=serverside)下载和删除，也可以直接保存在用户自己的第三方云存储比如阿里云的OSS
 
 
 <h2 id=record_enbale> 1.开通云端录制服务</h2>
@@ -54,6 +54,8 @@ const cloudMixerCfg = {
 
 const mixerID = RTCSDK.CreateCloudMixer(cloudMixerCfg);
 ```
+
+如果录像需要保存到第三方云存储，请在[createCloudMixer](Apis.md#createCloudMixer)时，传storageConfig参数；
 
 相关API请参考:
 - [CreateCloudMixer](API.md#CRVideo_CreateCloudMixer)
@@ -150,3 +152,6 @@ RTCSDK.CloudMixerOutputInfoChanged.callback = function(mixerID, outputInfo){
 
 也可以登录[管理后台](https://sdk.cloudroom.com/mgr_sdk/)，在管理页面上回放和下载录像：
 ![recordMgr](./images/recordMgr.jpg)
+
+如果将录像保存到第三方云存储上，请使用第三方提供的接口或管理页来获取。
+

@@ -141,7 +141,7 @@ RTCSDK.EnterMeetingRslt.callback = (sdkErr, cookie) => {
 }
 //监控房间掉线
 RTCSDK.MeetingDropped.callback = () => {
-    //可重新进入会议
+    //可重新进进入房间议
 }
 ```
 
